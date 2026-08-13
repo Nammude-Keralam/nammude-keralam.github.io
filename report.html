@@ -64,9 +64,10 @@
     const SUPABASE_URL = "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
     const SUPABASE_KEY = "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
 
-    const supabase = window.supabase.createClient(
+    window.NAMMUDE_SUPABASE = window.supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_KEY );
+    SUPABASE_KEY
+);
     </script>
 
 
@@ -1910,7 +1911,7 @@ async function uploadFile(
 
 
     const { error } =
-        await supabase
+        await window.NAMMUDE_SUPABASE
             .storage
             .from("evidence")
             .upload(
@@ -1931,7 +1932,7 @@ async function uploadFile(
 
 
     const { data } =
-        supabase
+        window.NAMMUDE_SUPABASE
             .storage
             .from("evidence")
             .getPublicUrl(
@@ -2364,7 +2365,7 @@ document
                 const {
                     error
                 } =
-                    await supabase
+                    await window.NAMMUDE_SUPABASE
                         .from("reports")
                         .insert({
 

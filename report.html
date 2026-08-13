@@ -1,0 +1,2530 @@
+<!DOCTYPE html>
+<html lang="ml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>പ്രശ്നം അറിയിക്കാം — Nammude</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="report.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Nammude">
+        </a>
+
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                id="languageToggle"
+                class="language-button">
+                EN
+            </button>
+
+
+            <a
+                href="index.html"
+                class="nav-button"
+                id="homeButton">
+                ഹോം
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+        <!-- =====================================================
+               SUPABASE
+                    ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+    const SUPABASE_URL = "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
+
+    const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY );
+    </script>
+
+
+<!-- =====================================================
+     REPORT PAGE
+===================================================== -->
+
+<main class="report-page">
+
+<div class="container report-container">
+
+
+    <!-- INTRO -->
+
+    <div class="report-intro">
+
+        <p class="eyebrow">
+            Nammude
+        </p>
+
+
+        <h1 id="pageTitle">
+            നിങ്ങളുടെ പ്രശ്നം<br>
+            <span>ഞങ്ങളോട് പറയൂ.</span>
+        </h1>
+
+
+        <p id="pageDescription">
+            പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
+            താഴെയുള്ള വിവരങ്ങൾ പൂരിപ്പിക്കുക.
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+         FORM
+    ================================================= -->
+
+    <form
+        id="problemForm"
+        class="report-form"
+        novalidate>
+
+
+        <!-- =================================================
+             1. NAME
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="nameTitle">
+                1. പേര്
+                <span>★</span>
+            </h2>
+
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="നിങ്ങളുടെ പേര്"
+                autocomplete="name"
+                required>
+
+        </section>
+
+
+
+        <!-- =================================================
+             2. PHONE
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="phoneTitle">
+                2. ഫോൺ നമ്പർ
+                <span>★</span>
+            </h2>
+
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10 അക്ക ഫോൺ നമ്പർ"
+                autocomplete="tel"
+                required>
+
+
+            <small id="phoneHint">
+                കൃത്യമായി 10 അക്കങ്ങൾ നൽകുക.
+            </small>
+
+        </section>
+
+
+
+        <!-- =================================================
+             3. WHATSAPP
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="whatsappTitle">
+                3. WhatsApp നമ്പർ
+                <span>★</span>
+            </h2>
+
+
+            <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10 അക്ക WhatsApp നമ്പർ"
+                required>
+
+
+            <label class="checkbox-label">
+
+                <input
+                    type="checkbox"
+                    id="sameWhatsapp">
+
+                <span id="sameWhatsappText">
+                    WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
+                </span>
+
+            </label>
+
+        </section>
+
+
+
+        <!-- =================================================
+             4. SECONDARY PHONE
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="secondaryTitle">
+
+                4. രണ്ടാമത്തെ ഫോൺ നമ്പർ
+
+                <small>
+                    (ഐച്ഛികം)
+                </small>
+
+            </h2>
+
+
+            <input
+                type="tel"
+                id="secondaryPhone"
+                name="secondaryPhone"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10 അക്ക നമ്പർ">
+
+        </section>
+
+
+
+        <!-- =================================================
+             5. CATEGORY
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="categoryTitle">
+
+                5. പ്രശ്നത്തിന്റെ വിഭാഗം
+
+                <span>★</span>
+
+            </h2>
+
+
+            <div class="category-grid">
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="government"
+                        required>
+
+                    <span>🏛️</span>
+
+                    <strong>
+                        സർക്കാർ സേവനങ്ങൾ
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="roads">
+
+                    <span>🛣️</span>
+
+                    <strong>
+                        റോഡ് & ഗതാഗതം
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="infrastructure">
+
+                    <span>💧</span>
+
+                    <strong>
+                        വെള്ളം, വൈദ്യുതി & അടിസ്ഥാന സൗകര്യങ്ങൾ
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="health">
+
+                    <span>🏥</span>
+
+                    <strong>
+                        ആരോഗ്യം
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="education">
+
+                    <span>🏫</span>
+
+                    <strong>
+                        വിദ്യാഭ്യാസം
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="environment">
+
+                    <span>🗑️</span>
+
+                    <strong>
+                        മാലിന്യം & പരിസ്ഥിതി
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="animals">
+
+                    <span>🐕</span>
+
+                    <strong>
+                        മൃഗങ്ങൾ & പൊതുസുരക്ഷ
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="financial">
+
+                    <span>💰</span>
+
+                    <strong>
+                        ധനസഹായം, പെൻഷൻ & ഇൻഷുറൻസ്
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="legal">
+
+                    <span>⚖️</span>
+
+                    <strong>
+                        നിയമം & അവകാശങ്ങൾ
+                    </strong>
+
+                </label>
+
+
+
+                <label class="category-option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        value="unknown">
+
+                    <span>❓</span>
+
+                    <strong>
+                        എനിക്ക് അറിയില്ല
+                    </strong>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             6. LOCATION
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="locationTitle">
+
+                6. പ്രശ്നം എവിടെയാണ്?
+
+                <small>
+                    (ഐച്ഛികം)
+                </small>
+
+            </h2>
+
+
+            <div class="location-grid">
+
+
+                <div>
+
+                    <label id="placeLabel">
+                        സ്ഥലം / പ്രദേശം
+                    </label>
+
+                    <input
+                        type="text"
+                        id="place"
+                        placeholder="സ്ഥലം / പ്രദേശം">
+
+                </div>
+
+
+
+                <div>
+
+                    <label id="localBodyLabel">
+                        പഞ്ചായത്ത് / മുനിസിപ്പാലിറ്റി
+                    </label>
+
+                    <input
+                        type="text"
+                        id="localBody"
+                        placeholder="പഞ്ചായത്ത് / മുനിസിപ്പാലിറ്റി">
+
+                </div>
+
+
+
+                <div>
+
+                    <label id="wardLabel">
+                        വാർഡ് നമ്പർ
+                    </label>
+
+                    <input
+                        type="text"
+                        id="ward"
+                        placeholder="വാർഡ് നമ്പർ">
+
+                </div>
+
+
+
+                <div>
+
+                    <label id="landmarkLabel">
+                        പ്രധാന അടയാളം
+                    </label>
+
+                    <input
+                        type="text"
+                        id="landmark"
+                        placeholder="പ്രധാന അടയാളം">
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="location-button"
+                id="mapButton">
+
+                📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുക
+
+            </button>
+
+
+            <p
+                class="form-note"
+                id="locationNote">
+
+                കൃത്യമായ സ്ഥലം ഇല്ലെങ്കിൽ ഈ വിഭാഗം ഒഴിവാക്കാം.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             7. PROBLEM
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="problemTitle">
+
+                7. പ്രശ്നം എന്താണ്?
+
+                <span>★</span>
+
+            </h2>
+
+
+            <div class="problem-methods">
+
+
+                <label class="method-option">
+
+                    <input
+                        type="checkbox"
+                        id="useText"
+                        checked>
+
+                    <span id="useTextText">
+                        ✍️ എഴുതി നൽകുക
+                    </span>
+
+                </label>
+
+
+
+                <label class="method-option">
+
+                    <input
+                        type="checkbox"
+                        id="useAudio">
+
+                    <span id="useAudioText">
+                        🎙️ ശബ്ദമായി പറയുക
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <div id="textBox">
+
+                <textarea
+                    id="problem"
+                    name="problem"
+                    rows="7"
+                    placeholder="നിങ്ങളുടെ പ്രശ്നം വിശദമായി എഴുതുക..."></textarea>
+
+            </div>
+
+
+
+            <div
+                id="audioBox"
+                class="audio-box"
+                hidden>
+
+
+                <button
+                    type="button"
+                    id="recordButton"
+                    class="audio-button">
+
+                    🎙️ റെക്കോർഡ് ആരംഭിക്കുക
+
+                </button>
+
+
+                <p id="audioStatus">
+
+                    ശബ്ദമായി പ്രശ്നം പറയാൻ
+                    ബട്ടൺ അമർത്തുക.
+
+                </p>
+
+
+                <audio
+                    id="audioPreview"
+                    controls
+                    hidden>
+                </audio>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             8. EVIDENCE
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="evidenceTitle">
+
+                8. തെളിവ് നൽകുക
+
+                <span>★</span>
+
+            </h2>
+
+
+            <div class="evidence-box">
+
+
+                <div class="evidence-icon">
+                    📎
+                </div>
+
+
+                <h3 id="evidenceHeading">
+
+                    കുറഞ്ഞത് ഒരു തെളിവെങ്കിലും നൽകണം
+
+                </h3>
+
+
+                <p id="evidenceDescription">
+
+                    ഫോട്ടോ, വീഡിയോ, രേഖ,
+                    സ്ക്രീൻഷോട്ട് അല്ലെങ്കിൽ ഓഡിയോ നൽകാം.
+                    ഒന്നിലധികം ഫയലുകൾ അനുവദനീയമാണ്.
+
+                </p>
+
+
+                <label
+                    for="evidence"
+                    class="file-button"
+                    id="fileButton">
+
+                    തെളിവ് തിരഞ്ഞെടുക്കുക
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="evidence"
+                    name="evidence"
+                    class="file-input"
+                    multiple
+                    accept="image/*,video/*,audio/*,.pdf,.doc,.docx">
+
+
+                <div
+                    id="fileList"
+                    class="file-list">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             9. PREVIOUS COMPLAINT
+        ================================================= -->
+
+        <section class="form-section">
+
+            <h2 id="previousTitle">
+
+                9. മുമ്പ് പരാതി നൽകിയിട്ടുണ്ടോ?
+
+                <span>★</span>
+
+            </h2>
+
+
+            <div class="yes-no">
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="reportedBefore"
+                        value="yes"
+                        id="reportedYes"
+                        required>
+
+                    <span id="yesText">
+                        അതെ
+                    </span>
+
+                </label>
+
+
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="reportedBefore"
+                        value="no"
+                        id="reportedNo">
+
+                    <span id="noText">
+                        ഇല്ല
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <div
+                id="previousFields"
+                class="previous-fields"
+                hidden>
+
+
+                <div>
+
+                    <label id="authorityLabel">
+                        ബന്ധപ്പെട്ട അധികാരി
+                    </label>
+
+                    <input
+                        type="text"
+                        id="authority"
+                        placeholder="ബന്ധപ്പെട്ട അധികാരി">
+
+                </div>
+
+
+
+                <div>
+
+                    <label id="dateLabel">
+                        പരാതി നൽകിയ തീയതി
+                    </label>
+
+                    <input
+                        type="date"
+                        id="complaintDate">
+
+                </div>
+
+
+
+                <div>
+
+                    <label id="referenceLabel">
+                        പരാതി / റഫറൻസ് നമ്പർ
+                    </label>
+
+                    <input
+                        type="text"
+                        id="referenceNumber"
+                        placeholder="പരാതി / റഫറൻസ് നമ്പർ">
+
+                </div>
+
+
+
+                <div>
+
+                    <label id="responseLabel">
+                        ലഭിച്ച മറുപടി (ഉണ്ടെങ്കിൽ)
+                    </label>
+
+                    <textarea
+                        id="previousResponse"
+                        rows="4"
+                        placeholder="ലഭിച്ച മറുപടി"></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUBMIT
+        ================================================= -->
+
+        <div class="submit-area">
+
+
+            <button
+                type="submit"
+                class="primary-button submit-button"
+                id="submitButton">
+
+                പ്രശ്നം സമർപ്പിക്കാം →
+
+            </button>
+
+
+            <p
+                class="form-note"
+                id="privacyNote">
+
+                🔒 നിങ്ങളുടെ വിവരങ്ങൾ സുരക്ഷിതമായി കൈകാര്യം ചെയ്യും.
+
+            </p>
+
+
+            <div
+                id="successMessage"
+                class="success-message"
+                hidden>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-content">
+
+        <div>
+
+            <div class="logo">
+
+                <img
+                    src="logo.png"
+                    alt="Nammude">
+
+            </div>
+
+
+            <p id="footerTagline">
+
+                നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
+
+            </p>
+
+        </div>
+
+
+        <p>
+            © 2026 Nammude
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
+
+const languages = {
+
+    ml: {
+
+        home: "ഹോം",
+
+        title:
+            "നിങ്ങളുടെ പ്രശ്നം<br><span>ഞങ്ങളോട് പറയൂ.</span>",
+
+        description:
+            "പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്. താഴെയുള്ള വിവരങ്ങൾ പൂരിപ്പിക്കുക.",
+
+        name:
+            "1. പേര് <span>★</span>",
+
+        namePlaceholder:
+            "നിങ്ങളുടെ പേര്",
+
+        phone:
+            "2. ഫോൺ നമ്പർ <span>★</span>",
+
+        phonePlaceholder:
+            "10 അക്ക ഫോൺ നമ്പർ",
+
+        phoneHint:
+            "കൃത്യമായി 10 അക്കങ്ങൾ നൽകുക.",
+
+        whatsapp:
+            "3. WhatsApp നമ്പർ <span>★</span>",
+
+        whatsappPlaceholder:
+            "10 അക്ക WhatsApp നമ്പർ",
+
+        sameWhatsapp:
+            "WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്",
+
+        secondary:
+            '4. രണ്ടാമത്തെ ഫോൺ നമ്പർ <small>(ഐച്ഛികം)</small>',
+
+        secondaryPlaceholder:
+            "10 അക്ക നമ്പർ",
+
+        category:
+            "5. പ്രശ്നത്തിന്റെ വിഭാഗം <span>★</span>",
+
+        categories: [
+
+            "സർക്കാർ സേവനങ്ങൾ",
+
+            "റോഡ് & ഗതാഗതം",
+
+            "വെള്ളം, വൈദ്യുതി & അടിസ്ഥാന സൗകര്യങ്ങൾ",
+
+            "ആരോഗ്യം",
+
+            "വിദ്യാഭ്യാസം",
+
+            "മാലിന്യം & പരിസ്ഥിതി",
+
+            "മൃഗങ്ങൾ & പൊതുസുരക്ഷ",
+
+            "ധനസഹായം, പെൻഷൻ & ഇൻഷുറൻസ്",
+
+            "നിയമം & അവകാശങ്ങൾ",
+
+            "എനിക്ക് അറിയില്ല"
+
+        ],
+
+        location:
+            '6. പ്രശ്നം എവിടെയാണ്? <small>(ഐച്ഛികം)</small>',
+
+        place:
+            "സ്ഥലം / പ്രദേശം",
+
+        localBody:
+            "പഞ്ചായത്ത് / മുനിസിപ്പാലിറ്റി",
+
+        ward:
+            "വാർഡ് നമ്പർ",
+
+        landmark:
+            "പ്രധാന അടയാളം",
+
+        map:
+            "📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുക",
+
+        locationNote:
+            "കൃത്യമായ സ്ഥലം ഇല്ലെങ്കിൽ ഈ വിഭാഗം ഒഴിവാക്കാം.",
+
+        problem:
+            "7. പ്രശ്നം എന്താണ്? <span>★</span>",
+
+        text:
+            "✍️ എഴുതി നൽകുക",
+
+        audio:
+            "🎙️ ശബ്ദമായി പറയുക",
+
+        problemPlaceholder:
+            "നിങ്ങളുടെ പ്രശ്നം വിശദമായി എഴുതുക...",
+
+        record:
+            "🎙️ റെക്കോർഡ് ആരംഭിക്കുക",
+
+        recording:
+            "🔴 റെക്കോർഡിംഗ് നടക്കുന്നു...",
+
+        recorded:
+            "✅ റെക്കോർഡിംഗ് പൂർത്തിയായി.",
+
+        microphone:
+            "മൈക്രോഫോൺ ഉപയോഗിക്കാൻ അനുമതി ആവശ്യമാണ്.",
+
+        audioStatus:
+            "ശബ്ദമായി പ്രശ്നം പറയാൻ ബട്ടൺ അമർത്തുക.",
+
+        evidence:
+            "8. തെളിവ് നൽകുക <span>★</span>",
+
+        evidenceHeading:
+            "കുറഞ്ഞത് ഒരു തെളിവെങ്കിലും നൽകണം",
+
+        evidenceDescription:
+            "ഫോട്ടോ, വീഡിയോ, രേഖ, സ്ക്രീൻഷോട്ട് അല്ലെങ്കിൽ ഓഡിയോ നൽകാം. ഒന്നിലധികം ഫയലുകൾ അനുവദനീയമാണ്.",
+
+        chooseEvidence:
+            "തെളിവ് തിരഞ്ഞെടുക്കുക",
+
+        previous:
+            "9. മുമ്പ് പരാതി നൽകിയിട്ടുണ്ടോ? <span>★</span>",
+
+        yes:
+            "അതെ",
+
+        no:
+            "ഇല്ല",
+
+        authority:
+            "ബന്ധപ്പെട്ട അധികാരി",
+
+        date:
+            "പരാതി നൽകിയ തീയതി",
+
+        reference:
+            "പരാതി / റഫറൻസ് നമ്പർ",
+
+        response:
+            "ലഭിച്ച മറുപടി (ഉണ്ടെങ്കിൽ)",
+
+        submit:
+            "പ്രശ്നം സമർപ്പിക്കാം →",
+
+        privacy:
+            "🔒 നിങ്ങളുടെ വിവരങ്ങൾ സുരക്ഷിതമായി കൈകാര്യം ചെയ്യും.",
+
+        invalidName:
+            "ദയവായി നിങ്ങളുടെ പേര് നൽകുക.",
+
+        invalidPhone:
+            "ഫോൺ നമ്പർ കൃത്യമായി 10 അക്കമായിരിക്കണം.",
+
+        invalidWhatsapp:
+            "WhatsApp നമ്പർ കൃത്യമായി 10 അക്കമായിരിക്കണം.",
+
+        invalidSecondary:
+            "രണ്ടാമത്തെ ഫോൺ നമ്പർ 10 അക്കമായിരിക്കണം.",
+
+        evidenceRequired:
+            "കുറഞ്ഞത് ഒരു തെളിവെങ്കിലും നൽകണം.",
+
+        problemRequired:
+            "പ്രശ്നം എഴുതുകയോ ശബ്ദമായി രേഖപ്പെടുത്തുകയോ ചെയ്യണം.",
+
+        audioRequired:
+            "ആദ്യം നിങ്ങളുടെ ശബ്ദം റെക്കോർഡ് ചെയ്യുക.",
+
+        categoryRequired:
+            "ദയവായി ഒരു വിഭാഗം തിരഞ്ഞെടുക്കുക.",
+
+        previousRequired:
+            "ദയവായി മുമ്പ് പരാതി നൽകിയിട്ടുണ്ടോ എന്ന് തിരഞ്ഞെടുക്കുക.",
+
+        submitting:
+            "സമർപ്പിക്കുന്നു...",
+
+        success:
+            "നന്ദി! നിങ്ങളുടെ പ്രശ്നം വിജയകരമായി സമർപ്പിച്ചു.",
+
+        failed:
+            "പ്രശ്നം സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക."
+
+    },
+
+
+    en: {
+
+        home:
+            "Home",
+
+        title:
+            "Tell us<br><span>your problem.</span>",
+
+        description:
+            "Reporting a problem is free. Please fill in the details below.",
+
+        name:
+            "1. Name <span>★</span>",
+
+        namePlaceholder:
+            "Your name",
+
+        phone:
+            "2. Phone Number <span>★</span>",
+
+        phonePlaceholder:
+            "10-digit phone number",
+
+        phoneHint:
+            "Enter exactly 10 digits.",
+
+        whatsapp:
+            "3. WhatsApp Number <span>★</span>",
+
+        whatsappPlaceholder:
+            "10-digit WhatsApp number",
+
+        sameWhatsapp:
+            "WhatsApp number is the same as phone number",
+
+        secondary:
+            '4. Secondary Phone Number <small>(Optional)</small>',
+
+        secondaryPlaceholder:
+            "10-digit number",
+
+        category:
+            "5. Problem Category <span>★</span>",
+
+        categories: [
+
+            "Government Services",
+
+            "Roads & Transport",
+
+            "Water, Electricity & Infrastructure",
+
+            "Health",
+
+            "Education",
+
+            "Waste & Environment",
+
+            "Animals & Public Safety",
+
+            "Financial Assistance, Pension & Insurance",
+
+            "Legal & Rights",
+
+            "I Don't Know"
+
+        ],
+
+        location:
+            '6. Where is the problem? <small>(Optional)</small>',
+
+        place:
+            "Place / Area",
+
+        localBody:
+            "Panchayat / Municipality",
+
+        ward:
+            "Ward Number",
+
+        landmark:
+            "Landmark",
+
+        map:
+            "📍 Select location on map",
+
+        locationNote:
+            "If the problem has no specific location, you can skip this section.",
+
+        problem:
+            "7. What is your problem? <span>★</span>",
+
+        text:
+            "✍️ Type",
+
+        audio:
+            "🎙️ Record Audio",
+
+        problemPlaceholder:
+            "Describe your problem in detail...",
+
+        record:
+            "🎙️ Start Recording",
+
+        recording:
+            "🔴 Recording...",
+
+        recorded:
+            "✅ Recording completed.",
+
+        microphone:
+            "Microphone permission is required.",
+
+        audioStatus:
+            "Press the button to describe your problem by voice.",
+
+        evidence:
+            "8. Provide Evidence <span>★</span>",
+
+        evidenceHeading:
+            "At least one piece of evidence is required",
+
+        evidenceDescription:
+            "You can provide a photo, video, document, screenshot or audio. Multiple files are allowed.",
+
+        chooseEvidence:
+            "Choose Evidence",
+
+        previous:
+            "9. Reported Before? <span>★</span>",
+
+        yes:
+            "Yes",
+
+        no:
+            "No",
+
+        authority:
+            "Authority Contacted",
+
+        date:
+            "Complaint Date",
+
+        reference:
+            "Complaint / Reference Number",
+
+        response:
+            "Response Received (if any)",
+
+        submit:
+            "Submit Problem →",
+
+        privacy:
+            "🔒 Your information will be handled securely.",
+
+        invalidName:
+            "Please enter your name.",
+
+        invalidPhone:
+            "Phone number must contain exactly 10 digits.",
+
+        invalidWhatsapp:
+            "WhatsApp number must contain exactly 10 digits.",
+
+        invalidSecondary:
+            "Secondary phone number must contain exactly 10 digits.",
+
+        evidenceRequired:
+            "At least one piece of evidence is required.",
+
+        problemRequired:
+            "Please type your problem or record an audio message.",
+
+        audioRequired:
+            "Please record your audio first.",
+
+        categoryRequired:
+            "Please select a problem category.",
+
+        previousRequired:
+            "Please select whether you reported this before.",
+
+        submitting:
+            "Submitting...",
+
+        success:
+            "Thank you! Your problem has been submitted successfully.",
+
+        failed:
+            "Could not submit the problem. Please try again."
+
+    }
+
+};
+
+
+let currentLanguage = "ml";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const languageToggle =
+    document.getElementById("languageToggle");
+
+const sameWhatsapp =
+    document.getElementById("sameWhatsapp");
+
+const phone =
+    document.getElementById("phone");
+
+const whatsapp =
+    document.getElementById("whatsapp");
+
+const secondaryPhone =
+    document.getElementById("secondaryPhone");
+
+const evidence =
+    document.getElementById("evidence");
+
+const fileList =
+    document.getElementById("fileList");
+
+const useText =
+    document.getElementById("useText");
+
+const useAudio =
+    document.getElementById("useAudio");
+
+const textBox =
+    document.getElementById("textBox");
+
+const audioBox =
+    document.getElementById("audioBox");
+
+const problem =
+    document.getElementById("problem");
+
+const reportedYes =
+    document.getElementById("reportedYes");
+
+const reportedNo =
+    document.getElementById("reportedNo");
+
+const previousFields =
+    document.getElementById("previousFields");
+
+const recordButton =
+    document.getElementById("recordButton");
+
+const audioStatus =
+    document.getElementById("audioStatus");
+
+const audioPreview =
+    document.getElementById("audioPreview");
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function updateLanguage() {
+
+    const t =
+        languages[currentLanguage];
+
+
+    document.documentElement.lang =
+        currentLanguage;
+
+
+    document.getElementById("homeButton")
+        .textContent = t.home;
+
+
+    document.getElementById("pageTitle")
+        .innerHTML = t.title;
+
+
+    document.getElementById("pageDescription")
+        .textContent = t.description;
+
+
+    document.getElementById("nameTitle")
+        .innerHTML = t.name;
+
+
+    document.getElementById("name")
+        .placeholder = t.namePlaceholder;
+
+
+    document.getElementById("phoneTitle")
+        .innerHTML = t.phone;
+
+
+    document.getElementById("phone")
+        .placeholder = t.phonePlaceholder;
+
+
+    document.getElementById("phoneHint")
+        .textContent = t.phoneHint;
+
+
+    document.getElementById("whatsappTitle")
+        .innerHTML = t.whatsapp;
+
+
+    document.getElementById("whatsapp")
+        .placeholder = t.whatsappPlaceholder;
+
+
+    document.getElementById("sameWhatsappText")
+        .textContent = t.sameWhatsapp;
+
+
+    document.getElementById("secondaryTitle")
+        .innerHTML = t.secondary;
+
+
+    document.getElementById("secondaryPhone")
+        .placeholder = t.secondaryPlaceholder;
+
+
+    document.getElementById("categoryTitle")
+        .innerHTML = t.category;
+
+
+    document
+        .querySelectorAll(".category-option strong")
+        .forEach((element, index) => {
+
+            element.textContent =
+                t.categories[index];
+
+        });
+
+
+    document.getElementById("locationTitle")
+        .innerHTML = t.location;
+
+
+    document.getElementById("placeLabel")
+        .textContent = t.place;
+
+
+    document.getElementById("localBodyLabel")
+        .textContent = t.localBody;
+
+
+    document.getElementById("wardLabel")
+        .textContent = t.ward;
+
+
+    document.getElementById("landmarkLabel")
+        .textContent = t.landmark;
+
+
+    document.getElementById("mapButton")
+        .textContent = t.map;
+
+
+    document.getElementById("locationNote")
+        .textContent = t.locationNote;
+
+
+    document.getElementById("problemTitle")
+        .innerHTML = t.problem;
+
+
+    document.getElementById("useTextText")
+        .textContent = t.text;
+
+
+    document.getElementById("useAudioText")
+        .textContent = t.audio;
+
+
+    document.getElementById("problem")
+        .placeholder = t.problemPlaceholder;
+
+
+    if (!mediaRecorder) {
+
+        recordButton.textContent =
+            t.record;
+
+    }
+
+
+    document.getElementById("evidenceTitle")
+        .innerHTML = t.evidence;
+
+
+    document.getElementById("evidenceHeading")
+        .textContent = t.evidenceHeading;
+
+
+    document.getElementById("evidenceDescription")
+        .textContent = t.evidenceDescription;
+
+
+    document.getElementById("fileButton")
+        .textContent = t.chooseEvidence;
+
+
+    document.getElementById("previousTitle")
+        .innerHTML = t.previous;
+
+
+    document.getElementById("yesText")
+        .textContent = t.yes;
+
+
+    document.getElementById("noText")
+        .textContent = t.no;
+
+
+    document.getElementById("authorityLabel")
+        .textContent = t.authority;
+
+
+    document.getElementById("dateLabel")
+        .textContent = t.date;
+
+
+    document.getElementById("referenceLabel")
+        .textContent = t.reference;
+
+
+    document.getElementById("responseLabel")
+        .textContent = t.response;
+
+
+    document.getElementById("submitButton")
+        .textContent = t.submit;
+
+
+    document.getElementById("privacyNote")
+        .textContent = t.privacy;
+
+
+    document.getElementById("footerTagline")
+        .textContent =
+            currentLanguage === "ml"
+                ? "നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
+                : "Your problem, our intervention.";
+
+
+    languageToggle.textContent =
+        currentLanguage === "ml"
+            ? "EN"
+            : "മലയാളം";
+
+}
+
+
+languageToggle.addEventListener(
+    "click",
+    () => {
+
+        currentLanguage =
+            currentLanguage === "ml"
+                ? "en"
+                : "ml";
+
+        updateLanguage();
+
+    }
+);
+
+
+/* =====================================================
+   PHONE INPUT
+===================================================== */
+
+function onlyDigits(input) {
+
+    input.value =
+        input.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+}
+
+
+phone.addEventListener(
+    "input",
+    () => {
+
+        onlyDigits(phone);
+
+        if (sameWhatsapp.checked) {
+
+            whatsapp.value =
+                phone.value;
+
+        }
+
+    }
+);
+
+
+whatsapp.addEventListener(
+    "input",
+    () => {
+
+        onlyDigits(whatsapp);
+
+    }
+);
+
+
+secondaryPhone.addEventListener(
+    "input",
+    () => {
+
+        onlyDigits(secondaryPhone);
+
+    }
+);
+
+
+/* =====================================================
+   SAME WHATSAPP
+===================================================== */
+
+sameWhatsapp.addEventListener(
+    "change",
+    () => {
+
+        if (sameWhatsapp.checked) {
+
+            whatsapp.value =
+                phone.value;
+
+            whatsapp.readOnly =
+                true;
+
+        } else {
+
+            whatsapp.readOnly =
+                false;
+
+            whatsapp.value = "";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PROBLEM METHOD
+===================================================== */
+
+function updateProblemMethod() {
+
+    textBox.hidden =
+        !useText.checked;
+
+    audioBox.hidden =
+        !useAudio.checked;
+
+}
+
+
+useText.addEventListener(
+    "change",
+    updateProblemMethod
+);
+
+
+useAudio.addEventListener(
+    "change",
+    updateProblemMethod
+);
+
+
+/* =====================================================
+   EVIDENCE FILE DISPLAY
+===================================================== */
+
+evidence.addEventListener(
+    "change",
+    () => {
+
+        fileList.innerHTML = "";
+
+
+        Array.from(evidence.files)
+            .forEach(file => {
+
+                const item =
+                    document.createElement("div");
+
+                item.textContent =
+                    "📎 " + file.name;
+
+                fileList.appendChild(item);
+
+            });
+
+    }
+);
+
+
+/* =====================================================
+   PREVIOUS COMPLAINT
+===================================================== */
+
+reportedYes.addEventListener(
+    "change",
+    () => {
+
+        previousFields.hidden =
+            false;
+
+    }
+);
+
+
+reportedNo.addEventListener(
+    "change",
+    () => {
+
+        previousFields.hidden =
+            true;
+
+    }
+);
+
+
+/* =====================================================
+   AUDIO RECORDING
+===================================================== */
+
+let mediaRecorder = null;
+
+let audioChunks = [];
+
+let recordedAudioBlob = null;
+
+
+recordButton.addEventListener(
+    "click",
+    async () => {
+
+        const t =
+            languages[currentLanguage];
+
+
+        /* START */
+
+        if (!mediaRecorder) {
+
+            try {
+
+                const stream =
+                    await navigator.mediaDevices
+                        .getUserMedia({
+                            audio: true
+                        });
+
+
+                audioChunks = [];
+
+                recordedAudioBlob = null;
+
+
+                mediaRecorder =
+                    new MediaRecorder(stream);
+
+
+                mediaRecorder.ondataavailable =
+                    event => {
+
+                        if (event.data.size > 0) {
+
+                            audioChunks.push(
+                                event.data
+                            );
+
+                        }
+
+                    };
+
+
+                mediaRecorder.onstop =
+                    () => {
+
+                        recordedAudioBlob =
+                            new Blob(
+                                audioChunks,
+                                {
+                                    type:
+                                        "audio/webm"
+                                }
+                            );
+
+
+                        const audioURL =
+                            URL.createObjectURL(
+                                recordedAudioBlob
+                            );
+
+
+                        audioPreview.src =
+                            audioURL;
+
+                        audioPreview.hidden =
+                            false;
+
+
+                        audioStatus.textContent =
+                            t.recorded;
+
+
+                        stream
+                            .getTracks()
+                            .forEach(
+                                track =>
+                                    track.stop()
+                            );
+
+                    };
+
+
+                mediaRecorder.start();
+
+
+                recordButton.textContent =
+                    t.recording;
+
+
+                audioStatus.textContent =
+                    t.recording;
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                audioStatus.textContent =
+                    t.microphone;
+
+            }
+
+        }
+
+
+        /* STOP */
+
+        else {
+
+            mediaRecorder.stop();
+
+            mediaRecorder = null;
+
+            recordButton.textContent =
+                t.record;
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   UPLOAD FILE TO SUPABASE STORAGE
+===================================================== */
+
+async function uploadFile(
+    file,
+    folder
+) {
+
+    const extension =
+        file.name.includes(".")
+            ? file.name
+                .split(".")
+                .pop()
+                .toLowerCase()
+            : "bin";
+
+
+    const uniqueName =
+        Date.now() +
+        "_" +
+        Math.random()
+            .toString(36)
+            .substring(2, 10) +
+        "." +
+        extension;
+
+
+    const filePath =
+        folder +
+        "/" +
+        uniqueName;
+
+
+    const { error } =
+        await supabase
+            .storage
+            .from("evidence")
+            .upload(
+                filePath,
+                file,
+                {
+                    cacheControl: "3600",
+                    upsert: false
+                }
+            );
+
+
+    if (error) {
+
+        throw error;
+
+    }
+
+
+    const { data } =
+        supabase
+            .storage
+            .from("evidence")
+            .getPublicUrl(
+                filePath
+            );
+
+
+    return data.publicUrl;
+
+}
+
+
+/* =====================================================
+   FORM SUBMISSION
+===================================================== */
+
+document
+    .getElementById("problemForm")
+    .addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            const t =
+                languages[currentLanguage];
+
+
+            /* =========================================
+               BASIC VALUES
+            ========================================= */
+
+            const nameValue =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+            const phoneValue =
+                phone.value.trim();
+
+
+            const whatsappValue =
+                whatsapp.value.trim();
+
+
+            const secondaryValue =
+                secondaryPhone.value.trim();
+
+
+            const selectedCategory =
+                document.querySelector(
+                    'input[name="category"]:checked'
+                );
+
+
+            const reportedBefore =
+                document.querySelector(
+                    'input[name="reportedBefore"]:checked'
+                );
+
+
+            const tenDigits =
+                /^[0-9]{10}$/;
+
+
+            /* =========================================
+               NAME
+            ========================================= */
+
+            if (!nameValue) {
+
+                alert(t.invalidName);
+
+                document
+                    .getElementById("name")
+                    .focus();
+
+                return;
+
+            }
+
+
+            /* =========================================
+               PHONE
+            ========================================= */
+
+            if (!tenDigits.test(phoneValue)) {
+
+                alert(t.invalidPhone);
+
+                phone.focus();
+
+                return;
+
+            }
+
+
+            /* =========================================
+               WHATSAPP
+            ========================================= */
+
+            if (!tenDigits.test(whatsappValue)) {
+
+                alert(t.invalidWhatsapp);
+
+                whatsapp.focus();
+
+                return;
+
+            }
+
+
+            /* =========================================
+               SECONDARY
+            ========================================= */
+
+            if (
+                secondaryValue &&
+                !tenDigits.test(
+                    secondaryValue
+                )
+            ) {
+
+                alert(t.invalidSecondary);
+
+                secondaryPhone.focus();
+
+                return;
+
+            }
+
+
+            /* =========================================
+               CATEGORY
+            ========================================= */
+
+            if (!selectedCategory) {
+
+                alert(t.categoryRequired);
+
+                return;
+
+            }
+
+
+            /* =========================================
+               PROBLEM
+            ========================================= */
+
+            if (
+                !useText.checked &&
+                !useAudio.checked
+            ) {
+
+                alert(t.problemRequired);
+
+                return;
+
+            }
+
+
+            if (
+                useText.checked &&
+                !problem.value.trim()
+            ) {
+
+                alert(t.problemRequired);
+
+                problem.focus();
+
+                return;
+
+            }
+
+
+            if (
+                useAudio.checked &&
+                !recordedAudioBlob
+            ) {
+
+                alert(t.audioRequired);
+
+                return;
+
+            }
+
+
+            /* =========================================
+               EVIDENCE
+            ========================================= */
+
+            if (
+                evidence.files.length === 0
+            ) {
+
+                alert(t.evidenceRequired);
+
+                return;
+
+            }
+
+
+            /* =========================================
+               PREVIOUS COMPLAINT
+            ========================================= */
+
+            if (!reportedBefore) {
+
+                alert(t.previousRequired);
+
+                return;
+
+            }
+
+
+            /* =========================================
+               LOCATION
+            ========================================= */
+
+            const locationParts = [
+
+                document
+                    .getElementById("place")
+                    .value
+                    .trim(),
+
+                document
+                    .getElementById("localBody")
+                    .value
+                    .trim(),
+
+                document
+                    .getElementById("ward")
+                    .value
+                    .trim(),
+
+                document
+                    .getElementById("landmark")
+                    .value
+                    .trim()
+
+            ].filter(Boolean);
+
+
+            const locationValue =
+                locationParts.join(", ");
+
+
+            /* =========================================
+               PREVIOUS COMPLAINT DETAILS
+               Added to description so no extra DB
+               columns are required.
+            ========================================= */
+
+            let descriptionValue =
+                problem.value.trim();
+
+
+            const authority =
+                document
+                    .getElementById("authority")
+                    .value
+                    .trim();
+
+
+            const complaintDate =
+                document
+                    .getElementById("complaintDate")
+                    .value;
+
+
+            const referenceNumber =
+                document
+                    .getElementById("referenceNumber")
+                    .value
+                    .trim();
+
+
+            const previousResponse =
+                document
+                    .getElementById("previousResponse")
+                    .value
+                    .trim();
+
+
+            let previousDetails =
+                "\n\n--- Previous Complaint Information ---";
+
+
+            previousDetails +=
+                "\nReported Before: " +
+                reportedBefore.value;
+
+
+            if (reportedBefore.value === "yes") {
+
+                if (authority) {
+
+                    previousDetails +=
+                        "\nAuthority: " +
+                        authority;
+
+                }
+
+
+                if (complaintDate) {
+
+                    previousDetails +=
+                        "\nComplaint Date: " +
+                        complaintDate;
+
+                }
+
+
+                if (referenceNumber) {
+
+                    previousDetails +=
+                        "\nReference Number: " +
+                        referenceNumber;
+
+                }
+
+
+                if (previousResponse) {
+
+                    previousDetails +=
+                        "\nPrevious Response: " +
+                        previousResponse;
+
+                }
+
+            }
+
+
+            descriptionValue +=
+                previousDetails;
+
+
+            /* =========================================
+               BUTTON
+            ========================================= */
+
+            const submitButton =
+                document
+                    .getElementById(
+                        "submitButton"
+                    );
+
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.textContent =
+                t.submitting;
+
+
+            try {
+
+
+                /* =====================================
+                   UPLOAD EVIDENCE
+                ===================================== */
+
+                const evidenceURLs = [];
+
+
+                for (
+                    const file
+                    of Array.from(
+                        evidence.files
+                    )
+                ) {
+
+                    const url =
+                        await uploadFile(
+                            file,
+                            "reports"
+                        );
+
+
+                    evidenceURLs.push(url);
+
+                }
+
+
+                /* =====================================
+                   UPLOAD AUDIO
+                ===================================== */
+
+                let audioURL = null;
+
+
+                if (
+                    recordedAudioBlob &&
+                    useAudio.checked
+                ) {
+
+                    const audioFile =
+                        new File(
+                            [
+                                recordedAudioBlob
+                            ],
+                            "audio_" +
+                            Date.now() +
+                            ".webm",
+                            {
+                                type:
+                                    "audio/webm"
+                            }
+                        );
+
+
+                    audioURL =
+                        await uploadFile(
+                            audioFile,
+                            "audio"
+                        );
+
+                }
+
+
+                /* =====================================
+                   INSERT REPORT
+                ===================================== */
+
+                const {
+                    error
+                } =
+                    await supabase
+                        .from("reports")
+                        .insert({
+
+                            name:
+                                nameValue,
+
+                            phone:
+                                phoneValue,
+
+                            whatsapp:
+                                whatsappValue,
+
+                            secondary_phone:
+                                secondaryValue ||
+                                null,
+
+                            category:
+                                selectedCategory
+                                    .value,
+
+                            location:
+                                locationValue ||
+                                null,
+
+                            description:
+                                descriptionValue,
+
+                            audio_url:
+                                audioURL,
+
+                            evidence_url:
+                                evidenceURLs
+                                    .length
+                                    ? JSON.stringify(
+                                        evidenceURLs
+                                      )
+                                    : null,
+
+                            status:
+                                "pending"
+
+                        });
+
+
+                if (error) {
+
+                    throw error;
+
+                }
+
+
+                /* =====================================
+                   SUCCESS
+                ===================================== */
+
+                const successMessage =
+                    document
+                        .getElementById(
+                            "successMessage"
+                        );
+
+
+                successMessage.textContent =
+                    t.success;
+
+
+                successMessage.hidden =
+                    false;
+
+
+                /* =====================================
+                   RESET
+                ===================================== */
+
+                document
+                    .getElementById(
+                        "problemForm"
+                    )
+                    .reset();
+
+
+                fileList.innerHTML =
+                    "";
+
+
+                previousFields.hidden =
+                    true;
+
+
+                audioPreview.hidden =
+                    true;
+
+
+                audioPreview.src =
+                    "";
+
+
+                audioStatus.textContent =
+                    languages[
+                        currentLanguage
+                    ].audioStatus;
+
+
+                recordedAudioBlob =
+                    null;
+
+
+                mediaRecorder =
+                    null;
+
+
+                updateProblemMethod();
+
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Supabase submission error:",
+                    error
+                );
+
+
+                alert(
+                    t.failed
+                );
+
+            }
+
+
+            finally {
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    languages[
+                        currentLanguage
+                    ].submit;
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   INITIAL STATE
+===================================================== */
+
+updateLanguage();
+
+updateProblemMethod();
+
+</script>
+
+
+</body>
+
+</html>

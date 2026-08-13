@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nammude — നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ</title>
+
+    <meta name="description"
+          content="നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ. പരിഹാരത്തിലേക്ക് ഒരുമിച്ച് മുന്നോട്ട്.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <!-- LOGO -->
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Nammude">
+            </a>
+
+
+            <!-- NAVIGATION -->
+            <nav class="nav-links">
+
+                <a href="#problems"
+                   data-ml="പ്രശ്നങ്ങൾ"
+                   data-en="Problems">
+                    പ്രശ്നങ്ങൾ
+                </a>
+
+                <a href="#how"
+                   data-ml="എങ്ങനെ പ്രവർത്തിക്കുന്നു?"
+                   data-en="How It Works">
+                    എങ്ങനെ പ്രവർത്തിക്കുന്നു?
+                </a>
+
+                <a href="#membership"
+                   data-ml="മെമ്പർഷിപ്പ്"
+                   data-en="Membership">
+                    മെമ്പർഷിപ്പ്
+                </a>
+
+            </nav>
+
+
+            <!-- HEADER ACTIONS -->
+            <div class="nav-actions">
+
+                <!-- DARK / LIGHT MODE -->
+                <button
+                    type="button"
+                    id="themeToggle"
+                    class="theme-button"
+                    aria-label="Change theme">
+                    🌙
+                </button>
+
+
+                <!-- LANGUAGE -->
+                <button
+                    type="button"
+                    id="languageToggle"
+                    class="language-button">
+                    EN
+                </button>
+
+
+                <!-- REPORT -->
+                <a href="report.html"
+                   class="nav-button"
+                   data-ml="പ്രശ്നം അറിയിക്കാം"
+                   data-en="Report a Problem">
+
+                    പ്രശ്നം അറിയിക്കാം
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="container hero-content">
+
+                <p class="eyebrow"
+                   data-ml="നമ്മുടെ നാടിനായി • നമ്മുടെ ഇടപെടൽ"
+                   data-en="For our community • Taking action">
+
+                    നമ്മുടെ നാടിനായി • നമ്മുടെ ഇടപെടൽ
+
+                </p>
+
+
+                <h1
+                    data-ml="നിങ്ങളുടെ പ്രശ്നം,<br><span>നമ്മുടെ ഇടപെടൽ.</span>"
+                    data-en="Your problem,<br><span>our intervention.</span>">
+
+                    നിങ്ങളുടെ പ്രശ്നം,<br>
+                    <span>നമ്മുടെ ഇടപെടൽ.</span>
+
+                </h1>
+
+
+                <p class="hero-text"
+                   data-ml="നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ. ശരിയായ മാർഗം കണ്ടെത്താനും ആവശ്യമായ നടപടികളിലേക്ക് നിങ്ങളെ നയിക്കാനും ഞങ്ങൾ സഹായിക്കും."
+                   data-en="Tell us about the problem you are facing. We will help you find the right path and guide you towards the necessary steps.">
+
+                    നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ.
+                    ശരിയായ മാർഗം കണ്ടെത്താനും ആവശ്യമായ നടപടികളിലേക്ക്
+                    നിങ്ങളെ നയിക്കാനും ഞങ്ങൾ സഹായിക്കും.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="report.html"
+                       class="primary-button"
+                       data-ml="പ്രശ്നം അറിയിക്കാം →"
+                       data-en="Report a Problem →">
+
+                        പ്രശ്നം അറിയിക്കാം →
+
+                    </a>
+
+
+                    <a href="#how"
+                       class="secondary-button"
+                       data-ml="എങ്ങനെ പ്രവർത്തിക്കുന്നു?"
+                       data-en="How It Works">
+
+                        എങ്ങനെ പ്രവർത്തിക്കുന്നു?
+
+                    </a>
+
+                </div>
+
+
+                <p class="free-note"
+                   data-ml="✓ പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്"
+                   data-en="✓ Reporting a problem is free">
+
+                    ✓ പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PROBLEMS ================= -->
+
+        <section id="problems" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow"
+                       data-ml="എന്തെല്ലാം പ്രശ്നങ്ങൾക്ക്?"
+                       data-en="What can we help with?">
+
+                        എന്തെല്ലാം പ്രശ്നങ്ങൾക്ക്?
+
+                    </p>
+
+
+                    <h2
+                        data-ml="ചെറിയ പ്രശ്നമോ വലിയ പ്രശ്നമോ,<br>ഞങ്ങളോട് പറയാം."
+                        data-en="Big problem or small problem,<br>you can tell us.">
+
+                        ചെറിയ പ്രശ്നമോ വലിയ പ്രശ്നമോ,<br>
+                        ഞങ്ങളോട് പറയാം.
+
+                    </h2>
+
+
+                    <p
+                        data-ml="നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ. പ്രശ്നത്തിന്റെ സ്വഭാവം മനസ്സിലാക്കി ലഭ്യമായ മാർഗങ്ങളും ആവശ്യമായ നടപടികളും വ്യക്തമാക്കാം."
+                        data-en="Tell us about your problem. We will understand the situation and explain the available options and necessary steps.">
+
+                        നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ.
+                        പ്രശ്നത്തിന്റെ സ്വഭാവം മനസ്സിലാക്കി ലഭ്യമായ മാർഗങ്ങളും
+                        ആവശ്യമായ നടപടികളും വ്യക്തമാക്കാം.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="problem-grid">
+
+                    <!-- PUBLIC PROBLEMS -->
+
+                    <div class="problem-card">
+
+                        <div class="icon">🏘️</div>
+
+                        <h3
+                            data-ml="പൊതുജന പ്രശ്നങ്ങൾ"
+                            data-en="Public Issues">
+
+                            പൊതുജന പ്രശ്നങ്ങൾ
+
+                        </h3>
+
+                        <p
+                            data-ml="റോഡ്, തെരുവുവിളക്ക്, കുടിവെള്ളം, മാലിന്യസംസ്കരണം തുടങ്ങിയ പ്രദേശത്തെ പൊതുപ്രശ്നങ്ങൾ."
+                            data-en="Local public issues such as roads, streetlights, drinking water and waste management.">
+
+                            റോഡ്, തെരുവുവിളക്ക്, കുടിവെള്ളം,
+                            മാലിന്യസംസ്കരണം തുടങ്ങിയ പ്രദേശത്തെ
+                            പൊതുപ്രശ്നങ്ങൾ.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- GOVERNMENT SERVICES -->
+
+                    <div class="problem-card">
+
+                        <div class="icon">📄</div>
+
+                        <h3
+                            data-ml="സർക്കാർ സേവനങ്ങൾ"
+                            data-en="Government Services">
+
+                            സർക്കാർ സേവനങ്ങൾ
+
+                        </h3>
+
+                        <p
+                            data-ml="സർക്കാർ ഓഫീസുകളുമായി ബന്ധപ്പെട്ട അപേക്ഷകൾ, സേവനങ്ങൾ, പരാതികൾ എന്നിവയിൽ മാർഗനിർദേശം."
+                            data-en="Guidance for applications, services and complaints related to government offices.">
+
+                            സർക്കാർ ഓഫീസുകളുമായി ബന്ധപ്പെട്ട
+                            അപേക്ഷകൾ, സേവനങ്ങൾ, പരാതികൾ എന്നിവയിൽ
+                            മാർഗനിർദേശം.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- RIGHTS -->
+
+                    <div class="problem-card">
+
+                        <div class="icon">⚖️</div>
+
+                        <h3
+                            data-ml="അവകാശ സംബന്ധമായ പ്രശ്നങ്ങൾ"
+                            data-en="Rights & Complaints">
+
+                            അവകാശ സംബന്ധമായ പ്രശ്നങ്ങൾ
+
+                        </h3>
+
+                        <p
+                            data-ml="നിങ്ങളുടെ അവകാശങ്ങളുമായി ബന്ധപ്പെട്ട പ്രശ്നങ്ങളിൽ ലഭ്യമായ മാർഗങ്ങളും നടപടികളും മനസ്സിലാക്കാൻ സഹായം."
+                            data-en="Help understanding available options and procedures related to your rights.">
+
+                            നിങ്ങളുടെ അവകാശങ്ങളുമായി ബന്ധപ്പെട്ട
+                            പ്രശ്നങ്ങളിൽ ലഭ്യമായ മാർഗങ്ങളും നടപടികളും
+                            മനസ്സിലാക്കാൻ സഹായം.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- PERSONAL -->
+
+                    <div class="problem-card">
+
+                        <div class="icon">🛡️</div>
+
+                        <h3
+                            data-ml="വ്യക്തിഗത പ്രശ്നങ്ങൾ"
+                            data-en="Personal Problems">
+
+                            വ്യക്തിഗത പ്രശ്നങ്ങൾ
+
+                        </h3>
+
+                        <p
+                            data-ml="ഇൻഷുറൻസ് ക്ലെയിം ഉൾപ്പെടെയുള്ള വ്യക്തിഗത പ്രശ്നങ്ങളിൽ ആവശ്യമായ മാർഗനിർദേശവും സഹായവും."
+                            data-en="Guidance and assistance for personal issues, including insurance claims.">
+
+                            ഇൻഷുറൻസ് ക്ലെയിം ഉൾപ്പെടെയുള്ള
+                            വ്യക്തിഗത പ്രശ്നങ്ങളിൽ ആവശ്യമായ
+                            മാർഗനിർദേശവും സഹായവും.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section id="how"
+                 class="section light-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow"
+                       data-ml="എങ്ങനെ പ്രവർത്തിക്കുന്നു?"
+                       data-en="How it works">
+
+                        എങ്ങനെ പ്രവർത്തിക്കുന്നു?
+
+                    </p>
+
+
+                    <h2
+                        data-ml="പ്രശ്നപരിഹാരത്തിലേക്ക്<br>ഒരുമിച്ച് മുന്നോട്ട്."
+                        data-en="Moving together<br>towards a solution.">
+
+                        പ്രശ്നപരിഹാരത്തിലേക്ക്<br>
+                        ഒരുമിച്ച് മുന്നോട്ട്.
+
+                    </h2>
+
+                </div>
+
+
+
+                <div class="steps">
+
+                    <!-- STEP 1 -->
+
+                    <div class="step">
+
+                        <span>01</span>
+
+                        <h3
+                            data-ml="പ്രശ്നം അറിയിക്കാം"
+                            data-en="Tell us your problem">
+
+                            പ്രശ്നം അറിയിക്കാം
+
+                        </h3>
+
+                        <p
+                            data-ml="നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളോട് സൗജന്യമായി പങ്കുവെക്കാം."
+                            data-en="Tell us about your problem for free.">
+
+                            നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളോട്
+                            സൗജന്യമായി പങ്കുവെക്കാം.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="step">
+
+                        <span>02</span>
+
+                        <h3
+                            data-ml="ഞങ്ങൾ പരിശോധിക്കും"
+                            data-en="We review it">
+
+                            ഞങ്ങൾ പരിശോധിക്കും
+
+                        </h3>
+
+                        <p
+                            data-ml="പ്രശ്നം മനസ്സിലാക്കി സാധ്യമായ മാർഗങ്ങളും ആവശ്യമായ നടപടികളും പരിശോധിക്കും."
+                            data-en="We understand the issue and review the possible options and necessary steps.">
+
+                            പ്രശ്നം മനസ്സിലാക്കി സാധ്യമായ മാർഗങ്ങളും
+                            ആവശ്യമായ നടപടികളും പരിശോധിക്കും.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="step">
+
+                        <span>03</span>
+
+                        <h3
+                            data-ml="തുടർനടപടികളിൽ സഹായം"
+                            data-en="Help with the next steps">
+
+                            തുടർനടപടികളിൽ സഹായം
+
+                        </h3>
+
+                        <p
+                            data-ml="ആവശ്യമായ അപേക്ഷ, പരാതി, ആശയവിനിമയം തുടങ്ങിയ തുടർനടപടികളിൽ സഹായിക്കും."
+                            data-en="We can assist with applications, complaints, communication and other necessary next steps.">
+
+                            ആവശ്യമായ അപേക്ഷ, പരാതി,
+                            ആശയവിനിമയം തുടങ്ങിയ തുടർനടപടികളിൽ
+                            സഹായിക്കും.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MEMBERSHIP ================= -->
+
+        <section id="membership"
+                 class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow"
+                       data-ml="മെമ്പർഷിപ്പ്"
+                       data-en="Membership">
+
+                        മെമ്പർഷിപ്പ്
+
+                    </p>
+
+
+                    <h2
+                        data-ml="എല്ലാവർക്കും താങ്ങാനാകുന്ന നിരക്കിൽ."
+                        data-en="Affordable help for everyone.">
+
+                        എല്ലാവർക്കും താങ്ങാനാകുന്ന നിരക്കിൽ.
+
+                    </h2>
+
+
+                    <p
+                        data-ml="പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്. കൂടുതൽ സഹായം ആവശ്യമായാൽ, ചെയ്യേണ്ട സേവനവും അതിനുള്ള നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും."
+                        data-en="Reporting a problem is free. If additional assistance is required, the service and its charge will be explained in advance.">
+
+                        പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
+                        കൂടുതൽ സഹായം ആവശ്യമായാൽ, ചെയ്യേണ്ട സേവനവും
+                        അതിനുള്ള നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="membership-card">
+
+                    <div>
+
+                        <p class="plan-label">
+                            BASIC
+                        </p>
+
+
+                        <h3>
+                            ₹199
+                            <span
+                                data-ml="/ മാസം"
+                                data-en="/ month">
+                                / മാസം
+                            </span>
+                        </h3>
+
+
+                        <p
+                            data-ml="അടിസ്ഥാന മാർഗനിർദേശവും ആവശ്യമായ സഹായവും ലഭിക്കുന്നതിനുള്ള അംഗത്വ പദ്ധതി."
+                            data-en="A membership plan for basic guidance and assistance.">
+
+                            അടിസ്ഥാന മാർഗനിർദേശവും
+                            ആവശ്യമായ സഹായവും ലഭിക്കുന്നതിനുള്ള
+                            അംഗത്വ പദ്ധതി.
+
+                        </p>
+
+                    </div>
+
+
+                    <a href="report.html"
+                       class="primary-button"
+                       data-ml="തുടങ്ങാം →"
+                       data-en="Get Started →">
+
+                        തുടങ്ങാം →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= REPORT ================= -->
+
+        <section id="report"
+                 class="report-section">
+
+            <div class="container report-content">
+
+                <p class="eyebrow"
+                   data-ml="തുടങ്ങാം"
+                   data-en="Let's get started">
+
+                    തുടങ്ങാം
+
+                </p>
+
+
+                <h2
+                    data-ml="നിങ്ങളുടെ പ്രശ്നം<br>ഞങ്ങളോട് പറയൂ."
+                    data-en="Tell us<br>your problem.">
+
+                    നിങ്ങളുടെ പ്രശ്നം<br>
+                    ഞങ്ങളോട് പറയൂ.
+
+                </h2>
+
+
+                <p
+                    data-ml="പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്. പ്രശ്നം മനസ്സിലാക്കിയ ശേഷം ആവശ്യമായ സഹായവും സേവന നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും."
+                    data-en="Reporting a problem is free. After understanding the issue, we will explain the required assistance and service charge in advance.">
+
+                    പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
+                    പ്രശ്നം മനസ്സിലാക്കിയ ശേഷം ആവശ്യമായ സഹായവും
+                    സേവന നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും.
+
+                </p>
+
+
+                <a href="report.html"
+                   class="primary-button large-button"
+                   data-ml="പ്രശ്നം അറിയിക്കാം →"
+                   data-en="Report a Problem →">
+
+                    പ്രശ്നം അറിയിക്കാം →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="logo">
+                    <img src="logo.png" alt="Nammude">
+                </div>
+
+                <p
+                    data-ml="നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
+                    data-en="Your problem, our intervention.">
+
+                    നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    © 2026 Nammude
+                </p>
+
+                <p
+                    data-ml="നമ്മുടെ നാടിനായി."
+                    data-en="For our community.">
+
+                    നമ്മുടെ നാടിനായി.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= LANGUAGE + THEME ================= -->
+
+    <script>
+
+        /* ============================
+           LANGUAGE SWITCH
+        ============================ */
+
+        const languageToggle =
+            document.getElementById("languageToggle");
+
+        let currentLanguage = "ml";
+
+
+        languageToggle.addEventListener("click", function () {
+
+            currentLanguage =
+                currentLanguage === "ml"
+                    ? "en"
+                    : "ml";
+
+
+            document
+                .querySelectorAll("[data-ml]")
+                .forEach(element => {
+
+                    if (currentLanguage === "en") {
+
+                        element.innerHTML =
+                            element.getAttribute("data-en");
+
+                    } else {
+
+                        element.innerHTML =
+                            element.getAttribute("data-ml");
+
+                    }
+
+                });
+
+
+            document.documentElement.lang =
+                currentLanguage;
+
+
+            languageToggle.textContent =
+                currentLanguage === "ml"
+                    ? "EN"
+                    : "മലയാളം";
+
+        });
+
+
+
+        /* ============================
+           DARK / LIGHT MODE
+        ============================ */
+
+        const themeToggle =
+            document.getElementById("themeToggle");
+
+
+        function updateThemeButton() {
+
+            const isDark =
+                document.body.classList.contains("dark-mode");
+
+
+            themeToggle.textContent =
+                isDark ? "☀️" : "🌙";
+
+
+            themeToggle.setAttribute(
+                "aria-label",
+                isDark
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
+
+        }
+
+
+        /* Load saved theme */
+
+        const savedTheme =
+            localStorage.getItem("nammude-theme");
+
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add("dark-mode");
+
+        }
+
+
+        updateThemeButton();
+
+
+
+        /* Theme button */
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "dark-mode"
+                );
+
+
+                const isDark =
+                    document.body.classList.contains(
+                        "dark-mode"
+                    );
+
+
+                localStorage.setItem(
+                    "nammude-theme",
+                    isDark ? "dark" : "light"
+                );
+
+
+                updateThemeButton();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

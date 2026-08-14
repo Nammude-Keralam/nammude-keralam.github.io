@@ -1,11 +1,13 @@
 /* =========================================
    NAMMUDE — REPORT PAGE
-   Blue Theme
+   Clean Blue Theme
+   Separate Question Containers
+   Responsive: Mobile • Tablet • Desktop
 ========================================= */
 
 
 /* =========================================
-   REPORT PAGE
+   1. REPORT PAGE
 ========================================= */
 
 .report-page {
@@ -13,13 +15,12 @@
     min-height: 100vh;
     padding: 60px 0 90px;
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
 }
 
 
 /* =========================================
-   REPORT CONTAINER
+   2. REPORT CONTAINER
 ========================================= */
 
 .report-container {
@@ -32,14 +33,14 @@
 
 
 /* =========================================
-   INTRO
+   3. INTRO
 ========================================= */
 
 .report-intro {
     width: 100%;
     max-width: 100%;
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 38px;
     box-sizing: border-box;
 }
 
@@ -69,7 +70,7 @@
 
 
 /* =========================================
-   FORM
+   4. MAIN FORM
 ========================================= */
 
 .report-form {
@@ -78,8 +79,10 @@
     box-sizing: border-box;
 
     background: #ffffff;
+
     border: 1px solid #e4e9f0;
     border-radius: 20px;
+
     padding: 35px;
 
     box-shadow: 0 15px 45px rgba(16, 24, 40, 0.06);
@@ -89,8 +92,14 @@
 
 
 /* =========================================
-   FORM SECTIONS
+   5. QUESTION CONTAINERS
 ========================================= */
+
+/*
+   Each question gets its own visual space.
+   The padding creates distance between
+   the text/input and the border.
+*/
 
 .form-section {
     width: 100%;
@@ -98,23 +107,48 @@
     min-width: 0;
     box-sizing: border-box;
 
-    padding: 28px 0;
-    border-bottom: 1px solid #e9edf3;
+    padding: 28px 24px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #e4e9f0;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow: 0 3px 12px rgba(16, 24, 40, 0.025);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+
+/* First question */
 
 .form-section:first-child {
-    padding-top: 0;
+    padding-top: 28px;
 }
 
+
+/* Last question */
+
 .form-section:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
+
+
+/* Question heading */
 
 .form-section h2 {
     color: #172033;
+
     font-size: 1.15rem;
     line-height: 1.5;
-    margin: 0 0 17px;
+
+    margin: 0 0 18px;
+
     overflow-wrap: anywhere;
 }
 
@@ -131,7 +165,7 @@
 
 
 /* =========================================
-   INPUTS
+   6. INPUTS
 ========================================= */
 
 .report-form input[type="text"],
@@ -140,12 +174,13 @@
 .report-form textarea {
     width: 100%;
     max-width: 100%;
+
     box-sizing: border-box;
 
     border: 1px solid #d6dce5;
     border-radius: 10px;
 
-    padding: 13px 14px;
+    padding: 14px 15px;
 
     background: #ffffff;
     color: #172033;
@@ -156,8 +191,9 @@
     outline: none;
 
     transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .report-form textarea {
@@ -180,15 +216,18 @@
 
 .report-form small {
     display: block;
-    margin-top: 7px;
+
+    margin-top: 8px;
+
     color: #667085;
     font-size: 0.8rem;
+
     overflow-wrap: anywhere;
 }
 
 
 /* =========================================
-   CHECKBOX
+   7. CHECKBOX
 ========================================= */
 
 .checkbox-label {
@@ -196,7 +235,7 @@
     align-items: center;
     gap: 9px;
 
-    margin-top: 12px;
+    margin-top: 14px;
 
     color: #475467;
     font-size: 0.88rem;
@@ -212,13 +251,14 @@
 
 
 /* =========================================
-   CATEGORY
+   8. CATEGORY
 ========================================= */
 
 .category-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+
+    gap: 14px;
 
     width: 100%;
     max-width: 100%;
@@ -235,7 +275,7 @@
     min-height: 62px;
     min-width: 0;
 
-    padding: 12px 15px;
+    padding: 13px 15px;
 
     border: 1px solid #d9e0ea;
     border-radius: 11px;
@@ -247,9 +287,9 @@
     box-sizing: border-box;
 
     transition:
-        border-color 0.2s,
-        background 0.2s,
-        transform 0.15s;
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.15s ease;
 }
 
 .category-option:hover {
@@ -284,13 +324,14 @@
 
 
 /* =========================================
-   LOCATION
+   9. LOCATION
 ========================================= */
 
 .location-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+
+    gap: 16px;
 
     width: 100%;
     max-width: 100%;
@@ -301,7 +342,7 @@
 .previous-fields label {
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 
     color: #344054;
     font-size: 0.86rem;
@@ -309,12 +350,14 @@
 }
 
 .location-button {
-    margin-top: 16px;
+    width: 100%;
+
+    margin-top: 18px;
 
     border: 1px solid #1257d6;
     border-radius: 9px;
 
-    padding: 10px 16px;
+    padding: 11px 16px;
 
     background: #edf4ff;
     color: #1257d6;
@@ -332,13 +375,16 @@
 
 
 /* =========================================
-   PROBLEM METHOD
+   10. PROBLEM METHOD
 ========================================= */
 
 .problem-methods {
     display: flex;
+    flex-wrap: wrap;
+
     gap: 12px;
-    margin-bottom: 18px;
+
+    margin-bottom: 20px;
 
     width: 100%;
     max-width: 100%;
@@ -375,18 +421,20 @@
 
 
 /* =========================================
-   AUDIO
+   11. AUDIO
 ========================================= */
 
 .audio-box {
     width: 100%;
     max-width: 100%;
+
     box-sizing: border-box;
 
-    margin-top: 18px;
+    margin-top: 20px;
 
-    padding: 22px;
+    padding: 24px;
 
+    border: 1px dashed #b9c7dc;
     border-radius: 12px;
 
     background: #f7f9fc;
@@ -424,12 +472,13 @@
 
 
 /* =========================================
-   EVIDENCE
+   12. EVIDENCE
 ========================================= */
 
 .evidence-box {
     width: 100%;
     max-width: 100%;
+
     box-sizing: border-box;
 
     padding: 30px 20px;
@@ -456,6 +505,7 @@
 
 .evidence-box p {
     max-width: 600px;
+
     margin: 0 auto 18px;
 
     color: #667085;
@@ -511,7 +561,7 @@
 
 
 /* =========================================
-   YES / NO
+   13. YES / NO
 ========================================= */
 
 .yes-no {
@@ -552,21 +602,25 @@
 
 
 /* =========================================
-   PREVIOUS COMPLAINT
+   14. PREVIOUS COMPLAINT
 ========================================= */
 
 .previous-fields {
     display: grid;
+
     gap: 16px;
 
     width: 100%;
     max-width: 100%;
     min-width: 0;
+
     box-sizing: border-box;
 
     margin-top: 20px;
-    padding: 20px;
 
+    padding: 22px;
+
+    border: 1px solid #e4e9f0;
     border-radius: 12px;
 
     background: #f7f9fc;
@@ -574,7 +628,7 @@
 
 
 /* =========================================
-   NOTES
+   15. NOTES
 ========================================= */
 
 .form-note {
@@ -589,12 +643,13 @@
 
 
 /* =========================================
-   SUBMIT
+   16. SUBMIT
 ========================================= */
 
 .submit-area {
     width: 100%;
     max-width: 100%;
+
     box-sizing: border-box;
 
     padding-top: 30px;
@@ -605,6 +660,7 @@
 .submit-button {
     width: 100%;
     max-width: 100%;
+
     box-sizing: border-box;
 
     border: none;
@@ -617,6 +673,7 @@
 .success-message {
     width: 100%;
     max-width: 100%;
+
     box-sizing: border-box;
 
     margin-top: 16px;
@@ -635,7 +692,236 @@
 
 
 /* =========================================
-   MOBILE
+   17. DARK MODE
+========================================= */
+
+body.dark-mode .report-page {
+    background: #0f172a;
+}
+
+body.dark-mode .report-intro h1 {
+    color: #f8fafc;
+}
+
+body.dark-mode .report-intro p {
+    color: #aebbd0;
+}
+
+
+/* MAIN FORM */
+
+body.dark-mode .report-form {
+    background: #172033;
+    border-color: #2b3950;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+/* QUESTION CONTAINERS */
+
+body.dark-mode .form-section {
+    background: #172033;
+    border-color: #334155;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode .form-section h2 {
+    color: #f1f5f9;
+}
+
+body.dark-mode .form-section h2 small {
+    color: #94a3b8;
+}
+
+
+/* INPUTS */
+
+body.dark-mode .report-form input[type="text"],
+body.dark-mode .report-form input[type="tel"],
+body.dark-mode .report-form input[type="date"],
+body.dark-mode .report-form textarea {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f1f5f9;
+}
+
+body.dark-mode .report-form input::placeholder,
+body.dark-mode .report-form textarea::placeholder {
+    color: #64748b;
+}
+
+body.dark-mode .report-form small {
+    color: #94a3b8;
+}
+
+
+/* CHECKBOX */
+
+body.dark-mode .checkbox-label {
+    color: #b8c4d6;
+}
+
+
+/* CATEGORY */
+
+body.dark-mode .category-option {
+    background: #111c2f;
+    border-color: #334155;
+}
+
+body.dark-mode .category-option:hover {
+    border-color: #5277b4;
+    background: #172b50;
+}
+
+body.dark-mode .category-option strong {
+    color: #e2e8f0;
+}
+
+body.dark-mode .category-option:has(input:checked) {
+    background: #172b50;
+    border-color: #5b91f5;
+}
+
+
+/* LOCATION */
+
+body.dark-mode .location-grid label,
+body.dark-mode .previous-fields label {
+    color: #cbd5e1;
+}
+
+body.dark-mode .location-button {
+    background: #111c2f;
+    border-color: #5b91f5;
+    color: #8db3ff;
+}
+
+body.dark-mode .location-button:hover {
+    background: #1257d6;
+    color: #ffffff;
+}
+
+
+/* METHODS */
+
+body.dark-mode .method-option {
+    background: #111c2f;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .method-option:has(input:checked) {
+    background: #172b50;
+    border-color: #5b91f5;
+    color: #8db3ff;
+}
+
+
+/* AUDIO */
+
+body.dark-mode .audio-box {
+    background: #111c2f;
+    border-color: #475569;
+}
+
+body.dark-mode #audioStatus,
+body.dark-mode .audio-box p {
+    color: #94a3b8;
+}
+
+
+/* EVIDENCE */
+
+body.dark-mode .evidence-box {
+    background: #111c2f;
+    border-color: #475569;
+}
+
+body.dark-mode .evidence-box h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .evidence-box p {
+    color: #94a3b8;
+}
+
+body.dark-mode .file-list {
+    color: #cbd5e1;
+}
+
+body.dark-mode .file-list div {
+    border-bottom-color: #334155;
+}
+
+
+/* YES / NO */
+
+body.dark-mode .yes-no label {
+    background: #111c2f;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode .yes-no label:has(input:checked) {
+    background: #172b50;
+    border-color: #5b91f5;
+    color: #8db3ff;
+}
+
+
+/* PREVIOUS FIELDS */
+
+body.dark-mode .previous-fields {
+    background: #111c2f;
+    border-color: #334155;
+}
+
+
+/* NOTES */
+
+body.dark-mode .form-note {
+    color: #94a3b8;
+}
+
+
+/* SUCCESS */
+
+body.dark-mode .success-message {
+    background: #062e24;
+    border-color: #075e54;
+    color: #6ee7b7;
+}
+
+
+/* =========================================
+   18. TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .report-container {
+        max-width: 850px;
+    }
+
+    .report-form {
+        padding: 30px;
+    }
+
+    .form-section {
+        padding: 26px 22px;
+        margin-bottom: 17px;
+    }
+
+    .category-grid,
+    .location-grid {
+        gap: 12px;
+    }
+}
+
+
+/* =========================================
+   19. MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
@@ -643,7 +929,9 @@
     .report-page {
         width: 100%;
         max-width: 100%;
+
         padding: 40px 0 65px;
+
         box-sizing: border-box;
     }
 
@@ -652,10 +940,6 @@
         max-width: 100%;
         min-width: 0;
 
-        /*
-           Prevent the report container from
-           becoming wider than the phone screen.
-        */
         padding-left: 16px;
         padding-right: 16px;
 
@@ -665,41 +949,67 @@
         box-sizing: border-box;
     }
 
+
+    /* INTRO */
+
     .report-intro {
         width: 100%;
         max-width: 100%;
+        margin-bottom: 34px;
+
         box-sizing: border-box;
     }
+
+
+    /* MAIN FORM */
 
     .report-form {
         width: 100%;
         max-width: 100%;
         min-width: 0;
 
-        padding: 24px 18px;
+        padding: 18px;
+
         border-radius: 16px;
 
         box-sizing: border-box;
     }
 
+
+    /* QUESTION BOXES */
+
     .form-section {
         width: 100%;
         max-width: 100%;
         min-width: 0;
-        box-sizing: border-box;
 
-        padding: 24px 0;
+        padding: 24px 18px;
+
+        margin-bottom: 16px;
+
+        border-radius: 13px;
+
+        box-sizing: border-box;
     }
+
+
+    /* CATEGORY */
 
     .category-grid {
         grid-template-columns: 1fr;
         width: 100%;
     }
 
+
+    /* LOCATION */
+
     .location-grid {
         grid-template-columns: 1fr;
         width: 100%;
     }
+
+
+    /* METHODS */
 
     .problem-methods {
         flex-direction: column;
@@ -712,6 +1022,9 @@
         box-sizing: border-box;
     }
 
+
+    /* YES / NO */
+
     .yes-no {
         flex-direction: column;
         width: 100%;
@@ -723,6 +1036,9 @@
         box-sizing: border-box;
     }
 
+
+    /* INNER BOXES */
+
     .audio-box,
     .evidence-box,
     .previous-fields {
@@ -731,11 +1047,21 @@
         box-sizing: border-box;
     }
 
+
+    /* INPUTS */
+
+    .report-form input[type="text"],
+    .report-form input[type="tel"],
+    .report-form input[type="date"],
+    .report-form textarea {
+        padding: 14px;
+    }
+
 }
 
 
 /* =========================================
-   SMALL PHONES
+   20. SMALL PHONES
 ========================================= */
 
 @media (max-width: 400px) {
@@ -749,10 +1075,16 @@
         width: 100%;
         max-width: 100%;
 
-        padding: 20px 14px;
+        padding: 14px;
+
         border-radius: 15px;
 
         box-sizing: border-box;
+    }
+
+    .form-section {
+        padding: 22px 15px;
+        margin-bottom: 14px;
     }
 
     .report-intro h1 {
@@ -761,6 +1093,10 @@
 
     .category-option {
         padding: 11px 12px;
+    }
+
+    .previous-fields {
+        padding: 17px;
     }
 
 }

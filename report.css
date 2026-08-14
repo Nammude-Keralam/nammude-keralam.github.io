@@ -3,15 +3,31 @@
    Blue Theme
 ========================================= */
 
+
+/* =========================================
+   REPORT PAGE
+========================================= */
+
 .report-page {
     background: #f7f9fc;
     min-height: 100vh;
     padding: 60px 0 90px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
+
+/* =========================================
+   REPORT CONTAINER
+========================================= */
+
 .report-container {
+    width: 100%;
     max-width: 850px;
     margin: 0 auto;
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 
@@ -20,8 +36,11 @@
 ========================================= */
 
 .report-intro {
+    width: 100%;
+    max-width: 100%;
     text-align: center;
     margin-bottom: 35px;
+    box-sizing: border-box;
 }
 
 .report-intro .eyebrow {
@@ -35,6 +54,7 @@
     font-size: clamp(2rem, 5vw, 3.2rem);
     line-height: 1.15;
     margin: 0 0 18px;
+    overflow-wrap: anywhere;
 }
 
 .report-intro h1 span {
@@ -44,6 +64,7 @@
 .report-intro p {
     color: #667085;
     line-height: 1.7;
+    overflow-wrap: anywhere;
 }
 
 
@@ -52,11 +73,18 @@
 ========================================= */
 
 .report-form {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     background: #ffffff;
     border: 1px solid #e4e9f0;
     border-radius: 20px;
     padding: 35px;
+
     box-shadow: 0 15px 45px rgba(16, 24, 40, 0.06);
+
+    min-width: 0;
 }
 
 
@@ -65,6 +93,11 @@
 ========================================= */
 
 .form-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
     padding: 28px 0;
     border-bottom: 1px solid #e9edf3;
 }
@@ -82,6 +115,7 @@
     font-size: 1.15rem;
     line-height: 1.5;
     margin: 0 0 17px;
+    overflow-wrap: anywhere;
 }
 
 .form-section h2 span {
@@ -105,6 +139,7 @@
 .report-form input[type="date"],
 .report-form textarea {
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
 
     border: 1px solid #d6dce5;
@@ -148,6 +183,7 @@
     margin-top: 7px;
     color: #667085;
     font-size: 0.8rem;
+    overflow-wrap: anywhere;
 }
 
 
@@ -183,6 +219,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .category-option {
@@ -193,6 +233,8 @@
     gap: 10px;
 
     min-height: 62px;
+    min-width: 0;
+
     padding: 12px 15px;
 
     border: 1px solid #d9e0ea;
@@ -201,6 +243,8 @@
     background: #ffffff;
 
     cursor: pointer;
+
+    box-sizing: border-box;
 
     transition:
         border-color 0.2s,
@@ -231,6 +275,7 @@
     color: #344054;
     font-size: 0.88rem;
     line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
 .category-option:has(input:checked) strong {
@@ -246,6 +291,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .location-grid label,
@@ -290,6 +339,10 @@
     display: flex;
     gap: 12px;
     margin-bottom: 18px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .method-option {
@@ -305,6 +358,9 @@
     color: #344054;
 
     cursor: pointer;
+
+    box-sizing: border-box;
+    min-width: 0;
 }
 
 .method-option:has(input:checked) {
@@ -323,6 +379,10 @@
 ========================================= */
 
 .audio-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     margin-top: 18px;
 
     padding: 22px;
@@ -358,6 +418,8 @@
 
     color: #667085;
     font-size: 0.85rem;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -366,6 +428,10 @@
 ========================================= */
 
 .evidence-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     padding: 30px 20px;
 
     border: 2px dashed #cbd6e6;
@@ -395,6 +461,8 @@
     color: #667085;
     font-size: 0.85rem;
     line-height: 1.6;
+
+    overflow-wrap: anywhere;
 }
 
 .file-input {
@@ -417,6 +485,8 @@
     font-weight: 700;
 
     cursor: pointer;
+
+    box-sizing: border-box;
 }
 
 .file-button:hover {
@@ -430,6 +500,8 @@
     font-size: 0.85rem;
 
     text-align: left;
+
+    overflow-wrap: anywhere;
 }
 
 .file-list div {
@@ -445,6 +517,10 @@
 .yes-no {
     display: flex;
     gap: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .yes-no label {
@@ -460,6 +536,8 @@
     border-radius: 10px;
 
     cursor: pointer;
+
+    box-sizing: border-box;
 }
 
 .yes-no label:has(input:checked) {
@@ -481,6 +559,11 @@
     display: grid;
     gap: 16px;
 
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
     margin-top: 20px;
     padding: 20px;
 
@@ -500,6 +583,8 @@
     color: #667085;
     font-size: 0.82rem;
     line-height: 1.5;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -508,6 +593,10 @@
 ========================================= */
 
 .submit-area {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     padding-top: 30px;
 
     text-align: center;
@@ -515,6 +604,8 @@
 
 .submit-button {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 
     border: none;
     cursor: pointer;
@@ -524,6 +615,10 @@
 }
 
 .success-message {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
     margin-top: 16px;
 
     padding: 14px;
@@ -534,6 +629,8 @@
     color: #1257d6;
 
     font-weight: 700;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -544,45 +641,93 @@
 @media (max-width: 700px) {
 
     .report-page {
+        width: 100%;
+        max-width: 100%;
         padding: 40px 0 65px;
+        box-sizing: border-box;
+    }
+
+    .report-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        /*
+           Prevent the report container from
+           becoming wider than the phone screen.
+        */
+        padding-left: 16px;
+        padding-right: 16px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        box-sizing: border-box;
+    }
+
+    .report-intro {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .report-form {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
         padding: 24px 18px;
         border-radius: 16px;
-    }
 
-    .report-intro h1 {
-        font-size: 2rem;
+        box-sizing: border-box;
     }
 
     .form-section {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+
         padding: 24px 0;
     }
 
     .category-grid {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .location-grid {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .problem-methods {
         flex-direction: column;
+        width: 100%;
     }
 
     .method-option {
         width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
     }
 
     .yes-no {
         flex-direction: column;
+        width: 100%;
     }
 
     .yes-no label {
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .audio-box,
+    .evidence-box,
+    .previous-fields {
+        width: 100%;
+        max-width: 100%;
         box-sizing: border-box;
     }
 
@@ -595,8 +740,19 @@
 
 @media (max-width: 400px) {
 
+    .report-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .report-form {
+        width: 100%;
+        max-width: 100%;
+
         padding: 20px 14px;
+        border-radius: 15px;
+
+        box-sizing: border-box;
     }
 
     .report-intro h1 {

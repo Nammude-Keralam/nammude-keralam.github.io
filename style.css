@@ -2,6 +2,7 @@
    NAMMUDE — COMPLETE WEBSITE CSS
    Light / Dark Mode
    Responsive: Mobile • Tablet • Desktop
+   Membership Plans: Horizontal / Movable
 ========================================================= */
 
 
@@ -25,7 +26,9 @@ body {
     background: #ffffff;
     line-height: 1.7;
     overflow-x: hidden;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
 }
 
 a {
@@ -62,18 +65,26 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background: rgba(255, 255, 255, 0.95);
+
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
+
     border-bottom: 1px solid #e5e9f0;
-    transition: background-color 0.25s ease, border-color 0.25s ease;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .nav {
     min-height: 76px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 24px;
 }
 
@@ -109,6 +120,7 @@ img {
     color: #4c5668;
     font-size: 0.95rem;
     font-weight: 600;
+
     transition: color 0.2s ease;
 }
 
@@ -134,14 +146,17 @@ img {
 
 .language-button {
     min-width: 44px;
+
     border: 1px solid #d9e0ea;
     background: #ffffff;
     color: #172033;
+
     padding: 9px 13px;
     border-radius: 9px;
+
     font-size: 0.85rem;
     font-weight: 700;
-    cursor: pointer;
+
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
@@ -163,15 +178,19 @@ img {
 .theme-button {
     width: 42px;
     height: 42px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     border: 1px solid #d9e0ea;
     border-radius: 9px;
+
     background: #ffffff;
     color: #172033;
+
     font-size: 1.05rem;
-    cursor: pointer;
+
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
@@ -194,12 +213,16 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     background: #1257d6;
     color: #ffffff;
+
     padding: 11px 18px;
     border-radius: 10px;
+
     font-size: 0.9rem;
     font-weight: 700;
+
     transition:
         transform 0.2s ease,
         background-color 0.2s ease,
@@ -209,6 +232,7 @@ img {
 .nav-button:hover {
     background: #0d46b0;
     transform: translateY(-1px);
+
     box-shadow: 0 7px 18px rgba(18, 87, 214, 0.2);
 }
 
@@ -219,15 +243,20 @@ img {
 
 .hero {
     min-height: 680px;
+
     display: flex;
     align-items: center;
+
     text-align: center;
+
     padding: 100px 0 90px;
+
     background: radial-gradient(
         circle at 50% 20%,
         #eaf2ff 0%,
         #ffffff 55%
     );
+
     transition: background 0.3s ease;
 }
 
@@ -243,10 +272,13 @@ img {
 
 .eyebrow {
     color: #1257d6;
+
     font-size: 0.82rem;
     font-weight: 800;
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
+
     margin-bottom: 18px;
 }
 
@@ -257,10 +289,15 @@ img {
 
 .hero h1 {
     color: #111827;
+
     font-size: clamp(3rem, 7vw, 5.8rem);
+
     line-height: 1.05;
+
     letter-spacing: -0.055em;
+
     font-weight: 850;
+
     margin-bottom: 28px;
 }
 
@@ -275,9 +312,13 @@ img {
 
 .hero-text {
     max-width: 700px;
+
     margin: 0 auto 34px;
+
     color: #596579;
+
     font-size: clamp(1rem, 2vw, 1.18rem);
+
     line-height: 1.9;
 }
 
@@ -290,8 +331,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 14px;
+
     flex-wrap: wrap;
+
     margin-bottom: 20px;
 }
 
@@ -304,15 +348,22 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     min-height: 50px;
+
     padding: 13px 24px;
+
     border: none;
     border-radius: 11px;
+
     background: #1257d6;
     color: #ffffff;
+
     font-size: 0.96rem;
     font-weight: 750;
+
     box-shadow: 0 8px 24px rgba(18, 87, 214, 0.18);
+
     transition:
         transform 0.2s ease,
         background-color 0.2s ease,
@@ -321,7 +372,9 @@ img {
 
 .primary-button:hover {
     background: #0d46b0;
+
     transform: translateY(-2px);
+
     box-shadow: 0 12px 28px rgba(18, 87, 214, 0.25);
 }
 
@@ -340,14 +393,20 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     min-height: 50px;
+
     padding: 12px 23px;
+
     border: 1px solid #d9e0ea;
     border-radius: 11px;
+
     background: #ffffff;
     color: #263247;
+
     font-size: 0.96rem;
     font-weight: 700;
+
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
@@ -366,6 +425,7 @@ img {
 
 .free-note {
     color: #4b6078;
+
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -378,6 +438,7 @@ img {
 .section {
     padding: 110px 0;
     background: #ffffff;
+
     transition: background-color 0.25s ease;
 }
 
@@ -392,22 +453,31 @@ img {
 
 .section-heading {
     max-width: 720px;
+
     margin: 0 auto 60px;
+
     text-align: center;
 }
 
 .section-heading h2 {
     color: #111827;
+
     font-size: clamp(2.2rem, 5vw, 3.8rem);
+
     line-height: 1.15;
+
     letter-spacing: -0.04em;
+
     margin-bottom: 20px;
 }
 
 .section-heading > p:last-child {
     color: #667085;
+
     font-size: 1rem;
+
     max-width: 650px;
+
     margin: 0 auto;
 }
 
@@ -418,7 +488,9 @@ img {
 
 .problem-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 20px;
 }
 
@@ -429,12 +501,19 @@ img {
 
 .problem-card {
     min-height: 270px;
+
     padding: 30px 25px;
+
     text-align: left;
+
     background: #ffffff;
+
     border: 1px solid #e5e9f0;
+
     border-radius: 18px;
+
     box-shadow: 0 5px 20px rgba(16, 24, 40, 0.04);
+
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
@@ -444,7 +523,9 @@ img {
 
 .problem-card:hover {
     transform: translateY(-6px);
+
     border-color: #c9d8f7;
+
     box-shadow: 0 18px 40px rgba(16, 24, 40, 0.09);
 }
 
@@ -456,24 +537,33 @@ img {
 .icon {
     width: 52px;
     height: 52px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: #edf4ff;
+
     border-radius: 14px;
+
     font-size: 1.45rem;
+
     margin-bottom: 22px;
 }
 
 .problem-card h3 {
     color: #172033;
+
     font-size: 1.15rem;
+
     margin-bottom: 10px;
 }
 
 .problem-card p {
     color: #697586;
+
     font-size: 0.93rem;
+
     line-height: 1.7;
 }
 
@@ -484,15 +574,21 @@ img {
 
 .steps {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .step {
     padding: 35px;
+
     background: #ffffff;
+
     border: 1px solid #e5e9f0;
+
     border-radius: 18px;
+
     transition:
         background-color 0.25s ease,
         border-color 0.25s ease;
@@ -501,86 +597,258 @@ img {
 .step span {
     width: 44px;
     height: 44px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     margin-bottom: 25px;
+
     border-radius: 50%;
+
     background: #1257d6;
     color: #ffffff;
+
     font-size: 0.85rem;
     font-weight: 800;
 }
 
 .step h3 {
     color: #172033;
+
     font-size: 1.2rem;
+
     margin-bottom: 10px;
 }
 
 .step p {
     color: #697586;
+
     font-size: 0.94rem;
 }
 
 
 /* =========================================================
-   23. MEMBERSHIP
+   23. MEMBERSHIP / PRICING
+   HORIZONTAL MOVABLE TABS
 ========================================================= */
 
-.membership-card {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 42px;
+/*
+   IMPORTANT:
+   Your HTML should ideally have a wrapper around all
+   membership cards such as:
+
+   <div class="membership-plans">
+       <div class="membership-card">...</div>
+       <div class="membership-card">...</div>
+       <div class="membership-card">...</div>
+   </div>
+
+   The wrapper becomes horizontally scrollable.
+*/
+
+
+.membership-plans,
+.membership-grid,
+.membership-cards {
+    width: 100%;
+
     display: flex;
-    align-items: center;
+
+    flex-direction: row;
+
+    align-items: stretch;
+
+    gap: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 4px 25px;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+}
+
+
+/* Individual plan */
+
+.membership-plans .membership-card,
+.membership-grid .membership-card,
+.membership-cards .membership-card {
+    flex: 0 0 350px;
+
+    width: 350px;
+
+    max-width: 350px;
+
+    min-height: 390px;
+
+    margin: 0;
+
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 35px;
+
+    gap: 20px;
+
     border-radius: 22px;
+
     background: linear-gradient(
         135deg,
         #1257d6,
         #1749a7
     );
+
     color: #ffffff;
-    box-shadow: 0 20px 50px rgba(18, 87, 214, 0.2);
+
+    box-shadow: 0 20px 50px rgba(18, 87, 214, 0.20);
+
+    scroll-snap-align: start;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+.membership-plans .membership-card:hover,
+.membership-grid .membership-card:hover,
+.membership-cards .membership-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 25px 55px rgba(18, 87, 214, 0.28);
+}
+
+
+/* Plan label */
 
 .plan-label {
     font-size: 0.75rem;
+
     font-weight: 800;
+
     letter-spacing: 0.1em;
+
     opacity: 0.8;
+
     margin-bottom: 8px;
 }
 
+
+/* Price */
+
 .membership-card h3 {
     font-size: 3rem;
+
     line-height: 1;
+
     margin-bottom: 18px;
 }
 
 .membership-card h3 span {
     font-size: 0.95rem;
+
     font-weight: 500;
+
     opacity: 0.8;
 }
 
-.membership-card p:last-child {
-    max-width: 480px;
-    opacity: 0.88;
+
+/* Description */
+
+.membership-card p {
+    opacity: 0.9;
+
     font-size: 0.95rem;
 }
 
+
+/* Last paragraph */
+
+.membership-card p:last-child {
+    max-width: 480px;
+
+    opacity: 0.88;
+
+    font-size: 0.95rem;
+}
+
+
+/* Button */
+
 .membership-card .primary-button {
     background: #ffffff;
+
     color: #1257d6;
+
     box-shadow: none;
+
     white-space: nowrap;
+
+    width: 100%;
 }
 
 .membership-card .primary-button:hover {
     background: #f1f5ff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MEMBERSHIP LIST
+========================================================= */
+
+.membership-card ul {
+    width: 100%;
+
+    padding-left: 20px;
+
+    margin: 5px 0;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+}
+
+.membership-card li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   MEMBERSHIP SCROLLBAR
+========================================================= */
+
+.membership-plans::-webkit-scrollbar,
+.membership-grid::-webkit-scrollbar,
+.membership-cards::-webkit-scrollbar {
+    height: 7px;
+}
+
+.membership-plans::-webkit-scrollbar-track,
+.membership-grid::-webkit-scrollbar-track,
+.membership-cards::-webkit-scrollbar-track {
+    background: #e8eef8;
+
+    border-radius: 20px;
+}
+
+.membership-plans::-webkit-scrollbar-thumb,
+.membership-grid::-webkit-scrollbar-thumb,
+.membership-cards::-webkit-scrollbar-thumb {
+    background: #1257d6;
+
+    border-radius: 20px;
 }
 
 
@@ -590,14 +858,19 @@ img {
 
 .report-section {
     padding: 120px 0;
+
     background: #111827;
+
     color: #ffffff;
+
     text-align: center;
+
     transition: background-color 0.25s ease;
 }
 
 .report-content {
     max-width: 760px;
+
     margin: 0 auto;
 }
 
@@ -607,20 +880,27 @@ img {
 
 .report-content h2 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
+
     line-height: 1.1;
+
     letter-spacing: -0.04em;
+
     margin-bottom: 24px;
 }
 
 .report-content > p:not(.eyebrow) {
     color: #b7c0cf;
+
     max-width: 620px;
+
     margin: 0 auto 32px;
+
     font-size: 1rem;
 }
 
 .large-button {
     min-height: 56px;
+
     padding: 15px 30px;
 }
 
@@ -631,15 +911,21 @@ img {
 
 .footer {
     background: #0b1220;
+
     color: #ffffff;
+
     padding: 40px 0;
+
     transition: background-color 0.25s ease;
 }
 
 .footer-content {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 30px;
 }
 
@@ -649,6 +935,7 @@ img {
 
 .footer p {
     color: #8e99aa;
+
     font-size: 0.85rem;
 }
 
@@ -659,8 +946,11 @@ img {
 
 .report-page {
     min-height: 70vh;
+
     padding: 90px 0;
+
     background: #ffffff;
+
     transition: background-color 0.25s ease;
 }
 
@@ -670,30 +960,40 @@ img {
 
 
 /* =========================================================
-   REPORT MAIN BACKGROUND
+   27. REPORT FORM
 ========================================================= */
 
 .report-form {
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
     padding: 10px 0;
 }
 
 
 /* =========================================================
-   REPORT INTRO
+   28. REPORT INTRO
 ========================================================= */
 
 .report-intro {
     text-align: center;
+
     max-width: 720px;
+
     margin: 0 auto 55px;
 }
 
 .report-intro h1 {
     color: #111827;
+
     font-size: clamp(2.5rem, 6vw, 4.5rem);
+
     line-height: 1.1;
+
     letter-spacing: -0.045em;
+
     margin-bottom: 22px;
 }
 
@@ -703,32 +1003,26 @@ img {
 
 .report-intro > p:last-child {
     color: #667085;
+
     font-size: 1rem;
 }
 
 
 /* =========================================================
-   27. REPORT FORM
-========================================================= */
-
-.report-form {
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* =========================================================
-   QUESTION BOXES
-   EXTRA SPACE INSIDE + CLEAR GAP BETWEEN BOXES
+   29. QUESTION BOXES
 ========================================================= */
 
 .form-section {
     width: 100%;
+
     padding: 31px;
+
     margin-bottom: 28px;
 
     background: #ffffff;
+
     border: 1px solid #e3e8f0;
+
     border-radius: 18px;
 
     box-shadow: 0 4px 18px rgba(16, 24, 40, 0.035);
@@ -739,17 +1033,15 @@ img {
         box-shadow 0.25s ease;
 }
 
-
-/* Remove gap after the final question */
-
 .form-section:last-child {
     margin-bottom: 0;
 }
 
-
 .form-section h2 {
     color: #172033;
+
     font-size: 1.15rem;
+
     margin-bottom: 17px;
 }
 
@@ -759,26 +1051,37 @@ img {
 
 .form-section h2 small {
     color: #7b8494;
+
     font-size: 0.75rem;
+
     font-weight: 500;
 }
 
 
 /* =========================================================
-   28. FORM INPUTS
+   30. FORM INPUTS
 ========================================================= */
 
 .form-section input[type="text"],
 .form-section input[type="tel"],
 .form-section input[type="date"],
-.form-section textarea {
+.form-section input[type="email"],
+.form-section textarea,
+.form-section select {
     width: 100%;
+
     padding: 13px 15px;
+
     border: 1px solid #d8dee8;
+
     border-radius: 10px;
+
     background: #ffffff;
+
     color: #172033;
+
     outline: none;
+
     font-size: 0.95rem;
 
     transition:
@@ -790,12 +1093,15 @@ img {
 
 .form-section textarea {
     resize: vertical;
+
     min-height: 140px;
 }
 
 .form-section input:focus,
-.form-section textarea:focus {
+.form-section textarea:focus,
+.form-section select:focus {
     border-color: #1257d6;
+
     box-shadow: 0 0 0 3px rgba(18, 87, 214, 0.12);
 }
 
@@ -810,27 +1116,35 @@ img {
 
 
 /* =========================================================
-   29. PHONE HINT
+   31. PHONE HINT
 ========================================================= */
 
 #phoneHint {
     display: block;
+
     margin-top: 7px;
+
     font-size: 0.8rem;
 }
 
 
 /* =========================================================
-   30. CHECKBOX LABEL
+   32. CHECKBOX
 ========================================================= */
 
 .checkbox-label {
     display: flex;
+
     align-items: center;
+
     gap: 9px;
+
     margin-top: 13px;
+
     color: #596579;
+
     font-size: 0.9rem;
+
     cursor: pointer;
 }
 
@@ -840,23 +1154,32 @@ img {
 
 
 /* =========================================================
-   31. CATEGORY GRID
+   33. CATEGORY GRID
 ========================================================= */
 
 .category-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 12px;
 }
 
 .category-option {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
     padding: 15px;
+
     border: 1px solid #dfe5ee;
+
     border-radius: 12px;
+
     background: #ffffff;
+
     cursor: pointer;
 
     transition:
@@ -867,7 +1190,10 @@ img {
 
 .category-option:hover {
     border-color: #b9cbed;
+
     background: #f7faff;
+
+    transform: translateY(-1px);
 }
 
 .category-option input {
@@ -880,41 +1206,55 @@ img {
 
 .category-option strong {
     color: #344054;
+
     font-size: 0.9rem;
 }
 
 
 /* =========================================================
-   32. LOCATION GRID
+   34. LOCATION GRID
 ========================================================= */
 
 .location-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 16px;
 }
 
 .location-grid label {
     display: block;
+
     margin-bottom: 7px;
+
     color: #475467;
+
     font-size: 0.85rem;
+
     font-weight: 600;
 }
 
 
 /* =========================================================
-   33. MAP BUTTON
+   35. MAP BUTTON
 ========================================================= */
 
 .location-button {
     width: 100%;
+
     margin-top: 18px;
+
     padding: 13px 18px;
+
     border: 1px solid #cdd7e6;
+
     border-radius: 10px;
+
     background: #f8fafc;
+
     color: #344054;
+
     font-weight: 700;
 
     transition:
@@ -924,37 +1264,52 @@ img {
 
 .location-button:hover {
     background: #edf4ff;
+
     border-color: #1257d6;
 }
 
 .form-note {
     margin-top: 9px;
+
     color: #7b8494;
+
     font-size: 0.82rem;
 }
 
 
 /* =========================================================
-   34. PROBLEM METHODS
+   36. PROBLEM METHODS
 ========================================================= */
 
 .problem-methods {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 10px;
+
     margin-bottom: 16px;
 }
 
 .method-option {
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
+
     padding: 10px 14px;
+
     border: 1px solid #dfe5ee;
+
     border-radius: 10px;
+
     background: #ffffff;
+
     color: #344054;
+
     cursor: pointer;
+
     font-size: 0.9rem;
 }
 
@@ -964,23 +1319,32 @@ img {
 
 
 /* =========================================================
-   35. AUDIO BOX
+   37. AUDIO BOX
 ========================================================= */
 
 .audio-box {
     padding: 22px;
+
     border: 1px dashed #b9c7dc;
+
     border-radius: 14px;
+
     background: #f8fafc;
+
     text-align: center;
 }
 
 .audio-button {
     padding: 12px 20px;
+
     border: none;
+
     border-radius: 10px;
+
     background: #1257d6;
+
     color: #ffffff;
+
     font-weight: 700;
 }
 
@@ -990,38 +1354,50 @@ img {
 
 #audioStatus {
     margin-top: 10px;
+
     color: #667085;
+
     font-size: 0.85rem;
 }
 
 
 /* =========================================================
-   36. EVIDENCE
+   38. EVIDENCE
 ========================================================= */
 
 .evidence-box {
     padding: 30px;
+
     border: 1px dashed #b9c7dc;
+
     border-radius: 15px;
+
     background: #f8fafc;
+
     text-align: center;
 }
 
 .evidence-icon {
     font-size: 2rem;
+
     margin-bottom: 10px;
 }
 
 .evidence-box h3 {
     color: #344054;
+
     font-size: 1rem;
+
     margin-bottom: 8px;
 }
 
 .evidence-box p {
     max-width: 600px;
+
     margin: 0 auto 18px;
+
     color: #667085;
+
     font-size: 0.87rem;
 }
 
@@ -1031,14 +1407,22 @@ img {
 
 .file-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     padding: 11px 18px;
+
     border-radius: 10px;
+
     background: #1257d6;
+
     color: #ffffff;
+
     font-size: 0.9rem;
+
     font-weight: 700;
+
     cursor: pointer;
 
     transition:
@@ -1048,45 +1432,66 @@ img {
 
 .file-button:hover {
     background: #0d46b0;
+
     transform: translateY(-1px);
 }
 
 .file-list {
     display: flex;
+
     flex-direction: column;
+
     gap: 7px;
+
     margin-top: 15px;
+
     text-align: left;
 }
 
 .file-list div {
     padding: 8px 11px;
+
     border-radius: 8px;
+
     background: #ffffff;
+
     border: 1px solid #e2e7ef;
+
     color: #475467;
+
     font-size: 0.83rem;
 }
 
 
 /* =========================================================
-   37. YES / NO
+   39. YES / NO
 ========================================================= */
 
 .yes-no {
     display: flex;
+
     gap: 12px;
+
+    flex-wrap: wrap;
 }
 
 .yes-no label {
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
+
     padding: 11px 20px;
+
     border: 1px solid #dfe5ee;
+
     border-radius: 10px;
+
     background: #ffffff;
+
     color: #344054;
+
     cursor: pointer;
 }
 
@@ -1096,21 +1501,28 @@ img {
 
 
 /* =========================================================
-   38. PREVIOUS FIELDS
+   40. PREVIOUS FIELDS
 ========================================================= */
 
 .previous-fields {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 16px;
+
     margin-top: 20px;
 }
 
 .previous-fields label {
     display: block;
+
     margin-bottom: 7px;
+
     color: #475467;
+
     font-size: 0.85rem;
+
     font-weight: 600;
 }
 
@@ -1120,17 +1532,20 @@ img {
 
 
 /* =========================================================
-   39. SUBMIT AREA
+   41. SUBMIT AREA
 ========================================================= */
 
 .submit-area {
     text-align: center;
+
     padding: 10px 0 30px;
 }
 
 .submit-button {
     border: none;
+
     min-width: 230px;
+
     cursor: pointer;
 }
 
@@ -1140,26 +1555,33 @@ img {
 
 
 /* =========================================================
-   40. SUCCESS MESSAGE
+   42. SUCCESS MESSAGE
 ========================================================= */
 
 .success-message {
     margin-top: 20px;
+
     padding: 15px 18px;
+
     border-radius: 12px;
+
     background: #ecfdf3;
+
     border: 1px solid #abefc6;
+
     color: #067647;
+
     font-weight: 700;
 }
 
 
 /* =========================================================
-   41. DARK MODE
+   43. DARK MODE
 ========================================================= */
 
 body.dark-mode {
     background: #0f172a;
+
     color: #e5e7eb;
 }
 
@@ -1168,6 +1590,7 @@ body.dark-mode {
 
 body.dark-mode .header {
     background: rgba(15, 23, 42, 0.95);
+
     border-bottom-color: #263247;
 }
 
@@ -1184,26 +1607,32 @@ body.dark-mode .nav-links a:hover {
 
 body.dark-mode .theme-button {
     background: #172033;
+
     border-color: #334155;
+
     color: #f8fafc;
 }
 
 body.dark-mode .theme-button:hover {
     background: #1e293b;
+
     border-color: #75a8ff;
 }
 
 
-/* LANGUAGE BUTTON */
+/* LANGUAGE */
 
 body.dark-mode .language-button {
     background: #172033;
+
     border-color: #334155;
+
     color: #f8fafc;
 }
 
 body.dark-mode .language-button:hover {
     background: #1e293b;
+
     border-color: #75a8ff;
 }
 
@@ -1235,12 +1664,15 @@ body.dark-mode .free-note {
 
 body.dark-mode .secondary-button {
     background: #172033;
+
     border-color: #334155;
+
     color: #e5e7eb;
 }
 
 body.dark-mode .secondary-button:hover {
     background: #1e293b;
+
     border-color: #75a8ff;
 }
 
@@ -1271,12 +1703,15 @@ body.dark-mode .section-heading > p:last-child {
 
 body.dark-mode .problem-card {
     background: #172033;
+
     border-color: #2b3950;
+
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
 }
 
 body.dark-mode .problem-card:hover {
     border-color: #4268a8;
+
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 }
 
@@ -1297,6 +1732,7 @@ body.dark-mode .icon {
 
 body.dark-mode .step {
     background: #172033;
+
     border-color: #2b3950;
 }
 
@@ -1311,7 +1747,21 @@ body.dark-mode .step p {
 
 /* MEMBERSHIP */
 
-body.dark-mode .membership-card {
+body.dark-mode .membership-plans::-webkit-scrollbar-track,
+body.dark-mode .membership-grid::-webkit-scrollbar-track,
+body.dark-mode .membership-cards::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+body.dark-mode .membership-plans::-webkit-scrollbar-thumb,
+body.dark-mode .membership-grid::-webkit-scrollbar-thumb,
+body.dark-mode .membership-cards::-webkit-scrollbar-thumb {
+    background: #4f83df;
+}
+
+body.dark-mode .membership-plans .membership-card,
+body.dark-mode .membership-grid .membership-card,
+body.dark-mode .membership-cards .membership-card {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
@@ -1331,7 +1781,7 @@ body.dark-mode .footer {
 
 
 /* =========================================================
-   42. REPORT PAGE DARK MODE
+   44. REPORT PAGE DARK MODE
 ========================================================= */
 
 body.dark-mode .report-page {
@@ -1351,7 +1801,9 @@ body.dark-mode .report-intro > p:last-child {
 
 body.dark-mode .form-section {
     background: #172033;
+
     border-color: #2b3950;
+
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
 }
 
@@ -1365,9 +1817,13 @@ body.dark-mode .form-section h2 {
 body.dark-mode .form-section input[type="text"],
 body.dark-mode .form-section input[type="tel"],
 body.dark-mode .form-section input[type="date"],
-body.dark-mode .form-section textarea {
+body.dark-mode .form-section input[type="email"],
+body.dark-mode .form-section textarea,
+body.dark-mode .form-section select {
     background: #0f172a;
+
     border-color: #334155;
+
     color: #f1f5f9;
 }
 
@@ -1377,8 +1833,10 @@ body.dark-mode .form-section textarea::placeholder {
 }
 
 body.dark-mode .form-section input:focus,
-body.dark-mode .form-section textarea:focus {
+body.dark-mode .form-section textarea:focus,
+body.dark-mode .form-section select:focus {
     border-color: #5b91f5;
+
     box-shadow: 0 0 0 3px rgba(91, 145, 245, 0.15);
 }
 
@@ -1407,11 +1865,13 @@ body.dark-mode .form-note {
 
 body.dark-mode .category-option {
     background: #111c2f;
+
     border-color: #334155;
 }
 
 body.dark-mode .category-option:hover {
     background: #172b50;
+
     border-color: #5277b4;
 }
 
@@ -1424,21 +1884,26 @@ body.dark-mode .category-option strong {
 
 body.dark-mode .location-button {
     background: #111c2f;
+
     border-color: #334155;
+
     color: #e2e8f0;
 }
 
 body.dark-mode .location-button:hover {
     background: #172b50;
+
     border-color: #5b91f5;
 }
 
 
-/* PROBLEM METHODS */
+/* METHODS */
 
 body.dark-mode .method-option {
     background: #111c2f;
+
     border-color: #334155;
+
     color: #e2e8f0;
 }
 
@@ -1447,6 +1912,7 @@ body.dark-mode .method-option {
 
 body.dark-mode .audio-box {
     background: #111c2f;
+
     border-color: #475569;
 }
 
@@ -1459,6 +1925,7 @@ body.dark-mode #audioStatus {
 
 body.dark-mode .evidence-box {
     background: #111c2f;
+
     border-color: #475569;
 }
 
@@ -1472,7 +1939,9 @@ body.dark-mode .evidence-box p {
 
 body.dark-mode .file-list div {
     background: #172033;
+
     border-color: #334155;
+
     color: #cbd5e1;
 }
 
@@ -1481,7 +1950,9 @@ body.dark-mode .file-list div {
 
 body.dark-mode .yes-no label {
     background: #111c2f;
+
     border-color: #334155;
+
     color: #e2e8f0;
 }
 
@@ -1490,13 +1961,15 @@ body.dark-mode .yes-no label {
 
 body.dark-mode .success-message {
     background: #062e24;
+
     border-color: #075e54;
+
     color: #6ee7b7;
 }
 
 
 /* =========================================================
-   43. TABLET
+   45. TABLET
 ========================================================= */
 
 @media (max-width: 950px) {
@@ -1516,11 +1989,23 @@ body.dark-mode .success-message {
     .steps {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* MEMBERSHIP */
+
+    .membership-plans .membership-card,
+    .membership-grid .membership-card,
+    .membership-cards .membership-card {
+        flex-basis: 330px;
+
+        width: 330px;
+
+        max-width: 330px;
+    }
 }
 
 
 /* =========================================================
-   44. MOBILE
+   46. MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
@@ -1530,10 +2015,13 @@ body.dark-mode .success-message {
     }
 
 
-    /* HEADER */
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
 
     .nav {
         min-height: 68px;
+
         gap: 8px;
     }
 
@@ -1547,6 +2035,7 @@ body.dark-mode .success-message {
 
     .nav-actions {
         margin-left: auto;
+
         gap: 6px;
     }
 
@@ -1561,29 +2050,36 @@ body.dark-mode .success-message {
 
     .nav-button {
         padding: 9px 12px;
+
         font-size: 0.78rem;
     }
 
 
-    /* HERO */
+    /* -----------------------------------------------------
+       HERO
+    ----------------------------------------------------- */
 
     .hero {
         min-height: auto;
+
         padding: 85px 0 75px;
     }
 
     .hero h1 {
         font-size: clamp(2.6rem, 12vw, 4rem);
+
         letter-spacing: -0.045em;
     }
 
     .hero-text {
         font-size: 0.96rem;
+
         line-height: 1.8;
     }
 
     .hero-buttons {
         flex-direction: column;
+
         width: 100%;
     }
 
@@ -1592,7 +2088,9 @@ body.dark-mode .success-message {
     }
 
 
-    /* SECTIONS */
+    /* -----------------------------------------------------
+       SECTIONS
+    ----------------------------------------------------- */
 
     .section {
         padding: 80px 0;
@@ -1607,23 +2105,30 @@ body.dark-mode .success-message {
     }
 
 
-    /* CARDS */
+    /* -----------------------------------------------------
+       PROBLEM CARDS
+    ----------------------------------------------------- */
 
     .problem-grid {
         grid-template-columns: 1fr;
+
         gap: 15px;
     }
 
     .problem-card {
         min-height: auto;
+
         padding: 25px;
     }
 
 
-    /* STEPS */
+    /* -----------------------------------------------------
+       STEPS
+    ----------------------------------------------------- */
 
     .steps {
         grid-template-columns: 1fr;
+
         gap: 15px;
     }
 
@@ -1632,25 +2137,56 @@ body.dark-mode .success-message {
     }
 
 
-    /* MEMBERSHIP */
+    /* -----------------------------------------------------
+       MEMBERSHIP — MOBILE HORIZONTAL SCROLL
+    ----------------------------------------------------- */
 
-    .membership-card {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 30px;
-        gap: 25px;
-    }
-
-    .membership-card h3 {
-        font-size: 2.6rem;
-    }
-
-    .membership-card .primary-button {
+    .membership-plans,
+    .membership-grid,
+    .membership-cards {
         width: 100%;
+
+        display: flex;
+
+        flex-direction: row;
+
+        flex-wrap: nowrap;
+
+        gap: 15px;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        padding: 10px 5px 22px;
+
+        scroll-snap-type: x mandatory;
+
+        touch-action: pan-x;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .membership-plans .membership-card,
+    .membership-grid .membership-card,
+    .membership-cards .membership-card {
+        flex: 0 0 82vw;
+
+        width: 82vw;
+
+        max-width: 82vw;
+
+        min-height: 400px;
+
+        padding: 27px;
+
+        scroll-snap-align: center;
     }
 
 
-    /* REPORT */
+    /* -----------------------------------------------------
+       REPORT SECTION
+    ----------------------------------------------------- */
 
     .report-section {
         padding: 85px 0;
@@ -1661,7 +2197,9 @@ body.dark-mode .success-message {
     }
 
 
-    /* REPORT PAGE */
+    /* -----------------------------------------------------
+       REPORT PAGE
+    ----------------------------------------------------- */
 
     .report-page {
         padding: 65px 0;
@@ -1676,21 +2214,38 @@ body.dark-mode .success-message {
     }
 
 
-    /* QUESTION BOX SPACING ON MOBILE */
+    /* -----------------------------------------------------
+       QUESTION BOXES
+    ----------------------------------------------------- */
 
     .form-section {
         padding: 25px;
+
         margin-bottom: 22px;
     }
 
+
+    /* -----------------------------------------------------
+       CATEGORY
+    ----------------------------------------------------- */
 
     .category-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* -----------------------------------------------------
+       LOCATION
+    ----------------------------------------------------- */
+
     .location-grid {
         grid-template-columns: 1fr;
     }
+
+
+    /* -----------------------------------------------------
+       PREVIOUS FIELDS
+    ----------------------------------------------------- */
 
     .previous-fields {
         grid-template-columns: 1fr;
@@ -1700,22 +2255,30 @@ body.dark-mode .success-message {
         grid-column: auto;
     }
 
+
+    /* -----------------------------------------------------
+       EVIDENCE
+    ----------------------------------------------------- */
+
     .evidence-box {
         padding: 23px 17px;
     }
 
 
-    /* FOOTER */
+    /* -----------------------------------------------------
+       FOOTER
+    ----------------------------------------------------- */
 
     .footer-content {
         flex-direction: column;
+
         align-items: flex-start;
     }
 }
 
 
 /* =========================================================
-   45. SMALL PHONES
+   47. SMALL PHONES
 ========================================================= */
 
 @media (max-width: 420px) {
@@ -1750,10 +2313,63 @@ body.dark-mode .success-message {
     }
 
 
+    /* SMALL PHONE MEMBERSHIP */
+
+    .membership-plans .membership-card,
+    .membership-grid .membership-card,
+    .membership-cards .membership-card {
+        flex: 0 0 88vw;
+
+        width: 88vw;
+
+        max-width: 88vw;
+
+        min-height: 390px;
+
+        padding: 24px;
+    }
+
+
     /* SMALL PHONE QUESTION SPACING */
 
     .form-section {
         padding: 23px;
+
         margin-bottom: 20px;
+    }
+}
+
+
+/* =========================================================
+   48. ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(18, 87, 214, 0.35);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   49. REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

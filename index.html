@@ -455,251 +455,204 @@
         
 <!-- ================= MEMBERSHIP ================= -->
 
-     /* =========================================================
-   MEMBERSHIP — HORIZONTAL MOVABLE PLANS
-========================================================= */
+         <section id="membership" class="section">
 
-.membership-slider {
-    display: flex;
-    gap: 22px;
+            <div class="container">
 
-    width: 100%;
+                <div class="section-heading">
 
-    overflow-x: auto;
-    overflow-y: hidden;
+                    <p class="eyebrow"
+                    data-ml="മെമ്പർഷിപ്പ്"
+                    data-en="Membership">
+                      മെമ്പർഷിപ്പ്
+                     </p>
 
-    padding: 10px 5px 25px;
+                    <h2
+                        data-ml="നിങ്ങൾക്ക് അനുയോജ്യമായ പ്ലാൻ തിരഞ്ഞെടുക്കാം."
+                        data-en="Choose the plan that suits you.">
+                        നിങ്ങൾക്ക് അനുയോജ്യമായ പ്ലാൻ തിരഞ്ഞെടുക്കാം.
+                    </h2>
 
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+                    <p
+                        data-ml="പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്. കൂടുതൽ സഹായം ആവശ്യമായവർക്ക് അനുയോജ്യമായ മെമ്പർഷിപ്പ് തിരഞ്ഞെടുക്കാം."
+                        data-en="Reporting a problem is free. If you need additional assistance, you can choose a membership plan.">
+                        പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
+                        കൂടുതൽ സഹായം ആവശ്യമായവർക്ക് അനുയോജ്യമായ
+                        മെമ്പർഷിപ്പ് തിരഞ്ഞെടുക്കാം.
+                    </p>
 
-    -webkit-overflow-scrolling: touch;
+                </div>
 
-    scrollbar-width: thin;
-}
 
+            <div class="membership-grid">
 
-/* Individual plan */
 
-.membership-slider .membership-card {
+            <!-- ================= BASIC ================= -->
 
-    flex: 0 0 calc(33.333% - 15px);
+            <div class="membership-card">
 
-    min-width: 320px;
+                <p class="plan-label">BASIC</p>
 
-    min-height: 300px;
+                <h3>
+                    ₹99
+                    <span
+                        data-ml="/ മാസം"
+                        data-en="/ month">
+                        / മാസം
+                    </span>
+                </h3>
 
-    padding: 32px;
+                <p
+                    data-ml="അടിസ്ഥാന സഹായവും മാർഗനിർദേശവും."
+                    data-en="Basic guidance and assistance.">
+                    അടിസ്ഥാന സഹായവും മാർഗനിർദേശവും.
+                </p>
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+                <ul class="plan-features">
 
-    border-radius: 22px;
+                    <li
+                        data-ml="✓ അടിസ്ഥാന മാർഗനിർദേശം"
+                        data-en="✓ Basic guidance">
+                        ✓ അടിസ്ഥാന മാർഗനിർദേശം
+                    </li>
 
-    background: linear-gradient(
-        135deg,
-        #1257d6,
-        #1749a7
-    );
+                    <li
+                        data-ml="✓ പ്രശ്നം പരിശോധിക്കൽ"
+                        data-en="✓ Problem review">
+                        ✓ പ്രശ്നം പരിശോധിക്കൽ
+                    </li>
 
-    color: #ffffff;
+                    <li
+                        data-ml="✓ ആവശ്യമായ നടപടികളെക്കുറിച്ചുള്ള സഹായം"
+                        data-en="✓ Help with necessary next steps">
+                        ✓ ആവശ്യമായ നടപടികളെക്കുറിച്ചുള്ള സഹായം
+                    </li>
 
-    box-shadow:
-        0 18px 45px rgba(18, 87, 214, 0.18);
+                </ul>
 
-    scroll-snap-align: start;
+                <a href="report.html"
+                   class="primary-button"
+                   data-ml="Basic തിരഞ്ഞെടുക്കാം →"
+                   data-en="Choose Basic →">
+                    Basic തിരഞ്ഞെടുക്കാം →
+                </a>
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
+            </div>
 
 
-/* Hover */
 
-.membership-slider .membership-card:hover {
-    transform: translateY(-6px);
+            <!-- ================= PLUS ================= -->
 
-    box-shadow:
-        0 25px 55px rgba(18, 87, 214, 0.28);
-}
+            <div class="membership-card featured">
 
+                <p class="plan-label">PLUS</p>
 
-/* Plan information */
+                <h3>
+                    ₹399
+                    <span
+                        data-ml="/ മാസം"
+                        data-en="/ month">
+                        / മാസം
+                    </span>
+                </h3>
 
-.plan-info {
-    margin-bottom: 20px;
-}
+                <p
+                    data-ml="കൂടുതൽ സഹായവും മുൻഗണനാ പിന്തുണയും."
+                    data-en="More assistance with priority support.">
+                    കൂടുതൽ സഹായവും മുൻഗണനാ പിന്തുണയും.
+                </p>
 
-.plan-label {
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
+                <ul class="plan-features">
 
-    opacity: 0.8;
+                    <li
+                        data-ml="✓ Basic പ്ലാനിലെ എല്ലാ സേവനങ്ങളും"
+                        data-en="✓ Everything in Basic">
+                        ✓ Basic പ്ലാനിലെ എല്ലാ സേവനങ്ങളും
+                    </li>
 
-    margin-bottom: 8px;
-}
+                    <li
+                        data-ml="✓ മുൻഗണനാ പിന്തുണ"
+                        data-en="✓ Priority support">
+                        ✓ മുൻഗണനാ പിന്തുണ
+                    </li>
 
+                    <li
+                        data-ml="✓ അപേക്ഷകളും പരാതികളും തയ്യാറാക്കുന്നതിൽ സഹായം"
+                        data-en="✓ Help with applications and complaints">
+                        ✓ അപേക്ഷകളും പരാതികളും തയ്യാറാക്കുന്നതിൽ സഹായം
+                    </li>
 
-.membership-slider .membership-card h3 {
-    font-size: 3rem;
-    line-height: 1;
+                </ul>
 
-    margin-bottom: 15px;
-}
+                <a href="report.html"
+                   class="primary-button"
+                   data-ml="Plus തിരഞ്ഞെടുക്കാം →"
+                   data-en="Choose Plus →">
+                    Plus തിരഞ്ഞെടുക്കാം →
+                </a>
 
+            </div>
 
-.membership-slider .membership-card h3 span {
-    font-size: 0.9rem;
-    font-weight: 500;
-    opacity: 0.8;
-}
 
 
-.membership-slider .membership-card p {
-    font-size: 0.92rem;
-    line-height: 1.7;
+            <!-- ================= PREMIUM ================= -->
 
-    opacity: 0.9;
-}
+            <div class="membership-card">
 
+                <p class="plan-label">PREMIUM</p>
 
-/* Features */
+                <h3>
+                    ₹499
+                    <span
+                        data-ml="/ മാസം"
+                        data-en="/ month">
+                        / മാസം
+                    </span>
+                </h3>
 
-.plan-features {
-    list-style: none;
+                <p
+                    data-ml="പരമാവധി പിന്തുണയും വ്യക്തിഗത സഹായവും."
+                    data-en="Maximum support with personalized assistance.">
+                    പരമാവധി പിന്തുണയും വ്യക്തിഗത സഹായവും.
+                </p>
 
-    margin: 10px 0 25px;
-    padding: 0;
-}
+                <ul class="plan-features">
 
+                    <li
+                        data-ml="✓ Plus പ്ലാനിലെ എല്ലാ സേവനങ്ങളും"
+                        data-en="✓ Everything in Plus">
+                        ✓ Plus പ്ലാനിലെ എല്ലാ സേവനങ്ങളും
+                    </li>
 
-.plan-features li {
-    font-size: 0.88rem;
-    line-height: 1.7;
+                    <li
+                        data-ml="✓ ഉയർന്ന മുൻഗണനാ പിന്തുണ"
+                        data-en="✓ Highest priority support">
+                        ✓ ഉയർന്ന മുൻഗണനാ പിന്തുണ
+                    </li>
 
-    margin-bottom: 8px;
+                    <li
+                        data-ml="✓ വ്യക്തിഗത മാർഗനിർദേശവും സഹായവും"
+                        data-en="✓ Personalized guidance and assistance">
+                        ✓ വ്യക്തിഗത മാർഗനിർദേശവും സഹായവും
+                    </li>
 
-    color: #ffffff;
-}
+                </ul>
 
+                <a href="report.html"
+                   class="primary-button"
+                   data-ml="Premium തിരഞ്ഞെടുക്കാം →"
+                   data-en="Choose Premium →">
+                    Premium തിരഞ്ഞെടുക്കാം →
+                </a>
 
-/* Button */
+            </div>
 
-.membership-slider .primary-button {
-    width: 100%;
 
-    background: #ffffff;
-    color: #1257d6;
+             </div>
 
-    box-shadow: none;
+            </div>
 
-    white-space: nowrap;
-}
-
-
-.membership-slider .primary-button:hover {
-    background: #f1f5ff;
-}
-
-
-/* =========================================================
-   DESKTOP — 3 PLANS SIDE BY SIDE
-========================================================= */
-
-@media (min-width: 951px) {
-
-    .membership-slider {
-        overflow-x: visible;
-    }
-
-    .membership-slider .membership-card {
-        min-width: 0;
-    }
-
-}
-
-
-/* =========================================================
-   TABLET — 2 PLANS + SWIPE
-========================================================= */
-
-@media (max-width: 950px) {
-
-    .membership-slider {
-        cursor: grab;
-    }
-
-    .membership-slider:active {
-        cursor: grabbing;
-    }
-
-    .membership-slider .membership-card {
-        flex: 0 0 calc(50% - 11px);
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE — ONE PLAN AT A TIME + HORIZONTAL SWIPE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .membership-slider {
-        gap: 15px;
-
-        margin-left: 0;
-        padding-left: 2px;
-        padding-right: 2px;
-
-        scrollbar-width: none;
-    }
-
-    .membership-slider::-webkit-scrollbar {
-        display: none;
-    }
-
-    .membership-slider .membership-card {
-
-        flex: 0 0 88%;
-
-        min-width: 88%;
-
-        min-height: 350px;
-
-        padding: 28px;
-
-    }
-
-    .membership-slider .membership-card h3 {
-        font-size: 2.7rem;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 420px) {
-
-    .membership-slider .membership-card {
-        flex: 0 0 92%;
-        min-width: 92%;
-
-        padding: 25px;
-    }
-
-    .membership-slider .membership-card h3 {
-        font-size: 2.5rem;
-    }
-
-}
+        </section>
         <!-- ================= REPORT ================= -->
 
         <section id="report"

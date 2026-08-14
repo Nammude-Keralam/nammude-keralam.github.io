@@ -452,96 +452,254 @@
 
 
 
-        <!-- ================= MEMBERSHIP ================= -->
+        
+<!-- ================= MEMBERSHIP ================= -->
 
-        <section id="membership"
-                 class="section">
+     /* =========================================================
+   MEMBERSHIP — HORIZONTAL MOVABLE PLANS
+========================================================= */
 
-            <div class="container">
+.membership-slider {
+    display: flex;
+    gap: 22px;
 
-                <div class="section-heading">
+    width: 100%;
 
-                    <p class="eyebrow"
-                       data-ml="മെമ്പർഷിപ്പ്"
-                       data-en="Membership">
+    overflow-x: auto;
+    overflow-y: hidden;
 
-                        മെമ്പർഷിപ്പ്
+    padding: 10px 5px 25px;
 
-                    </p>
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 
+    -webkit-overflow-scrolling: touch;
 
-                    <h2
-                        data-ml="എല്ലാവർക്കും താങ്ങാനാകുന്ന നിരക്കിൽ."
-                        data-en="Affordable help for everyone.">
-
-                        എല്ലാവർക്കും താങ്ങാനാകുന്ന നിരക്കിൽ.
-
-                    </h2>
-
-
-                    <p
-                        data-ml="പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്. കൂടുതൽ സഹായം ആവശ്യമായാൽ, ചെയ്യേണ്ട സേവനവും അതിനുള്ള നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും."
-                        data-en="Reporting a problem is free. If additional assistance is required, the service and its charge will be explained in advance.">
-
-                        പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
-                        കൂടുതൽ സഹായം ആവശ്യമായാൽ, ചെയ്യേണ്ട സേവനവും
-                        അതിനുള്ള നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും.
-
-                    </p>
-
-                </div>
+    scrollbar-width: thin;
+}
 
 
+/* Individual plan */
 
-                <div class="membership-card">
+.membership-slider .membership-card {
 
-                    <div>
+    flex: 0 0 calc(33.333% - 15px);
 
-                        <p class="plan-label">
-                            BASIC
-                        </p>
+    min-width: 320px;
 
+    min-height: 300px;
 
-                        <h3>
-                            ₹199
-                            <span
-                                data-ml="/ മാസം"
-                                data-en="/ month">
-                                / മാസം
-                            </span>
-                        </h3>
+    padding: 32px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-                        <p
-                            data-ml="അടിസ്ഥാന മാർഗനിർദേശവും ആവശ്യമായ സഹായവും ലഭിക്കുന്നതിനുള്ള അംഗത്വ പദ്ധതി."
-                            data-en="A membership plan for basic guidance and assistance.">
+    border-radius: 22px;
 
-                            അടിസ്ഥാന മാർഗനിർദേശവും
-                            ആവശ്യമായ സഹായവും ലഭിക്കുന്നതിനുള്ള
-                            അംഗത്വ പദ്ധതി.
+    background: linear-gradient(
+        135deg,
+        #1257d6,
+        #1749a7
+    );
 
-                        </p>
+    color: #ffffff;
 
-                    </div>
+    box-shadow:
+        0 18px 45px rgba(18, 87, 214, 0.18);
 
+    scroll-snap-align: start;
 
-                    <a href="report.html"
-                       class="primary-button"
-                       data-ml="തുടങ്ങാം →"
-                       data-en="Get Started →">
-
-                        തുടങ്ങാം →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
 
 
+/* Hover */
 
+.membership-slider .membership-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 25px 55px rgba(18, 87, 214, 0.28);
+}
+
+
+/* Plan information */
+
+.plan-info {
+    margin-bottom: 20px;
+}
+
+.plan-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+
+    opacity: 0.8;
+
+    margin-bottom: 8px;
+}
+
+
+.membership-slider .membership-card h3 {
+    font-size: 3rem;
+    line-height: 1;
+
+    margin-bottom: 15px;
+}
+
+
+.membership-slider .membership-card h3 span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+
+.membership-slider .membership-card p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+
+    opacity: 0.9;
+}
+
+
+/* Features */
+
+.plan-features {
+    list-style: none;
+
+    margin: 10px 0 25px;
+    padding: 0;
+}
+
+
+.plan-features li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+
+    margin-bottom: 8px;
+
+    color: #ffffff;
+}
+
+
+/* Button */
+
+.membership-slider .primary-button {
+    width: 100%;
+
+    background: #ffffff;
+    color: #1257d6;
+
+    box-shadow: none;
+
+    white-space: nowrap;
+}
+
+
+.membership-slider .primary-button:hover {
+    background: #f1f5ff;
+}
+
+
+/* =========================================================
+   DESKTOP — 3 PLANS SIDE BY SIDE
+========================================================= */
+
+@media (min-width: 951px) {
+
+    .membership-slider {
+        overflow-x: visible;
+    }
+
+    .membership-slider .membership-card {
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET — 2 PLANS + SWIPE
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .membership-slider {
+        cursor: grab;
+    }
+
+    .membership-slider:active {
+        cursor: grabbing;
+    }
+
+    .membership-slider .membership-card {
+        flex: 0 0 calc(50% - 11px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — ONE PLAN AT A TIME + HORIZONTAL SWIPE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .membership-slider {
+        gap: 15px;
+
+        margin-left: 0;
+        padding-left: 2px;
+        padding-right: 2px;
+
+        scrollbar-width: none;
+    }
+
+    .membership-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .membership-slider .membership-card {
+
+        flex: 0 0 88%;
+
+        min-width: 88%;
+
+        min-height: 350px;
+
+        padding: 28px;
+
+    }
+
+    .membership-slider .membership-card h3 {
+        font-size: 2.7rem;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .membership-slider .membership-card {
+        flex: 0 0 92%;
+        min-width: 92%;
+
+        padding: 25px;
+    }
+
+    .membership-slider .membership-card h3 {
+        font-size: 2.5rem;
+    }
+
+}
         <!-- ================= REPORT ================= -->
 
         <section id="report"

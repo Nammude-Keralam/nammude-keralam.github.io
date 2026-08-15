@@ -943,8 +943,49 @@
 
 
 
-                   
+                   /* =========================
+   GOOGLE MAPS LOCATION
+========================= */
 
+let mapHTML = "-";
+
+const latitude = report.latitude;
+const longitude = report.longitude;
+
+if (
+    latitude !== null &&
+    latitude !== undefined &&
+    longitude !== null &&
+    longitude !== undefined &&
+    String(latitude).trim() !== "" &&
+    String(longitude).trim() !== ""
+) {
+
+    const lat = Number(latitude);
+    const lng = Number(longitude);
+
+    if (
+        Number.isFinite(lat) &&
+        Number.isFinite(lng)
+    ) {
+
+        const mapURL =
+            `https://www.google.com/maps?q=${lat},${lng}`;
+
+        mapHTML = `
+            <a
+                class="action-btn map-btn"
+                href="${mapURL}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                📍 Map
+            </a>
+        `;
+
+    }
+
+}
 
                     /* =========================
   /* =========================

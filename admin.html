@@ -2,68 +2,141 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Nammude — Admin Dashboard</title>
 
-    <link rel="stylesheet" href="admin.css">
-
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
     <style>
 
         /* =====================================================
-           ADMIN THEME
+           NAMMUDE ADMIN — COMPLETE CSS
         ===================================================== */
 
         :root {
+
             --bg: #f5f7fa;
+
             --card: #ffffff;
+
             --text: #17202a;
+
             --muted: #6b7280;
-            --border: #e5e7eb;
+
+            --border: #e1e5ea;
+
             --header: #ffffff;
+
             --input: #ffffff;
-            --shadow: 0 8px 30px rgba(0,0,0,.07);
+
+            --table-head: #f1f5f9;
+
+            --hover: #f8fafc;
+
+            --shadow:
+                0 5px 20px rgba(0, 0, 0, 0.06);
+
             --primary: #111827;
+
             --primary-text: #ffffff;
+
         }
+
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
 
         body.dark-mode {
-            --bg: #0f1115;
-            --card: #181b21;
-            --text: #f5f7fa;
+
+            --bg: #0b0e12;
+
+            --card: #171b21;
+
+            --text: #f3f4f6;
+
             --muted: #9ca3af;
-            --border: #2a2f38;
-            --header: #15181d;
-            --input: #1c2027;
-            --shadow: 0 8px 30px rgba(0,0,0,.3);
-            --primary: #f5f7fa;
+
+            --border: #292f38;
+
+            --header: #12161b;
+
+            --input: #1c2128;
+
+            --table-head: #1b2027;
+
+            --hover: #20252d;
+
+            --shadow:
+                0 5px 25px rgba(0, 0, 0, 0.35);
+
+            --primary: #f3f4f6;
+
             --primary-text: #111827;
+
         }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
+
+            margin: 0;
+
+            padding: 0;
+
             box-sizing: border-box;
+
         }
+
 
         html {
+
             scroll-behavior: smooth;
+
         }
 
+
         body {
+
             margin: 0;
+
+            min-height: 100vh;
+
             font-family:
                 "Segoe UI",
                 Arial,
+                Helvetica,
                 sans-serif;
 
             background: var(--bg);
+
             color: var(--text);
 
             transition:
                 background .25s ease,
                 color .25s ease;
+
+        }
+
+
+        button,
+        input,
+        select {
+
+            font-family: inherit;
+
         }
 
 
@@ -72,69 +145,122 @@
         ===================================================== */
 
         #loginPage {
+
             min-height: 100vh;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 20px;
+
+            background: var(--bg);
+
         }
 
+
         .login-box {
+
             width: 100%;
+
             max-width: 420px;
 
             background: var(--card);
 
+            border: 1px solid var(--border);
+
             padding: 35px;
 
-            border-radius: 22px;
+            border-radius: 20px;
 
             box-shadow: var(--shadow);
 
-            border: 1px solid var(--border);
         }
+
 
         .login-logo {
-            font-size: 30px;
-            font-weight: 800;
+
             text-align: center;
-            letter-spacing: 2px;
+
+            font-size: 31px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color: var(--text);
+
         }
+
 
         .login-subtitle {
+
             text-align: center;
+
             color: var(--muted);
+
             margin: 8px 0 30px;
+
+            font-size: 14px;
+
         }
+
 
         .login-box label {
+
             display: block;
+
             margin: 15px 0 7px;
+
             font-size: 14px;
+
             font-weight: 600;
+
         }
 
+
         .login-box input {
+
             width: 100%;
+
             padding: 13px 14px;
 
             border: 1px solid var(--border);
+
             border-radius: 10px;
 
             background: var(--input);
+
             color: var(--text);
 
             outline: none;
+
             font-size: 15px;
+
         }
+
+
+        .login-box input::placeholder {
+
+            color: var(--muted);
+
+        }
+
 
         .login-box input:focus {
-            border-color: #777;
+
+            border-color: #0f766e;
+
+            box-shadow:
+                0 0 0 3px rgba(15,118,110,.12);
+
         }
 
+
         .login-btn {
+
             width: 100%;
 
             margin-top: 22px;
@@ -142,26 +268,45 @@
             padding: 14px;
 
             border: none;
-            border-radius: 11px;
 
-            background: var(--primary);
-            color: var(--primary-text);
+            border-radius: 10px;
+
+            background: #0f766e;
+
+            color: #ffffff;
 
             font-size: 15px;
+
             font-weight: 700;
 
             cursor: pointer;
+
+            transition: .2s;
+
         }
 
+
+        .login-btn:hover {
+
+            background: #115e59;
+
+            transform: translateY(-1px);
+
+        }
+
+
         #loginError {
+
             display: none;
 
             margin-top: 15px;
 
-            color: #dc2626;
+            color: #ef4444;
+
             text-align: center;
 
             font-size: 14px;
+
         }
 
 
@@ -170,64 +315,137 @@
         ===================================================== */
 
         #dashboard {
+
             display: none;
+
+            min-height: 100vh;
+
+            background: var(--bg);
+
         }
 
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
         #dashboard header {
+
             position: sticky;
+
             top: 0;
-            z-index: 50;
+
+            z-index: 100;
+
+            width: 100%;
 
             background: var(--header);
+
+            color: var(--text);
 
             border-bottom: 1px solid var(--border);
 
             padding: 18px 25px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
 
-            box-shadow: 0 2px 12px rgba(0,0,0,.04);
+            box-shadow:
+                0 2px 12px rgba(0,0,0,.05);
+
         }
+
+
+        .header-left {
+
+            flex: 1;
+
+            min-width: 0;
+
+        }
+
 
         .header-left h1 {
+
             margin: 0;
-            font-size: 24px;
+
+            font-size: 25px;
+
+            line-height: 1.2;
+
+            font-weight: 800;
+
+            color: var(--text);
+
         }
+
 
         .header-left p {
+
             margin: 5px 0 0;
+
             color: var(--muted);
+
             font-size: 14px;
+
         }
+
+
+        /* =====================================================
+           HEADER BUTTONS
+        ===================================================== */
 
         .header-buttons {
+
             display: flex;
+
             align-items: center;
+
+            justify-content: flex-end;
+
             gap: 8px;
+
             flex-wrap: wrap;
+
         }
 
+
         .header-btn {
+
+            min-height: 42px;
+
+            padding: 10px 15px;
+
+            border-radius: 9px;
+
             border: 1px solid var(--border);
 
             background: var(--card);
+
             color: var(--text);
-
-            padding: 10px 14px;
-
-            border-radius: 9px;
 
             cursor: pointer;
 
             font-weight: 600;
+
+            font-size: 14px;
+
+            white-space: nowrap;
+
+            transition: .2s;
+
         }
 
+
         .header-btn:hover {
+
             transform: translateY(-1px);
+
         }
 
 
@@ -236,19 +454,91 @@
         ===================================================== */
 
         .theme-btn {
+
             width: 42px;
+
             height: 42px;
+
+            flex: 0 0 42px;
+
+            padding: 0;
 
             border-radius: 50%;
 
             border: 1px solid var(--border);
 
             background: var(--card);
+
             color: var(--text);
 
             cursor: pointer;
 
             font-size: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: .2s;
+
+        }
+
+
+        .theme-btn:hover {
+
+            transform: rotate(8deg);
+
+        }
+
+
+        /* =====================================================
+           SPECIAL HEADER BUTTONS
+        ===================================================== */
+
+        .refresh-btn {
+
+            background: var(--card);
+
+            color: var(--text);
+
+        }
+
+
+        .export-btn {
+
+            background: #16a34a;
+
+            color: white;
+
+            border-color: #16a34a;
+
+        }
+
+
+        .export-btn:hover {
+
+            background: #15803d;
+
+        }
+
+
+        .logout-btn {
+
+            background: #dc2626;
+
+            color: white;
+
+            border-color: #dc2626;
+
+        }
+
+
+        .logout-btn:hover {
+
+            background: #b91c1c;
+
         }
 
 
@@ -257,10 +547,15 @@
         ===================================================== */
 
         #dashboard main {
+
+            width: 100%;
+
             max-width: 1500px;
-            margin: auto;
+
+            margin: 0 auto;
 
             padding: 25px;
+
         }
 
 
@@ -269,38 +564,88 @@
         ===================================================== */
 
         .stats {
+
             display: grid;
 
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap: 16px;
+            gap: 18px;
 
-            margin-bottom: 22px;
+            margin-bottom: 24px;
+
         }
 
+
         .stat-card {
+
             background: var(--card);
 
             border: 1px solid var(--border);
 
             border-radius: 16px;
 
-            padding: 20px;
+            padding: 22px;
 
             box-shadow: var(--shadow);
+
+            transition: .2s;
+
         }
+
+
+        .stat-card:hover {
+
+            transform: translateY(-2px);
+
+        }
+
 
         .stat-title {
+
             color: var(--muted);
+
             font-size: 14px;
+
+            margin-bottom: 8px;
+
         }
 
-        .stat-number {
-            margin-top: 8px;
 
-            font-size: 30px;
+        .stat-number {
+
+            font-size: 32px;
+
             font-weight: 800;
+
+        }
+
+
+        .total {
+
+            color: #0f766e;
+
+        }
+
+
+        .pending {
+
+            color: #d97706;
+
+        }
+
+
+        .progress {
+
+            color: #2563eb;
+
+        }
+
+
+        .resolved {
+
+            color: #16a34a;
+
         }
 
 
@@ -309,6 +654,7 @@
         ===================================================== */
 
         .controls {
+
             display: grid;
 
             grid-template-columns:
@@ -316,11 +662,24 @@
 
             gap: 12px;
 
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 18px;
+
             margin-bottom: 20px;
+
+            box-shadow: var(--shadow);
+
         }
+
 
         .controls input,
         .controls select {
+
             width: 100%;
 
             padding: 13px;
@@ -330,9 +689,31 @@
             border-radius: 10px;
 
             background: var(--input);
+
             color: var(--text);
 
+            outline: none;
+
             font-size: 14px;
+
+        }
+
+
+        .controls input::placeholder {
+
+            color: var(--muted);
+
+        }
+
+
+        .controls input:focus,
+        .controls select:focus {
+
+            border-color: #0f766e;
+
+            box-shadow:
+                0 0 0 3px rgba(15,118,110,.10);
+
         }
 
 
@@ -341,6 +722,7 @@
         ===================================================== */
 
         .table-container {
+
             background: var(--card);
 
             border: 1px solid var(--border);
@@ -350,43 +732,91 @@
             box-shadow: var(--shadow);
 
             overflow-x: auto;
+
         }
 
+
         table {
+
             width: 100%;
+
             min-width: 1150px;
 
             border-collapse: collapse;
+
         }
 
-        th,
-        td {
-            padding: 14px;
 
-            border-bottom: 1px solid var(--border);
+        thead {
+
+            background: var(--table-head);
+
+        }
+
+
+        th {
+
+            padding: 14px;
 
             text-align: left;
 
             font-size: 13px;
 
-            vertical-align: middle;
-        }
-
-        th {
-            background: var(--input);
-
             font-weight: 700;
 
+            color: var(--text);
+
             white-space: nowrap;
+
+            border-bottom: 1px solid var(--border);
+
         }
+
 
         td {
+
+            padding: 14px;
+
+            font-size: 13px;
+
+            vertical-align: middle;
+
             color: var(--text);
+
+            border-bottom: 1px solid var(--border);
+
         }
 
+
+        tbody tr {
+
+            transition: .15s;
+
+        }
+
+
+        tbody tr:hover {
+
+            background: var(--hover);
+
+        }
+
+
+        tbody tr:last-child td {
+
+            border-bottom: none;
+
+        }
+
+
         .description {
+
             max-width: 300px;
+
             line-height: 1.5;
+
+            word-break: break-word;
+
         }
 
 
@@ -395,6 +825,7 @@
         ===================================================== */
 
         .status {
+
             display: inline-block;
 
             padding: 6px 10px;
@@ -406,26 +837,83 @@
             font-weight: 700;
 
             white-space: nowrap;
+
         }
+
 
         .status-pending {
+
             background: #fff3cd;
+
             color: #946200;
+
         }
+
 
         .status-progress {
+
             background: #dbeafe;
+
             color: #1d4ed8;
+
         }
+
 
         .status-resolved {
+
             background: #dcfce7;
+
             color: #15803d;
+
         }
 
+
         .status-default {
+
             background: #e5e7eb;
+
             color: #374151;
+
+        }
+
+
+        /* =====================================================
+           DARK MODE STATUS
+        ===================================================== */
+
+        body.dark-mode .status-pending {
+
+            background: #3a2e12;
+
+            color: #fbbf24;
+
+        }
+
+
+        body.dark-mode .status-progress {
+
+            background: #172b4d;
+
+            color: #60a5fa;
+
+        }
+
+
+        body.dark-mode .status-resolved {
+
+            background: #123521;
+
+            color: #4ade80;
+
+        }
+
+
+        body.dark-mode .status-default {
+
+            background: #2b3038;
+
+            color: #d1d5db;
+
         }
 
 
@@ -434,9 +922,11 @@
         ===================================================== */
 
         .action-btn {
+
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             padding: 8px 11px;
@@ -450,47 +940,107 @@
             font-weight: 700;
 
             white-space: nowrap;
+
+            transition: .2s;
+
         }
+
+
+        .action-btn:hover {
+
+            transform: translateY(-1px);
+
+        }
+
 
         .map-btn {
+
             background: #e0f2fe;
+
             color: #0369a1;
+
         }
+
+
+        .map-btn:hover {
+
+            background: #bae6fd;
+
+        }
+
 
         .evidence-btn {
+
             background: #ede9fe;
+
             color: #6d28d9;
+
         }
 
+
+        .evidence-btn:hover {
+
+            background: #ddd6fe;
+
+        }
+
+
+        .voice-player {
+
+            display: flex;
+
+            align-items: center;
+
+            min-width: 220px;
+
+        }
+
+
         .voice-player audio {
+
             width: 220px;
+
             height: 38px;
+
+        }
+
+
+        body.dark-mode audio {
+
+            color-scheme: dark;
+
         }
 
 
         /* =====================================================
-           LOADING / EMPTY
+           LOADING / NO DATA
         ===================================================== */
 
         .loading,
         .no-data {
+
             padding: 50px 20px;
 
             text-align: center;
 
             color: var(--muted);
+
         }
 
 
         /* =====================================================
-           MOBILE REPORT CARDS
+           MOBILE REPORTS
         ===================================================== */
 
         .mobile-reports {
+
             display: none;
+
         }
 
+
         .report-card {
+
             background: var(--card);
 
             border: 1px solid var(--border);
@@ -502,9 +1052,12 @@
             margin-bottom: 14px;
 
             box-shadow: var(--shadow);
+
         }
 
+
         .report-card-top {
+
             display: flex;
 
             justify-content: space-between;
@@ -514,34 +1067,57 @@
             gap: 10px;
 
             margin-bottom: 14px;
+
         }
+
 
         .report-id {
-            font-size: 13px;
+
             color: var(--muted);
+
+            font-size: 13px;
+
         }
+
 
         .report-name {
-            font-size: 18px;
-            font-weight: 750;
 
             margin-top: 3px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            color: var(--text);
+
         }
 
+
         .report-row {
+
             padding: 9px 0;
 
             border-bottom: 1px solid var(--border);
 
             font-size: 14px;
+
+            color: var(--text);
+
         }
+
 
         .report-row:last-child {
+
             border-bottom: none;
+
         }
 
+
         .report-label {
+
             display: block;
+
+            margin-bottom: 3px;
 
             color: var(--muted);
 
@@ -551,10 +1127,11 @@
 
             letter-spacing: .5px;
 
-            margin-bottom: 3px;
         }
 
+
         .mobile-actions {
+
             display: flex;
 
             gap: 8px;
@@ -562,123 +1139,218 @@
             flex-wrap: wrap;
 
             margin-top: 14px;
+
         }
 
 
         /* =====================================================
-           MOBILE
+           SCROLLBAR
         ===================================================== */
 
-        @media (max-width: 900px) {
+        .table-container::-webkit-scrollbar {
 
-            #dashboard header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
+            height: 8px;
 
-            .header-buttons {
-                width: 100%;
-            }
+        }
 
-            .header-btn {
-                flex: 1;
-            }
+
+        .table-container::-webkit-scrollbar-track {
+
+            background: var(--table-head);
+
+        }
+
+
+        .table-container::-webkit-scrollbar-thumb {
+
+            background: #94a3b8;
+
+            border-radius: 10px;
+
+        }
+
+
+        body.dark-mode .table-container::-webkit-scrollbar-thumb {
+
+            background: #4b5563;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
 
             .stats {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
             }
 
-            .controls {
-                grid-template-columns: 1fr 1fr;
+
+            #dashboard header {
+
+                padding: 16px 20px;
+
             }
 
-            .controls .search {
-                grid-column: 1 / -1;
+
+            #dashboard main {
+
+                padding: 20px;
+
             }
 
         }
 
 
-        @media (max-width: 600px) {
+        /* =====================================================
+           MOBILE HEADER
+        ===================================================== */
+
+        @media (max-width: 700px) {
 
             #dashboard header {
+
+                position: relative;
+
                 padding: 15px;
+
+                display: block;
+
             }
+
+
+            .header-left {
+
+                width: 100%;
+
+                margin-bottom: 14px;
+
+            }
+
 
             .header-left h1 {
-                font-size: 21px;
+
+                font-size: 22px;
+
             }
+
 
             .header-left p {
+
                 font-size: 12px;
+
             }
 
-            #dashboard main {
-                padding: 14px;
-            }
-
-
-            /* HEADER BUTTONS */
 
             .header-buttons {
+
+                width: 100%;
+
                 display: grid;
+
+                grid-template-columns:
+                    42px 1fr 1fr;
+
+                gap: 8px;
+
+            }
+
+
+            .theme-btn {
+
+                width: 42px;
+
+                height: 42px;
+
+            }
+
+
+            .header-btn {
+
+                width: 100%;
+
+                min-width: 0;
+
+                padding: 11px 7px;
+
+                font-size: 12px;
+
+            }
+
+
+            .logout-btn {
+
+                grid-column: 1 / -1;
+
+            }
+
+
+            #dashboard main {
+
+                padding: 14px;
+
+            }
+
+
+            .stats {
 
                 grid-template-columns:
                     repeat(2, 1fr);
 
-                width: 100%;
-            }
-
-            .header-btn {
-                width: 100%;
-                padding: 11px 8px;
-                font-size: 12px;
-            }
-
-            .logout-btn {
-                grid-column: 1 / -1;
-            }
-
-
-            /* STATS */
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-
                 gap: 10px;
+
             }
+
 
             .stat-card {
+
                 padding: 15px;
+
             }
+
 
             .stat-title {
+
                 font-size: 12px;
+
             }
+
 
             .stat-number {
-                font-size: 25px;
+
+                font-size: 26px;
+
             }
 
 
-            /* FILTERS */
-
             .controls {
+
                 display: flex;
+
                 flex-direction: column;
 
                 gap: 9px;
+
+                padding: 14px;
+
             }
+
 
             .controls input,
             .controls select {
-                padding: 12px;
+
+                width: 100%;
+
             }
 
 
-            /* HIDE DESKTOP TABLE */
-
             .table-container {
+
                 background: transparent;
 
                 border: none;
@@ -686,30 +1358,88 @@
                 box-shadow: none;
 
                 overflow: visible;
+
             }
+
 
             #reportsTable {
+
                 display: none !important;
+
             }
 
-
-            /* MOBILE CARDS */
 
             .mobile-reports {
+
                 display: block;
+
             }
 
-
-            /* LOGIN */
 
             .login-box {
+
                 padding: 25px 20px;
 
-                border-radius: 18px;
             }
 
+
             .login-logo {
-                font-size: 26px;
+
+                font-size: 27px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .header-left h1 {
+
+                font-size: 20px;
+
+            }
+
+
+            .header-buttons {
+
+                grid-template-columns:
+                    40px 1fr 1fr;
+
+            }
+
+
+            .theme-btn {
+
+                width: 40px;
+
+                height: 40px;
+
+            }
+
+
+            .stats {
+
+                gap: 8px;
+
+            }
+
+
+            .stat-card {
+
+                padding: 13px;
+
+            }
+
+
+            .stat-number {
+
+                font-size: 23px;
+
             }
 
         }
@@ -738,6 +1468,7 @@
             Admin Dashboard
         </div>
 
+
         <label for="adminUsername">
             Username
         </label>
@@ -748,6 +1479,7 @@
             placeholder="Admin username"
             autocomplete="username"
         >
+
 
         <label for="adminPassword">
             Password
@@ -760,12 +1492,14 @@
             autocomplete="current-password"
         >
 
+
         <button
             class="login-btn"
             onclick="login()"
         >
             Login
         </button>
+
 
         <div id="loginError">
             Invalid username or password
@@ -776,17 +1510,26 @@
 </section>
 
 
+
 <!-- =========================================================
      DASHBOARD
 ========================================================= -->
 
 <section id="dashboard">
 
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
     <header>
+
 
         <div class="header-left">
 
-            <h1>Nammude Admin</h1>
+            <h1>
+                Nammude Admin
+            </h1>
 
             <p>
                 Problem Reports Management
@@ -795,7 +1538,9 @@
         </div>
 
 
+
         <div class="header-buttons">
+
 
             <button
                 class="theme-btn"
@@ -806,12 +1551,14 @@
                 🌙
             </button>
 
+
             <button
                 class="header-btn refresh-btn"
                 onclick="loadReports()"
             >
                 🔄 Refresh
             </button>
+
 
             <button
                 class="header-btn export-btn"
@@ -820,6 +1567,7 @@
                 📥 Excel
             </button>
 
+
             <button
                 class="header-btn logout-btn"
                 onclick="logout()"
@@ -827,10 +1575,17 @@
                 Logout
             </button>
 
+
         </div>
+
 
     </header>
 
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
     <main>
 
@@ -841,7 +1596,9 @@
 
         <section class="stats">
 
+
             <div class="stat-card">
+
                 <div class="stat-title">
                     Total Reports
                 </div>
@@ -852,10 +1609,13 @@
                 >
                     0
                 </div>
+
             </div>
 
 
+
             <div class="stat-card">
+
                 <div class="stat-title">
                     Pending
                 </div>
@@ -866,10 +1626,13 @@
                 >
                     0
                 </div>
+
             </div>
 
 
+
             <div class="stat-card">
+
                 <div class="stat-title">
                     In Progress
                 </div>
@@ -880,10 +1643,13 @@
                 >
                     0
                 </div>
+
             </div>
 
 
+
             <div class="stat-card">
+
                 <div class="stat-title">
                     Resolved
                 </div>
@@ -894,16 +1660,20 @@
                 >
                     0
                 </div>
+
             </div>
+
 
         </section>
 
 
+
         <!-- =================================================
-             SEARCH
+             SEARCH / FILTER
         ================================================== -->
 
         <section class="controls">
+
 
             <input
                 type="text"
@@ -918,6 +1688,7 @@
                 id="statusFilter"
                 onchange="filterReports()"
             >
+
                 <option value="all">
                     All Status
                 </option>
@@ -941,12 +1712,16 @@
                 id="categoryFilter"
                 onchange="filterReports()"
             >
+
                 <option value="all">
                     All Categories
                 </option>
+
             </select>
 
+
         </section>
+
 
 
         <!-- =================================================
@@ -955,12 +1730,14 @@
 
         <section class="table-container">
 
+
             <div
                 id="loading"
                 class="loading"
             >
                 Loading reports...
             </div>
+
 
 
             <!-- DESKTOP TABLE -->
@@ -975,23 +1752,34 @@
                     <tr>
 
                         <th>ID</th>
+
                         <th>Date</th>
+
                         <th>Name</th>
+
                         <th>Phone</th>
+
                         <th>Category</th>
+
                         <th>Description</th>
+
                         <th>Status</th>
+
                         <th>Location</th>
+
                         <th>Evidence</th>
+
                         <th>Voice</th>
 
                     </tr>
 
                 </thead>
 
+
                 <tbody id="reportsBody"></tbody>
 
             </table>
+
 
 
             <!-- MOBILE REPORTS -->
@@ -1002,6 +1790,9 @@
             ></div>
 
 
+
+            <!-- NO DATA -->
+
             <div
                 id="noData"
                 class="no-data"
@@ -1010,11 +1801,15 @@
                 No reports found.
             </div>
 
+
         </section>
+
 
     </main>
 
+
 </section>
+
 
 
 <script>
@@ -1026,8 +1821,10 @@
 const SUPABASE_URL =
     "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
 
+
 const SUPABASE_ANON_KEY =
     "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1043,10 +1840,6 @@ const supabaseClient =
 const ADMIN_USERNAME =
     "Nammude_Admin";
 
-/*
-   IMPORTANT:
-   Put your existing admin password here.
-*/
 
 const ADMIN_PASSWORD =
     "YOUR_EXISTING_ADMIN_PASSWORD";
@@ -1071,13 +1864,16 @@ function login() {
             .value
             .trim();
 
+
     const password =
         document
             .getElementById("adminPassword")
             .value;
 
+
     const error =
         document.getElementById("loginError");
+
 
     error.style.display = "none";
 
@@ -1092,11 +1888,16 @@ function login() {
             "true"
         );
 
-        document.getElementById("loginPage")
-            .style.display = "none";
 
-        document.getElementById("dashboard")
-            .style.display = "block";
+        document.getElementById(
+            "loginPage"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "dashboard"
+        ).style.display = "block";
+
 
         loadReports();
 
@@ -1112,7 +1913,7 @@ function login() {
 
 
 /* =========================================================
-   ENTER LOGIN
+   ENTER KEY LOGIN
 ========================================================= */
 
 document
@@ -1122,7 +1923,9 @@ document
         function(event) {
 
             if (event.key === "Enter") {
+
                 login();
+
             }
 
         }
@@ -1154,20 +1957,27 @@ function toggleTheme() {
         "dark-mode"
     );
 
+
     const dark =
         document.body.classList.contains(
             "dark-mode"
         );
+
 
     localStorage.setItem(
         "nammude-admin-theme",
         dark ? "dark" : "light"
     );
 
+
     updateThemeButton();
 
 }
 
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
 
 function updateThemeButton() {
 
@@ -1175,6 +1985,7 @@ function updateThemeButton() {
         document.body.classList.contains(
             "dark-mode"
         );
+
 
     document.getElementById(
         "themeButton"
@@ -1189,11 +2000,15 @@ const savedTheme =
         "nammude-admin-theme"
     );
 
+
 if (savedTheme === "dark") {
+
     document.body.classList.add(
         "dark-mode"
     );
+
 }
+
 
 updateThemeButton();
 
@@ -1209,13 +2024,18 @@ function checkLogin() {
             "nammude_admin"
         );
 
+
     if (loggedIn === "true") {
 
-        document.getElementById("loginPage")
-            .style.display = "none";
+        document.getElementById(
+            "loginPage"
+        ).style.display = "none";
 
-        document.getElementById("dashboard")
-            .style.display = "block";
+
+        document.getElementById(
+            "dashboard"
+        ).style.display = "block";
+
 
         loadReports();
 
@@ -1231,13 +2051,22 @@ function checkLogin() {
 async function loadReports() {
 
     const loading =
-        document.getElementById("loading");
+        document.getElementById(
+            "loading"
+        );
+
 
     const table =
-        document.getElementById("reportsTable");
+        document.getElementById(
+            "reportsTable"
+        );
+
 
     const noData =
-        document.getElementById("noData");
+        document.getElementById(
+            "noData"
+        );
+
 
     loading.style.display = "block";
 
@@ -1252,8 +2081,11 @@ async function loadReports() {
             data,
             error
         } = await supabaseClient
+
             .from("reports")
+
             .select("*")
+
             .order(
                 "created_at",
                 {
@@ -1264,15 +2096,15 @@ async function loadReports() {
 
         if (error) {
 
-            console.error(
-                error
-            );
+            console.error(error);
+
 
             loading.innerHTML =
                 "❌ Failed to load reports.<br><br>" +
                 escapeHTML(
                     error.message
                 );
+
 
             return;
 
@@ -1295,6 +2127,7 @@ async function loadReports() {
     catch (error) {
 
         console.error(error);
+
 
         loading.innerHTML =
             "❌ Something went wrong.";
@@ -1351,13 +2184,16 @@ function updateStatistics() {
         "totalReports"
     ).textContent = total;
 
+
     document.getElementById(
         "pendingReports"
     ).textContent = pending;
 
+
     document.getElementById(
         "progressReports"
     ).textContent = progress;
+
 
     document.getElementById(
         "resolvedReports"
@@ -1404,11 +2240,14 @@ function populateCategories() {
                     "option"
                 );
 
+
             option.value =
                 category;
 
+
             option.textContent =
                 category;
+
 
             select.appendChild(
                 option
@@ -1450,6 +2289,7 @@ function getLocationHTML(report) {
         const lat =
             Number(latitude);
 
+
         const lng =
             Number(longitude);
 
@@ -1488,6 +2328,7 @@ function getLocationHTML(report) {
                     coordinates[0]
                 );
 
+
             const lng =
                 Number(
                     coordinates[1]
@@ -1519,6 +2360,7 @@ function getLocationHTML(report) {
                     coordinates.lat ??
                     coordinates.latitude
                 );
+
 
             const lng =
                 Number(
@@ -1626,6 +2468,10 @@ function getLocationHTML(report) {
 }
 
 
+/* =========================================================
+   GOOGLE MAPS BUTTON
+========================================================= */
+
 function createMapButton(
     latitude,
     longitude
@@ -1637,7 +2483,9 @@ function createMapButton(
         longitude < -180 ||
         longitude > 180
     ) {
+
         return "-";
+
     }
 
 
@@ -1677,12 +2525,17 @@ function getEvidenceHTML(report) {
 
 
     if (!url) {
+
         return "-";
+
     }
 
 
     if (Array.isArray(url)) {
-        url = url[0] || "";
+
+        url =
+            url[0] || "";
+
     }
 
 
@@ -1696,11 +2549,14 @@ function getEvidenceHTML(report) {
             const parsed =
                 JSON.parse(url);
 
+
             if (
                 Array.isArray(parsed)
             ) {
+
                 url =
                     parsed[0] || "";
+
             }
 
         }
@@ -1711,11 +2567,15 @@ function getEvidenceHTML(report) {
 
 
     url =
-        String(url || "").trim();
+        String(
+            url || ""
+        ).trim();
 
 
     if (!url) {
+
         return "-";
+
     }
 
 
@@ -1748,21 +2608,30 @@ function getVoiceHTML(report) {
 
 
     if (!url) {
+
         return "-";
+
     }
 
 
     if (Array.isArray(url)) {
-        url = url[0] || "";
+
+        url =
+            url[0] || "";
+
     }
 
 
     url =
-        String(url || "").trim();
+        String(
+            url || ""
+        ).trim();
 
 
     if (!url) {
+
         return "-";
+
     }
 
 
@@ -1793,19 +2662,30 @@ function getVoiceHTML(report) {
 function getStatusClass(status) {
 
     const value =
-        status.toLowerCase();
+        String(
+            status || ""
+        ).toLowerCase();
 
 
-    if (value === "pending")
+    if (value === "pending") {
+
         return "status-pending";
 
+    }
 
-    if (value.includes("progress"))
+
+    if (value.includes("progress")) {
+
         return "status-progress";
 
+    }
 
-    if (value === "resolved")
+
+    if (value === "resolved") {
+
         return "status-resolved";
+
+    }
 
 
     return "status-default";
@@ -1817,9 +2697,7 @@ function getStatusClass(status) {
    DISPLAY REPORTS
 ========================================================= */
 
-function displayReports(
-    reports
-) {
+function displayReports(reports) {
 
     const body =
         document.getElementById(
@@ -1862,23 +2740,21 @@ function displayReports(
 
         table.style.display = "none";
 
-        noData.style.display =
-            "block";
+        noData.style.display = "block";
 
         return;
 
     }
 
 
-    table.style.display =
-        "table";
+    table.style.display = "table";
 
-    noData.style.display =
-        "none";
+    noData.style.display = "none";
 
 
     reports.forEach(
         report => {
+
 
             const date =
                 report.created_at
@@ -1908,10 +2784,12 @@ function displayReports(
                     report
                 );
 
+
             const evidence =
                 getEvidenceHTML(
                     report
                 );
+
 
             const voice =
                 getVoiceHTML(
@@ -1919,9 +2797,9 @@ function displayReports(
                 );
 
 
-            /* =========================
+            /* =============================================
                DESKTOP ROW
-            ========================= */
+            ============================================== */
 
             const row =
                 document.createElement(
@@ -1966,18 +2844,26 @@ function displayReports(
                 </td>
 
                 <td>
+
                     <span
                         class="status ${statusClass}"
                     >
                         ${escapeHTML(status)}
                     </span>
+
                 </td>
 
-                <td>${map}</td>
+                <td>
+                    ${map}
+                </td>
 
-                <td>${evidence}</td>
+                <td>
+                    ${evidence}
+                </td>
 
-                <td>${voice}</td>
+                <td>
+                    ${voice}
+                </td>
 
             `;
 
@@ -1985,9 +2871,9 @@ function displayReports(
             body.appendChild(row);
 
 
-            /* =========================
+            /* =============================================
                MOBILE CARD
-            ========================= */
+            ============================================== */
 
             const card =
                 document.createElement(
@@ -2136,6 +3022,7 @@ function filterReports() {
         allReports.filter(
             report => {
 
+
                 const text =
                     Object.values(
                         report
@@ -2156,8 +3043,7 @@ function filterReports() {
                     .toLowerCase();
 
 
-                let statusMatch =
-                    true;
+                let statusMatch = true;
 
 
                 if (
@@ -2271,4 +3157,5 @@ checkLogin();
 </script>
 
 </body>
+
 </html>

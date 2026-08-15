@@ -1,6 +1,7 @@
 /* =========================================================
-   NAMMUDE — ADMIN DASHBOARD CSS
+   NAMMUDE — ADMIN DASHBOARD
    Responsive • Desktop • Tablet • Mobile
+   Light + Dark Mode
 ========================================================= */
 
 
@@ -20,13 +21,18 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+
     background: #f4f6f8;
-    color: #222;
+    color: #1f2937;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
 
 /* =========================================================
-   2. LOGIN PAGE
+   2. LOGIN
 ========================================================= */
 
 #loginPage {
@@ -38,11 +44,12 @@ body {
 
     padding: 20px;
 
-    background: linear-gradient(
-        135deg,
-        #0f766e,
-        #115e59
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #0f766e,
+            #115e59
+        );
 }
 
 .login-box {
@@ -80,9 +87,6 @@ body {
     font-size: 15px;
 }
 
-
-/* Login labels */
-
 .login-box label {
     display: block;
 
@@ -92,9 +96,6 @@ body {
 
     font-size: 14px;
 }
-
-
-/* Login inputs */
 
 .login-box input {
     width: 100%;
@@ -121,9 +122,6 @@ body {
         0 0 0 3px rgba(15, 118, 110, 0.12);
 }
 
-
-/* Login button */
-
 .login-btn {
     width: 100%;
 
@@ -142,22 +140,11 @@ body {
     font-weight: 700;
 
     cursor: pointer;
-
-    transition: 0.2s;
 }
 
 .login-btn:hover {
     background: #115e59;
-
-    transform: translateY(-1px);
 }
-
-.login-btn:active {
-    transform: translateY(0);
-}
-
-
-/* Login error */
 
 #loginError {
     color: #dc2626;
@@ -180,6 +167,8 @@ body {
     display: none;
 
     min-height: 100vh;
+
+    background: #f4f6f8;
 }
 
 
@@ -188,11 +177,13 @@ body {
 ========================================================= */
 
 header {
-    background: #0f766e;
+    width: 100%;
 
-    color: #ffffff;
+    background: #ffffff;
 
-    padding: 18px 25px;
+    color: #111827;
+
+    padding: 16px 25px;
 
     display: flex;
 
@@ -200,10 +191,12 @@ header {
 
     align-items: center;
 
-    gap: 15px;
+    gap: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
 
     box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.10);
+        0 2px 10px rgba(0, 0, 0, 0.05);
 
     position: sticky;
 
@@ -212,16 +205,29 @@ header {
     z-index: 100;
 }
 
+
+/* Header left */
+
+.header-left {
+    flex: 1;
+
+    min-width: 0;
+}
+
 .header-left h1 {
-    font-size: 24px;
+    color: #111827;
+
+    font-size: 25px;
 
     font-weight: 800;
+
+    line-height: 1.2;
 }
 
 .header-left p {
-    margin-top: 4px;
+    color: #6b7280;
 
-    opacity: 0.85;
+    margin-top: 5px;
 
     font-size: 13px;
 }
@@ -232,36 +238,63 @@ header {
 .header-buttons {
     display: flex;
 
+    align-items: center;
+
+    justify-content: flex-end;
+
     gap: 8px;
 
-    flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .header-btn {
-    border: none;
+    border: 1px solid #e5e7eb;
 
     padding: 10px 15px;
 
-    border-radius: 8px;
+    border-radius: 9px;
 
     cursor: pointer;
 
     font-weight: 700;
+
+    font-size: 14px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    white-space: nowrap;
 
     transition: 0.2s;
 }
 
 .header-btn:hover {
     transform: translateY(-1px);
+
+    background: #f8fafc;
+}
+
+
+/* Theme button */
+
+.theme-btn {
+    width: 48px;
+
+    height: 48px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    font-size: 20px;
 }
 
 
 /* Refresh */
 
 .refresh-btn {
-    background: #ffffff;
-
-    color: #0f766e;
+    color: #111827;
 }
 
 
@@ -269,6 +302,8 @@ header {
 
 .export-btn {
     background: #16a34a;
+
+    border-color: #16a34a;
 
     color: #ffffff;
 }
@@ -282,6 +317,8 @@ header {
 
 .logout-btn {
     background: #dc2626;
+
+    border-color: #dc2626;
 
     color: #ffffff;
 }
@@ -324,12 +361,14 @@ main {
 .stat-card {
     background: #ffffff;
 
+    border: 1px solid #e5e7eb;
+
     border-radius: 14px;
 
     padding: 22px;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.06);
+        0 3px 12px rgba(0, 0, 0, 0.05);
 
     transition: 0.2s;
 }
@@ -338,11 +377,11 @@ main {
     transform: translateY(-2px);
 
     box-shadow:
-        0 6px 18px rgba(0, 0, 0, 0.09);
+        0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .stat-title {
-    color: #777;
+    color: #6b7280;
 
     font-size: 14px;
 
@@ -354,9 +393,6 @@ main {
 
     font-weight: 800;
 }
-
-
-/* Statistic colors */
 
 .total {
     color: #0f766e;
@@ -376,13 +412,15 @@ main {
 
 
 /* =========================================================
-   7. SEARCH / FILTER CONTROLS
+   7. SEARCH + FILTER
 ========================================================= */
 
 .controls {
     background: #ffffff;
 
     padding: 18px;
+
+    border: 1px solid #e5e7eb;
 
     border-radius: 14px;
 
@@ -395,7 +433,7 @@ main {
     flex-wrap: wrap;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.05);
+        0 3px 12px rgba(0, 0, 0, 0.04);
 }
 
 .controls input,
@@ -409,6 +447,8 @@ main {
     font-size: 14px;
 
     background: #ffffff;
+
+    color: #111827;
 
     outline: none;
 
@@ -435,19 +475,23 @@ main {
 ========================================================= */
 
 .table-container {
+    width: 100%;
+
     background: #ffffff;
+
+    border: 1px solid #e5e7eb;
 
     border-radius: 14px;
 
     overflow-x: auto;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.06);
+        0 3px 12px rgba(0, 0, 0, 0.05);
 }
 
 
 /* =========================================================
-   9. REPORT TABLE
+   9. TABLE
 ========================================================= */
 
 table {
@@ -479,9 +523,11 @@ th {
 td {
     padding: 14px;
 
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #e5e7eb;
 
     font-size: 13px;
+
+    color: #1f2937;
 
     vertical-align: top;
 }
@@ -494,9 +540,6 @@ tbody tr:hover {
     background: #f8fafc;
 }
 
-
-/* Description */
-
 .description {
     max-width: 260px;
 
@@ -507,7 +550,7 @@ tbody tr:hover {
 
 
 /* =========================================================
-   10. STATUS BADGES
+   10. STATUS
 ========================================================= */
 
 .status {
@@ -524,17 +567,11 @@ tbody tr:hover {
     white-space: nowrap;
 }
 
-
-/* Pending */
-
 .status-pending {
     background: #fef3c7;
 
     color: #92400e;
 }
-
-
-/* In progress */
 
 .status-progress {
     background: #dbeafe;
@@ -542,17 +579,11 @@ tbody tr:hover {
     color: #1e40af;
 }
 
-
-/* Resolved */
-
 .status-resolved {
     background: #dcfce7;
 
     color: #166534;
 }
-
-
-/* Unknown */
 
 .status-default {
     background: #e5e7eb;
@@ -587,21 +618,11 @@ tbody tr:hover {
     transform: translateY(-1px);
 }
 
-
-/* Google Maps */
-
 .map-btn {
     background: #dbeafe;
 
     color: #1d4ed8;
 }
-
-.map-btn:hover {
-    background: #bfdbfe;
-}
-
-
-/* Evidence */
 
 .evidence-btn {
     background: #ede9fe;
@@ -609,51 +630,45 @@ tbody tr:hover {
     color: #6d28d9;
 }
 
-.evidence-btn:hover {
-    background: #ddd6fe;
-}
-
-
-/* Voice */
-
 .voice-btn {
     background: #fce7f3;
 
     color: #be185d;
 }
 
-.voice-btn:hover {
-    background: #fbcfe8;
+
+/* =========================================================
+   12. VOICE PLAYER
+========================================================= */
+
+.voice-player {
+    display: flex;
+
+    align-items: center;
+
+    min-width: 220px;
+}
+
+.voice-player audio {
+    width: 220px;
+
+    height: 38px;
 }
 
 
 /* =========================================================
-   12. LOADING
+   13. LOADING / NO DATA
 ========================================================= */
 
-.loading {
-    text-align: center;
-
-    padding: 45px;
-
-    font-size: 16px;
-
-    color: #666;
-}
-
-
-/* =========================================================
-   13. NO DATA
-========================================================= */
-
+.loading,
 .no-data {
     text-align: center;
 
     padding: 45px;
 
-    color: #777;
-
     font-size: 15px;
+
+    color: #6b7280;
 }
 
 
@@ -692,7 +707,7 @@ tbody tr:hover {
     }
 
     header {
-        padding: 16px 20px;
+        padding: 15px 20px;
     }
 
     main {
@@ -709,63 +724,156 @@ tbody tr:hover {
 @media (max-width: 700px) {
 
     header {
-        position: relative;
+        position: sticky;
+
+        top: 0;
+
+        padding: 14px 15px;
+
+        display: flex;
 
         flex-direction: column;
 
-        align-items: flex-start;
-    }
-
-    .header-left h1 {
-        font-size: 21px;
-    }
-
-    .header-buttons {
-        width: 100%;
-    }
-
-    .header-btn {
-        flex: 1;
-
-        min-width: 100px;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-    .stats {
-        grid-template-columns: 1fr;
+        align-items: stretch;
 
         gap: 12px;
     }
 
+
+    /* Title */
+
+    .header-left {
+        width: 100%;
+
+        text-align: left;
+    }
+
+    .header-left h1 {
+        font-size: 21px;
+
+        line-height: 1.2;
+    }
+
+    .header-left p {
+        font-size: 12px;
+
+        margin-top: 4px;
+    }
+
+
+    /* Buttons */
+
+    .header-buttons {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr 1fr;
+
+        gap: 7px;
+
+        justify-content: stretch;
+    }
+
+    .header-btn {
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 10px 6px;
+
+        font-size: 12px;
+    }
+
+    .theme-btn {
+        width: 100%;
+
+        height: auto;
+
+        min-height: 40px;
+
+        border-radius: 9px;
+    }
+
+
+    /* Main */
+
+    main {
+        padding: 12px;
+    }
+
+
+    /* Stats */
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+
+        margin-bottom: 14px;
+    }
+
     .stat-card {
-        padding: 18px;
+        padding: 16px;
+    }
+
+    .stat-title {
+        font-size: 12px;
     }
 
     .stat-number {
-        font-size: 28px;
+        font-size: 26px;
     }
 
+
+    /* Controls */
+
     .controls {
-        padding: 14px;
+        padding: 12px;
+
+        gap: 9px;
+
+        margin-bottom: 14px;
     }
 
     .controls input,
     .controls select {
         width: 100%;
+
+        min-height: 44px;
     }
 
     .search {
         min-width: 100%;
     }
 
+
+    /* Table */
+
+    .table-container {
+        border-radius: 12px;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 1100px;
+    }
+
+
+    /* Audio */
+
+    .voice-player audio {
+        width: 190px;
+    }
+
 }
 
 
 /* =========================================================
-   17. SMALL MOBILE
+   17. VERY SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 450px) {
@@ -784,119 +892,103 @@ tbody tr:hover {
         font-size: 28px;
     }
 
+
+    .header-left h1 {
+        font-size: 20px;
+    }
+
     .header-buttons {
-        flex-direction: column;
+        grid-template-columns:
+            repeat(3, 1fr);
     }
 
     .header-btn {
-        width: 100%;
+        font-size: 11px;
+
+        padding: 9px 4px;
+    }
+
+
+    .stats {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-number {
+        font-size: 24px;
     }
 
 }
 
 
 /* =========================================================
-   18. NAMMUDE DARK MODE
+   18. DARK MODE
+   Activated by:
+   <body class="dark-mode">
 ========================================================= */
 
 body.dark-mode {
-    background: #0d0f12;
-    color: #f5f5f5;
-}
 
+    background: #0b0f14;
 
-/* =========================================================
-   DARK LOGIN
-========================================================= */
-
-body.dark-mode #loginPage {
-    background: linear-gradient(
-        135deg,
-        #0b3f3a,
-        #071f1d
-    );
-}
-
-body.dark-mode .login-box {
-    background: #181b21;
-    color: #f5f5f5;
-
-    border: 1px solid #2a2f38;
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.45);
-}
-
-body.dark-mode .login-subtitle {
-    color: #9ca3af;
-}
-
-body.dark-mode .login-box label {
     color: #e5e7eb;
 }
 
-body.dark-mode .login-box input {
-    background: #1d2128;
-    color: #ffffff;
-
-    border-color: #303640;
-}
-
-body.dark-mode .login-box input::placeholder {
-    color: #8b929e;
+body.dark-mode #dashboard {
+    background: #0b0f14;
 }
 
 
-/* =========================================================
-   DARK HEADER
-========================================================= */
+/* Header */
 
 body.dark-mode header {
-    background: #15181d;
+    background: #11161d;
 
-    border-bottom: 1px solid #2a2f38;
+    color: #f9fafb;
+
+    border-bottom: 1px solid #252c35;
 
     box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.35);
+        0 2px 10px rgba(0, 0, 0, 0.30);
+}
+
+body.dark-mode .header-left h1 {
+    color: #f9fafb;
+}
+
+body.dark-mode .header-left p {
+    color: #9ca3af;
 }
 
 
-/* =========================================================
-   DARK HEADER BUTTONS
-========================================================= */
+/* Header buttons */
 
 body.dark-mode .header-btn {
-    border: 1px solid #303640;
+    background: #151b23;
+
+    color: #f3f4f6;
+
+    border-color: #2a323d;
 }
 
-body.dark-mode .refresh-btn {
-    background: #1d2128;
-    color: #f5f5f5;
-}
-
-body.dark-mode .refresh-btn:hover {
-    background: #272c34;
+body.dark-mode .header-btn:hover {
+    background: #1d2530;
 }
 
 
-/* =========================================================
-   DARK STAT CARDS
-========================================================= */
+/* Stats */
 
 body.dark-mode .stat-card {
-    background: #181b21;
+    background: #151a21;
 
-    border: 1px solid #2a2f38;
-
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.30);
-}
-
-body.dark-mode .stat-card:hover {
-    background: #1b1f25;
+    border-color: #29313b;
 
     box-shadow:
-        0 6px 18px rgba(0, 0, 0, 0.40);
+        0 3px 12px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode .stat-title {
@@ -904,182 +996,107 @@ body.dark-mode .stat-title {
 }
 
 
-/* =========================================================
-   DARK SEARCH + FILTER AREA
-========================================================= */
+/* Controls */
 
 body.dark-mode .controls {
-    background: #181b21;
+    background: #151a21;
 
-    border: 1px solid #2a2f38;
+    border-color: #29313b;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.30);
+        0 3px 12px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode .controls input,
 body.dark-mode .controls select {
-    background: #1d2128;
+    background: #1b2129;
 
-    color: #f5f5f5;
+    color: #f3f4f6;
 
-    border-color: #303640;
+    border-color: #303945;
 }
 
 body.dark-mode .controls input::placeholder {
-    color: #8b929e;
-}
-
-body.dark-mode .controls input:focus,
-body.dark-mode .controls select:focus {
-    border-color: #0f766e;
-
-    box-shadow:
-        0 0 0 3px rgba(15, 118, 110, 0.20);
+    color: #7f8996;
 }
 
 
-/* Dropdown options */
-
-body.dark-mode .controls select option {
-    background: #1d2128;
-    color: #f5f5f5;
-}
-
-
-/* =========================================================
-   DARK TABLE
-========================================================= */
+/* Table */
 
 body.dark-mode .table-container {
-    background: #181b21;
+    background: #151a21;
 
-    border: 1px solid #2a2f38;
+    border-color: #29313b;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.30);
-}
-
-body.dark-mode table {
-    background: #181b21;
+        0 3px 12px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode thead {
-    background: #1d2128;
+    background: #1b2129;
 }
 
 body.dark-mode th {
-    color: #8d99ad;
-
-    border-color: #2a2f38;
+    color: #aeb7c4;
 }
 
 body.dark-mode td {
     color: #e5e7eb;
 
-    border-color: #2a2f38;
+    border-top-color: #29313b;
 }
 
 body.dark-mode tbody tr:hover {
-    background: #20242b;
-}
-
-body.dark-mode tbody tr:hover td {
-    background: #20242b;
+    background: #1b2129;
 }
 
 
-/* =========================================================
-   DARK STATUS BADGES
-========================================================= */
+/* Loading */
 
-body.dark-mode .status-pending {
-    background: #3a2d0b;
-    color: #fbbf24;
-}
-
-body.dark-mode .status-progress {
-    background: #172b4d;
-    color: #60a5fa;
-}
-
-body.dark-mode .status-resolved {
-    background: #12351f;
-    color: #4ade80;
-}
-
-body.dark-mode .status-default {
-    background: #30343b;
-    color: #d1d5db;
-}
-
-
-/* =========================================================
-   DARK ACTION BUTTONS
-========================================================= */
-
-body.dark-mode .map-btn {
-    background: #17324a;
-    color: #7dd3fc;
-}
-
-body.dark-mode .map-btn:hover {
-    background: #20445f;
-}
-
-body.dark-mode .evidence-btn {
-    background: #302552;
-    color: #c4b5fd;
-}
-
-body.dark-mode .evidence-btn:hover {
-    background: #3c3065;
-}
-
-body.dark-mode .voice-btn {
-    background: #4a2038;
-    color: #f9a8d4;
-}
-
-body.dark-mode .voice-btn:hover {
-    background: #5a2744;
-}
-
-
-/* =========================================================
-   DARK LOADING / NO DATA
-========================================================= */
-
-body.dark-mode .loading {
-    color: #9ca3af;
-}
-
+body.dark-mode .loading,
 body.dark-mode .no-data {
     color: #9ca3af;
 }
 
 
-/* =========================================================
-   DARK SCROLLBAR
-========================================================= */
+/* Scrollbar */
 
 body.dark-mode .table-container::-webkit-scrollbar-track {
-    background: #15181d;
+    background: #11161d;
 }
 
 body.dark-mode .table-container::-webkit-scrollbar-thumb {
-    background: #3b424d;
+    background: #394451;
 }
 
 body.dark-mode .table-container::-webkit-scrollbar-thumb:hover {
-    background: #4b5563;
+    background: #4b5867;
 }
 
 
 /* =========================================================
-   DARK AUDIO PLAYER
+   19. DARK MODE LOGIN
 ========================================================= */
 
-body.dark-mode .voice-player audio {
-    filter: brightness(0.85);
+body.dark-mode .login-box {
+    background: #151a21;
+
+    color: #f3f4f6;
 }
+
+body.dark-mode .login-subtitle {
+    color: #9ca3af;
+}
+
+body.dark-mode .login-box input {
+    background: #1b2129;
+
+    color: #ffffff;
+
+    border-color: #303945;
+}
+
+
+/* =========================================================
+   END
+========================================================= */

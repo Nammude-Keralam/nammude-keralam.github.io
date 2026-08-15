@@ -13,6 +13,20 @@
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="report.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+.map-container{margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.12);background:#fff}
+#reportMap{width:100%;height:380px;z-index:1}
+.map-actions{display:flex;gap:10px;padding:12px;flex-wrap:wrap}
+.map-actions button{border:0;border-radius:10px;padding:11px 16px;cursor:pointer;font-weight:600}
+.map-location-btn{background:#f1f1f1;color:#111}
+.map-confirm-btn{background:#111;color:#fff}
+.map-selected-text{padding:0 14px 14px;margin:0;font-size:14px}
+@media(max-width:600px){#reportMap{height:320px}.map-actions{flex-direction:column}.map-actions button{width:100%}}
+</style>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 
 </head>
 
@@ -522,6 +536,27 @@ id="mapButton">
 📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുക
 
 </button>
+
+<div id="mapContainer" class="map-container" hidden>
+    <div id="reportMap"></div>
+
+    <div class="map-actions">
+        <button type="button" id="useMyLocation" class="map-location-btn">
+            📍 എന്റെ സ്ഥലം ഉപയോഗിക്കുക
+        </button>
+
+        <button type="button" id="confirmLocation" class="map-confirm-btn">
+            ✅ സ്ഥലം സ്ഥിരീകരിക്കുക
+        </button>
+    </div>
+
+    <p id="selectedLocationText" class="map-selected-text">
+        മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുക.
+    </p>
+</div>
+
+<input type="hidden" id="latitude" name="latitude">
+<input type="hidden" id="longitude" name="longitude">
 
 
 <p
@@ -1949,6 +1984,134 @@ return data.publicUrl;
 }
 
 
+
+/* =====================================================
+  LOCATION MAP
+===================================================== */
+
+const mapButton = document.getElementById("mapButton");
+const mapContainer = document.getElementById("mapContainer");
+const latitudeInput = document.getElementById("latitude");
+const longitudeInput = document.getElementById("longitude");
+const selectedLocationText = document.getElementById("selectedLocationText");
+const useMyLocation = document.getElementById("useMyLocation");
+const confirmLocation = document.getElementById("confirmLocation");
+
+let reportMap = null;
+let locationMarker = null;
+
+mapButton.addEventListener("click", () => {
+
+    mapContainer.hidden = false;
+
+    if (!reportMap) {
+
+        reportMap = L.map("reportMap").setView(
+            [10.8505, 76.2711],
+            9
+        );
+
+        L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+                maxZoom: 19,
+                attribution: "&copy; OpenStreetMap contributors"
+            }
+        ).addTo(reportMap);
+
+        reportMap.on("click", event => {
+            setMapLocation(
+                event.latlng.lat,
+                event.latlng.lng
+            );
+        });
+    }
+
+    setTimeout(() => reportMap.invalidateSize(), 200);
+});
+
+function setMapLocation(lat, lng) {
+
+    latitudeInput.value = lat.toFixed(6);
+    longitudeInput.value = lng.toFixed(6);
+
+    if (locationMarker) {
+        locationMarker.setLatLng([lat, lng]);
+    } else {
+        locationMarker = L.marker([lat, lng]).addTo(reportMap);
+    }
+
+    selectedLocationText.textContent =
+        currentLanguage === "ml"
+            ? `📍 തിരഞ്ഞെടുത്ത സ്ഥലം: ${lat.toFixed(6)}, ${lng.toFixed(6)}`
+            : `📍 Selected location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+}
+
+useMyLocation.addEventListener("click", () => {
+
+    if (!navigator.geolocation) {
+        alert(
+            currentLanguage === "ml"
+                ? "ഈ ബ്രൗസറിൽ ലൊക്കേഷൻ സേവനം ലഭ്യമല്ല."
+                : "Location is not supported by this browser."
+        );
+        return;
+    }
+
+    useMyLocation.disabled = true;
+
+    navigator.geolocation.getCurrentPosition(
+        position => {
+
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+
+            reportMap.setView([lat, lng], 17);
+            setMapLocation(lat, lng);
+
+            useMyLocation.disabled = false;
+        },
+        error => {
+
+            console.error("Geolocation error:", error);
+
+            alert(
+                currentLanguage === "ml"
+                    ? "നിങ്ങളുടെ സ്ഥലം കണ്ടെത്താനായില്ല. മാപ്പിൽ നേരിട്ട് തിരഞ്ഞെടുക്കുക."
+                    : "Could not get your location. Please select it manually on the map."
+            );
+
+            useMyLocation.disabled = false;
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+    );
+});
+
+confirmLocation.addEventListener("click", () => {
+
+    if (!latitudeInput.value || !longitudeInput.value) {
+
+        alert(
+            currentLanguage === "ml"
+                ? "ദയവായി മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുക."
+                : "Please select a location on the map."
+        );
+
+        return;
+    }
+
+    mapContainer.hidden = true;
+
+    mapButton.textContent =
+        currentLanguage === "ml"
+            ? "📍 സ്ഥലം തിരഞ്ഞെടുത്തു"
+            : "📍 Location selected";
+});
+
 /* =====================================================
   FORM SUBMISSION
 ===================================================== */
@@ -2184,8 +2347,20 @@ document
 ].filter(Boolean);
 
 
-const locationValue =
+let locationValue =
 locationParts.join(", ");
+
+const latitude =
+    document.getElementById("latitude").value;
+
+const longitude =
+    document.getElementById("longitude").value;
+
+if (latitude && longitude) {
+    locationValue +=
+        (locationValue ? " | " : "") +
+        `Coordinates: ${latitude}, ${longitude}`;
+}
 
 
 /* =========================================
@@ -2475,6 +2650,23 @@ currentLanguage
 
 recordedAudioBlob =
 null;
+
+/* Reset selected map location */
+latitudeInput.value = "";
+longitudeInput.value = "";
+
+if (locationMarker && reportMap) {
+    reportMap.removeLayer(locationMarker);
+    locationMarker = null;
+}
+
+mapContainer.hidden = true;
+
+mapButton.textContent =
+    currentLanguage === "ml"
+        ? "📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുക"
+        : "📍 Select location on map";
+
 
 
 mediaRecorder =

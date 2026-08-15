@@ -2844,14 +2844,23 @@ function displayReports(reports) {
                 </td>
 
                 <td>
+    <select
+        class="status-select ${statusClass}"
+        onchange="updateReportStatus('${report.id}', this.value)"
+    >
+        <option value="pending" ${status.toLowerCase() === "pending" ? "selected" : ""}>
+            🟡 Pending
+        </option>
 
-                    <span
-                        class="status ${statusClass}"
-                    >
-                        ${escapeHTML(status)}
-                    </span>
+        <option value="in progress" ${status.toLowerCase() === "in progress" ? "selected" : ""}>
+            🔵 In Progress
+        </option>
 
-                </td>
+        <option value="resolved" ${status.toLowerCase() === "resolved" ? "selected" : ""}>
+            🟢 Resolved
+        </option>
+    </select>
+</td>
 
                 <td>
                     ${map}

@@ -796,34 +796,290 @@ tbody tr:hover {
 
 
 /* =========================================================
-   18. DARK MODE SUPPORT
+   18. NAMMUDE DARK MODE
 ========================================================= */
 
-@media (prefers-color-scheme: dark) {
-
-    /*
-       Disabled by default.
-
-       We can add a proper Nammude
-       dark-mode switch later.
-    */
-
-}
-.voice-player {
-    display: flex;
-    align-items: center;
-    min-width: 220px;
+body.dark-mode {
+    background: #0d0f12;
+    color: #f5f5f5;
 }
 
-.voice-player audio {
-    width: 220px;
-    height: 38px;
+
+/* =========================================================
+   DARK LOGIN
+========================================================= */
+
+body.dark-mode #loginPage {
+    background: linear-gradient(
+        135deg,
+        #0b3f3a,
+        #071f1d
+    );
 }
 
-@media (max-width: 600px) {
+body.dark-mode .login-box {
+    background: #181b21;
+    color: #f5f5f5;
 
-    .voice-player audio {
-        width: 190px;
-    }
+    border: 1px solid #2a2f38;
 
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode .login-subtitle {
+    color: #9ca3af;
+}
+
+body.dark-mode .login-box label {
+    color: #e5e7eb;
+}
+
+body.dark-mode .login-box input {
+    background: #1d2128;
+    color: #ffffff;
+
+    border-color: #303640;
+}
+
+body.dark-mode .login-box input::placeholder {
+    color: #8b929e;
+}
+
+
+/* =========================================================
+   DARK HEADER
+========================================================= */
+
+body.dark-mode header {
+    background: #15181d;
+
+    border-bottom: 1px solid #2a2f38;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   DARK HEADER BUTTONS
+========================================================= */
+
+body.dark-mode .header-btn {
+    border: 1px solid #303640;
+}
+
+body.dark-mode .refresh-btn {
+    background: #1d2128;
+    color: #f5f5f5;
+}
+
+body.dark-mode .refresh-btn:hover {
+    background: #272c34;
+}
+
+
+/* =========================================================
+   DARK STAT CARDS
+========================================================= */
+
+body.dark-mode .stat-card {
+    background: #181b21;
+
+    border: 1px solid #2a2f38;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.30);
+}
+
+body.dark-mode .stat-card:hover {
+    background: #1b1f25;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.40);
+}
+
+body.dark-mode .stat-title {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   DARK SEARCH + FILTER AREA
+========================================================= */
+
+body.dark-mode .controls {
+    background: #181b21;
+
+    border: 1px solid #2a2f38;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.30);
+}
+
+body.dark-mode .controls input,
+body.dark-mode .controls select {
+    background: #1d2128;
+
+    color: #f5f5f5;
+
+    border-color: #303640;
+}
+
+body.dark-mode .controls input::placeholder {
+    color: #8b929e;
+}
+
+body.dark-mode .controls input:focus,
+body.dark-mode .controls select:focus {
+    border-color: #0f766e;
+
+    box-shadow:
+        0 0 0 3px rgba(15, 118, 110, 0.20);
+}
+
+
+/* Dropdown options */
+
+body.dark-mode .controls select option {
+    background: #1d2128;
+    color: #f5f5f5;
+}
+
+
+/* =========================================================
+   DARK TABLE
+========================================================= */
+
+body.dark-mode .table-container {
+    background: #181b21;
+
+    border: 1px solid #2a2f38;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.30);
+}
+
+body.dark-mode table {
+    background: #181b21;
+}
+
+body.dark-mode thead {
+    background: #1d2128;
+}
+
+body.dark-mode th {
+    color: #8d99ad;
+
+    border-color: #2a2f38;
+}
+
+body.dark-mode td {
+    color: #e5e7eb;
+
+    border-color: #2a2f38;
+}
+
+body.dark-mode tbody tr:hover {
+    background: #20242b;
+}
+
+body.dark-mode tbody tr:hover td {
+    background: #20242b;
+}
+
+
+/* =========================================================
+   DARK STATUS BADGES
+========================================================= */
+
+body.dark-mode .status-pending {
+    background: #3a2d0b;
+    color: #fbbf24;
+}
+
+body.dark-mode .status-progress {
+    background: #172b4d;
+    color: #60a5fa;
+}
+
+body.dark-mode .status-resolved {
+    background: #12351f;
+    color: #4ade80;
+}
+
+body.dark-mode .status-default {
+    background: #30343b;
+    color: #d1d5db;
+}
+
+
+/* =========================================================
+   DARK ACTION BUTTONS
+========================================================= */
+
+body.dark-mode .map-btn {
+    background: #17324a;
+    color: #7dd3fc;
+}
+
+body.dark-mode .map-btn:hover {
+    background: #20445f;
+}
+
+body.dark-mode .evidence-btn {
+    background: #302552;
+    color: #c4b5fd;
+}
+
+body.dark-mode .evidence-btn:hover {
+    background: #3c3065;
+}
+
+body.dark-mode .voice-btn {
+    background: #4a2038;
+    color: #f9a8d4;
+}
+
+body.dark-mode .voice-btn:hover {
+    background: #5a2744;
+}
+
+
+/* =========================================================
+   DARK LOADING / NO DATA
+========================================================= */
+
+body.dark-mode .loading {
+    color: #9ca3af;
+}
+
+body.dark-mode .no-data {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   DARK SCROLLBAR
+========================================================= */
+
+body.dark-mode .table-container::-webkit-scrollbar-track {
+    background: #15181d;
+}
+
+body.dark-mode .table-container::-webkit-scrollbar-thumb {
+    background: #3b424d;
+}
+
+body.dark-mode .table-container::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+}
+
+
+/* =========================================================
+   DARK AUDIO PLAYER
+========================================================= */
+
+body.dark-mode .voice-player audio {
+    filter: brightness(0.85);
 }

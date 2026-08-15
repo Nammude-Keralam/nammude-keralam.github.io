@@ -11,6 +11,79 @@
           content="നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ. പരിഹാരത്തിലേക്ക് ഒരുമിച്ച് മുന്നോട്ട്.">
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ================= SOCIAL MEDIA ================= */
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 13px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform .2s ease, opacity .2s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-2px);
+            opacity: .9;
+        }
+
+        .social-instagram {
+            background: #f4e7ef;
+            color: #8a174f;
+        }
+
+        .social-whatsapp {
+            background: #e5f7eb;
+            color: #16733b;
+        }
+
+        .social-youtube {
+            background: #fbe7e7;
+            color: #b51f1f;
+        }
+
+        body.dark-mode .social-instagram {
+            background: #3a1d2e;
+            color: #ff9fca;
+        }
+
+        body.dark-mode .social-whatsapp {
+            background: #173524;
+            color: #78e6a2;
+        }
+
+        body.dark-mode .social-youtube {
+            background: #3d2020;
+            color: #ff8e8e;
+        }
+
+        @media (max-width: 600px) {
+            .social-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .social-links a {
+                width: fit-content;
+            }
+        }
+    </style>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -21,13 +94,10 @@
 
         <div class="container nav">
 
-            <!-- LOGO -->
             <a href="#" class="logo">
                 <img src="logo.png" alt="Nammude">
             </a>
 
-
-            <!-- NAVIGATION -->
             <nav class="nav-links">
 
                 <a href="#problems"
@@ -50,11 +120,8 @@
 
             </nav>
 
-
-            <!-- HEADER ACTIONS -->
             <div class="nav-actions">
 
-                <!-- DARK / LIGHT MODE -->
                 <button
                     type="button"
                     id="themeToggle"
@@ -63,8 +130,6 @@
                     🌙
                 </button>
 
-
-                <!-- LANGUAGE -->
                 <button
                     type="button"
                     id="languageToggle"
@@ -72,15 +137,11 @@
                     EN
                 </button>
 
-
-                <!-- REPORT -->
                 <a href="report.html"
                    class="nav-button"
                    data-ml="പ്രശ്നം അറിയിക്കാം"
                    data-en="Report a Problem">
-
                     പ്രശ്നം അറിയിക്കാം
-
                 </a>
 
             </div>
@@ -90,11 +151,9 @@
     </header>
 
 
-
     <!-- ================= MAIN ================= -->
 
     <main>
-
 
         <!-- ================= HERO ================= -->
 
@@ -105,32 +164,23 @@
                 <p class="eyebrow"
                    data-ml="നമ്മുടെ നാടിനായി • നമ്മുടെ ഇടപെടൽ"
                    data-en="For our community • Taking action">
-
                     നമ്മുടെ നാടിനായി • നമ്മുടെ ഇടപെടൽ
-
                 </p>
-
 
                 <h1
                     data-ml="നിങ്ങളുടെ പ്രശ്നം,<br><span>നമ്മുടെ ഇടപെടൽ.</span>"
                     data-en="Your problem,<br><span>our intervention.</span>">
-
                     നിങ്ങളുടെ പ്രശ്നം,<br>
                     <span>നമ്മുടെ ഇടപെടൽ.</span>
-
                 </h1>
-
 
                 <p class="hero-text"
                    data-ml="നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ. ശരിയായ മാർഗം കണ്ടെത്താനും ആവശ്യമായ നടപടികളിലേക്ക് നിങ്ങളെ നയിക്കാനും ഞങ്ങൾ സഹായിക്കും."
                    data-en="Tell us about the problem you are facing. We will help you find the right path and guide you towards the necessary steps.">
-
                     നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ.
                     ശരിയായ മാർഗം കണ്ടെത്താനും ആവശ്യമായ നടപടികളിലേക്ക്
                     നിങ്ങളെ നയിക്കാനും ഞങ്ങൾ സഹായിക്കും.
-
                 </p>
-
 
                 <div class="hero-buttons">
 
@@ -138,36 +188,27 @@
                        class="primary-button"
                        data-ml="പ്രശ്നം അറിയിക്കാം →"
                        data-en="Report a Problem →">
-
                         പ്രശ്നം അറിയിക്കാം →
-
                     </a>
-
 
                     <a href="#how"
                        class="secondary-button"
                        data-ml="എങ്ങനെ പ്രവർത്തിക്കുന്നു?"
                        data-en="How It Works">
-
                         എങ്ങനെ പ്രവർത്തിക്കുന്നു?
-
                     </a>
 
                 </div>
 
-
                 <p class="free-note"
                    data-ml="✓ പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്"
                    data-en="✓ Reporting a problem is free">
-
                     ✓ പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്
-
                 </p>
 
             </div>
 
         </section>
-
 
 
         <!-- ================= PROBLEMS ================= -->
@@ -181,146 +222,98 @@
                     <p class="eyebrow"
                        data-ml="എന്തെല്ലാം പ്രശ്നങ്ങൾക്ക്?"
                        data-en="What can we help with?">
-
                         എന്തെല്ലാം പ്രശ്നങ്ങൾക്ക്?
-
                     </p>
-
 
                     <h2
                         data-ml="ചെറിയ പ്രശ്നമോ വലിയ പ്രശ്നമോ,<br>ഞങ്ങളോട് പറയാം."
                         data-en="Big problem or small problem,<br>you can tell us.">
-
                         ചെറിയ പ്രശ്നമോ വലിയ പ്രശ്നമോ,<br>
                         ഞങ്ങളോട് പറയാം.
-
                     </h2>
-
 
                     <p
                         data-ml="നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ. പ്രശ്നത്തിന്റെ സ്വഭാവം മനസ്സിലാക്കി ലഭ്യമായ മാർഗങ്ങളും ആവശ്യമായ നടപടികളും വ്യക്തമാക്കാം."
                         data-en="Tell us about your problem. We will understand the situation and explain the available options and necessary steps.">
-
                         നിങ്ങൾ നേരിടുന്ന പ്രശ്നം ഞങ്ങളെ അറിയിക്കൂ.
                         പ്രശ്നത്തിന്റെ സ്വഭാവം മനസ്സിലാക്കി ലഭ്യമായ മാർഗങ്ങളും
                         ആവശ്യമായ നടപടികളും വ്യക്തമാക്കാം.
-
                     </p>
 
                 </div>
 
-
-
                 <div class="problem-grid">
 
-                    <!-- PUBLIC PROBLEMS -->
-
                     <div class="problem-card">
-
                         <div class="icon">🏘️</div>
 
                         <h3
                             data-ml="പൊതുജന പ്രശ്നങ്ങൾ"
                             data-en="Public Issues">
-
                             പൊതുജന പ്രശ്നങ്ങൾ
-
                         </h3>
 
                         <p
                             data-ml="റോഡ്, തെരുവുവിളക്ക്, കുടിവെള്ളം, മാലിന്യസംസ്കരണം തുടങ്ങിയ പ്രദേശത്തെ പൊതുപ്രശ്നങ്ങൾ."
                             data-en="Local public issues such as roads, streetlights, drinking water and waste management.">
-
                             റോഡ്, തെരുവുവിളക്ക്, കുടിവെള്ളം,
                             മാലിന്യസംസ്കരണം തുടങ്ങിയ പ്രദേശത്തെ
                             പൊതുപ്രശ്നങ്ങൾ.
-
                         </p>
-
                     </div>
 
-
-
-                    <!-- GOVERNMENT SERVICES -->
-
                     <div class="problem-card">
-
                         <div class="icon">📄</div>
 
                         <h3
                             data-ml="സർക്കാർ സേവനങ്ങൾ"
                             data-en="Government Services">
-
                             സർക്കാർ സേവനങ്ങൾ
-
                         </h3>
 
                         <p
                             data-ml="സർക്കാർ ഓഫീസുകളുമായി ബന്ധപ്പെട്ട അപേക്ഷകൾ, സേവനങ്ങൾ, പരാതികൾ എന്നിവയിൽ മാർഗനിർദേശം."
                             data-en="Guidance for applications, services and complaints related to government offices.">
-
                             സർക്കാർ ഓഫീസുകളുമായി ബന്ധപ്പെട്ട
                             അപേക്ഷകൾ, സേവനങ്ങൾ, പരാതികൾ എന്നിവയിൽ
                             മാർഗനിർദേശം.
-
                         </p>
-
                     </div>
 
-
-
-                    <!-- RIGHTS -->
-
                     <div class="problem-card">
-
                         <div class="icon">⚖️</div>
 
                         <h3
                             data-ml="അവകാശ സംബന്ധമായ പ്രശ്നങ്ങൾ"
                             data-en="Rights & Complaints">
-
                             അവകാശ സംബന്ധമായ പ്രശ്നങ്ങൾ
-
                         </h3>
 
                         <p
                             data-ml="നിങ്ങളുടെ അവകാശങ്ങളുമായി ബന്ധപ്പെട്ട പ്രശ്നങ്ങളിൽ ലഭ്യമായ മാർഗങ്ങളും നടപടികളും മനസ്സിലാക്കാൻ സഹായം."
                             data-en="Help understanding available options and procedures related to your rights.">
-
                             നിങ്ങളുടെ അവകാശങ്ങളുമായി ബന്ധപ്പെട്ട
                             പ്രശ്നങ്ങളിൽ ലഭ്യമായ മാർഗങ്ങളും നടപടികളും
                             മനസ്സിലാക്കാൻ സഹായം.
-
                         </p>
-
                     </div>
 
-
-
-                    <!-- PERSONAL -->
-
                     <div class="problem-card">
-
                         <div class="icon">🛡️</div>
 
                         <h3
                             data-ml="വ്യക്തിഗത പ്രശ്നങ്ങൾ"
                             data-en="Personal Problems">
-
                             വ്യക്തിഗത പ്രശ്നങ്ങൾ
-
                         </h3>
 
                         <p
                             data-ml="ഇൻഷുറൻസ് ക്ലെയിം ഉൾപ്പെടെയുള്ള വ്യക്തിഗത പ്രശ്നങ്ങളിൽ ആവശ്യമായ മാർഗനിർദേശവും സഹായവും."
                             data-en="Guidance and assistance for personal issues, including insurance claims.">
-
                             ഇൻഷുറൻസ് ക്ലെയിം ഉൾപ്പെടെയുള്ള
                             വ്യക്തിഗത പ്രശ്നങ്ങളിൽ ആവശ്യമായ
                             മാർഗനിർദേശവും സഹായവും.
-
                         </p>
-
                     </div>
 
                 </div>
@@ -330,11 +323,9 @@
         </section>
 
 
-
         <!-- ================= HOW IT WORKS ================= -->
 
-        <section id="how"
-                 class="section light-section">
+        <section id="how" class="section light-section">
 
             <div class="container">
 
@@ -343,105 +334,70 @@
                     <p class="eyebrow"
                        data-ml="എങ്ങനെ പ്രവർത്തിക്കുന്നു?"
                        data-en="How it works">
-
                         എങ്ങനെ പ്രവർത്തിക്കുന്നു?
-
                     </p>
-
 
                     <h2
                         data-ml="പ്രശ്നപരിഹാരത്തിലേക്ക്<br>ഒരുമിച്ച് മുന്നോട്ട്."
                         data-en="Moving together<br>towards a solution.">
-
                         പ്രശ്നപരിഹാരത്തിലേക്ക്<br>
                         ഒരുമിച്ച് മുന്നോട്ട്.
-
                     </h2>
 
                 </div>
 
-
-
                 <div class="steps">
 
-                    <!-- STEP 1 -->
-
                     <div class="step">
-
                         <span>01</span>
 
                         <h3
                             data-ml="പ്രശ്നം അറിയിക്കാം"
                             data-en="Tell us your problem">
-
                             പ്രശ്നം അറിയിക്കാം
-
                         </h3>
 
                         <p
                             data-ml="നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളോട് സൗജന്യമായി പങ്കുവെക്കാം."
                             data-en="Tell us about your problem for free.">
-
                             നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളോട്
                             സൗജന്യമായി പങ്കുവെക്കാം.
-
                         </p>
-
                     </div>
 
-
-
-                    <!-- STEP 2 -->
-
                     <div class="step">
-
                         <span>02</span>
 
                         <h3
                             data-ml="ഞങ്ങൾ പരിശോധിക്കും"
                             data-en="We review it">
-
                             ഞങ്ങൾ പരിശോധിക്കും
-
                         </h3>
 
                         <p
                             data-ml="പ്രശ്നം മനസ്സിലാക്കി സാധ്യമായ മാർഗങ്ങളും ആവശ്യമായ നടപടികളും പരിശോധിക്കും."
                             data-en="We understand the issue and review the possible options and necessary steps.">
-
                             പ്രശ്നം മനസ്സിലാക്കി സാധ്യമായ മാർഗങ്ങളും
                             ആവശ്യമായ നടപടികളും പരിശോധിക്കും.
-
                         </p>
-
                     </div>
 
-
-
-                    <!-- STEP 3 -->
-
                     <div class="step">
-
                         <span>03</span>
 
                         <h3
                             data-ml="തുടർനടപടികളിൽ സഹായം"
                             data-en="Help with the next steps">
-
                             തുടർനടപടികളിൽ സഹായം
-
                         </h3>
 
                         <p
                             data-ml="ആവശ്യമായ അപേക്ഷ, പരാതി, ആശയവിനിമയം തുടങ്ങിയ തുടർനടപടികളിൽ സഹായിക്കും."
                             data-en="We can assist with applications, complaints, communication and other necessary next steps.">
-
                             ആവശ്യമായ അപേക്ഷ, പരാതി,
                             ആശയവിനിമയം തുടങ്ങിയ തുടർനടപടികളിൽ
                             സഹായിക്കും.
-
                         </p>
-
                     </div>
 
                 </div>
@@ -451,21 +407,19 @@
         </section>
 
 
+        <!-- ================= MEMBERSHIP ================= -->
 
-        
-<!-- ================= MEMBERSHIP ================= -->
-
-         <section id="membership" class="section">
+        <section id="membership" class="section">
 
             <div class="container">
 
                 <div class="section-heading">
 
                     <p class="eyebrow"
-                    data-ml="മെമ്പർഷിപ്പ്"
-                    data-en="Membership">
-                      മെമ്പർഷിപ്പ്
-                     </p>
+                       data-ml="മെമ്പർഷിപ്പ്"
+                       data-en="Membership">
+                        മെമ്പർഷിപ്പ്
+                    </p>
 
                     <h2
                         data-ml="നിങ്ങൾക്ക് അനുയോജ്യമായ പ്ലാൻ തിരഞ്ഞെടുക്കാം."
@@ -483,220 +437,196 @@
 
                 </div>
 
+                <div class="membership-grid">
 
-            <div class="membership-grid">
+                    <div class="membership-card">
 
+                        <p class="plan-label">BASIC</p>
 
-            <!-- ================= BASIC ================= -->
+                        <h3>
+                            ₹99
+                            <span data-ml="/ മാസം"
+                                  data-en="/ month">
+                                / മാസം
+                            </span>
+                        </h3>
 
-            <div class="membership-card">
+                        <p
+                            data-ml="അടിസ്ഥാന സഹായവും മാർഗനിർദേശവും."
+                            data-en="Basic guidance and assistance.">
+                            അടിസ്ഥാന സഹായവും മാർഗനിർദേശവും.
+                        </p>
 
-                <p class="plan-label">BASIC</p>
+                        <ul class="plan-features">
 
-                <h3>
-                    ₹99
-                    <span
-                        data-ml="/ മാസം"
-                        data-en="/ month">
-                        / മാസം
-                    </span>
-                </h3>
+                            <li
+                                data-ml="✓ അടിസ്ഥാന മാർഗനിർദേശം"
+                                data-en="✓ Basic guidance">
+                                ✓ അടിസ്ഥാന മാർഗനിർദേശം
+                            </li>
 
-                <p
-                    data-ml="അടിസ്ഥാന സഹായവും മാർഗനിർദേശവും."
-                    data-en="Basic guidance and assistance.">
-                    അടിസ്ഥാന സഹായവും മാർഗനിർദേശവും.
-                </p>
+                            <li
+                                data-ml="✓ പ്രശ്നം പരിശോധിക്കൽ"
+                                data-en="✓ Problem review">
+                                ✓ പ്രശ്നം പരിശോധിക്കൽ
+                            </li>
 
-                <ul class="plan-features">
+                            <li
+                                data-ml="✓ ആവശ്യമായ നടപടികളെക്കുറിച്ചുള്ള സഹായം"
+                                data-en="✓ Help with necessary next steps">
+                                ✓ ആവശ്യമായ നടപടികളെക്കുറിച്ചുള്ള സഹായം
+                            </li>
 
-                    <li
-                        data-ml="✓ അടിസ്ഥാന മാർഗനിർദേശം"
-                        data-en="✓ Basic guidance">
-                        ✓ അടിസ്ഥാന മാർഗനിർദേശം
-                    </li>
+                        </ul>
 
-                    <li
-                        data-ml="✓ പ്രശ്നം പരിശോധിക്കൽ"
-                        data-en="✓ Problem review">
-                        ✓ പ്രശ്നം പരിശോധിക്കൽ
-                    </li>
+                        <a href="report.html"
+                           class="primary-button"
+                           data-ml="Basic തിരഞ്ഞെടുക്കാം →"
+                           data-en="Choose Basic →">
+                            Basic തിരഞ്ഞെടുക്കാം →
+                        </a>
 
-                    <li
-                        data-ml="✓ ആവശ്യമായ നടപടികളെക്കുറിച്ചുള്ള സഹായം"
-                        data-en="✓ Help with necessary next steps">
-                        ✓ ആവശ്യമായ നടപടികളെക്കുറിച്ചുള്ള സഹായം
-                    </li>
-
-                </ul>
-
-                <a href="report.html"
-                   class="primary-button"
-                   data-ml="Basic തിരഞ്ഞെടുക്കാം →"
-                   data-en="Choose Basic →">
-                    Basic തിരഞ്ഞെടുക്കാം →
-                </a>
-
-            </div>
+                    </div>
 
 
+                    <div class="membership-card featured">
 
-            <!-- ================= PLUS ================= -->
+                        <p class="plan-label">PLUS</p>
 
-            <div class="membership-card featured">
+                        <h3>
+                            ₹399
+                            <span data-ml="/ മാസം"
+                                  data-en="/ month">
+                                / മാസം
+                            </span>
+                        </h3>
 
-                <p class="plan-label">PLUS</p>
+                        <p
+                            data-ml="കൂടുതൽ സഹായവും മുൻഗണനാ പിന്തുണയും."
+                            data-en="More assistance with priority support.">
+                            കൂടുതൽ സഹായവും മുൻഗണനാ പിന്തുണയും.
+                        </p>
 
-                <h3>
-                    ₹399
-                    <span
-                        data-ml="/ മാസം"
-                        data-en="/ month">
-                        / മാസം
-                    </span>
-                </h3>
+                        <ul class="plan-features">
 
-                <p
-                    data-ml="കൂടുതൽ സഹായവും മുൻഗണനാ പിന്തുണയും."
-                    data-en="More assistance with priority support.">
-                    കൂടുതൽ സഹായവും മുൻഗണനാ പിന്തുണയും.
-                </p>
+                            <li
+                                data-ml="✓ Basic പ്ലാനിലെ എല്ലാ സേവനങ്ങളും"
+                                data-en="✓ Everything in Basic">
+                                ✓ Basic പ്ലാനിലെ എല്ലാ സേവനങ്ങളും
+                            </li>
 
-                <ul class="plan-features">
+                            <li
+                                data-ml="✓ മുൻഗണനാ പിന്തുണ"
+                                data-en="✓ Priority support">
+                                ✓ മുൻഗണനാ പിന്തുണ
+                            </li>
 
-                    <li
-                        data-ml="✓ Basic പ്ലാനിലെ എല്ലാ സേവനങ്ങളും"
-                        data-en="✓ Everything in Basic">
-                        ✓ Basic പ്ലാനിലെ എല്ലാ സേവനങ്ങളും
-                    </li>
+                            <li
+                                data-ml="✓ അപേക്ഷകളും പരാതികളും തയ്യാറാക്കുന്നതിൽ സഹായം"
+                                data-en="✓ Help with applications and complaints">
+                                ✓ അപേക്ഷകളും പരാതികളും തയ്യാറാക്കുന്നതിൽ സഹായം
+                            </li>
 
-                    <li
-                        data-ml="✓ മുൻഗണനാ പിന്തുണ"
-                        data-en="✓ Priority support">
-                        ✓ മുൻഗണനാ പിന്തുണ
-                    </li>
+                        </ul>
 
-                    <li
-                        data-ml="✓ അപേക്ഷകളും പരാതികളും തയ്യാറാക്കുന്നതിൽ സഹായം"
-                        data-en="✓ Help with applications and complaints">
-                        ✓ അപേക്ഷകളും പരാതികളും തയ്യാറാക്കുന്നതിൽ സഹായം
-                    </li>
+                        <a href="report.html"
+                           class="primary-button"
+                           data-ml="Plus തിരഞ്ഞെടുക്കാം →"
+                           data-en="Choose Plus →">
+                            Plus തിരഞ്ഞെടുക്കാം →
+                        </a>
 
-                </ul>
-
-                <a href="report.html"
-                   class="primary-button"
-                   data-ml="Plus തിരഞ്ഞെടുക്കാം →"
-                   data-en="Choose Plus →">
-                    Plus തിരഞ്ഞെടുക്കാം →
-                </a>
-
-            </div>
+                    </div>
 
 
+                    <div class="membership-card">
 
-            <!-- ================= PREMIUM ================= -->
+                        <p class="plan-label">PREMIUM</p>
 
-            <div class="membership-card">
+                        <h3>
+                            ₹499
+                            <span data-ml="/ മാസം"
+                                  data-en="/ month">
+                                / മാസം
+                            </span>
+                        </h3>
 
-                <p class="plan-label">PREMIUM</p>
+                        <p
+                            data-ml="പരമാവധി പിന്തുണയും വ്യക്തിഗത സഹായവും."
+                            data-en="Maximum support with personalized assistance.">
+                            പരമാവധി പിന്തുണയും വ്യക്തിഗത സഹായവും.
+                        </p>
 
-                <h3>
-                    ₹499
-                    <span
-                        data-ml="/ മാസം"
-                        data-en="/ month">
-                        / മാസം
-                    </span>
-                </h3>
+                        <ul class="plan-features">
 
-                <p
-                    data-ml="പരമാവധി പിന്തുണയും വ്യക്തിഗത സഹായവും."
-                    data-en="Maximum support with personalized assistance.">
-                    പരമാവധി പിന്തുണയും വ്യക്തിഗത സഹായവും.
-                </p>
+                            <li
+                                data-ml="✓ Plus പ്ലാനിലെ എല്ലാ സേവനങ്ങളും"
+                                data-en="✓ Everything in Plus">
+                                ✓ Plus പ്ലാനിലെ എല്ലാ സേവനങ്ങളും
+                            </li>
 
-                <ul class="plan-features">
+                            <li
+                                data-ml="✓ ഉയർന്ന മുൻഗണനാ പിന്തുണ"
+                                data-en="✓ Highest priority support">
+                                ✓ ഉയർന്ന മുൻഗണനാ പിന്തുണ
+                            </li>
 
-                    <li
-                        data-ml="✓ Plus പ്ലാനിലെ എല്ലാ സേവനങ്ങളും"
-                        data-en="✓ Everything in Plus">
-                        ✓ Plus പ്ലാനിലെ എല്ലാ സേവനങ്ങളും
-                    </li>
+                            <li
+                                data-ml="✓ വ്യക്തിഗത മാർഗനിർദേശവും സഹായവും"
+                                data-en="✓ Personalized guidance and assistance">
+                                ✓ വ്യക്തിഗത മാർഗനിർദേശവും സഹായവും
+                            </li>
 
-                    <li
-                        data-ml="✓ ഉയർന്ന മുൻഗണനാ പിന്തുണ"
-                        data-en="✓ Highest priority support">
-                        ✓ ഉയർന്ന മുൻഗണനാ പിന്തുണ
-                    </li>
+                        </ul>
 
-                    <li
-                        data-ml="✓ വ്യക്തിഗത മാർഗനിർദേശവും സഹായവും"
-                        data-en="✓ Personalized guidance and assistance">
-                        ✓ വ്യക്തിഗത മാർഗനിർദേശവും സഹായവും
-                    </li>
+                        <a href="report.html"
+                           class="primary-button"
+                           data-ml="Premium തിരഞ്ഞെടുക്കാം →"
+                           data-en="Choose Premium →">
+                            Premium തിരഞ്ഞെടുക്കാം →
+                        </a>
 
-                </ul>
+                    </div>
 
-                <a href="report.html"
-                   class="primary-button"
-                   data-ml="Premium തിരഞ്ഞെടുക്കാം →"
-                   data-en="Choose Premium →">
-                    Premium തിരഞ്ഞെടുക്കാം →
-                </a>
-
-            </div>
-
-
-             </div>
+                </div>
 
             </div>
 
         </section>
+
+
         <!-- ================= REPORT ================= -->
 
-        <section id="report"
-                 class="report-section">
+        <section id="report" class="report-section">
 
             <div class="container report-content">
 
                 <p class="eyebrow"
                    data-ml="തുടങ്ങാം"
                    data-en="Let's get started">
-
                     തുടങ്ങാം
-
                 </p>
-
 
                 <h2
                     data-ml="നിങ്ങളുടെ പ്രശ്നം<br>ഞങ്ങളോട് പറയൂ."
                     data-en="Tell us<br>your problem.">
-
                     നിങ്ങളുടെ പ്രശ്നം<br>
                     ഞങ്ങളോട് പറയൂ.
-
                 </h2>
-
 
                 <p
                     data-ml="പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്. പ്രശ്നം മനസ്സിലാക്കിയ ശേഷം ആവശ്യമായ സഹായവും സേവന നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും."
                     data-en="Reporting a problem is free. After understanding the issue, we will explain the required assistance and service charge in advance.">
-
                     പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
                     പ്രശ്നം മനസ്സിലാക്കിയ ശേഷം ആവശ്യമായ സഹായവും
                     സേവന നിരക്കും മുൻകൂട്ടി വ്യക്തമാക്കും.
-
                 </p>
-
 
                 <a href="report.html"
                    class="primary-button large-button"
                    data-ml="പ്രശ്നം അറിയിക്കാം →"
                    data-en="Report a Problem →">
-
                     പ്രശ്നം അറിയിക്കാം →
-
                 </a>
 
             </div>
@@ -704,7 +634,6 @@
         </section>
 
     </main>
-
 
 
     <!-- ================= FOOTER ================= -->
@@ -722,10 +651,85 @@
                 <p
                     data-ml="നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
                     data-en="Your problem, our intervention.">
-
                     നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
-
                 </p>
+
+                <!-- SOCIAL MEDIA -->
+
+                <div class="social-links">
+
+    <a href="https://www.instagram.com/nammude.help"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-instagram"
+   aria-label="Instagram">
+
+    <svg viewBox="0 0 24 24"
+         aria-hidden="true"
+         class="instagram-logo">
+
+        <rect x="3" y="3" width="18" height="18" rx="5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"/>
+
+        <circle cx="12" cy="12" r="4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"/>
+
+        <circle cx="17.5" cy="6.5" r="1.2"
+                fill="currentColor"/>
+
+    </svg>
+
+</a>
+
+
+    <a href="https://wa.me/918281443383"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-whatsapp"
+   aria-label="WhatsApp">
+
+    <svg viewBox="0 0 24 24"
+         aria-hidden="true"
+         class="whatsapp-logo">
+
+        <path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"/>
+
+        <path d="M8.5 8.2c.3-.5.7-.5 1-.5h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c.7 1.3 1.7 2.3 3 3l.7-.6c.2-.2.4-.2.7-.1l1.9.8c.3.1.4.3.4.5v.5c0 .3 0 .7-.5 1-1.1.7-2.5.4-4.4-.5-1.8-.9-3.4-2.5-4.3-4.3-.9-1.9-1.2-3.3-.5-4.4Z"
+              fill="currentColor"/>
+
+    </svg>
+
+</a>
+
+
+    <a href="https://www.youtube.com/@nammudehelp"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-youtube"
+   aria-label="YouTube">
+
+    <svg viewBox="0 0 24 24"
+         aria-hidden="true"
+         class="youtube-logo">
+
+        <rect x="2" y="5" width="20" height="14" rx="4"
+              fill="currentColor"/>
+
+        <path d="M10 8.5L16 12L10 15.5V8.5Z"
+              fill="white"/>
+
+    </svg>
+
+</a>
+
+</div>
 
             </div>
 
@@ -739,9 +743,7 @@
                 <p
                     data-ml="നമ്മുടെ നാടിനായി."
                     data-en="For our community.">
-
                     നമ്മുടെ നാടിനായി.
-
                 </p>
 
             </div>
@@ -749,7 +751,6 @@
         </div>
 
     </footer>
-
 
 
     <!-- ================= LANGUAGE + THEME ================= -->
@@ -883,4 +884,3 @@
 
 </body>
 </html>
-

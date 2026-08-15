@@ -843,46 +843,45 @@
            VOICE
         ====================================================== */
 
-        function getVoiceHTML(report) {
+      function getVoiceHTML(report) {
 
-            let voiceURL =
-                report.voice_url ??
-                report.voice ??
-                null;
+    let voiceURL =
+        report.voice_url ??
+        report.voice ??
+        report.audio_url ??
+        report.audio ??
+        null;
 
-            if (!voiceURL) {
-                return "-";
-            }
+    if (!voiceURL) {
+        return "-";
+    }
 
+    if (Array.isArray(voiceURL)) {
+        voiceURL = voiceURL[0] || "";
+    }
 
-            if (Array.isArray(voiceURL)) {
-                voiceURL = voiceURL[0] || "";
-            }
+    voiceURL = String(voiceURL || "").trim();
 
+    if (!voiceURL) {
+        return "-";
+    }
 
-            voiceURL =
-                String(voiceURL || "").trim();
+    return `
+        <div class="voice-player">
 
-
-            if (!voiceURL) {
-                return "-";
-            }
-
-
-            return `
-                <a
-                    class="action-btn voice-btn"
-                    href="${escapeHTML(voiceURL)}"
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <audio
+                controls
+                preload="none"
+            >
+                <source
+                    src="${escapeHTML(voiceURL)}"
                 >
-                    🎤 Listen
-                </a>
-            `;
+                Your browser does not support audio playback.
+            </audio>
 
-        }
-
-
+        </div>
+    `;
+}
         /* =====================================================
            DISPLAY REPORTS
         ====================================================== */

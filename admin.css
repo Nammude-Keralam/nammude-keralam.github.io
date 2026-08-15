@@ -1,45 +1,157 @@
 /* =========================================================
-   NAMMUDE — ADMIN DASHBOARD
+   NAMMUDE — ADMIN DASHBOARD CSS
    Responsive • Desktop • Tablet • Mobile
    Light + Dark Mode
 ========================================================= */
 
 
 /* =========================================================
-   1. RESET
+   1. ROOT VARIABLES
 ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+:root {
 
-html {
-    scroll-behavior: smooth;
-}
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --header: #ffffff;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
+    --text: #1f2937;
+    --heading: #111827;
+    --muted: #6b7280;
 
-    background: #f4f6f8;
-    color: #1f2937;
+    --border: #e5e7eb;
+    --input-border: #d9dee3;
 
-    transition:
-        background 0.25s ease,
-        color 0.25s ease;
+    --table-head: #f1f5f9;
+    --hover: #f8fafc;
+
+    --primary: #0f766e;
+    --primary-dark: #115e59;
+
+    --green: #16a34a;
+    --red: #dc2626;
+    --blue: #2563eb;
+    --orange: #d97706;
+
+    --shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+
+    --shadow-lg:
+        0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 
 /* =========================================================
-   2. LOGIN
+   2. DARK MODE VARIABLES
+========================================================= */
+
+body.dark-mode {
+
+    --bg: #0b0f14;
+
+    --card: #151a21;
+
+    --header: #11161d;
+
+    --text: #e5e7eb;
+
+    --heading: #f9fafb;
+
+    --muted: #9ca3af;
+
+    --border: #29313b;
+
+    --input-border: #303945;
+
+    --table-head: #1b2129;
+
+    --hover: #1b2129;
+
+    --shadow:
+        0 3px 12px rgba(0, 0, 0, 0.25);
+
+    --shadow-lg:
+        0 15px 40px rgba(0, 0, 0, 0.40);
+}
+
+
+/* =========================================================
+   3. RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+
+button,
+input,
+select,
+textarea {
+
+    font-family: inherit;
+}
+
+
+button {
+
+    cursor: pointer;
+}
+
+
+a {
+
+    color: inherit;
+}
+
+
+img {
+
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   4. LOGIN PAGE
 ========================================================= */
 
 #loginPage {
+
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     padding: 20px;
@@ -52,77 +164,109 @@ body {
         );
 }
 
-.login-box {
-    width: 100%;
-    max-width: 400px;
 
-    background: #ffffff;
+.login-box {
+
+    width: 100%;
+
+    max-width: 410px;
 
     padding: 35px;
 
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
     border-radius: 18px;
 
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.20);
+    box-shadow: var(--shadow-lg);
 }
 
+
 .login-logo {
+
     text-align: center;
 
     font-size: 32px;
+
     font-weight: 800;
 
-    color: #0f766e;
+    letter-spacing: .5px;
+
+    color: var(--primary);
 
     margin-bottom: 8px;
 }
 
+
 .login-subtitle {
+
     text-align: center;
 
-    color: #777;
+    color: var(--muted);
 
     margin-bottom: 30px;
 
     font-size: 15px;
 }
 
+
 .login-box label {
+
     display: block;
 
     margin-bottom: 7px;
 
-    font-weight: 700;
+    color: var(--text);
 
     font-size: 14px;
+
+    font-weight: 700;
 }
 
+
 .login-box input {
+
     width: 100%;
 
     padding: 13px 14px;
 
-    border: 1px solid #d9dee3;
+    margin-bottom: 18px;
+
+    border: 1px solid var(--input-border);
 
     border-radius: 9px;
 
-    margin-bottom: 18px;
+    outline: none;
+
+    background: var(--card);
+
+    color: var(--text);
 
     font-size: 15px;
 
-    outline: none;
-
-    transition: 0.2s;
+    transition: .2s;
 }
+
+
+.login-box input::placeholder {
+
+    color: var(--muted);
+}
+
 
 .login-box input:focus {
-    border-color: #0f766e;
+
+    border-color: var(--primary);
 
     box-shadow:
-        0 0 0 3px rgba(15, 118, 110, 0.12);
+        0 0 0 3px
+        rgba(15, 118, 110, .12);
 }
 
+
 .login-btn {
+
     width: 100%;
 
     padding: 14px;
@@ -131,7 +275,7 @@ body {
 
     border-radius: 9px;
 
-    background: #0f766e;
+    background: var(--primary);
 
     color: #ffffff;
 
@@ -139,51 +283,61 @@ body {
 
     font-weight: 700;
 
-    cursor: pointer;
+    transition: .2s;
 }
+
 
 .login-btn:hover {
-    background: #115e59;
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
 }
 
-#loginError {
-    color: #dc2626;
 
-    text-align: center;
+#loginError {
+
+    display: none;
 
     margin-top: 15px;
 
-    display: none;
+    color: #dc2626;
+
+    text-align: center;
 
     font-size: 14px;
 }
 
 
 /* =========================================================
-   3. DASHBOARD
+   5. DASHBOARD
 ========================================================= */
 
 #dashboard {
+
     display: none;
 
     min-height: 100vh;
 
-    background: #f4f6f8;
+    background: var(--bg);
+
+    color: var(--text);
 }
 
 
 /* =========================================================
-   4. HEADER
+   6. HEADER
 ========================================================= */
 
-header {
+#dashboard header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
     width: 100%;
-
-    background: #ffffff;
-
-    color: #111827;
-
-    padding: 16px 25px;
 
     display: flex;
 
@@ -193,29 +347,32 @@ header {
 
     gap: 20px;
 
-    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 25px;
+
+    background: var(--header);
+
+    color: var(--text);
+
+    border-bottom: 1px solid var(--border);
 
     box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.05);
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
+        0 2px 10px rgba(0, 0, 0, .05);
 }
 
 
-/* Header left */
-
 .header-left {
+
     flex: 1;
 
     min-width: 0;
 }
 
+
 .header-left h1 {
-    color: #111827;
+
+    margin: 0;
+
+    color: var(--heading);
 
     font-size: 25px;
 
@@ -224,18 +381,23 @@ header {
     line-height: 1.2;
 }
 
+
 .header-left p {
-    color: #6b7280;
 
     margin-top: 5px;
+
+    color: var(--muted);
 
     font-size: 13px;
 }
 
 
-/* Header buttons */
+/* =========================================================
+   7. HEADER BUTTONS
+========================================================= */
 
 .header-buttons {
+
     display: flex;
 
     align-items: center;
@@ -247,92 +409,139 @@ header {
     flex-shrink: 0;
 }
 
+
 .header-btn {
-    border: 1px solid #e5e7eb;
+
+    min-height: 42px;
 
     padding: 10px 15px;
 
+    border: 1px solid var(--border);
+
     border-radius: 9px;
 
-    cursor: pointer;
+    background: var(--card);
 
-    font-weight: 700;
+    color: var(--text);
 
     font-size: 14px;
 
-    background: #ffffff;
-
-    color: #111827;
+    font-weight: 700;
 
     white-space: nowrap;
 
-    transition: 0.2s;
+    transition: .2s;
 }
+
 
 .header-btn:hover {
+
     transform: translateY(-1px);
 
-    background: #f8fafc;
-}
-
-
-/* Theme button */
-
-.theme-btn {
-    width: 48px;
-
-    height: 48px;
-
-    padding: 0;
-
-    border-radius: 50%;
-
-    font-size: 20px;
-}
-
-
-/* Refresh */
-
-.refresh-btn {
-    color: #111827;
-}
-
-
-/* Export */
-
-.export-btn {
-    background: #16a34a;
-
-    border-color: #16a34a;
-
-    color: #ffffff;
-}
-
-.export-btn:hover {
-    background: #15803d;
-}
-
-
-/* Logout */
-
-.logout-btn {
-    background: #dc2626;
-
-    border-color: #dc2626;
-
-    color: #ffffff;
-}
-
-.logout-btn:hover {
-    background: #b91c1c;
+    background: var(--hover);
 }
 
 
 /* =========================================================
-   5. MAIN
+   8. THEME BUTTON
 ========================================================= */
 
-main {
+.theme-btn {
+
+    width: 44px;
+
+    height: 44px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 19px;
+
+    transition: .2s;
+}
+
+
+.theme-btn:hover {
+
+    transform: rotate(8deg);
+}
+
+
+/* =========================================================
+   9. REFRESH BUTTON
+========================================================= */
+
+.refresh-btn {
+
+    background: var(--card);
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   10. EXPORT BUTTON
+========================================================= */
+
+.export-btn {
+
+    background: var(--green);
+
+    border-color: var(--green);
+
+    color: #ffffff;
+}
+
+
+.export-btn:hover {
+
+    background: #15803d;
+
+    border-color: #15803d;
+}
+
+
+/* =========================================================
+   11. LOGOUT BUTTON
+========================================================= */
+
+.logout-btn {
+
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: #ffffff;
+}
+
+
+.logout-btn:hover {
+
+    background: #b91c1c;
+
+    border-color: #b91c1c;
+}
+
+
+/* =========================================================
+   12. MAIN
+========================================================= */
+
+#dashboard main {
+
     width: 100%;
 
     max-width: 1500px;
@@ -344,10 +553,11 @@ main {
 
 
 /* =========================================================
-   6. STATISTICS
+   13. STATISTICS
 ========================================================= */
 
 .stats {
+
     display: grid;
 
     grid-template-columns:
@@ -358,190 +568,239 @@ main {
     margin-bottom: 25px;
 }
 
+
 .stat-card {
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 14px;
 
     padding: 22px;
 
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.05);
+    background: var(--card);
 
-    transition: 0.2s;
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+
+    transition: .2s;
 }
 
+
 .stat-card:hover {
+
     transform: translateY(-2px);
 
     box-shadow:
-        0 6px 18px rgba(0, 0, 0, 0.08);
+        0 6px 18px
+        rgba(0, 0, 0, .08);
 }
+
 
 .stat-title {
-    color: #6b7280;
-
-    font-size: 14px;
 
     margin-bottom: 8px;
+
+    color: var(--muted);
+
+    font-size: 14px;
 }
 
+
 .stat-number {
+
     font-size: 32px;
 
     font-weight: 800;
 }
 
+
 .total {
-    color: #0f766e;
+
+    color: var(--primary);
 }
+
 
 .pending {
-    color: #d97706;
+
+    color: var(--orange);
 }
+
 
 .progress {
-    color: #2563eb;
+
+    color: var(--blue);
 }
 
+
 .resolved {
-    color: #16a34a;
+
+    color: var(--green);
 }
 
 
 /* =========================================================
-   7. SEARCH + FILTER
+   14. SEARCH / FILTER CONTROLS
 ========================================================= */
 
 .controls {
-    background: #ffffff;
 
-    padding: 18px;
+    display: grid;
 
-    border: 1px solid #e5e7eb;
-
-    border-radius: 14px;
-
-    margin-bottom: 20px;
-
-    display: flex;
+    grid-template-columns:
+        minmax(200px, 1fr)
+        200px
+        200px;
 
     gap: 12px;
 
-    flex-wrap: wrap;
+    padding: 18px;
 
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
 }
+
 
 .controls input,
 .controls select {
+
+    width: 100%;
+
+    min-height: 44px;
+
     padding: 11px 13px;
 
-    border: 1px solid #d9dee3;
+    border: 1px solid var(--input-border);
 
     border-radius: 8px;
 
-    font-size: 14px;
-
-    background: #ffffff;
-
-    color: #111827;
-
     outline: none;
 
-    transition: 0.2s;
+    background: var(--card);
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    transition: .2s;
 }
+
+
+.controls input::placeholder {
+
+    color: var(--muted);
+}
+
 
 .controls input:focus,
 .controls select:focus {
-    border-color: #0f766e;
+
+    border-color: var(--primary);
 
     box-shadow:
-        0 0 0 3px rgba(15, 118, 110, 0.10);
-}
-
-.search {
-    flex: 1;
-
-    min-width: 220px;
+        0 0 0 3px
+        rgba(15, 118, 110, .10);
 }
 
 
 /* =========================================================
-   8. TABLE CONTAINER
+   15. TABLE CONTAINER
 ========================================================= */
 
 .table-container {
+
     width: 100%;
 
-    background: #ffffff;
+    background: var(--card);
 
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
 
     border-radius: 14px;
 
     overflow-x: auto;
 
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow);
 }
 
 
 /* =========================================================
-   9. TABLE
+   16. TABLE
 ========================================================= */
 
 table {
+
     width: 100%;
 
-    border-collapse: collapse;
+    min-width: 1150px;
 
-    min-width: 1100px;
+    border-collapse: collapse;
 }
+
 
 thead {
-    background: #f1f5f9;
+
+    background: var(--table-head);
 }
 
+
 th {
-    text-align: left;
 
     padding: 14px;
+
+    text-align: left;
+
+    color: var(--text);
+
+    border-bottom: 1px solid var(--border);
 
     font-size: 13px;
 
     font-weight: 700;
 
-    color: #374151;
-
     white-space: nowrap;
 }
 
+
 td {
+
     padding: 14px;
 
-    border-top: 1px solid #e5e7eb;
+    color: var(--text);
+
+    border-bottom: 1px solid var(--border);
 
     font-size: 13px;
 
-    color: #1f2937;
-
-    vertical-align: top;
+    vertical-align: middle;
 }
+
 
 tbody tr {
-    transition: 0.15s;
+
+    transition: .15s;
 }
+
 
 tbody tr:hover {
-    background: #f8fafc;
+
+    background: var(--hover);
 }
 
+
+tbody tr:last-child td {
+
+    border-bottom: none;
+}
+
+
 .description {
-    max-width: 260px;
+
+    max-width: 300px;
 
     line-height: 1.5;
 
@@ -550,10 +809,91 @@ tbody tr:hover {
 
 
 /* =========================================================
-   10. STATUS
+   17. STATUS SELECT
+========================================================= */
+
+.status-select {
+
+    min-width: 125px;
+
+    padding: 7px 9px;
+
+    border-radius: 20px;
+
+    border: 1px solid transparent;
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    appearance: auto;
+}
+
+
+.status-select:focus {
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, .12);
+}
+
+
+/* Pending */
+
+.status-select.status-pending {
+
+    background: #fef3c7;
+
+    color: #92400e;
+
+    border-color: #fde68a;
+}
+
+
+/* Progress */
+
+.status-select.status-progress {
+
+    background: #dbeafe;
+
+    color: #1e40af;
+
+    border-color: #bfdbfe;
+}
+
+
+/* Resolved */
+
+.status-select.status-resolved {
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    border-color: #bbf7d0;
+}
+
+
+/* Default */
+
+.status-select.status-default {
+
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+
+/* =========================================================
+   18. STATUS BADGES
 ========================================================= */
 
 .status {
+
     display: inline-block;
 
     padding: 6px 10px;
@@ -567,25 +907,33 @@ tbody tr:hover {
     white-space: nowrap;
 }
 
+
 .status-pending {
+
     background: #fef3c7;
 
     color: #92400e;
 }
 
+
 .status-progress {
+
     background: #dbeafe;
 
     color: #1e40af;
 }
 
+
 .status-resolved {
+
     background: #dcfce7;
 
     color: #166534;
 }
 
+
 .status-default {
+
     background: #e5e7eb;
 
     color: #374151;
@@ -593,44 +941,79 @@ tbody tr:hover {
 
 
 /* =========================================================
-   11. ACTION BUTTONS
+   19. ACTION BUTTONS
 ========================================================= */
 
 .action-btn {
-    display: inline-block;
 
-    text-decoration: none;
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 32px;
 
     padding: 7px 10px;
 
+    margin: 2px;
+
     border-radius: 7px;
 
-    margin: 2px;
+    text-decoration: none;
 
     font-size: 12px;
 
     font-weight: 700;
 
-    transition: 0.2s;
+    white-space: nowrap;
+
+    transition: .2s;
 }
 
+
 .action-btn:hover {
+
     transform: translateY(-1px);
 }
 
+
+/* Map */
+
 .map-btn {
+
     background: #dbeafe;
 
     color: #1d4ed8;
 }
 
+
+.map-btn:hover {
+
+    background: #bfdbfe;
+}
+
+
+/* Evidence */
+
 .evidence-btn {
+
     background: #ede9fe;
 
     color: #6d28d9;
 }
 
+
+.evidence-btn:hover {
+
+    background: #ddd6fe;
+}
+
+
+/* Voice */
+
 .voice-btn {
+
     background: #fce7f3;
 
     color: #be185d;
@@ -638,10 +1021,11 @@ tbody tr:hover {
 
 
 /* =========================================================
-   12. VOICE PLAYER
+   20. VOICE PLAYER
 ========================================================= */
 
 .voice-player {
+
     display: flex;
 
     align-items: center;
@@ -649,86 +1033,261 @@ tbody tr:hover {
     min-width: 220px;
 }
 
+
 .voice-player audio {
+
     width: 220px;
 
     height: 38px;
 }
 
 
+body.dark-mode audio {
+
+    color-scheme: dark;
+}
+
+
 /* =========================================================
-   13. LOADING / NO DATA
+   21. MOBILE REPORTS
+========================================================= */
+
+.mobile-reports {
+
+    display: none;
+
+    padding: 12px;
+}
+
+
+/* =========================================================
+   22. MOBILE REPORT CARD
+========================================================= */
+
+.report-card {
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.report-card:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.report-card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+.report-id {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.report-name {
+
+    margin-top: 3px;
+
+    color: var(--heading);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+.report-row {
+
+    padding: 10px 0;
+
+    color: var(--text);
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.report-row:last-child {
+
+    border-bottom: none;
+}
+
+
+.report-label {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .6px;
+}
+
+
+.mobile-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   23. MOBILE ACTION AUDIO
+========================================================= */
+
+.mobile-actions .voice-player {
+
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+.mobile-actions .voice-player audio {
+
+    width: 100%;
+
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   24. LOADING / NO DATA
 ========================================================= */
 
 .loading,
 .no-data {
+
+    padding: 45px 20px;
+
     text-align: center;
 
-    padding: 45px;
+    color: var(--muted);
 
     font-size: 15px;
-
-    color: #6b7280;
 }
 
 
 /* =========================================================
-   14. SCROLLBAR
+   25. SCROLLBAR
 ========================================================= */
 
 .table-container::-webkit-scrollbar {
+
     height: 8px;
 }
 
+
 .table-container::-webkit-scrollbar-track {
-    background: #f1f5f9;
+
+    background: var(--table-head);
 }
 
+
 .table-container::-webkit-scrollbar-thumb {
+
     background: #cbd5e1;
 
     border-radius: 10px;
 }
 
+
 .table-container::-webkit-scrollbar-thumb:hover {
+
     background: #94a3b8;
 }
 
 
 /* =========================================================
-   15. TABLET
+   26. TABLET
 ========================================================= */
 
 @media (max-width: 1000px) {
 
+    #dashboard header {
+
+        padding: 15px 20px;
+    }
+
+
+    #dashboard main {
+
+        padding: 20px;
+    }
+
+
     .stats {
+
         grid-template-columns:
             repeat(2, 1fr);
     }
 
-    header {
-        padding: 15px 20px;
-    }
 
-    main {
-        padding: 20px;
+    .controls {
+
+        grid-template-columns:
+            1fr
+            180px
+            180px;
     }
 
 }
 
 
 /* =========================================================
-   16. MOBILE
+   27. MOBILE — 700px
 ========================================================= */
 
 @media (max-width: 700px) {
 
-    header {
+    /* Header */
+
+    #dashboard header {
+
         position: sticky;
 
         top: 0;
-
-        padding: 14px 15px;
 
         display: flex;
 
@@ -737,76 +1296,90 @@ tbody tr:hover {
         align-items: stretch;
 
         gap: 12px;
+
+        padding: 14px 15px;
     }
 
-
-    /* Title */
 
     .header-left {
-        width: 100%;
 
-        text-align: left;
+        width: 100%;
     }
 
+
     .header-left h1 {
+
         font-size: 21px;
 
         line-height: 1.2;
     }
 
+
     .header-left p {
-        font-size: 12px;
 
         margin-top: 4px;
+
+        font-size: 12px;
     }
 
 
-    /* Buttons */
+    /* Header buttons */
 
     .header-buttons {
+
         width: 100%;
 
         display: grid;
 
         grid-template-columns:
-            1fr 1fr 1fr;
+            1fr
+            1fr
+            1fr;
 
         gap: 7px;
-
-        justify-content: stretch;
     }
 
+
     .header-btn {
+
         width: 100%;
 
         min-width: 0;
 
-        padding: 10px 6px;
+        min-height: 40px;
+
+        padding: 9px 5px;
 
         font-size: 12px;
     }
 
+
     .theme-btn {
+
         width: 100%;
 
-        height: auto;
+        height: 40px;
 
         min-height: 40px;
 
         border-radius: 9px;
+
+        font-size: 17px;
     }
 
 
     /* Main */
 
-    main {
+    #dashboard main {
+
         padding: 12px;
     }
 
 
-    /* Stats */
+    /* Statistics */
 
     .stats {
+
         grid-template-columns:
             repeat(2, 1fr);
 
@@ -815,15 +1388,23 @@ tbody tr:hover {
         margin-bottom: 14px;
     }
 
+
     .stat-card {
-        padding: 16px;
+
+        padding: 15px;
+
+        border-radius: 12px;
     }
+
 
     .stat-title {
-        font-size: 12px;
+
+        font-size: 11px;
     }
 
+
     .stat-number {
+
         font-size: 26px;
     }
 
@@ -831,143 +1412,321 @@ tbody tr:hover {
     /* Controls */
 
     .controls {
-        padding: 12px;
+
+        display: flex;
+
+        flex-direction: column;
 
         gap: 9px;
 
+        padding: 12px;
+
         margin-bottom: 14px;
+
+        border-radius: 12px;
     }
+
 
     .controls input,
     .controls select {
+
         width: 100%;
 
         min-height: 44px;
     }
 
+
     .search {
+
         min-width: 100%;
     }
 
 
-    /* Table */
+    /* Hide desktop table */
 
     .table-container {
-        border-radius: 12px;
 
-        -webkit-overflow-scrolling: touch;
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+
+        overflow: visible;
     }
 
-    table {
-        min-width: 1100px;
+
+    #reportsTable {
+
+        display: none !important;
     }
 
 
-    /* Audio */
+    /* Show mobile cards */
 
-    .voice-player audio {
-        width: 190px;
+    .mobile-reports {
+
+        display: block;
+    }
+
+
+    /* Loading */
+
+    .loading {
+
+        padding: 35px 15px;
+    }
+
+
+    /* Login */
+
+    .login-box {
+
+        padding: 28px 22px;
+
+        border-radius: 15px;
+    }
+
+
+    .login-logo {
+
+        font-size: 29px;
     }
 
 }
 
 
 /* =========================================================
-   17. VERY SMALL MOBILE
+   28. SMALL MOBILE — 450px
 ========================================================= */
 
 @media (max-width: 450px) {
 
     #loginPage {
+
         padding: 15px;
     }
 
-    .login-box {
-        padding: 25px 20px;
 
-        border-radius: 15px;
+    .login-box {
+
+        padding: 25px 18px;
+
+        border-radius: 14px;
     }
 
+
     .login-logo {
-        font-size: 28px;
+
+        font-size: 27px;
+    }
+
+
+    .login-subtitle {
+
+        font-size: 13px;
+
+        margin-bottom: 25px;
     }
 
 
     .header-left h1 {
+
         font-size: 20px;
     }
 
+
     .header-buttons {
+
         grid-template-columns:
             repeat(3, 1fr);
+
+        gap: 6px;
     }
 
-    .header-btn {
-        font-size: 11px;
 
-        padding: 9px 4px;
+    .header-btn {
+
+        font-size: 10px;
+
+        padding: 9px 3px;
+    }
+
+
+    .theme-btn {
+
+        font-size: 16px;
     }
 
 
     .stats {
-        grid-template-columns:
-            1fr 1fr;
+
+        gap: 8px;
     }
+
 
     .stat-card {
-        padding: 14px;
+
+        padding: 13px;
+
+        border-radius: 11px;
     }
 
+
+    .stat-title {
+
+        font-size: 10px;
+    }
+
+
     .stat-number {
-        font-size: 24px;
+
+        font-size: 23px;
+    }
+
+
+    .report-card {
+
+        padding: 14px;
+
+        border-radius: 12px;
+    }
+
+
+    .report-name {
+
+        font-size: 16px;
+    }
+
+
+    .report-row {
+
+        font-size: 13px;
+    }
+
+
+    .mobile-actions {
+
+        gap: 5px;
+    }
+
+
+    .action-btn {
+
+        padding: 7px 9px;
+
+        font-size: 11px;
     }
 
 }
 
 
 /* =========================================================
-   18. DARK MODE
-   Activated by:
-   <body class="dark-mode">
+   29. VERY SMALL MOBILE — 360px
 ========================================================= */
 
-body.dark-mode {
+@media (max-width: 360px) {
 
-    background: #0b0f14;
+    #dashboard main {
 
-    color: #e5e7eb;
+        padding: 9px;
+    }
+
+
+    #dashboard header {
+
+        padding: 12px;
+    }
+
+
+    .header-left h1 {
+
+        font-size: 18px;
+    }
+
+
+    .header-left p {
+
+        font-size: 11px;
+    }
+
+
+    .header-buttons {
+
+        gap: 5px;
+    }
+
+
+    .header-btn {
+
+        font-size: 9px;
+
+        padding: 8px 2px;
+    }
+
+
+    .theme-btn {
+
+        height: 38px;
+
+        min-height: 38px;
+    }
+
+
+    .stat-card {
+
+        padding: 11px;
+    }
+
+
+    .stat-number {
+
+        font-size: 21px;
+    }
+
+
+    .report-card {
+
+        padding: 12px;
+    }
+
 }
 
-body.dark-mode #dashboard {
-    background: #0b0f14;
-}
 
+/* =========================================================
+   30. DARK MODE — HEADER
+========================================================= */
 
-/* Header */
+body.dark-mode #dashboard header {
 
-body.dark-mode header {
-    background: #11161d;
+    background: var(--header);
 
-    color: #f9fafb;
-
-    border-bottom: 1px solid #252c35;
+    border-bottom-color: var(--border);
 
     box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.30);
+        0 2px 10px
+        rgba(0, 0, 0, .30);
 }
 
+
 body.dark-mode .header-left h1 {
+
     color: #f9fafb;
 }
 
+
 body.dark-mode .header-left p {
+
     color: #9ca3af;
 }
 
 
-/* Header buttons */
+/* =========================================================
+   31. DARK MODE — HEADER BUTTONS
+========================================================= */
 
 body.dark-mode .header-btn {
+
     background: #151b23;
 
     color: #f3f4f6;
@@ -975,40 +1734,64 @@ body.dark-mode .header-btn {
     border-color: #2a323d;
 }
 
+
 body.dark-mode .header-btn:hover {
+
     background: #1d2530;
 }
 
 
-/* Stats */
+body.dark-mode .theme-btn {
+
+    background: #151b23;
+
+    color: #f3f4f6;
+
+    border-color: #2a323d;
+}
+
+
+/* =========================================================
+   32. DARK MODE — STATISTICS
+========================================================= */
 
 body.dark-mode .stat-card {
+
     background: #151a21;
 
     border-color: #29313b;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.25);
+        0 3px 12px
+        rgba(0, 0, 0, .25);
 }
 
+
 body.dark-mode .stat-title {
+
     color: #9ca3af;
 }
 
 
-/* Controls */
+/* =========================================================
+   33. DARK MODE — CONTROLS
+========================================================= */
 
 body.dark-mode .controls {
+
     background: #151a21;
 
     border-color: #29313b;
 
     box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.25);
+        0 3px 12px
+        rgba(0, 0, 0, .25);
 }
+
 
 body.dark-mode .controls input,
 body.dark-mode .controls select {
+
     background: #1b2129;
 
     color: #f3f4f6;
@@ -1016,79 +1799,35 @@ body.dark-mode .controls select {
     border-color: #303945;
 }
 
+
 body.dark-mode .controls input::placeholder {
+
     color: #7f8996;
 }
 
 
-/* Table */
-
-body.dark-mode .table-container {
-    background: #151a21;
-
-    border-color: #29313b;
-
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.25);
-}
-
-body.dark-mode thead {
-    background: #1b2129;
-}
-
-body.dark-mode th {
-    color: #aeb7c4;
-}
-
-body.dark-mode td {
-    color: #e5e7eb;
-
-    border-top-color: #29313b;
-}
-
-body.dark-mode tbody tr:hover {
-    background: #1b2129;
-}
-
-
-/* Loading */
-
-body.dark-mode .loading,
-body.dark-mode .no-data {
-    color: #9ca3af;
-}
-
-
-/* Scrollbar */
-
-body.dark-mode .table-container::-webkit-scrollbar-track {
-    background: #11161d;
-}
-
-body.dark-mode .table-container::-webkit-scrollbar-thumb {
-    background: #394451;
-}
-
-body.dark-mode .table-container::-webkit-scrollbar-thumb:hover {
-    background: #4b5867;
-}
-
-
 /* =========================================================
-   19. DARK MODE LOGIN
+   34. DARK MODE — LOGIN
 ========================================================= */
 
 body.dark-mode .login-box {
+
     background: #151a21;
 
     color: #f3f4f6;
+
+    border-color: #29313b;
 }
 
+
 body.dark-mode .login-subtitle {
+
     color: #9ca3af;
 }
 
+
 body.dark-mode .login-box input {
+
     background: #1b2129;
 
     color: #ffffff;
@@ -1097,6 +1836,207 @@ body.dark-mode .login-box input {
 }
 
 
+body.dark-mode .login-box input::placeholder {
+
+    color: #7f8996;
+}
+
+
 /* =========================================================
-   END
+   35. DARK MODE — TABLE
+========================================================= */
+
+body.dark-mode .table-container {
+
+    background: #151a21;
+
+    border-color: #29313b;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, .25);
+}
+
+
+body.dark-mode thead {
+
+    background: #1b2129;
+}
+
+
+body.dark-mode th {
+
+    color: #aeb7c4;
+
+    border-bottom-color: #29313b;
+}
+
+
+body.dark-mode td {
+
+    color: #e5e7eb;
+
+    border-bottom-color: #29313b;
+}
+
+
+body.dark-mode tbody tr:hover {
+
+    background: #1b2129;
+}
+
+
+/* =========================================================
+   36. DARK MODE — MOBILE CARDS
+========================================================= */
+
+body.dark-mode .report-card {
+
+    background: #151a21;
+
+    border-color: #29313b;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, .25);
+}
+
+
+body.dark-mode .report-row {
+
+    border-bottom-color: #29313b;
+
+    color: #e5e7eb;
+}
+
+
+body.dark-mode .report-name {
+
+    color: #f9fafb;
+}
+
+
+body.dark-mode .report-id,
+body.dark-mode .report-label {
+
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   37. DARK MODE — STATUS
+========================================================= */
+
+body.dark-mode .status-pending,
+body.dark-mode .status-select.status-pending {
+
+    background: #3a2e12;
+
+    color: #fbbf24;
+
+    border-color: #5a4517;
+}
+
+
+body.dark-mode .status-progress,
+body.dark-mode .status-select.status-progress {
+
+    background: #172b4d;
+
+    color: #60a5fa;
+
+    border-color: #23436f;
+}
+
+
+body.dark-mode .status-resolved,
+body.dark-mode .status-select.status-resolved {
+
+    background: #123521;
+
+    color: #4ade80;
+
+    border-color: #1d5b35;
+}
+
+
+body.dark-mode .status-default,
+body.dark-mode .status-select.status-default {
+
+    background: #2b3038;
+
+    color: #d1d5db;
+
+    border-color: #3b424d;
+}
+
+
+/* =========================================================
+   38. DARK MODE — ACTION BUTTONS
+========================================================= */
+
+body.dark-mode .map-btn {
+
+    background: #172b4d;
+
+    color: #60a5fa;
+}
+
+
+body.dark-mode .evidence-btn {
+
+    background: #2d2348;
+
+    color: #c4b5fd;
+}
+
+
+body.dark-mode .voice-btn {
+
+    background: #402038;
+
+    color: #f9a8d4;
+}
+
+
+/* =========================================================
+   39. DARK MODE — SCROLLBAR
+========================================================= */
+
+body.dark-mode .table-container::-webkit-scrollbar-track {
+
+    background: #11161d;
+}
+
+
+body.dark-mode .table-container::-webkit-scrollbar-thumb {
+
+    background: #394451;
+}
+
+
+body.dark-mode .table-container::-webkit-scrollbar-thumb:hover {
+
+    background: #4b5867;
+}
+
+
+/* =========================================================
+   40. ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+
+    outline: 3px solid
+        rgba(15, 118, 110, .30);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   END OF NAMMUDE ADMIN CSS
 ========================================================= */

@@ -2692,7 +2692,58 @@ function getStatusClass(status) {
 
 }
 
+/* =========================================================
+   UPDATE REPORT STATUS
+========================================================= */
 
+async function updateReportStatus(reportId, newStatus) {
+
+    try {
+
+        const { error } = await supabaseClient
+            .from("reports")
+            .update({
+                status: newStatus
+            })
+            .eq("id", reportId);
+
+        if (error) {
+
+            console.error(error);
+
+            alert(
+                "❌ Failed to update status:\n" +
+                error.message
+            );
+
+            return;
+        }
+
+        // Update local data
+        const report = allReports.find(
+            r => String(r.id) === String(reportId)
+        );
+
+        if (report) {
+            report.status = newStatus;
+        }
+
+        // Update statistics
+        updateStatistics();
+
+        console.log(
+            `Report ${reportId} → ${newStatus}`
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "❌ Something went wrong while updating status."
+        );
+    }
+}
 /* =========================================================
    DISPLAY REPORTS
 ========================================================= */
@@ -2843,7 +2894,7 @@ function displayReports(reports) {
                     )}
                 </td>
 
-                <td>
+               <td>
     <select
         class="status-select ${statusClass}"
         onchange="updateReportStatus('${report.id}', this.value)"

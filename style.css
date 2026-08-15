@@ -2461,3 +2461,74 @@ select:focus-visible {
     }
 
 }
+/* =========================================================
+   FINAL SOCIAL ICON FIX
+========================================================= */
+
+.social-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
+    flex-wrap: wrap !important;
+    margin-top: 18px !important;
+}
+
+.social-links a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 52px !important;
+    height: 52px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+
+    text-decoration: none !important;
+}
+
+.social-links a:hover {
+    transform: scale(1.12) !important;
+    opacity: 0.85 !important;
+}
+
+
+/* REAL ICON SIZE */
+
+.instagram-logo,
+.whatsapp-logo,
+.youtube-logo {
+    width: 44px !important;
+    height: 44px !important;
+
+    display: block !important;
+}
+
+
+/* BRAND COLORS */
+
+.social-instagram {
+    color: #E1306C !important;
+    background: transparent !important;
+}
+
+.social-whatsapp {
+    color: #25D366 !important;
+    background: transparent !important;
+}
+
+.social-youtube {
+    color: #FF0000 !important;
+    background: transparent !important;
+}
+
+
+/* REMOVE ANY TEXT */
+
+.social-links span {
+    display: none !important;
+}

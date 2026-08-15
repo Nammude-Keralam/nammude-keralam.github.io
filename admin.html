@@ -10,747 +10,1589 @@
     <link rel="stylesheet" href="admin.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
 
-<body>
-
-    <!-- =====================================================
-         LOGIN PAGE
-    ====================================================== -->
-
-    <section id="loginPage">
-
-        <div class="login-box">
-
-            <div class="login-logo">NAMMUDE</div>
-
-            <div class="login-subtitle">Admin Dashboard</div>
-
-            <label for="adminUsername">Username</label>
-
-            <input
-                type="text"
-                id="adminUsername"
-                placeholder="Admin username"
-                autocomplete="username"
-            >
-
-            <label for="adminPassword">Password</label>
-
-            <input
-                type="password"
-                id="adminPassword"
-                placeholder="Admin password"
-                autocomplete="current-password"
-            >
-
-            <button class="login-btn" onclick="login()">
-                Login
-            </button>
-
-            <div id="loginError">
-                Invalid username or password
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ADMIN DASHBOARD
-    ====================================================== -->
-
-    <section id="dashboard">
-
-        <header>
-
-            <div class="header-left">
-
-                <h1>Nammude Admin</h1>
-
-                <p>Problem Reports Management</p>
-
-            </div>
-
-            <div class="header-buttons">
-
-                <button
-                    class="header-btn refresh-btn"
-                    onclick="loadReports()"
-                >
-                    🔄 Refresh
-                </button>
-
-                <button
-                    class="header-btn export-btn"
-                    onclick="exportExcel()"
-                >
-                    📥 Export Excel
-                </button>
-
-                <button
-                    class="header-btn logout-btn"
-                    onclick="logout()"
-                >
-                    Logout
-                </button>
-
-            </div>
-
-        </header>
-
-
-        <main>
-
-            <!-- =================================================
-                 STATISTICS
-            ================================================== -->
-
-            <section class="stats">
-
-                <div class="stat-card">
-                    <div class="stat-title">Total Reports</div>
-                    <div class="stat-number total" id="totalReports">0</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-title">Pending</div>
-                    <div class="stat-number pending" id="pendingReports">0</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-title">In Progress</div>
-                    <div class="stat-number progress" id="progressReports">0</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-title">Resolved</div>
-                    <div class="stat-number resolved" id="resolvedReports">0</div>
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 SEARCH + FILTERS
-            ================================================== -->
-
-            <section class="controls">
-
-                <input
-                    type="text"
-                    id="searchInput"
-                    class="search"
-                    placeholder="🔎 Search reports..."
-                    oninput="filterReports()"
-                >
-
-                <select
-                    id="statusFilter"
-                    onchange="filterReports()"
-                >
-                    <option value="all">All Status</option>
-                    <option value="pending">Pending</option>
-                    <option value="in progress">In Progress</option>
-                    <option value="resolved">Resolved</option>
-                </select>
-
-                <select
-                    id="categoryFilter"
-                    onchange="filterReports()"
-                >
-                    <option value="all">All Categories</option>
-                </select>
-
-            </section>
-
-
-            <!-- =================================================
-                 REPORT TABLE
-            ================================================== -->
-
-            <section class="table-container">
-
-                <div id="loading" class="loading">
-                    Loading reports...
-                </div>
-
-                <table id="reportsTable" style="display: none;">
-
-                    <thead>
-
-                        <tr>
-                            <th>ID</th>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Category</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                            <th>Location</th>
-                            <th>Evidence</th>
-                            <th>Voice</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="reportsBody"></tbody>
-
-                </table>
-
-                <div
-                    id="noData"
-                    class="no-data"
-                    style="display: none;"
-                >
-                    No reports found.
-                </div>
-
-            </section>
-
-        </main>
-
-    </section>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
-    <script>
+    <style>
 
         /* =====================================================
-           SUPABASE CONFIG
-        ====================================================== */
+           ADMIN THEME
+        ===================================================== */
 
-        const SUPABASE_URL =
-            "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
+        :root {
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --text: #17202a;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --header: #ffffff;
+            --input: #ffffff;
+            --shadow: 0 8px 30px rgba(0,0,0,.07);
+            --primary: #111827;
+            --primary-text: #ffffff;
+        }
 
-        const SUPABASE_ANON_KEY =
-            "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
+        body.dark-mode {
+            --bg: #0f1115;
+            --card: #181b21;
+            --text: #f5f7fa;
+            --muted: #9ca3af;
+            --border: #2a2f38;
+            --header: #15181d;
+            --input: #1c2027;
+            --shadow: 0 8px 30px rgba(0,0,0,.3);
+            --primary: #f5f7fa;
+            --primary-text: #111827;
+        }
 
-        const supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_ANON_KEY
-            );
+        * {
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
-        /* =====================================================
-           ADMIN LOGIN
-        ====================================================== */
+        body {
+            margin: 0;
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
 
-        const ADMIN_USERNAME =
-            "Nammude_Admin";
+            background: var(--bg);
+            color: var(--text);
 
-        const ADMIN_PASSWORD =
-            "__Home$6313#";
-
-
-        /* =====================================================
-           GLOBAL DATA
-        ====================================================== */
-
-        let allReports = [];
+            transition:
+                background .25s ease,
+                color .25s ease;
+        }
 
 
         /* =====================================================
            LOGIN
-        ====================================================== */
+        ===================================================== */
 
-        function login() {
+        #loginPage {
+            min-height: 100vh;
 
-            const username =
-                document
-                    .getElementById("adminUsername")
-                    .value
-                    .trim();
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            const password =
-                document
-                    .getElementById("adminPassword")
-                    .value;
+            padding: 20px;
+        }
 
-            const error =
-                document.getElementById("loginError");
+        .login-box {
+            width: 100%;
+            max-width: 420px;
 
-            error.style.display = "none";
+            background: var(--card);
 
-            if (
-                username === ADMIN_USERNAME &&
-                password === ADMIN_PASSWORD
-            ) {
+            padding: 35px;
 
-                sessionStorage.setItem(
-                    "nammude_admin",
-                    "true"
-                );
+            border-radius: 22px;
 
-                document.getElementById("loginPage")
-                    .style.display = "none";
+            box-shadow: var(--shadow);
 
-                document.getElementById("dashboard")
-                    .style.display = "block";
+            border: 1px solid var(--border);
+        }
 
-                loadReports();
+        .login-logo {
+            font-size: 30px;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: 2px;
+        }
 
-            } else {
+        .login-subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin: 8px 0 30px;
+        }
 
-                error.style.display = "block";
+        .login-box label {
+            display: block;
+            margin: 15px 0 7px;
+            font-size: 14px;
+            font-weight: 600;
+        }
 
+        .login-box input {
+            width: 100%;
+            padding: 13px 14px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background: var(--input);
+            color: var(--text);
+
+            outline: none;
+            font-size: 15px;
+        }
+
+        .login-box input:focus {
+            border-color: #777;
+        }
+
+        .login-btn {
+            width: 100%;
+
+            margin-top: 22px;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 11px;
+
+            background: var(--primary);
+            color: var(--primary-text);
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        #loginError {
+            display: none;
+
+            margin-top: 15px;
+
+            color: #dc2626;
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           DASHBOARD
+        ===================================================== */
+
+        #dashboard {
+            display: none;
+        }
+
+        #dashboard header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+
+            background: var(--header);
+
+            border-bottom: 1px solid var(--border);
+
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            box-shadow: 0 2px 12px rgba(0,0,0,.04);
+        }
+
+        .header-left h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-left p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header-btn {
+            border: 1px solid var(--border);
+
+            background: var(--card);
+            color: var(--text);
+
+            padding: 10px 14px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+        }
+
+        .header-btn:hover {
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           THEME BUTTON
+        ===================================================== */
+
+        .theme-btn {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            border: 1px solid var(--border);
+
+            background: var(--card);
+            color: var(--text);
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        #dashboard main {
+            max-width: 1500px;
+            margin: auto;
+
+            padding: 25px;
+        }
+
+
+        /* =====================================================
+           STATISTICS
+        ===================================================== */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+
+            margin-bottom: 22px;
+        }
+
+        .stat-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .stat-title {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .stat-number {
+            margin-top: 8px;
+
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           CONTROLS
+        ===================================================== */
+
+        .controls {
+            display: grid;
+
+            grid-template-columns:
+                1fr 200px 200px;
+
+            gap: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .controls input,
+        .controls select {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            background: var(--input);
+            color: var(--text);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           TABLE
+        ===================================================== */
+
+        .table-container {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            box-shadow: var(--shadow);
+
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1150px;
+
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px;
+
+            border-bottom: 1px solid var(--border);
+
+            text-align: left;
+
+            font-size: 13px;
+
+            vertical-align: middle;
+        }
+
+        th {
+            background: var(--input);
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        td {
+            color: var(--text);
+        }
+
+        .description {
+            max-width: 300px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status {
+            display: inline-block;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #946200;
+        }
+
+        .status-progress {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .status-resolved {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-default {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+
+        /* =====================================================
+           ACTION BUTTONS
+        ===================================================== */
+
+        .action-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 8px 11px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .map-btn {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .evidence-btn {
+            background: #ede9fe;
+            color: #6d28d9;
+        }
+
+        .voice-player audio {
+            width: 220px;
+            height: 38px;
+        }
+
+
+        /* =====================================================
+           LOADING / EMPTY
+        ===================================================== */
+
+        .loading,
+        .no-data {
+            padding: 50px 20px;
+
+            text-align: center;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           MOBILE REPORT CARDS
+        ===================================================== */
+
+        .mobile-reports {
+            display: none;
+        }
+
+        .report-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 17px;
+
+            margin-bottom: 14px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .report-card-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-bottom: 14px;
+        }
+
+        .report-id {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .report-name {
+            font-size: 18px;
+            font-weight: 750;
+
+            margin-top: 3px;
+        }
+
+        .report-row {
+            padding: 9px 0;
+
+            border-bottom: 1px solid var(--border);
+
+            font-size: 14px;
+        }
+
+        .report-row:last-child {
+            border-bottom: none;
+        }
+
+        .report-label {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .5px;
+
+            margin-bottom: 3px;
+        }
+
+        .mobile-actions {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-top: 14px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            #dashboard header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .header-buttons {
+                width: 100%;
+            }
+
+            .header-btn {
+                flex: 1;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .controls {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .controls .search {
+                grid-column: 1 / -1;
             }
 
         }
 
 
-        /* =====================================================
-           ENTER KEY LOGIN
-        ====================================================== */
+        @media (max-width: 600px) {
 
+            #dashboard header {
+                padding: 15px;
+            }
+
+            .header-left h1 {
+                font-size: 21px;
+            }
+
+            .header-left p {
+                font-size: 12px;
+            }
+
+            #dashboard main {
+                padding: 14px;
+            }
+
+
+            /* HEADER BUTTONS */
+
+            .header-buttons {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                width: 100%;
+            }
+
+            .header-btn {
+                width: 100%;
+                padding: 11px 8px;
+                font-size: 12px;
+            }
+
+            .logout-btn {
+                grid-column: 1 / -1;
+            }
+
+
+            /* STATS */
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 15px;
+            }
+
+            .stat-title {
+                font-size: 12px;
+            }
+
+            .stat-number {
+                font-size: 25px;
+            }
+
+
+            /* FILTERS */
+
+            .controls {
+                display: flex;
+                flex-direction: column;
+
+                gap: 9px;
+            }
+
+            .controls input,
+            .controls select {
+                padding: 12px;
+            }
+
+
+            /* HIDE DESKTOP TABLE */
+
+            .table-container {
+                background: transparent;
+
+                border: none;
+
+                box-shadow: none;
+
+                overflow: visible;
+            }
+
+            #reportsTable {
+                display: none !important;
+            }
+
+
+            /* MOBILE CARDS */
+
+            .mobile-reports {
+                display: block;
+            }
+
+
+            /* LOGIN */
+
+            .login-box {
+                padding: 25px 20px;
+
+                border-radius: 18px;
+            }
+
+            .login-logo {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     LOGIN
+========================================================= -->
+
+<section id="loginPage">
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            NAMMUDE
+        </div>
+
+        <div class="login-subtitle">
+            Admin Dashboard
+        </div>
+
+        <label for="adminUsername">
+            Username
+        </label>
+
+        <input
+            type="text"
+            id="adminUsername"
+            placeholder="Admin username"
+            autocomplete="username"
+        >
+
+        <label for="adminPassword">
+            Password
+        </label>
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Admin password"
+            autocomplete="current-password"
+        >
+
+        <button
+            class="login-btn"
+            onclick="login()"
+        >
+            Login
+        </button>
+
+        <div id="loginError">
+            Invalid username or password
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section id="dashboard">
+
+    <header>
+
+        <div class="header-left">
+
+            <h1>Nammude Admin</h1>
+
+            <p>
+                Problem Reports Management
+            </p>
+
+        </div>
+
+
+        <div class="header-buttons">
+
+            <button
+                class="theme-btn"
+                onclick="toggleTheme()"
+                id="themeButton"
+                title="Change theme"
+            >
+                🌙
+            </button>
+
+            <button
+                class="header-btn refresh-btn"
+                onclick="loadReports()"
+            >
+                🔄 Refresh
+            </button>
+
+            <button
+                class="header-btn export-btn"
+                onclick="exportExcel()"
+            >
+                📥 Excel
+            </button>
+
+            <button
+                class="header-btn logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-title">
+                    Total Reports
+                </div>
+
+                <div
+                    class="stat-number total"
+                    id="totalReports"
+                >
+                    0
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-title">
+                    Pending
+                </div>
+
+                <div
+                    class="stat-number pending"
+                    id="pendingReports"
+                >
+                    0
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-title">
+                    In Progress
+                </div>
+
+                <div
+                    class="stat-number progress"
+                    id="progressReports"
+                >
+                    0
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-title">
+                    Resolved
+                </div>
+
+                <div
+                    class="stat-number resolved"
+                    id="resolvedReports"
+                >
+                    0
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+        <section class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search"
+                placeholder="🔎 Search reports..."
+                oninput="filterReports()"
+            >
+
+
+            <select
+                id="statusFilter"
+                onchange="filterReports()"
+            >
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="pending">
+                    Pending
+                </option>
+
+                <option value="in progress">
+                    In Progress
+                </option>
+
+                <option value="resolved">
+                    Resolved
+                </option>
+
+            </select>
+
+
+            <select
+                id="categoryFilter"
+                onchange="filterReports()"
+            >
+                <option value="all">
+                    All Categories
+                </option>
+            </select>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORTS
+        ================================================== -->
+
+        <section class="table-container">
+
+            <div
+                id="loading"
+                class="loading"
+            >
+                Loading reports...
+            </div>
+
+
+            <!-- DESKTOP TABLE -->
+
+            <table
+                id="reportsTable"
+                style="display:none;"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Location</th>
+                        <th>Evidence</th>
+                        <th>Voice</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="reportsBody"></tbody>
+
+            </table>
+
+
+            <!-- MOBILE REPORTS -->
+
+            <div
+                id="mobileReports"
+                class="mobile-reports"
+            ></div>
+
+
+            <div
+                id="noData"
+                class="no-data"
+                style="display:none;"
+            >
+                No reports found.
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+    "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+const ADMIN_USERNAME =
+    "Nammude_Admin";
+
+/*
+   IMPORTANT:
+   Put your existing admin password here.
+*/
+
+const ADMIN_PASSWORD =
+    "YOUR_EXISTING_ADMIN_PASSWORD";
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+let allReports = [];
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function login() {
+
+    const username =
+        document
+            .getElementById("adminUsername")
+            .value
+            .trim();
+
+    const password =
         document
             .getElementById("adminPassword")
-            .addEventListener("keydown", function(event) {
+            .value;
 
-                if (event.key === "Enter") {
-                    login();
+    const error =
+        document.getElementById("loginError");
+
+    error.style.display = "none";
+
+
+    if (
+        username === ADMIN_USERNAME &&
+        password === ADMIN_PASSWORD
+    ) {
+
+        sessionStorage.setItem(
+            "nammude_admin",
+            "true"
+        );
+
+        document.getElementById("loginPage")
+            .style.display = "none";
+
+        document.getElementById("dashboard")
+            .style.display = "block";
+
+        loadReports();
+
+    }
+
+    else {
+
+        error.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================================================
+   ENTER LOGIN
+========================================================= */
+
+document
+    .getElementById("adminPassword")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+                login();
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout() {
+
+    sessionStorage.removeItem(
+        "nammude_admin"
+    );
+
+    location.reload();
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "dark-mode"
+    );
+
+    const dark =
+        document.body.classList.contains(
+            "dark-mode"
+        );
+
+    localStorage.setItem(
+        "nammude-admin-theme",
+        dark ? "dark" : "light"
+    );
+
+    updateThemeButton();
+
+}
+
+
+function updateThemeButton() {
+
+    const dark =
+        document.body.classList.contains(
+            "dark-mode"
+        );
+
+    document.getElementById(
+        "themeButton"
+    ).textContent =
+        dark ? "☀️" : "🌙";
+
+}
+
+
+const savedTheme =
+    localStorage.getItem(
+        "nammude-admin-theme"
+    );
+
+if (savedTheme === "dark") {
+    document.body.classList.add(
+        "dark-mode"
+    );
+}
+
+updateThemeButton();
+
+
+/* =========================================================
+   CHECK LOGIN
+========================================================= */
+
+function checkLogin() {
+
+    const loggedIn =
+        sessionStorage.getItem(
+            "nammude_admin"
+        );
+
+    if (loggedIn === "true") {
+
+        document.getElementById("loginPage")
+            .style.display = "none";
+
+        document.getElementById("dashboard")
+            .style.display = "block";
+
+        loadReports();
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD REPORTS
+========================================================= */
+
+async function loadReports() {
+
+    const loading =
+        document.getElementById("loading");
+
+    const table =
+        document.getElementById("reportsTable");
+
+    const noData =
+        document.getElementById("noData");
+
+    loading.style.display = "block";
+
+    table.style.display = "none";
+
+    noData.style.display = "none";
+
+
+    try {
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("reports")
+            .select("*")
+            .order(
+                "created_at",
+                {
+                    ascending: false
                 }
-
-            });
-
-
-        /* =====================================================
-           LOGOUT
-        ====================================================== */
-
-        function logout() {
-
-            sessionStorage.removeItem("nammude_admin");
-
-            location.reload();
-
-        }
+            );
 
 
-        /* =====================================================
-           CHECK LOGIN
-        ====================================================== */
+        if (error) {
 
-        function checkLogin() {
+            console.error(
+                error
+            );
 
-            const loggedIn =
-                sessionStorage.getItem("nammude_admin");
+            loading.innerHTML =
+                "❌ Failed to load reports.<br><br>" +
+                escapeHTML(
+                    error.message
+                );
 
-            if (loggedIn === "true") {
-
-                document.getElementById("loginPage")
-                    .style.display = "none";
-
-                document.getElementById("dashboard")
-                    .style.display = "block";
-
-                loadReports();
-
-            }
+            return;
 
         }
 
 
-        /* =====================================================
-           LOAD REPORTS
-        ====================================================== */
-
-        async function loadReports() {
-
-            const loading =
-                document.getElementById("loading");
-
-            const table =
-                document.getElementById("reportsTable");
-
-            const noData =
-                document.getElementById("noData");
-
-            loading.style.display = "block";
-            table.style.display = "none";
-            noData.style.display = "none";
-
-            try {
-
-                const {
-                    data,
-                    error
-                } = await supabaseClient
-                    .from("reports")
-                    .select("*")
-                    .order("created_at", {
-                        ascending: false
-                    });
-
-                if (error) {
-
-                    console.error(
-                        "Supabase error:",
-                        error
-                    );
-
-                    loading.innerHTML =
-                        "❌ Failed to load reports." +
-                        "<br><br>" +
-                        escapeHTML(error.message);
-
-                    return;
-
-                }
-
-                allReports = data || [];
-
-                updateStatistics();
-                populateCategories();
-                displayReports(allReports);
-
-            }
-
-            catch (error) {
-
-                console.error("Error:", error);
-
-                loading.innerHTML =
-                    "❌ Something went wrong.";
-
-            }
-
-        }
+        allReports = data || [];
 
 
-        /* =====================================================
-           UPDATE STATISTICS
-        ====================================================== */
+        updateStatistics();
 
-        function updateStatistics() {
+        populateCategories();
 
-            const total = allReports.length;
+        displayReports(
+            allReports
+        );
 
-            const pending =
-                allReports.filter(report =>
-                    String(report.status || "")
-                        .toLowerCase() === "pending"
-                ).length;
+    }
 
-            const progress =
-                allReports.filter(report =>
-                    String(report.status || "")
-                        .toLowerCase()
-                        .includes("progress")
-                ).length;
+    catch (error) {
 
-            const resolved =
-                allReports.filter(report =>
-                    String(report.status || "")
-                        .toLowerCase() === "resolved"
-                ).length;
+        console.error(error);
 
-            document.getElementById("totalReports")
-                .textContent = total;
+        loading.innerHTML =
+            "❌ Something went wrong.";
 
-            document.getElementById("pendingReports")
-                .textContent = pending;
+    }
 
-            document.getElementById("progressReports")
-                .textContent = progress;
-
-            document.getElementById("resolvedReports")
-                .textContent = resolved;
-
-        }
+}
 
 
-        /* =====================================================
-           CATEGORY FILTER
-        ====================================================== */
+/* =========================================================
+   STATISTICS
+========================================================= */
 
-        function populateCategories() {
+function updateStatistics() {
 
-            const select =
-                document.getElementById("categoryFilter");
+    const total =
+        allReports.length;
 
-            const categories = [
-                ...new Set(
-                    allReports
-                        .map(report => report.category)
-                        .filter(Boolean)
+
+    const pending =
+        allReports.filter(
+            report =>
+                String(
+                    report.status || ""
                 )
-            ];
+                .toLowerCase() ===
+                "pending"
+        ).length;
 
-            select.innerHTML = `
-                <option value="all">All Categories</option>
-            `;
 
-            categories.forEach(category => {
+    const progress =
+        allReports.filter(
+            report =>
+                String(
+                    report.status || ""
+                )
+                .toLowerCase()
+                .includes("progress")
+        ).length;
 
-                const option =
-                    document.createElement("option");
 
-                option.value = category;
-                option.textContent = category;
+    const resolved =
+        allReports.filter(
+            report =>
+                String(
+                    report.status || ""
+                )
+                .toLowerCase() ===
+                "resolved"
+        ).length;
 
-                select.appendChild(option);
 
-            });
+    document.getElementById(
+        "totalReports"
+    ).textContent = total;
+
+    document.getElementById(
+        "pendingReports"
+    ).textContent = pending;
+
+    document.getElementById(
+        "progressReports"
+    ).textContent = progress;
+
+    document.getElementById(
+        "resolvedReports"
+    ).textContent = resolved;
+
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+function populateCategories() {
+
+    const select =
+        document.getElementById(
+            "categoryFilter"
+        );
+
+
+    const categories = [
+        ...new Set(
+            allReports
+                .map(
+                    report =>
+                        report.category
+                )
+                .filter(Boolean)
+        )
+    ];
+
+
+    select.innerHTML =
+        `<option value="all">
+            All Categories
+        </option>`;
+
+
+    categories.forEach(
+        category => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                category;
+
+            option.textContent =
+                category;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+function getLocationHTML(report) {
+
+    let latitude =
+        report.latitude ??
+        report.lat ??
+        report.location_latitude ??
+        report.location_lat ??
+        null;
+
+
+    let longitude =
+        report.longitude ??
+        report.lng ??
+        report.location_longitude ??
+        report.location_lng ??
+        null;
+
+
+    if (
+        latitude !== null &&
+        longitude !== null
+    ) {
+
+        const lat =
+            Number(latitude);
+
+        const lng =
+            Number(longitude);
+
+
+        if (
+            Number.isFinite(lat) &&
+            Number.isFinite(lng)
+        ) {
+
+            return createMapButton(
+                lat,
+                lng
+            );
+
+        }
+
+    }
+
+
+    let coordinates =
+        report.coordinates ??
+        report.coordinate ??
+        report.location_coordinates ??
+        null;
+
+
+    if (coordinates) {
+
+        if (
+            Array.isArray(coordinates) &&
+            coordinates.length >= 2
+        ) {
+
+            const lat =
+                Number(
+                    coordinates[0]
+                );
+
+            const lng =
+                Number(
+                    coordinates[1]
+                );
+
+
+            if (
+                Number.isFinite(lat) &&
+                Number.isFinite(lng)
+            ) {
+
+                return createMapButton(
+                    lat,
+                    lng
+                );
+
+            }
 
         }
 
 
-        /* =====================================================
-           LOCATION HELPER
-           Supports:
-           latitude + longitude
-           lat + lng
-           location_latitude + location_longitude
-           location_lat + location_lng
-           coordinates
-           location containing "lat,lng"
-           Google Maps URLs
-        ====================================================== */
+        if (
+            typeof coordinates ===
+            "object"
+        ) {
 
-        function getLocationHTML(report) {
+            const lat =
+                Number(
+                    coordinates.lat ??
+                    coordinates.latitude
+                );
 
-            let latitude =
-                report.latitude ??
-                report.lat ??
-                report.location_latitude ??
-                report.location_lat ??
-                null;
+            const lng =
+                Number(
+                    coordinates.lng ??
+                    coordinates.longitude
+                );
 
-            let longitude =
-                report.longitude ??
-                report.lng ??
-                report.location_longitude ??
-                report.location_lng ??
-                null;
-
-
-            /* ---------------------------------------------
-               1. DIRECT LATITUDE + LONGITUDE
-            --------------------------------------------- */
 
             if (
-                latitude !== null &&
-                latitude !== undefined &&
-                longitude !== null &&
-                longitude !== undefined
+                Number.isFinite(lat) &&
+                Number.isFinite(lng)
             ) {
 
-                const lat = Number(
-                    String(latitude).trim()
+                return createMapButton(
+                    lat,
+                    lng
                 );
 
-                const lng = Number(
-                    String(longitude).trim()
-                );
-
-                if (
-                    Number.isFinite(lat) &&
-                    Number.isFinite(lng)
-                ) {
-
-                    return createMapButton(lat, lng);
-
-                }
-
             }
-
-
-            /* ---------------------------------------------
-               2. COORDINATES FIELD
-               Examples:
-               "10.1234,76.1234"
-               [10.1234,76.1234]
-               {"lat":10.1234,"lng":76.1234}
-            --------------------------------------------- */
-
-            let coordinates =
-                report.coordinates ??
-                report.coordinate ??
-                report.location_coordinates ??
-                null;
-
-            if (coordinates) {
-
-                if (Array.isArray(coordinates)) {
-
-                    if (coordinates.length >= 2) {
-
-                        const lat = Number(coordinates[0]);
-                        const lng = Number(coordinates[1]);
-
-                        if (
-                            Number.isFinite(lat) &&
-                            Number.isFinite(lng)
-                        ) {
-                            return createMapButton(lat, lng);
-                        }
-
-                    }
-
-                }
-
-
-                if (typeof coordinates === "object") {
-
-                    const lat =
-                        Number(
-                            coordinates.lat ??
-                            coordinates.latitude
-                        );
-
-                    const lng =
-                        Number(
-                            coordinates.lng ??
-                            coordinates.longitude
-                        );
-
-                    if (
-                        Number.isFinite(lat) &&
-                        Number.isFinite(lng)
-                    ) {
-                        return createMapButton(lat, lng);
-                    }
-
-                }
-
-
-                if (typeof coordinates === "string") {
-
-                    const match =
-                        coordinates.match(
-                            /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/ 
-                        );
-
-                    if (match) {
-
-                        const lat = Number(match[1]);
-                        const lng = Number(match[2]);
-
-                        if (
-                            Number.isFinite(lat) &&
-                            Number.isFinite(lng)
-                        ) {
-                            return createMapButton(lat, lng);
-                        }
-
-                    }
-
-                }
-
-            }
-
-
-            /* ---------------------------------------------
-               3. LOCATION FIELD
-               Could be:
-               "10.1234,76.1234"
-               Google Maps URL
-            --------------------------------------------- */
-
-            const location =
-                report.location ??
-                report.location_url ??
-                report.map_url ??
-                null;
-
-            if (location) {
-
-                const locationString =
-                    String(location).trim();
-
-
-                /* Already a Google Maps URL */
-
-                if (
-                    locationString.includes(
-                        "google.com/maps"
-                    ) ||
-                    locationString.includes(
-                        "maps.google.com"
-                    )
-                ) {
-
-                    return `
-                        <a
-                            class="action-btn map-btn"
-                            href="${escapeHTML(locationString)}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            📍 Map
-                        </a>
-                    `;
-
-                }
-
-
-                /* Coordinates inside location text */
-
-                const match =
-                    locationString.match(
-                        /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/ 
-                    );
-
-                if (match) {
-
-                    const lat = Number(match[1]);
-                    const lng = Number(match[2]);
-
-                    if (
-                        Number.isFinite(lat) &&
-                        Number.isFinite(lng)
-                    ) {
-                        return createMapButton(lat, lng);
-                    }
-
-                }
-
-            }
-
-
-            return "-";
 
         }
 
 
-        /* =====================================================
-           CREATE GOOGLE MAP BUTTON
-        ====================================================== */
+        if (
+            typeof coordinates ===
+            "string"
+        ) {
 
-        function createMapButton(latitude, longitude) {
+            const match =
+                coordinates.match(
+                    /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/
+                );
 
-            /*
-             * Basic Kerala/India coordinate validation.
-             * This prevents accidental invalid values.
-             */
 
-            if (
-                latitude < -90 ||
-                latitude > 90 ||
-                longitude < -180 ||
-                longitude > 180
-            ) {
+            if (match) {
 
-                return "-";
+                return createMapButton(
+                    Number(match[1]),
+                    Number(match[2])
+                );
 
             }
 
-            const mapURL =
-                "https://www.google.com/maps?q=" +
-                encodeURIComponent(
-                    latitude + "," + longitude
-                );
+        }
+
+    }
+
+
+    const location =
+        report.location ??
+        report.location_url ??
+        report.map_url ??
+        null;
+
+
+    if (location) {
+
+        const value =
+            String(location).trim();
+
+
+        if (
+            value.includes(
+                "google.com/maps"
+            ) ||
+            value.includes(
+                "maps.google.com"
+            )
+        ) {
 
             return `
                 <a
                     class="action-btn map-btn"
-                    href="${mapURL}"
+                    href="${escapeHTML(value)}"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -761,110 +1603,168 @@
         }
 
 
-        /* =====================================================
-           EVIDENCE
-        ====================================================== */
-
-        function getEvidenceHTML(report) {
-
-            let evidenceURL =
-                report.evidence_url ??
-                report.evidence ??
-                null;
-
-            if (!evidenceURL) {
-                return "-";
-            }
+        const match =
+            value.match(
+                /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/
+            );
 
 
-            /* Array */
+        if (match) {
 
-            if (Array.isArray(evidenceURL)) {
-
-                evidenceURL =
-                    evidenceURL[0] || "";
-
-            }
-
-
-            /* JSON string array */
-
-            if (
-                typeof evidenceURL === "string" &&
-                evidenceURL.trim().startsWith("[")
-            ) {
-
-                try {
-
-                    const parsed =
-                        JSON.parse(evidenceURL);
-
-                    if (Array.isArray(parsed)) {
-                        evidenceURL =
-                            parsed[0] || "";
-                    }
-
-                } catch (error) {
-
-                    console.error(
-                        "Could not parse evidence URL:",
-                        error
-                    );
-
-                }
-
-            }
-
-
-            evidenceURL =
-                String(evidenceURL || "").trim();
-
-
-            if (!evidenceURL) {
-                return "-";
-            }
-
-
-            return `
-                <a
-                    class="action-btn evidence-btn"
-                    href="${escapeHTML(evidenceURL)}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    📎 Open
-                </a>
-            `;
+            return createMapButton(
+                Number(match[1]),
+                Number(match[2])
+            );
 
         }
 
+    }
 
-        /* =====================================================
-           VOICE
-        ====================================================== */
 
-      function getVoiceHTML(report) {
+    return "-";
 
-    let voiceURL =
+}
+
+
+function createMapButton(
+    latitude,
+    longitude
+) {
+
+    if (
+        latitude < -90 ||
+        latitude > 90 ||
+        longitude < -180 ||
+        longitude > 180
+    ) {
+        return "-";
+    }
+
+
+    const mapURL =
+        "https://www.google.com/maps?q=" +
+        encodeURIComponent(
+            latitude +
+            "," +
+            longitude
+        );
+
+
+    return `
+        <a
+            class="action-btn map-btn"
+            href="${mapURL}"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            📍 Map
+        </a>
+    `;
+
+}
+
+
+/* =========================================================
+   EVIDENCE
+========================================================= */
+
+function getEvidenceHTML(report) {
+
+    let url =
+        report.evidence_url ??
+        report.evidence ??
+        null;
+
+
+    if (!url) {
+        return "-";
+    }
+
+
+    if (Array.isArray(url)) {
+        url = url[0] || "";
+    }
+
+
+    if (
+        typeof url === "string" &&
+        url.trim().startsWith("[")
+    ) {
+
+        try {
+
+            const parsed =
+                JSON.parse(url);
+
+            if (
+                Array.isArray(parsed)
+            ) {
+                url =
+                    parsed[0] || "";
+            }
+
+        }
+
+        catch {}
+
+    }
+
+
+    url =
+        String(url || "").trim();
+
+
+    if (!url) {
+        return "-";
+    }
+
+
+    return `
+        <a
+            class="action-btn evidence-btn"
+            href="${escapeHTML(url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            📎 Open
+        </a>
+    `;
+
+}
+
+
+/* =========================================================
+   VOICE
+========================================================= */
+
+function getVoiceHTML(report) {
+
+    let url =
         report.voice_url ??
         report.voice ??
         report.audio_url ??
         report.audio ??
         null;
 
-    if (!voiceURL) {
+
+    if (!url) {
         return "-";
     }
 
-    if (Array.isArray(voiceURL)) {
-        voiceURL = voiceURL[0] || "";
+
+    if (Array.isArray(url)) {
+        url = url[0] || "";
     }
 
-    voiceURL = String(voiceURL || "").trim();
 
-    if (!voiceURL) {
+    url =
+        String(url || "").trim();
+
+
+    if (!url) {
         return "-";
     }
+
 
     return `
         <div class="voice-player">
@@ -873,334 +1773,502 @@
                 controls
                 preload="none"
             >
+
                 <source
-                    src="${escapeHTML(voiceURL)}"
+                    src="${escapeHTML(url)}"
                 >
-                Your browser does not support audio playback.
+
             </audio>
 
         </div>
     `;
+
 }
-        /* =====================================================
-           DISPLAY REPORTS
-        ====================================================== */
 
-        function displayReports(reports) {
 
-            const body =
-                document.getElementById("reportsBody");
+/* =========================================================
+   STATUS
+========================================================= */
 
-            const loading =
-                document.getElementById("loading");
+function getStatusClass(status) {
 
-            const table =
-                document.getElementById("reportsTable");
+    const value =
+        status.toLowerCase();
 
-            const noData =
-                document.getElementById("noData");
 
-            body.innerHTML = "";
+    if (value === "pending")
+        return "status-pending";
 
-            loading.style.display = "none";
 
+    if (value.includes("progress"))
+        return "status-progress";
 
-            if (!reports.length) {
 
-                table.style.display = "none";
-                noData.style.display = "block";
+    if (value === "resolved")
+        return "status-resolved";
 
-                return;
 
-            }
+    return "status-default";
 
+}
 
-            table.style.display = "table";
-            noData.style.display = "none";
 
+/* =========================================================
+   DISPLAY REPORTS
+========================================================= */
 
-            reports.forEach(report => {
+function displayReports(
+    reports
+) {
 
-                const row =
-                    document.createElement("tr");
+    const body =
+        document.getElementById(
+            "reportsBody"
+        );
 
 
-                /* DATE */
+    const mobile =
+        document.getElementById(
+            "mobileReports"
+        );
 
-                const date =
-                    report.created_at
-                        ? new Date(
-                            report.created_at
-                        ).toLocaleString("en-IN")
-                        : "-";
 
+    const loading =
+        document.getElementById(
+            "loading"
+        );
 
-                /* STATUS */
 
-                const status =
-                    String(
-                        report.status || "Pending"
-                    );
+    const table =
+        document.getElementById(
+            "reportsTable"
+        );
 
 
-                let statusClass =
-                    "status-default";
+    const noData =
+        document.getElementById(
+            "noData"
+        );
 
 
-                if (
-                    status.toLowerCase() ===
-                    "pending"
-                ) {
+    body.innerHTML = "";
 
-                    statusClass =
-                        "status-pending";
+    mobile.innerHTML = "";
 
-                }
+    loading.style.display = "none";
 
-                else if (
-                    status.toLowerCase()
-                        .includes("progress")
-                ) {
 
-                    statusClass =
-                        "status-progress";
+    if (!reports.length) {
 
-                }
+        table.style.display = "none";
 
-                else if (
-                    status.toLowerCase() ===
-                    "resolved"
-                ) {
+        noData.style.display =
+            "block";
 
-                    statusClass =
-                        "status-resolved";
+        return;
 
-                }
+    }
 
 
-                /* LOCATION */
+    table.style.display =
+        "table";
 
-                const mapHTML =
-                    getLocationHTML(report);
+    noData.style.display =
+        "none";
 
 
-                /* EVIDENCE */
+    reports.forEach(
+        report => {
 
-                const evidenceHTML =
-                    getEvidenceHTML(report);
-
-
-                /* VOICE */
-
-                const voiceHTML =
-                    getVoiceHTML(report);
-
-
-                /* ROW */
-
-                row.innerHTML = `
-
-                    <td>
-                        ${escapeHTML(
-                            report.id ?? "-"
-                        )}
-                    </td>
-
-                    <td>
-                        ${escapeHTML(date)}
-                    </td>
-
-                    <td>
-                        ${escapeHTML(
-                            report.name ?? "-"
-                        )}
-                    </td>
-
-                    <td>
-                        ${escapeHTML(
-                            report.phone ?? "-"
-                        )}
-                    </td>
-
-                    <td>
-                        ${escapeHTML(
-                            report.category ?? "-"
-                        )}
-                    </td>
-
-                    <td class="description">
-                        ${escapeHTML(
-                            report.description ?? "-"
-                        )}
-                    </td>
-
-                    <td>
-                        <span class="status ${statusClass}">
-                            ${escapeHTML(status)}
-                        </span>
-                    </td>
-
-                    <td>
-                        ${mapHTML}
-                    </td>
-
-                    <td>
-                        ${evidenceHTML}
-                    </td>
-
-                    <td>
-                        ${voiceHTML}
-                    </td>
-
-                `;
-
-
-                body.appendChild(row);
-
-            });
-
-        }
-
-
-        /* =====================================================
-           SEARCH + FILTER
-        ====================================================== */
-
-        function filterReports() {
-
-            const search =
-                document
-                    .getElementById("searchInput")
-                    .value
-                    .toLowerCase()
-                    .trim();
+            const date =
+                report.created_at
+                    ? new Date(
+                        report.created_at
+                    ).toLocaleString(
+                        "en-IN"
+                    )
+                    : "-";
 
 
             const status =
-                document
-                    .getElementById("statusFilter")
-                    .value
+                String(
+                    report.status ||
+                    "Pending"
+                );
+
+
+            const statusClass =
+                getStatusClass(
+                    status
+                );
+
+
+            const map =
+                getLocationHTML(
+                    report
+                );
+
+            const evidence =
+                getEvidenceHTML(
+                    report
+                );
+
+            const voice =
+                getVoiceHTML(
+                    report
+                );
+
+
+            /* =========================
+               DESKTOP ROW
+            ========================= */
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            row.innerHTML = `
+
+                <td>
+                    ${escapeHTML(
+                        report.id ?? "-"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHTML(date)}
+                </td>
+
+                <td>
+                    ${escapeHTML(
+                        report.name ?? "-"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHTML(
+                        report.phone ?? "-"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHTML(
+                        report.category ?? "-"
+                    )}
+                </td>
+
+                <td class="description">
+                    ${escapeHTML(
+                        report.description ?? "-"
+                    )}
+                </td>
+
+                <td>
+                    <span
+                        class="status ${statusClass}"
+                    >
+                        ${escapeHTML(status)}
+                    </span>
+                </td>
+
+                <td>${map}</td>
+
+                <td>${evidence}</td>
+
+                <td>${voice}</td>
+
+            `;
+
+
+            body.appendChild(row);
+
+
+            /* =========================
+               MOBILE CARD
+            ========================= */
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "report-card";
+
+
+            card.innerHTML = `
+
+                <div class="report-card-top">
+
+                    <div>
+
+                        <div class="report-id">
+                            #${escapeHTML(
+                                report.id ?? "-"
+                            )}
+                        </div>
+
+                        <div class="report-name">
+                            ${escapeHTML(
+                                report.name ?? "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <span
+                        class="status ${statusClass}"
+                    >
+                        ${escapeHTML(status)}
+                    </span>
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span class="report-label">
+                        Date
+                    </span>
+
+                    ${escapeHTML(date)}
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span class="report-label">
+                        Phone
+                    </span>
+
+                    ${escapeHTML(
+                        report.phone ?? "-"
+                    )}
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span class="report-label">
+                        Category
+                    </span>
+
+                    ${escapeHTML(
+                        report.category ?? "-"
+                    )}
+
+                </div>
+
+
+                <div class="report-row">
+
+                    <span class="report-label">
+                        Description
+                    </span>
+
+                    ${escapeHTML(
+                        report.description ?? "-"
+                    )}
+
+                </div>
+
+
+                <div class="mobile-actions">
+
+                    ${map}
+
+                    ${evidence}
+
+                    ${voice}
+
+                </div>
+
+            `;
+
+
+            mobile.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH + FILTER
+========================================================= */
+
+function filterReports() {
+
+    const search =
+        document
+            .getElementById(
+                "searchInput"
+            )
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const status =
+        document
+            .getElementById(
+                "statusFilter"
+            )
+            .value
+            .toLowerCase();
+
+
+    const category =
+        document
+            .getElementById(
+                "categoryFilter"
+            )
+            .value;
+
+
+    const filtered =
+        allReports.filter(
+            report => {
+
+                const text =
+                    Object.values(
+                        report
+                    )
+                    .join(" ")
                     .toLowerCase();
 
 
-            const category =
-                document
-                    .getElementById("categoryFilter")
-                    .value;
+                const searchMatch =
+                    !search ||
+                    text.includes(search);
 
 
-            const filtered =
-                allReports.filter(report => {
-
-                    const searchableText =
-                        Object.values(report)
-                            .join(" ")
-                            .toLowerCase();
+                const reportStatus =
+                    String(
+                        report.status || ""
+                    )
+                    .toLowerCase();
 
 
-                    const matchesSearch =
-                        !search ||
-                        searchableText.includes(search);
+                let statusMatch =
+                    true;
 
 
-                    const reportStatus =
-                        String(
-                            report.status || ""
-                        )
-                        .toLowerCase();
+                if (
+                    status !== "all"
+                ) {
 
+                    if (
+                        status ===
+                        "in progress"
+                    ) {
 
-                    let matchesStatus = true;
-
-
-                    if (status !== "all") {
-
-                        if (
-                            status ===
-                            "in progress"
-                        ) {
-
-                            matchesStatus =
-                                reportStatus.includes(
+                        statusMatch =
+                            reportStatus
+                                .includes(
                                     "progress"
                                 );
 
-                        }
+                    }
 
-                        else {
+                    else {
 
-                            matchesStatus =
-                                reportStatus === status;
-
-                        }
+                        statusMatch =
+                            reportStatus ===
+                            status;
 
                     }
 
-
-                    const matchesCategory =
-                        category === "all" ||
-                        String(
-                            report.category || ""
-                        ) === category;
+                }
 
 
-                    return (
-                        matchesSearch &&
-                        matchesStatus &&
-                        matchesCategory
-                    );
-
-                });
+                const categoryMatch =
+                    category === "all" ||
+                    String(
+                        report.category || ""
+                    ) === category;
 
 
-            displayReports(filtered);
+                return (
+                    searchMatch &&
+                    statusMatch &&
+                    categoryMatch
+                );
 
-        }
-
-
-        /* =====================================================
-           EXPORT EXCEL
-        ====================================================== */
-
-        function exportExcel() {
-
-            window.open(
-                "export-excel.js",
-                "_blank"
-            );
-
-        }
+            }
+        );
 
 
-        /* =====================================================
-           HTML ESCAPE
-        ====================================================== */
+    displayReports(
+        filtered
+    );
 
-        function escapeHTML(value) {
-
-            return String(value)
-
-                .replace(/&/g, "&amp;")
-
-                .replace(/</g, "&lt;")
-
-                .replace(/>/g, "&gt;")
-
-                .replace(/"/g, "&quot;")
-
-                .replace(/'/g, "&#039;");
-
-        }
+}
 
 
-        /* =====================================================
-           START ADMIN
-        ====================================================== */
+/* =========================================================
+   EXCEL
+========================================================= */
 
-        checkLogin();
+function exportExcel() {
 
-    </script>
+    window.open(
+        "export-excel.js",
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+checkLogin();
+
+</script>
 
 </body>
-
 </html>

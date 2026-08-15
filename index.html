@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ml">
 
@@ -12,12 +13,12 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- ================= SOCIAL MEDIA CSS ================= -->
     <style>
-        /* ================= SOCIAL MEDIA ================= */
-
         .social-links {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             gap: 10px;
             flex-wrap: wrap;
             margin-top: 16px;
@@ -26,6 +27,7 @@
         .social-links a {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 7px;
             padding: 9px 13px;
             border-radius: 10px;
@@ -38,6 +40,12 @@
         .social-links a:hover {
             transform: translateY(-2px);
             opacity: .9;
+        }
+
+        .social-links svg {
+            width: 22px;
+            height: 22px;
+            display: block;
         }
 
         .social-instagram {
@@ -70,20 +78,33 @@
             color: #ff8e8e;
         }
 
+        /* MOBILE — KEEP SOCIAL ICONS HORIZONTAL */
         @media (max-width: 600px) {
+
             .social-links {
-                flex-direction: column;
-                align-items: flex-start;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+                flex-wrap: nowrap;
+                width: 100%;
             }
 
             .social-links a {
-                width: fit-content;
+                width: auto;
+                min-width: 44px;
+                height: 44px;
+                padding: 10px;
+                flex: 0 0 auto;
+            }
+
+            .social-links svg {
+                width: 22px;
+                height: 22px;
             }
         }
     </style>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -245,6 +266,7 @@
                 <div class="problem-grid">
 
                     <div class="problem-card">
+
                         <div class="icon">🏘️</div>
 
                         <h3
@@ -260,9 +282,12 @@
                             മാലിന്യസംസ്കരണം തുടങ്ങിയ പ്രദേശത്തെ
                             പൊതുപ്രശ്നങ്ങൾ.
                         </p>
+
                     </div>
 
+
                     <div class="problem-card">
+
                         <div class="icon">📄</div>
 
                         <h3
@@ -278,9 +303,12 @@
                             അപേക്ഷകൾ, സേവനങ്ങൾ, പരാതികൾ എന്നിവയിൽ
                             മാർഗനിർദേശം.
                         </p>
+
                     </div>
 
+
                     <div class="problem-card">
+
                         <div class="icon">⚖️</div>
 
                         <h3
@@ -296,9 +324,12 @@
                             പ്രശ്നങ്ങളിൽ ലഭ്യമായ മാർഗങ്ങളും നടപടികളും
                             മനസ്സിലാക്കാൻ സഹായം.
                         </p>
+
                     </div>
 
+
                     <div class="problem-card">
+
                         <div class="icon">🛡️</div>
 
                         <h3
@@ -314,6 +345,7 @@
                             വ്യക്തിഗത പ്രശ്നങ്ങളിൽ ആവശ്യമായ
                             മാർഗനിർദേശവും സഹായവും.
                         </p>
+
                     </div>
 
                 </div>
@@ -346,9 +378,11 @@
 
                 </div>
 
+
                 <div class="steps">
 
                     <div class="step">
+
                         <span>01</span>
 
                         <h3
@@ -363,9 +397,12 @@
                             നിങ്ങളുടെ പ്രശ്നം ഞങ്ങളോട്
                             സൗജന്യമായി പങ്കുവെക്കാം.
                         </p>
+
                     </div>
 
+
                     <div class="step">
+
                         <span>02</span>
 
                         <h3
@@ -380,9 +417,12 @@
                             പ്രശ്നം മനസ്സിലാക്കി സാധ്യമായ മാർഗങ്ങളും
                             ആവശ്യമായ നടപടികളും പരിശോധിക്കും.
                         </p>
+
                     </div>
 
+
                     <div class="step">
+
                         <span>03</span>
 
                         <h3
@@ -398,6 +438,7 @@
                             ആശയവിനിമയം തുടങ്ങിയ തുടർനടപടികളിൽ
                             സഹായിക്കും.
                         </p>
+
                     </div>
 
                 </div>
@@ -437,16 +478,22 @@
 
                 </div>
 
+
                 <div class="membership-grid">
+
+                    <!-- BASIC -->
 
                     <div class="membership-card">
 
-                        <p class="plan-label">BASIC</p>
+                        <p class="plan-label">
+                            BASIC
+                        </p>
 
                         <h3>
                             ₹99
-                            <span data-ml="/ മാസം"
-                                  data-en="/ month">
+                            <span
+                                data-ml="/ മാസം"
+                                data-en="/ month">
                                 / മാസം
                             </span>
                         </h3>
@@ -489,14 +536,19 @@
                     </div>
 
 
+                    <!-- PLUS -->
+
                     <div class="membership-card featured">
 
-                        <p class="plan-label">PLUS</p>
+                        <p class="plan-label">
+                            PLUS
+                        </p>
 
                         <h3>
                             ₹399
-                            <span data-ml="/ മാസം"
-                                  data-en="/ month">
+                            <span
+                                data-ml="/ മാസം"
+                                data-en="/ month">
                                 / മാസം
                             </span>
                         </h3>
@@ -539,14 +591,19 @@
                     </div>
 
 
+                    <!-- PREMIUM -->
+
                     <div class="membership-card">
 
-                        <p class="plan-label">PREMIUM</p>
+                        <p class="plan-label">
+                            PREMIUM
+                        </p>
 
                         <h3>
                             ₹499
-                            <span data-ml="/ മാസം"
-                                  data-en="/ month">
+                            <span
+                                data-ml="/ മാസം"
+                                data-en="/ month">
                                 / മാസം
                             </span>
                         </h3>
@@ -654,85 +711,116 @@
                     നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
                 </p>
 
-                <!-- SOCIAL MEDIA -->
+
+                <!-- ================= SOCIAL MEDIA ================= -->
 
                 <div class="social-links">
 
-    <a href="https://www.instagram.com/nammude.help"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="social-instagram"
-   aria-label="Instagram">
+                    <!-- INSTAGRAM -->
 
-    <svg viewBox="0 0 24 24"
-         aria-hidden="true"
-         class="instagram-logo">
+                    <a
+                        href="https://www.instagram.com/nammude.help"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-instagram"
+                        aria-label="Instagram">
 
-        <rect x="3" y="3" width="18" height="18" rx="5"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"/>
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true">
 
-        <circle cx="12" cy="12" r="4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"/>
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"/>
 
-        <circle cx="17.5" cy="6.5" r="1.2"
-                fill="currentColor"/>
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"/>
 
-    </svg>
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1.2"
+                                fill="currentColor"/>
 
-</a>
+                        </svg>
 
-
-    <a href="https://wa.me/918281443383"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="social-whatsapp"
-   aria-label="WhatsApp">
-
-    <svg viewBox="0 0 24 24"
-         aria-hidden="true"
-         class="whatsapp-logo">
-
-        <path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5Z"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"/>
-
-        <path d="M8.5 8.2c.3-.5.7-.5 1-.5h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c.7 1.3 1.7 2.3 3 3l.7-.6c.2-.2.4-.2.7-.1l1.9.8c.3.1.4.3.4.5v.5c0 .3 0 .7-.5 1-1.1.7-2.5.4-4.4-.5-1.8-.9-3.4-2.5-4.3-4.3-.9-1.9-1.2-3.3-.5-4.4Z"
-              fill="currentColor"/>
-
-    </svg>
-
-</a>
+                    </a>
 
 
-    <a href="https://www.youtube.com/@nammudehelp"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="social-youtube"
-   aria-label="YouTube">
+                    <!-- WHATSAPP -->
 
-    <svg viewBox="0 0 24 24"
-         aria-hidden="true"
-         class="youtube-logo">
+                    <a
+                        href="https://wa.me/918281443383"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-whatsapp"
+                        aria-label="WhatsApp">
 
-        <rect x="2" y="5" width="20" height="14" rx="4"
-              fill="currentColor"/>
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true">
 
-        <path d="M10 8.5L16 12L10 15.5V8.5Z"
-              fill="white"/>
+                            <path
+                                d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5Z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"/>
 
-    </svg>
+                            <path
+                                d="M8.5 8.2c.3-.5.7-.5 1-.5h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c.7 1.3 1.7 2.3 3 3l.7-.6c.2-.2.4-.2.7-.1l1.9.8c.3.1.4.3.4.5v.5c0 .3 0 .7-.5 1-1.1.7-2.5.4-4.4-.5-1.8-.9-3.4-2.5-4.3-4.3-.9-1.9-1.2-3.3-.5-4.4Z"
+                                fill="currentColor"/>
 
-</a>
+                        </svg>
 
-</div>
+                    </a>
+
+
+                    <!-- YOUTUBE -->
+
+                    <a
+                        href="https://www.youtube.com/@nammudehelp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-youtube"
+                        aria-label="YouTube">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true">
+
+                            <rect
+                                x="2"
+                                y="5"
+                                width="20"
+                                height="14"
+                                rx="4"
+                                fill="currentColor"/>
+
+                            <path
+                                d="M10 8.5L16 12L10 15.5V8.5Z"
+                                fill="white"/>
+
+                        </svg>
+
+                    </a>
+
+                </div>
 
             </div>
 
+
+            <!-- FOOTER RIGHT -->
 
             <div>
 
@@ -762,49 +850,59 @@
         ============================ */
 
         const languageToggle =
-            document.getElementById("languageToggle");
+            document.getElementById(
+                "languageToggle"
+            );
 
         let currentLanguage = "ml";
 
 
-        languageToggle.addEventListener("click", function () {
+        languageToggle.addEventListener(
+            "click",
+            function () {
 
-            currentLanguage =
-                currentLanguage === "ml"
-                    ? "en"
-                    : "ml";
-
-
-            document
-                .querySelectorAll("[data-ml]")
-                .forEach(element => {
-
-                    if (currentLanguage === "en") {
-
-                        element.innerHTML =
-                            element.getAttribute("data-en");
-
-                    } else {
-
-                        element.innerHTML =
-                            element.getAttribute("data-ml");
-
-                    }
-
-                });
+                currentLanguage =
+                    currentLanguage === "ml"
+                        ? "en"
+                        : "ml";
 
 
-            document.documentElement.lang =
-                currentLanguage;
+                document
+                    .querySelectorAll("[data-ml]")
+                    .forEach(element => {
+
+                        if (
+                            currentLanguage === "en"
+                        ) {
+
+                            element.innerHTML =
+                                element.getAttribute(
+                                    "data-en"
+                                );
+
+                        } else {
+
+                            element.innerHTML =
+                                element.getAttribute(
+                                    "data-ml"
+                                );
+
+                        }
+
+                    });
 
 
-            languageToggle.textContent =
-                currentLanguage === "ml"
-                    ? "EN"
-                    : "മലയാളം";
+                document.documentElement.lang =
+                    currentLanguage;
 
-        });
 
+                languageToggle.textContent =
+                    currentLanguage === "ml"
+                        ? "EN"
+                        : "മലയാളം";
+
+            }
+        );
 
 
         /* ============================
@@ -812,17 +910,23 @@
         ============================ */
 
         const themeToggle =
-            document.getElementById("themeToggle");
+            document.getElementById(
+                "themeToggle"
+            );
 
 
         function updateThemeButton() {
 
             const isDark =
-                document.body.classList.contains("dark-mode");
+                document.body.classList.contains(
+                    "dark-mode"
+                );
 
 
             themeToggle.textContent =
-                isDark ? "☀️" : "🌙";
+                isDark
+                    ? "☀️"
+                    : "🌙";
 
 
             themeToggle.setAttribute(
@@ -838,18 +942,21 @@
         /* Load saved theme */
 
         const savedTheme =
-            localStorage.getItem("nammude-theme");
+            localStorage.getItem(
+                "nammude-theme"
+            );
 
 
         if (savedTheme === "dark") {
 
-            document.body.classList.add("dark-mode");
+            document.body.classList.add(
+                "dark-mode"
+            );
 
         }
 
 
         updateThemeButton();
-
 
 
         /* Theme button */
@@ -871,7 +978,9 @@
 
                 localStorage.setItem(
                     "nammude-theme",
-                    isDark ? "dark" : "light"
+                    isDark
+                        ? "dark"
+                        : "light"
                 );
 
 
@@ -883,4 +992,6 @@
     </script>
 
 </body>
+
 </html>
+```

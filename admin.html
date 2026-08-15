@@ -19,34 +19,25 @@
     <style>
 
         /* =====================================================
-           NAMMUDE ADMIN — COMPLETE CSS
+           NAMMUDE ADMIN — COMPLETE RESPONSIVE CSS
         ===================================================== */
 
         :root {
 
             --bg: #f5f7fa;
-
             --card: #ffffff;
-
             --text: #17202a;
-
             --muted: #6b7280;
-
             --border: #e1e5ea;
-
             --header: #ffffff;
-
             --input: #ffffff;
-
             --table-head: #f1f5f9;
-
             --hover: #f8fafc;
 
             --shadow:
                 0 5px 20px rgba(0, 0, 0, 0.06);
 
             --primary: #111827;
-
             --primary-text: #ffffff;
 
         }
@@ -59,28 +50,19 @@
         body.dark-mode {
 
             --bg: #0b0e12;
-
             --card: #171b21;
-
             --text: #f3f4f6;
-
             --muted: #9ca3af;
-
             --border: #292f38;
-
             --header: #12161b;
-
             --input: #1c2128;
-
             --table-head: #1b2027;
-
             --hover: #20252d;
 
             --shadow:
                 0 5px 25px rgba(0, 0, 0, 0.35);
 
             --primary: #f3f4f6;
-
             --primary-text: #111827;
 
         }
@@ -93,9 +75,7 @@
         * {
 
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
 
         }
@@ -111,7 +91,6 @@
         body {
 
             margin: 0;
-
             min-height: 100vh;
 
             font-family:
@@ -121,7 +100,6 @@
                 sans-serif;
 
             background: var(--bg);
-
             color: var(--text);
 
             transition:
@@ -149,9 +127,7 @@
             min-height: 100vh;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             padding: 20px;
@@ -164,7 +140,6 @@
         .login-box {
 
             width: 100%;
-
             max-width: 420px;
 
             background: var(--card);
@@ -821,27 +796,40 @@
 
 
         /* =====================================================
-           STATUS
+           STATUS SELECT
         ===================================================== */
 
-        .status {
+        .status-select {
 
-            display: inline-block;
-
-            padding: 6px 10px;
+            padding: 7px 10px;
 
             border-radius: 20px;
+
+            border: 1px solid var(--border);
 
             font-size: 12px;
 
             font-weight: 700;
 
-            white-space: nowrap;
+            cursor: pointer;
+
+            outline: none;
+
+            min-width: 125px;
 
         }
 
 
-        .status-pending {
+        .status-select:disabled {
+
+            opacity: .6;
+
+            cursor: wait;
+
+        }
+
+
+        .status-select.status-pending {
 
             background: #fff3cd;
 
@@ -850,7 +838,7 @@
         }
 
 
-        .status-progress {
+        .status-select.status-progress {
 
             background: #dbeafe;
 
@@ -859,7 +847,7 @@
         }
 
 
-        .status-resolved {
+        .status-select.status-resolved {
 
             background: #dcfce7;
 
@@ -868,7 +856,7 @@
         }
 
 
-        .status-default {
+        .status-select.status-default {
 
             background: #e5e7eb;
 
@@ -878,10 +866,10 @@
 
 
         /* =====================================================
-           DARK MODE STATUS
+           DARK STATUS
         ===================================================== */
 
-        body.dark-mode .status-pending {
+        body.dark-mode .status-select.status-pending {
 
             background: #3a2e12;
 
@@ -890,7 +878,7 @@
         }
 
 
-        body.dark-mode .status-progress {
+        body.dark-mode .status-select.status-progress {
 
             background: #172b4d;
 
@@ -899,7 +887,7 @@
         }
 
 
-        body.dark-mode .status-resolved {
+        body.dark-mode .status-select.status-resolved {
 
             background: #123521;
 
@@ -908,7 +896,7 @@
         }
 
 
-        body.dark-mode .status-default {
+        body.dark-mode .status-select.status-default {
 
             background: #2b3038;
 
@@ -1071,6 +1059,15 @@
         }
 
 
+        .report-card-top > div {
+
+            min-width: 0;
+
+            flex: 1;
+
+        }
+
+
         .report-id {
 
             color: var(--muted);
@@ -1090,6 +1087,8 @@
 
             color: var(--text);
 
+            word-break: break-word;
+
         }
 
 
@@ -1102,6 +1101,10 @@
             font-size: 14px;
 
             color: var(--text);
+
+            line-height: 1.5;
+
+            word-break: break-word;
 
         }
 
@@ -1139,6 +1142,22 @@
             flex-wrap: wrap;
 
             margin-top: 14px;
+
+        }
+
+
+        .mobile-actions .voice-player {
+
+            width: 100%;
+
+            min-width: 0;
+
+        }
+
+
+        .mobile-actions .voice-player audio {
+
+            width: 100%;
 
         }
 
@@ -1208,7 +1227,7 @@
 
 
         /* =====================================================
-           MOBILE HEADER
+           MOBILE
         ===================================================== */
 
         @media (max-width: 700px) {
@@ -1346,6 +1365,8 @@
 
                 width: 100%;
 
+                min-height: 46px;
+
             }
 
 
@@ -1372,6 +1393,22 @@
             .mobile-reports {
 
                 display: block;
+
+            }
+
+
+            .report-card-top {
+
+                flex-direction: column;
+
+            }
+
+
+            .report-card-top .status-select {
+
+                width: 100%;
+
+                min-height: 42px;
 
             }
 
@@ -1439,6 +1476,20 @@
             .stat-number {
 
                 font-size: 23px;
+
+            }
+
+
+            .report-card {
+
+                padding: 14px;
+
+            }
+
+
+            .report-name {
+
+                font-size: 17px;
 
             }
 
@@ -1524,7 +1575,6 @@
 
     <header>
 
-
         <div class="header-left">
 
             <h1>
@@ -1538,9 +1588,7 @@
         </div>
 
 
-
         <div class="header-buttons">
-
 
             <button
                 class="theme-btn"
@@ -1575,9 +1623,7 @@
                 Logout
             </button>
 
-
         </div>
-
 
     </header>
 
@@ -1585,7 +1631,7 @@
 
     <!-- =====================================================
          MAIN
-    ====================================================== -->
+    ===================================================== -->
 
     <main>
 
@@ -1613,7 +1659,6 @@
             </div>
 
 
-
             <div class="stat-card">
 
                 <div class="stat-title">
@@ -1630,7 +1675,6 @@
             </div>
 
 
-
             <div class="stat-card">
 
                 <div class="stat-title">
@@ -1645,7 +1689,6 @@
                 </div>
 
             </div>
-
 
 
             <div class="stat-card">
@@ -1678,7 +1721,6 @@
             <input
                 type="text"
                 id="searchInput"
-                class="search"
                 placeholder="🔎 Search reports..."
                 oninput="filterReports()"
             >
@@ -1739,7 +1781,6 @@
             </div>
 
 
-
             <!-- DESKTOP TABLE -->
 
             <table
@@ -1752,23 +1793,14 @@
                     <tr>
 
                         <th>ID</th>
-
                         <th>Date</th>
-
                         <th>Name</th>
-
                         <th>Phone</th>
-
                         <th>Category</th>
-
                         <th>Description</th>
-
                         <th>Status</th>
-
                         <th>Location</th>
-
                         <th>Evidence</th>
-
                         <th>Voice</th>
 
                     </tr>
@@ -2318,6 +2350,7 @@ function getLocationHTML(report) {
 
     if (coordinates) {
 
+
         if (
             Array.isArray(coordinates) &&
             coordinates.length >= 2
@@ -2351,8 +2384,7 @@ function getLocationHTML(report) {
 
 
         if (
-            typeof coordinates ===
-            "object"
+            typeof coordinates === "object"
         ) {
 
             const lat =
@@ -2385,8 +2417,7 @@ function getLocationHTML(report) {
 
 
         if (
-            typeof coordinates ===
-            "string"
+            typeof coordinates === "string"
         ) {
 
             const match =
@@ -2647,6 +2678,8 @@ function getVoiceHTML(report) {
                     src="${escapeHTML(url)}"
                 >
 
+                Your browser does not support audio.
+
             </audio>
 
         </div>
@@ -2656,7 +2689,7 @@ function getVoiceHTML(report) {
 
 
 /* =========================================================
-   STATUS
+   STATUS CLASS
 ========================================================= */
 
 function getStatusClass(status) {
@@ -2692,20 +2725,41 @@ function getStatusClass(status) {
 
 }
 
+
 /* =========================================================
    UPDATE REPORT STATUS
 ========================================================= */
 
-async function updateReportStatus(reportId, newStatus) {
+async function updateReportStatus(
+    reportId,
+    newStatus,
+    selectElement = null
+) {
+
+    if (selectElement) {
+
+        selectElement.disabled = true;
+
+    }
+
 
     try {
 
-        const { error } = await supabaseClient
+        const {
+            error
+        } = await supabaseClient
+
             .from("reports")
+
             .update({
                 status: newStatus
             })
-            .eq("id", reportId);
+
+            .eq(
+                "id",
+                reportId
+            );
+
 
         if (error) {
 
@@ -2716,34 +2770,130 @@ async function updateReportStatus(reportId, newStatus) {
                 error.message
             );
 
-            return;
+            return false;
+
         }
 
-        // Update local data
-        const report = allReports.find(
-            r => String(r.id) === String(reportId)
-        );
+
+        const report =
+            allReports.find(
+                r =>
+                    String(r.id) ===
+                    String(reportId)
+            );
+
 
         if (report) {
-            report.status = newStatus;
+
+            report.status =
+                newStatus;
+
         }
 
-        // Update statistics
+
         updateStatistics();
 
+
+        if (selectElement) {
+
+            selectElement.classList.remove(
+                "status-pending",
+                "status-progress",
+                "status-resolved",
+                "status-default"
+            );
+
+
+            selectElement.classList.add(
+                getStatusClass(
+                    newStatus
+                )
+            );
+
+        }
+
+
         console.log(
-            `Report ${reportId} → ${newStatus}`
+            "Report " +
+            reportId +
+            " → " +
+            newStatus
         );
 
-    } catch (error) {
+
+        return true;
+
+    }
+
+    catch (error) {
 
         console.error(error);
 
         alert(
             "❌ Something went wrong while updating status."
         );
+
+        return false;
+
     }
+
+    finally {
+
+        if (selectElement) {
+
+            selectElement.disabled = false;
+
+        }
+
+    }
+
 }
+
+
+/* =========================================================
+   DESKTOP STATUS
+========================================================= */
+
+async function handleDesktopStatusChange(
+    selectElement,
+    reportId
+) {
+
+    const newStatus =
+        selectElement.value;
+
+
+    await updateReportStatus(
+        reportId,
+        newStatus,
+        selectElement
+    );
+
+}
+
+
+/* =========================================================
+   MOBILE STATUS
+========================================================= */
+
+async function handleMobileStatusChange(
+    selectElement,
+    reportId
+) {
+
+    const newStatus =
+        selectElement.value;
+
+
+    await updateReportStatus(
+        reportId,
+        newStatus,
+        selectElement
+    );
+
+}
+
+
 /* =========================================================
    DISPLAY REPORTS
 ========================================================= */
@@ -2791,6 +2941,11 @@ function displayReports(reports) {
 
         table.style.display = "none";
 
+        mobile.style.display =
+            window.innerWidth <= 700
+                ? "block"
+                : "none";
+
         noData.style.display = "block";
 
         return;
@@ -2798,9 +2953,12 @@ function displayReports(reports) {
     }
 
 
+    noData.style.display = "none";
+
+
     table.style.display = "table";
 
-    noData.style.display = "none";
+    mobile.style.display = "block";
 
 
     reports.forEach(
@@ -2809,18 +2967,20 @@ function displayReports(reports) {
 
             const date =
                 report.created_at
+
                     ? new Date(
                         report.created_at
                     ).toLocaleString(
                         "en-IN"
                     )
+
                     : "-";
 
 
             const status =
                 String(
                     report.status ||
-                    "Pending"
+                    "pending"
                 );
 
 
@@ -2894,24 +3054,60 @@ function displayReports(reports) {
                     )}
                 </td>
 
-               <td>
-    <select
-        class="status-select ${statusClass}"
-        onchange="updateReportStatus('${report.id}', this.value)"
-    >
-        <option value="pending" ${status.toLowerCase() === "pending" ? "selected" : ""}>
-            🟡 Pending
-        </option>
+                <td>
 
-        <option value="in progress" ${status.toLowerCase() === "in progress" ? "selected" : ""}>
-            🔵 In Progress
-        </option>
+                    <select
+                        class="status-select ${statusClass}"
+                        onchange="
+                            handleDesktopStatusChange(
+                                this,
+                                '${escapeHTML(String(report.id))}'
+                            )
+                        "
+                    >
 
-        <option value="resolved" ${status.toLowerCase() === "resolved" ? "selected" : ""}>
-            🟢 Resolved
-        </option>
-    </select>
-</td>
+                        <option
+                            value="pending"
+                            ${
+                                status
+                                    .toLowerCase() ===
+                                "pending"
+                                    ? "selected"
+                                    : ""
+                            }
+                        >
+                            🟡 Pending
+                        </option>
+
+                        <option
+                            value="in progress"
+                            ${
+                                status
+                                    .toLowerCase() ===
+                                "in progress"
+                                    ? "selected"
+                                    : ""
+                            }
+                        >
+                            🔵 In Progress
+                        </option>
+
+                        <option
+                            value="resolved"
+                            ${
+                                status
+                                    .toLowerCase() ===
+                                "resolved"
+                                    ? "selected"
+                                    : ""
+                            }
+                        >
+                            🟢 Resolved
+                        </option>
+
+                    </select>
+
+                </td>
 
                 <td>
                     ${map}
@@ -2965,11 +3161,57 @@ function displayReports(reports) {
 
                     </div>
 
-                    <span
-                        class="status ${statusClass}"
+
+                    <select
+                        class="status-select ${statusClass}"
+                        onchange="
+                            handleMobileStatusChange(
+                                this,
+                                '${escapeHTML(String(report.id))}'
+                            )
+                        "
                     >
-                        ${escapeHTML(status)}
-                    </span>
+
+                        <option
+                            value="pending"
+                            ${
+                                status
+                                    .toLowerCase() ===
+                                "pending"
+                                    ? "selected"
+                                    : ""
+                            }
+                        >
+                            🟡 Pending
+                        </option>
+
+                        <option
+                            value="in progress"
+                            ${
+                                status
+                                    .toLowerCase() ===
+                                "in progress"
+                                    ? "selected"
+                                    : ""
+                            }
+                        >
+                            🔵 In Progress
+                        </option>
+
+                        <option
+                            value="resolved"
+                            ${
+                                status
+                                    .toLowerCase() ===
+                                "resolved"
+                                    ? "selected"
+                                    : ""
+                            }
+                        >
+                            🟢 Resolved
+                        </option>
+
+                    </select>
 
                 </div>
 
@@ -3037,7 +3279,9 @@ function displayReports(reports) {
             `;
 
 
-            mobile.appendChild(card);
+            mobile.appendChild(
+                card
+            );
 
         }
     );
@@ -3098,7 +3342,8 @@ function filterReports() {
 
                 const reportStatus =
                     String(
-                        report.status || ""
+                        report.status ||
+                        "pending"
                     )
                     .toLowerCase();
 
@@ -3137,7 +3382,8 @@ function filterReports() {
                 const categoryMatch =
                     category === "all" ||
                     String(
-                        report.category || ""
+                        report.category ||
+                        ""
                     ) === category;
 
 
@@ -3206,6 +3452,36 @@ function escapeHTML(value) {
         );
 
 }
+
+
+/* =========================================================
+   WINDOW RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        if (allReports.length) {
+
+            const search =
+                document
+                    .getElementById(
+                        "searchInput"
+                    )
+                    .value
+                    .trim();
+
+            if (!search) {
+
+                filterReports();
+
+            }
+
+        }
+
+    }
+);
 
 
 /* =========================================================

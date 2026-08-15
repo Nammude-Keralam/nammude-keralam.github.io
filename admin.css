@@ -1,0 +1,811 @@
+/* =========================================================
+   NAMMUDE — ADMIN DASHBOARD CSS
+   Responsive • Desktop • Tablet • Mobile
+========================================================= */
+
+
+/* =========================================================
+   1. RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+
+/* =========================================================
+   2. LOGIN PAGE
+========================================================= */
+
+#loginPage {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #0f766e,
+        #115e59
+    );
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.20);
+}
+
+.login-logo {
+    text-align: center;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: #0f766e;
+
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 30px;
+
+    font-size: 15px;
+}
+
+
+/* Login labels */
+
+.login-box label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 700;
+
+    font-size: 14px;
+}
+
+
+/* Login inputs */
+
+.login-box input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9dee3;
+
+    border-radius: 9px;
+
+    margin-bottom: 18px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.login-box input:focus {
+    border-color: #0f766e;
+
+    box-shadow:
+        0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+
+/* Login button */
+
+.login-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #0f766e;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    background: #115e59;
+
+    transform: translateY(-1px);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+
+/* Login error */
+
+#loginError {
+    color: #dc2626;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    display: none;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   3. DASHBOARD
+========================================================= */
+
+#dashboard {
+    display: none;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   4. HEADER
+========================================================= */
+
+header {
+    background: #0f766e;
+
+    color: #ffffff;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.10);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+.header-left h1 {
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+.header-left p {
+    margin-top: 4px;
+
+    opacity: 0.85;
+
+    font-size: 13px;
+}
+
+
+/* Header buttons */
+
+.header-buttons {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.header-btn {
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.header-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+/* Refresh */
+
+.refresh-btn {
+    background: #ffffff;
+
+    color: #0f766e;
+}
+
+
+/* Export */
+
+.export-btn {
+    background: #16a34a;
+
+    color: #ffffff;
+}
+
+.export-btn:hover {
+    background: #15803d;
+}
+
+
+/* Logout */
+
+.logout-btn {
+    background: #dc2626;
+
+    color: #ffffff;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}
+
+
+/* =========================================================
+   5. MAIN
+========================================================= */
+
+main {
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 25px;
+}
+
+
+/* =========================================================
+   6. STATISTICS
+========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.06);
+
+    transition: 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.09);
+}
+
+.stat-title {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.stat-number {
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+
+/* Statistic colors */
+
+.total {
+    color: #0f766e;
+}
+
+.pending {
+    color: #d97706;
+}
+
+.progress {
+    color: #2563eb;
+}
+
+.resolved {
+    color: #16a34a;
+}
+
+
+/* =========================================================
+   7. SEARCH / FILTER CONTROLS
+========================================================= */
+
+.controls {
+    background: #ffffff;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.controls input,
+.controls select {
+    padding: 11px 13px;
+
+    border: 1px solid #d9dee3;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    background: #ffffff;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.controls input:focus,
+.controls select:focus {
+    border-color: #0f766e;
+
+    box-shadow:
+        0 0 0 3px rgba(15, 118, 110, 0.10);
+}
+
+.search {
+    flex: 1;
+
+    min-width: 220px;
+}
+
+
+/* =========================================================
+   8. TABLE CONTAINER
+========================================================= */
+
+.table-container {
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    overflow-x: auto;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   9. REPORT TABLE
+========================================================= */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 1100px;
+}
+
+thead {
+    background: #f1f5f9;
+}
+
+th {
+    text-align: left;
+
+    padding: 14px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #374151;
+
+    white-space: nowrap;
+}
+
+td {
+    padding: 14px;
+
+    border-top: 1px solid #eeeeee;
+
+    font-size: 13px;
+
+    vertical-align: top;
+}
+
+tbody tr {
+    transition: 0.15s;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* Description */
+
+.description {
+    max-width: 260px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   10. STATUS BADGES
+========================================================= */
+
+.status {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* Pending */
+
+.status-pending {
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+
+/* In progress */
+
+.status-progress {
+    background: #dbeafe;
+
+    color: #1e40af;
+}
+
+
+/* Resolved */
+
+.status-resolved {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+
+/* Unknown */
+
+.status-default {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+
+/* =========================================================
+   11. ACTION BUTTONS
+========================================================= */
+
+.action-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    margin: 2px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+/* Google Maps */
+
+.map-btn {
+    background: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+.map-btn:hover {
+    background: #bfdbfe;
+}
+
+
+/* Evidence */
+
+.evidence-btn {
+    background: #ede9fe;
+
+    color: #6d28d9;
+}
+
+.evidence-btn:hover {
+    background: #ddd6fe;
+}
+
+
+/* Voice */
+
+.voice-btn {
+    background: #fce7f3;
+
+    color: #be185d;
+}
+
+.voice-btn:hover {
+    background: #fbcfe8;
+}
+
+
+/* =========================================================
+   12. LOADING
+========================================================= */
+
+.loading {
+    text-align: center;
+
+    padding: 45px;
+
+    font-size: 16px;
+
+    color: #666;
+}
+
+
+/* =========================================================
+   13. NO DATA
+========================================================= */
+
+.no-data {
+    text-align: center;
+
+    padding: 45px;
+
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   14. SCROLLBAR
+========================================================= */
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* =========================================================
+   15. TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    header {
+        padding: 16px 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   16. MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        position: relative;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .header-left h1 {
+        font-size: 21px;
+    }
+
+    .header-buttons {
+        width: 100%;
+    }
+
+    .header-btn {
+        flex: 1;
+
+        min-width: 100px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+    }
+
+    .controls {
+        padding: 14px;
+    }
+
+    .controls input,
+    .controls select {
+        width: 100%;
+    }
+
+    .search {
+        min-width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   17. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    #loginPage {
+        padding: 15px;
+    }
+
+    .login-box {
+        padding: 25px 20px;
+
+        border-radius: 15px;
+    }
+
+    .login-logo {
+        font-size: 28px;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+    }
+
+    .header-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   18. DARK MODE SUPPORT
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    /*
+       Disabled by default.
+
+       We can add a proper Nammude
+       dark-mode switch later.
+    */
+
+}

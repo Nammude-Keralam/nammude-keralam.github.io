@@ -943,49 +943,7 @@
 
 
 
-                    /* =================================================
-                       GOOGLE MAPS
-                    ================================================== */
-
-                    let mapHTML = "-";
-
-
-                    if (
-                        report.latitude !== null &&
-                        report.longitude !== null &&
-                        report.latitude !== undefined &&
-                        report.longitude !== undefined
-                    ) {
-
-                        const lat =
-                            encodeURIComponent(
-                                report.latitude
-                            );
-
-
-                        const lng =
-                            encodeURIComponent(
-                                report.longitude
-                            );
-
-
-                        const mapURL =
-                            `https://www.google.com/maps?q=${lat},${lng}`;
-
-
-                        mapHTML = `
-                            <a
-                                class="action-btn map-btn"
-                                href="${mapURL}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                📍 Map
-                            </a>
-                        `;
-
-                    }
-
+                   
 
 
                     /* =========================

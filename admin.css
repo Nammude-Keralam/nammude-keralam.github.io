@@ -809,3 +809,21 @@ tbody tr:hover {
     */
 
 }
+.voice-player {
+    display: flex;
+    align-items: center;
+    min-width: 220px;
+}
+
+.voice-player audio {
+    width: 220px;
+    height: 38px;
+}
+
+@media (max-width: 600px) {
+
+    .voice-player audio {
+        width: 190px;
+    }
+
+}

@@ -988,31 +988,64 @@
 
 
 
-                    /* =================================================
-                       EVIDENCE
-                    ================================================== */
+                    /* =========================
+  /* =========================
+   EVIDENCE
+========================= */
 
-                    let evidenceHTML = "-";
+let evidenceHTML = "-";
 
+if (report.evidence_url) {
 
-                    if (
-                        report.evidence_url
-                    ) {
+    let evidenceURL = report.evidence_url;
 
-                        evidenceHTML = `
-                            <a
-                                class="action-btn evidence-btn"
-                                href="${escapeHTML(
-                                    report.evidence_url
-                                )}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                📎 Open
-                            </a>
-                        `;
+    // If Supabase stored it as an array
+    if (Array.isArray(evidenceURL)) {
+        evidenceURL = evidenceURL[0];
+    }
 
-                    }
+    // If stored as JSON string:
+    // ["https://....pdf"]
+    if (
+        typeof evidenceURL === "string" &&
+        evidenceURL.trim().startsWith("[")
+    ) {
+        try {
+
+            const parsed = JSON.parse(evidenceURL);
+
+            if (Array.isArray(parsed)) {
+                evidenceURL = parsed[0];
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Could not parse evidence URL:",
+                error
+            );
+
+        }
+    }
+
+    evidenceURL = String(evidenceURL || "").trim();
+
+    if (evidenceURL) {
+
+        evidenceHTML = `
+            <a
+                class="action-btn evidence-btn"
+                href="${escapeHTML(evidenceURL)}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                📎 Open
+            </a>
+        `;
+
+    }
+
+}
 
 
 

@@ -563,7 +563,8 @@ id="mapButton">
 class="form-note"
 id="locationNote">
 
-കൃത്യമായ സ്ഥലം ഇല്ലെങ്കിൽ ഈ വിഭാഗം ഒഴിവാക്കാം.
+📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുന്നത് ഐച്ഛികമാണ്.
+“എന്റെ സ്ഥലം ഉപയോഗിക്കുക” അമർത്തിയാൽ നിങ്ങളുടെ നിലവിലെ ലൊക്കേഷൻ അനുമതി നൽകിയാൽ മാത്രം ശേഖരിക്കും.
 
 </p>
 
@@ -1233,7 +1234,7 @@ map:
 "📍 Select location on map",
 
 locationNote:
-"If the problem has no specific location, you can skip this section.",
+"📍 Selecting a location is optional. Your current location is collected only if you allow location access and choose “Use my location.”",
 
 problem:
 "7. What is your problem? <span>★</span>",
@@ -1505,7 +1506,37 @@ document.getElementById("landmarkLabel")
 
 
 document.getElementById("mapButton")
-.textContent = t.map;
+.textContent =
+    latitudeInput.value && longitudeInput.value
+        ? (currentLanguage === "ml"
+            ? "📍 സ്ഥലം തിരഞ്ഞെടുത്തു"
+            : "📍 Location selected")
+        : t.map;
+
+
+document.getElementById("useMyLocation")
+.textContent =
+    currentLanguage === "ml"
+        ? "📍 എന്റെ സ്ഥലം ഉപയോഗിക്കുക"
+        : "📍 Use my location";
+
+
+document.getElementById("confirmLocation")
+.textContent =
+    currentLanguage === "ml"
+        ? "✅ സ്ഥലം സ്ഥിരീകരിക്കുക"
+        : "✅ Confirm location";
+
+
+if (!latitudeInput.value || !longitudeInput.value) {
+
+    document.getElementById("selectedLocationText")
+        .textContent =
+            currentLanguage === "ml"
+                ? "മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുക."
+                : "Select a location on the map.";
+
+}
 
 
 document.getElementById("locationNote")

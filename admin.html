@@ -1,1864 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nammude — Admin Dashboard</title>
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Nammude — Admin Dashboard</title>
-
-    <!-- Supabase -->
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<!-- Excel / SheetJS -->
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-
-    <style>
-
-        /* =====================================================
-           NAMMUDE ADMIN — COMPLETE RESPONSIVE CSS
-        ===================================================== */
-
-        :root {
-
-            --bg: #f5f7fa;
-            --card: #ffffff;
-            --text: #17202a;
-            --muted: #6b7280;
-            --border: #e1e5ea;
-            --header: #ffffff;
-            --input: #ffffff;
-            --table-head: #f1f5f9;
-            --hover: #f8fafc;
-
-            --shadow:
-                0 5px 20px rgba(0, 0, 0, 0.06);
-
-            --primary: #111827;
-            --primary-text: #ffffff;
-
-        }
-
-
-        /* =====================================================
-           DARK MODE
-        ===================================================== */
-
-        body.dark-mode {
-
-            --bg: #0b0e12;
-            --card: #171b21;
-            --text: #f3f4f6;
-            --muted: #9ca3af;
-            --border: #292f38;
-            --header: #12161b;
-            --input: #1c2128;
-            --table-head: #1b2027;
-            --hover: #20252d;
-
-            --shadow:
-                0 5px 25px rgba(0, 0, 0, 0.35);
-
-            --primary: #f3f4f6;
-            --primary-text: #111827;
-
-        }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-
-        }
-
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-
-        body {
-
-            margin: 0;
-            min-height: 100vh;
-
-            font-family:
-                "Segoe UI",
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: var(--bg);
-            color: var(--text);
-
-            transition:
-                background .25s ease,
-                color .25s ease;
-
-        }
-
-
-        button,
-        input,
-        select {
-
-            font-family: inherit;
-
-        }
-
-
-        /* =====================================================
-           LOGIN
-        ===================================================== */
-
-        #loginPage {
-
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-
-            background: var(--bg);
-
-        }
-
-
-        .login-box {
-
-            width: 100%;
-            max-width: 420px;
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            padding: 35px;
-
-            border-radius: 20px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-        .login-logo {
-
-            text-align: center;
-
-            font-size: 31px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-
-            color: var(--text);
-
-        }
-
-
-        .login-subtitle {
-
-            text-align: center;
-
-            color: var(--muted);
-
-            margin: 8px 0 30px;
-
-            font-size: 14px;
-
-        }
-
-
-        .login-box label {
-
-            display: block;
-
-            margin: 15px 0 7px;
-
-            font-size: 14px;
-
-            font-weight: 600;
-
-        }
-
-
-        .login-box input {
-
-            width: 100%;
-
-            padding: 13px 14px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 10px;
-
-            background: var(--input);
-
-            color: var(--text);
-
-            outline: none;
-
-            font-size: 15px;
-
-        }
-
-
-        .login-box input::placeholder {
-
-            color: var(--muted);
-
-        }
-
-
-        .login-box input:focus {
-
-            border-color: #0f766e;
-
-            box-shadow:
-                0 0 0 3px rgba(15,118,110,.12);
-
-        }
-
-
-        .login-btn {
-
-            width: 100%;
-
-            margin-top: 22px;
-
-            padding: 14px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: #0f766e;
-
-            color: #ffffff;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .2s;
-
-        }
-
-
-        .login-btn:hover {
-
-            background: #115e59;
-
-            transform: translateY(-1px);
-
-        }
-
-
-        #loginError {
-
-            display: none;
-
-            margin-top: 15px;
-
-            color: #ef4444;
-
-            text-align: center;
-
-            font-size: 14px;
-
-        }
-
-
-        /* =====================================================
-           DASHBOARD
-        ===================================================== */
-
-        #dashboard {
-
-            display: none;
-
-            min-height: 100vh;
-
-            background: var(--bg);
-
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        #dashboard header {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 100;
-
-            width: 100%;
-
-            background: var(--header);
-
-            color: var(--text);
-
-            border-bottom: 1px solid var(--border);
-
-            padding: 18px 25px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            box-shadow:
-                0 2px 12px rgba(0,0,0,.05);
-
-        }
-
-
-        .header-left {
-
-            flex: 1;
-
-            min-width: 0;
-
-        }
-
-
-        .header-left h1 {
-
-            margin: 0;
-
-            font-size: 25px;
-
-            line-height: 1.2;
-
-            font-weight: 800;
-
-            color: var(--text);
-
-        }
-
-
-        .header-left p {
-
-            margin: 5px 0 0;
-
-            color: var(--muted);
-
-            font-size: 14px;
-
-        }
-
-
-        /* =====================================================
-           HEADER BUTTONS
-        ===================================================== */
-
-        .header-buttons {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: flex-end;
-
-            gap: 8px;
-
-            flex-wrap: wrap;
-
-        }
-
-
-        .header-btn {
-
-            min-height: 42px;
-
-            padding: 10px 15px;
-
-            border-radius: 9px;
-
-            border: 1px solid var(--border);
-
-            background: var(--card);
-
-            color: var(--text);
-
-            cursor: pointer;
-
-            font-weight: 600;
-
-            font-size: 14px;
-
-            white-space: nowrap;
-
-            transition: .2s;
-
-        }
-
-
-        .header-btn:hover {
-
-            transform: translateY(-1px);
-
-        }
-
-
-        /* =====================================================
-           THEME BUTTON
-        ===================================================== */
-
-        .theme-btn {
-
-            width: 42px;
-
-            height: 42px;
-
-            flex: 0 0 42px;
-
-            padding: 0;
-
-            border-radius: 50%;
-
-            border: 1px solid var(--border);
-
-            background: var(--card);
-
-            color: var(--text);
-
-            cursor: pointer;
-
-            font-size: 18px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            transition: .2s;
-
-        }
-
-
-        .theme-btn:hover {
-
-            transform: rotate(8deg);
-
-        }
-
-
-        /* =====================================================
-           SPECIAL HEADER BUTTONS
-        ===================================================== */
-
-        .refresh-btn {
-
-            background: var(--card);
-
-            color: var(--text);
-
-        }
-
-
-        .export-btn {
-
-            background: #16a34a;
-
-            color: white;
-
-            border-color: #16a34a;
-
-        }
-
-
-        .export-btn:hover {
-
-            background: #15803d;
-
-        }
-
-
-        .logout-btn {
-
-            background: #dc2626;
-
-            color: white;
-
-            border-color: #dc2626;
-
-        }
-
-
-        .logout-btn:hover {
-
-            background: #b91c1c;
-
-        }
-
-
-        /* =====================================================
-           MAIN
-        ===================================================== */
-
-        #dashboard main {
-
-            width: 100%;
-
-            max-width: 1500px;
-
-            margin: 0 auto;
-
-            padding: 25px;
-
-        }
-
-
-        /* =====================================================
-           STATISTICS
-        ===================================================== */
-
-        .stats {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 18px;
-
-            margin-bottom: 24px;
-
-        }
-
-
-        .stat-card {
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 16px;
-
-            padding: 22px;
-
-            box-shadow: var(--shadow);
-
-            transition: .2s;
-
-        }
-
-
-        .stat-card:hover {
-
-            transform: translateY(-2px);
-
-        }
-
-
-        .stat-title {
-
-            color: var(--muted);
-
-            font-size: 14px;
-
-            margin-bottom: 8px;
-
-        }
-
-
-        .stat-number {
-
-            font-size: 32px;
-
-            font-weight: 800;
-
-        }
-
-
-        .total {
-
-            color: #0f766e;
-
-        }
-
-
-        .pending {
-
-            color: #d97706;
-
-        }
-
-
-        .progress {
-
-            color: #2563eb;
-
-        }
-
-
-        .resolved {
-
-            color: #16a34a;
-
-        }
-
-
-        /* =====================================================
-           CONTROLS
-        ===================================================== */
-
-        .controls {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 200px 200px;
-
-            gap: 12px;
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 16px;
-
-            padding: 18px;
-
-            margin-bottom: 20px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-        .controls input,
-        .controls select {
-
-            width: 100%;
-
-            padding: 13px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 10px;
-
-            background: var(--input);
-
-            color: var(--text);
-
-            outline: none;
-
-            font-size: 14px;
-
-        }
-
-
-        .controls input::placeholder {
-
-            color: var(--muted);
-
-        }
-
-
-        .controls input:focus,
-        .controls select:focus {
-
-            border-color: #0f766e;
-
-            box-shadow:
-                0 0 0 3px rgba(15,118,110,.10);
-
-        }
-
-
-        /* =====================================================
-           TABLE
-        ===================================================== */
-
-        .table-container {
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 16px;
-
-            box-shadow: var(--shadow);
-
-            overflow-x: auto;
-
-        }
-
-
-        table {
-
-            width: 100%;
-
-            min-width: 1150px;
-
-            border-collapse: collapse;
-
-        }
-
-
-        thead {
-
-            background: var(--table-head);
-
-        }
-
-
-        th {
-
-            padding: 14px;
-
-            text-align: left;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            color: var(--text);
-
-            white-space: nowrap;
-
-            border-bottom: 1px solid var(--border);
-
-        }
-
-
-        td {
-
-            padding: 14px;
-
-            font-size: 13px;
-
-            vertical-align: middle;
-
-            color: var(--text);
-
-            border-bottom: 1px solid var(--border);
-
-        }
-
-
-        tbody tr {
-
-            transition: .15s;
-
-        }
-
-
-        tbody tr:hover {
-
-            background: var(--hover);
-
-        }
-
-
-        tbody tr:last-child td {
-
-            border-bottom: none;
-
-        }
-
-
-        .description {
-
-            max-width: 300px;
-
-            line-height: 1.5;
-
-            word-break: break-word;
-
-        }
-
-
-        /* =====================================================
-           STATUS SELECT
-        ===================================================== */
-
-        .status-select {
-
-            padding: 7px 10px;
-
-            border-radius: 20px;
-
-            border: 1px solid var(--border);
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            outline: none;
-
-            min-width: 125px;
-
-        }
-
-
-        .status-select:disabled {
-
-            opacity: .6;
-
-            cursor: wait;
-
-        }
-
-
-        .status-select.status-pending {
-
-            background: #fff3cd;
-
-            color: #946200;
-
-        }
-
-
-        .status-select.status-progress {
-
-            background: #dbeafe;
-
-            color: #1d4ed8;
-
-        }
-
-
-        .status-select.status-resolved {
-
-            background: #dcfce7;
-
-            color: #15803d;
-
-        }
-
-
-        .status-select.status-default {
-
-            background: #e5e7eb;
-
-            color: #374151;
-
-        }
-
-
-        /* =====================================================
-           DARK STATUS
-        ===================================================== */
-
-        body.dark-mode .status-select.status-pending {
-
-            background: #3a2e12;
-
-            color: #fbbf24;
-
-        }
-
-
-        body.dark-mode .status-select.status-progress {
-
-            background: #172b4d;
-
-            color: #60a5fa;
-
-        }
-
-
-        body.dark-mode .status-select.status-resolved {
-
-            background: #123521;
-
-            color: #4ade80;
-
-        }
-
-
-        body.dark-mode .status-select.status-default {
-
-            background: #2b3038;
-
-            color: #d1d5db;
-
-        }
-
-
-        /* =====================================================
-           ACTION BUTTONS
-        ===================================================== */
-
-        .action-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding: 8px 11px;
-
-            border-radius: 8px;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            white-space: nowrap;
-
-            transition: .2s;
-
-        }
-
-
-        .action-btn:hover {
-
-            transform: translateY(-1px);
-
-        }
-
-
-        .map-btn {
-
-            background: #e0f2fe;
-
-            color: #0369a1;
-
-        }
-
-
-        .map-btn:hover {
-
-            background: #bae6fd;
-
-        }
-
-
-        .evidence-btn {
-
-            background: #ede9fe;
-
-            color: #6d28d9;
-
-        }
-
-
-        .evidence-btn:hover {
-
-            background: #ddd6fe;
-
-        }
-
-
-        .voice-player {
-
-            display: flex;
-
-            align-items: center;
-
-            min-width: 220px;
-
-        }
-
-
-        .voice-player audio {
-
-            width: 220px;
-
-            height: 38px;
-
-        }
-
-
-        body.dark-mode audio {
-
-            color-scheme: dark;
-
-        }
-
-
-        /* =====================================================
-           LOADING / NO DATA
-        ===================================================== */
-
-        .loading,
-        .no-data {
-
-            padding: 50px 20px;
-
-            text-align: center;
-
-            color: var(--muted);
-
-        }
-
-
-        /* =====================================================
-           MOBILE REPORTS
-        ===================================================== */
-
-        .mobile-reports {
-
-            display: none;
-
-        }
-
-
-        .report-card {
-
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 16px;
-
-            padding: 17px;
-
-            margin-bottom: 14px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-        .report-card-top {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: flex-start;
-
-            gap: 10px;
-
-            margin-bottom: 14px;
-
-        }
-
-
-        .report-card-top > div {
-
-            min-width: 0;
-
-            flex: 1;
-
-        }
-
-
-        .report-id {
-
-            color: var(--muted);
-
-            font-size: 13px;
-
-        }
-
-
-        .report-name {
-
-            margin-top: 3px;
-
-            font-size: 18px;
-
-            font-weight: 700;
-
-            color: var(--text);
-
-            word-break: break-word;
-
-        }
-
-
-        .report-row {
-
-            padding: 9px 0;
-
-            border-bottom: 1px solid var(--border);
-
-            font-size: 14px;
-
-            color: var(--text);
-
-            line-height: 1.5;
-
-            word-break: break-word;
-
-        }
-
-
-        .report-row:last-child {
-
-            border-bottom: none;
-
-        }
-
-
-        .report-label {
-
-            display: block;
-
-            margin-bottom: 3px;
-
-            color: var(--muted);
-
-            font-size: 11px;
-
-            text-transform: uppercase;
-
-            letter-spacing: .5px;
-
-        }
-
-
-        .mobile-actions {
-
-            display: flex;
-
-            gap: 8px;
-
-            flex-wrap: wrap;
-
-            margin-top: 14px;
-
-        }
-
-
-        .mobile-actions .voice-player {
-
-            width: 100%;
-
-            min-width: 0;
-
-        }
-
-
-        .mobile-actions .voice-player audio {
-
-            width: 100%;
-
-        }
-
-
-        /* =====================================================
-           SCROLLBAR
-        ===================================================== */
-
-        .table-container::-webkit-scrollbar {
-
-            height: 8px;
-
-        }
-
-
-        .table-container::-webkit-scrollbar-track {
-
-            background: var(--table-head);
-
-        }
-
-
-        .table-container::-webkit-scrollbar-thumb {
-
-            background: #94a3b8;
-
-            border-radius: 10px;
-
-        }
-
-
-        body.dark-mode .table-container::-webkit-scrollbar-thumb {
-
-            background: #4b5563;
-
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 1000px) {
-
-            .stats {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
+<!-- Robust SheetJS loader with CDN fallback -->
+<script>
+(function () {
+    window.xlsxReady = new Promise(function (resolve, reject) {
+        if (typeof window.XLSX !== "undefined") {
+            resolve(window.XLSX);
+            return;
+        }
+
+        const cdns = [
+            "https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js",
+            "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js",
+            "https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"
+        ];
+
+        let index = 0;
+
+        function loadNext() {
+            if (index >= cdns.length) {
+                reject(new Error("Excel library could not be loaded. Please check your internet connection."));
+                return;
             }
 
-
-            #dashboard header {
-
-                padding: 16px 20px;
-
-            }
-
-
-            #dashboard main {
-
-                padding: 20px;
-
-            }
-
+            const script = document.createElement("script");
+            script.src = cdns[index];
+            script.onload = function () {
+                if (typeof window.XLSX !== "undefined") {
+                    console.log("Excel library loaded successfully.");
+                    resolve(window.XLSX);
+                } else {
+                    index++;
+                    loadNext();
+                }
+            };
+            script.onerror = function () {
+                console.warn("Excel CDN failed:", cdns[index]);
+                index++;
+                loadNext();
+            };
+            document.head.appendChild(script);
         }
 
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 700px) {
-
-            #dashboard header {
-
-                position: relative;
-
-                padding: 15px;
-
-                display: block;
-
-            }
-
-
-            .header-left {
-
-                width: 100%;
-
-                margin-bottom: 14px;
-
-            }
-
-
-            .header-left h1 {
-
-                font-size: 22px;
-
-            }
-
-
-            .header-left p {
-
-                font-size: 12px;
-
-            }
-
-
-            .header-buttons {
-
-                width: 100%;
-
-                display: grid;
-
-                grid-template-columns:
-                    42px 1fr 1fr;
-
-                gap: 8px;
-
-            }
-
-
-            .theme-btn {
-
-                width: 42px;
-
-                height: 42px;
-
-            }
-
-
-            .header-btn {
-
-                width: 100%;
-
-                min-width: 0;
-
-                padding: 11px 7px;
-
-                font-size: 12px;
-
-            }
-
-
-            .logout-btn {
-
-                grid-column: 1 / -1;
-
-            }
-
-
-            #dashboard main {
-
-                padding: 14px;
-
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap: 10px;
-
-            }
-
-
-            .stat-card {
-
-                padding: 15px;
-
-            }
-
-
-            .stat-title {
-
-                font-size: 12px;
-
-            }
-
-
-            .stat-number {
-
-                font-size: 26px;
-
-            }
-
-
-            .controls {
-
-                display: flex;
-
-                flex-direction: column;
-
-                gap: 9px;
-
-                padding: 14px;
-
-            }
-
-
-            .controls input,
-            .controls select {
-
-                width: 100%;
-
-                min-height: 46px;
-
-            }
-
-
-            .table-container {
-
-                background: transparent;
-
-                border: none;
-
-                box-shadow: none;
-
-                overflow: visible;
-
-            }
-
-
-            #reportsTable {
-
-                display: none !important;
-
-            }
-
-
-            .mobile-reports {
-
-                display: block;
-
-            }
-
-
-            .report-card-top {
-
-                flex-direction: column;
-
-            }
-
-
-            .report-card-top .status-select {
-
-                width: 100%;
-
-                min-height: 42px;
-
-            }
-
-
-            .login-box {
-
-                padding: 25px 20px;
-
-            }
-
-
-            .login-logo {
-
-                font-size: 27px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           SMALL MOBILE
-        ===================================================== */
-
-        @media (max-width: 400px) {
-
-            .header-left h1 {
-
-                font-size: 20px;
-
-            }
-
-
-            .header-buttons {
-
-                grid-template-columns:
-                    40px 1fr 1fr;
-
-            }
-
-
-            .theme-btn {
-
-                width: 40px;
-
-                height: 40px;
-
-            }
-
-
-            .stats {
-
-                gap: 8px;
-
-            }
-
-
-            .stat-card {
-
-                padding: 13px;
-
-            }
-
-
-            .stat-number {
-
-                font-size: 23px;
-
-            }
-
-
-            .report-card {
-
-                padding: 14px;
-
-            }
-
-
-            .report-name {
-
-                font-size: 17px;
-
-            }
-
-        }
-
-    </style>
-
+        loadNext();
+    });
+})();
+</script>
+
+<style>
+:root{
+    --bg:#f5f7fa;--card:#fff;--text:#17202a;--muted:#6b7280;
+    --border:#e1e5ea;--header:#fff;--input:#fff;--table-head:#f1f5f9;
+    --hover:#f8fafc;--shadow:0 5px 20px rgba(0,0,0,.06);
+}
+body.dark-mode{
+    --bg:#0b0e12;--card:#171b21;--text:#f3f4f6;--muted:#9ca3af;
+    --border:#292f38;--header:#12161b;--input:#1c2128;--table-head:#1b2027;
+    --hover:#20252d;--shadow:0 5px 25px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;min-height:100vh;font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    background:var(--bg);color:var(--text);transition:background .25s,color .25s;
+}
+button,input,select{font-family:inherit}
+
+#loginPage{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:20px;background:var(--bg)
+}
+.login-box{
+    width:100%;max-width:420px;background:var(--card);border:1px solid var(--border);
+    padding:35px;border-radius:20px;box-shadow:var(--shadow)
+}
+.login-logo{text-align:center;font-size:31px;font-weight:800;letter-spacing:1px}
+.login-subtitle{text-align:center;color:var(--muted);margin:8px 0 30px;font-size:14px}
+.login-box label{display:block;margin:15px 0 7px;font-size:14px;font-weight:600}
+.login-box input{
+    width:100%;padding:13px 14px;border:1px solid var(--border);border-radius:10px;
+    background:var(--input);color:var(--text);outline:none;font-size:15px
+}
+.login-box input:focus{border-color:#0f766e;box-shadow:0 0 0 3px rgba(15,118,110,.12)}
+.login-btn{
+    width:100%;margin-top:22px;padding:14px;border:0;border-radius:10px;
+    background:#0f766e;color:#fff;font-size:15px;font-weight:700;cursor:pointer
+}
+.login-btn:hover{background:#115e59}
+#loginError{display:none;margin-top:15px;color:#ef4444;text-align:center;font-size:14px}
+
+#dashboard{display:none;min-height:100vh;background:var(--bg)}
+#dashboard header{
+    position:sticky;top:0;z-index:100;width:100%;background:var(--header);
+    color:var(--text);border-bottom:1px solid var(--border);padding:18px 25px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.05)
+}
+.header-left{flex:1;min-width:0}
+.header-left h1{font-size:25px;line-height:1.2;font-weight:800}
+.header-left p{margin:5px 0 0;color:var(--muted);font-size:14px}
+.header-buttons{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.header-btn,.theme-btn{
+    min-height:42px;padding:10px 15px;border-radius:9px;border:1px solid var(--border);
+    background:var(--card);color:var(--text);cursor:pointer;font-weight:600;font-size:14px
+}
+.header-btn:hover,.theme-btn:hover{transform:translateY(-1px)}
+.theme-btn{width:42px;height:42px;flex:0 0 42px;padding:0;border-radius:50%;font-size:18px}
+.export-btn{background:#16a34a;color:#fff;border-color:#16a34a}
+.export-btn:hover{background:#15803d}
+.logout-btn{background:#dc2626;color:#fff;border-color:#dc2626}
+.logout-btn:hover{background:#b91c1c}
+.header-btn:disabled{opacity:.65;cursor:wait;transform:none}
+
+#dashboard main{width:100%;max-width:1500px;margin:0 auto;padding:25px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:24px}
+.stat-card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:22px;box-shadow:var(--shadow)
+}
+.stat-title{color:var(--muted);font-size:14px;margin-bottom:8px}
+.stat-number{font-size:32px;font-weight:800}
+.total{color:#0f766e}.pending{color:#d97706}.progress{color:#2563eb}.resolved{color:#16a34a}
+
+.controls{
+    display:grid;grid-template-columns:1fr 200px 200px;gap:12px;
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:18px;margin-bottom:20px;box-shadow:var(--shadow)
+}
+.controls input,.controls select{
+    width:100%;padding:13px;border:1px solid var(--border);border-radius:10px;
+    background:var(--input);color:var(--text);outline:none;font-size:14px
+}
+.controls input:focus,.controls select:focus{border-color:#0f766e;box-shadow:0 0 0 3px rgba(15,118,110,.1)}
+
+.table-container{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    box-shadow:var(--shadow);overflow-x:auto
+}
+table{width:100%;min-width:1150px;border-collapse:collapse}
+thead{background:var(--table-head)}
+th{
+    padding:14px;text-align:left;font-size:13px;font-weight:700;color:var(--text);
+    white-space:nowrap;border-bottom:1px solid var(--border)
+}
+td{
+    padding:14px;font-size:13px;vertical-align:middle;color:var(--text);
+    border-bottom:1px solid var(--border)
+}
+tbody tr:hover{background:var(--hover)}
+tbody tr:last-child td{border-bottom:none}
+.description{max-width:300px;line-height:1.5;word-break:break-word}
+
+.status-select{
+    padding:7px 10px;border-radius:20px;border:1px solid var(--border);
+    font-size:12px;font-weight:700;cursor:pointer;outline:none;min-width:125px
+}
+.status-select:disabled{opacity:.6;cursor:wait}
+.status-pending{background:#fff3cd;color:#946200}
+.status-progress{background:#dbeafe;color:#1d4ed8}
+.status-resolved{background:#dcfce7;color:#15803d}
+.status-default{background:#e5e7eb;color:#374151}
+body.dark-mode .status-pending{background:#3a2e12;color:#fbbf24}
+body.dark-mode .status-progress{background:#172b4d;color:#60a5fa}
+body.dark-mode .status-resolved{background:#123521;color:#4ade80}
+body.dark-mode .status-default{background:#2b3038;color:#d1d5db}
+
+.action-btn{
+    display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;
+    border-radius:8px;text-decoration:none;font-size:12px;font-weight:700;
+    white-space:nowrap
+}
+.map-btn{background:#e0f2fe;color:#0369a1}
+.evidence-btn{background:#ede9fe;color:#6d28d9}
+.voice-player{display:flex;align-items:center;min-width:220px}
+.voice-player audio{width:220px;height:38px}
+body.dark-mode audio{color-scheme:dark}
+.loading,.no-data{padding:50px 20px;text-align:center;color:var(--muted)}
+
+.mobile-reports{display:none}
+.report-card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:17px;margin-bottom:14px;box-shadow:var(--shadow)
+}
+.report-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:14px}
+.report-card-top>div{min-width:0;flex:1}
+.report-id{color:var(--muted);font-size:13px}
+.report-name{margin-top:3px;font-size:18px;font-weight:700;word-break:break-word}
+.report-row{
+    padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;
+    line-height:1.5;word-break:break-word
+}
+.report-row:last-child{border-bottom:none}
+.report-label{
+    display:block;margin-bottom:3px;color:var(--muted);font-size:11px;
+    text-transform:uppercase;letter-spacing:.5px
+}
+.mobile-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mobile-actions .voice-player{width:100%;min-width:0}
+.mobile-actions .voice-player audio{width:100%}
+
+.table-container::-webkit-scrollbar{height:8px}
+.table-container::-webkit-scrollbar-track{background:var(--table-head)}
+.table-container::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:10px}
+body.dark-mode .table-container::-webkit-scrollbar-thumb{background:#4b5563}
+
+@media(max-width:1000px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    #dashboard header{padding:16px 20px}
+    #dashboard main{padding:20px}
+}
+@media(max-width:700px){
+    #dashboard header{position:relative;padding:15px;display:block}
+    .header-left{width:100%;margin-bottom:14px}
+    .header-left h1{font-size:22px}
+    .header-left p{font-size:12px}
+    .header-buttons{width:100%;display:grid;grid-template-columns:42px 1fr 1fr;gap:8px}
+    .theme-btn{width:42px;height:42px}
+    .header-btn{width:100%;min-width:0;padding:11px 7px;font-size:12px}
+    .logout-btn{grid-column:1/-1}
+    #dashboard main{padding:14px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:10px}
+    .stat-card{padding:15px}
+    .stat-title{font-size:12px}
+    .stat-number{font-size:26px}
+    .controls{display:flex;flex-direction:column;gap:9px;padding:14px}
+    .controls input,.controls select{min-height:46px}
+    .table-container{background:transparent;border:0;box-shadow:none;overflow:visible}
+    #reportsTable{display:none!important}
+    .mobile-reports{display:block}
+    .report-card-top{flex-direction:column}
+    .report-card-top .status-select{width:100%;min-height:42px}
+    .login-box{padding:25px 20px}
+    .login-logo{font-size:27px}
+}
+@media(max-width:400px){
+    .header-left h1{font-size:20px}
+    .header-buttons{grid-template-columns:40px 1fr 1fr}
+    .theme-btn{width:40px;height:40px}
+    .stats{gap:8px}
+    .stat-card{padding:13px}
+    .stat-number{font-size:23px}
+    .report-card{padding:14px}
+    .report-name{font-size:17px}
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =========================================================
-     LOGIN
-========================================================= -->
-
 <section id="loginPage">
-
     <div class="login-box">
+        <div class="login-logo">NAMMUDE</div>
+        <div class="login-subtitle">Admin Dashboard</div>
 
-        <div class="login-logo">
-            NAMMUDE
-        </div>
+        <label for="adminUsername">Username</label>
+        <input type="text" id="adminUsername" placeholder="Admin username" autocomplete="username">
 
-        <div class="login-subtitle">
-            Admin Dashboard
-        </div>
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" placeholder="Admin password" autocomplete="current-password">
 
-
-        <label for="adminUsername">
-            Username
-        </label>
-
-        <input
-            type="text"
-            id="adminUsername"
-            placeholder="Admin username"
-            autocomplete="username"
-        >
-
-
-        <label for="adminPassword">
-            Password
-        </label>
-
-        <input
-            type="password"
-            id="adminPassword"
-            placeholder="Admin password"
-            autocomplete="current-password"
-        >
-
-
-        <button
-            class="login-btn"
-            onclick="login()"
-        >
-            Login
-        </button>
-
-
-        <div id="loginError">
-            Invalid username or password
-        </div>
-
+        <button class="login-btn" onclick="login()">Login</button>
+        <div id="loginError">Invalid username or password</div>
     </div>
-
 </section>
-
-
-
-<!-- =========================================================
-     DASHBOARD
-========================================================= -->
 
 <section id="dashboard">
-
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
     <header>
-
         <div class="header-left">
-
-            <h1>
-                Nammude Admin
-            </h1>
-
-            <p>
-                Problem Reports Management
-            </p>
-
+            <h1>Nammude Admin</h1>
+            <p>Problem Reports Management</p>
         </div>
-
 
         <div class="header-buttons">
-
-            <button
-                class="theme-btn"
-                onclick="toggleTheme()"
-                id="themeButton"
-                title="Change theme"
-            >
-                🌙
-            </button>
-
-
-            <button
-                class="header-btn refresh-btn"
-                onclick="loadReports()"
-            >
-                🔄 Refresh
-            </button>
-
-
-            <button
-                class="header-btn export-btn"
-                onclick="exportExcel()"
-            >
-                📥 Excel
-            </button>
-
-
-            <button
-                class="header-btn logout-btn"
-                onclick="logout()"
-            >
-                Logout
-            </button>
-
+            <button class="theme-btn" onclick="toggleTheme()" id="themeButton" title="Change theme">🌙</button>
+            <button class="header-btn refresh-btn" onclick="loadReports()">🔄 Refresh</button>
+            <button class="header-btn export-btn" onclick="exportExcel()">📥 Excel</button>
+            <button class="header-btn logout-btn" onclick="logout()">Logout</button>
         </div>
-
     </header>
 
-
-
-    <!-- =====================================================
-         MAIN
-    ===================================================== -->
-
     <main>
-
-
-        <!-- =================================================
-             STATISTICS
-        ================================================== -->
-
         <section class="stats">
-
-
             <div class="stat-card">
-
-                <div class="stat-title">
-                    Total Reports
-                </div>
-
-                <div
-                    class="stat-number total"
-                    id="totalReports"
-                >
-                    0
-                </div>
-
+                <div class="stat-title">Total Reports</div>
+                <div class="stat-number total" id="totalReports">0</div>
             </div>
-
-
             <div class="stat-card">
-
-                <div class="stat-title">
-                    Pending
-                </div>
-
-                <div
-                    class="stat-number pending"
-                    id="pendingReports"
-                >
-                    0
-                </div>
-
+                <div class="stat-title">Pending</div>
+                <div class="stat-number pending" id="pendingReports">0</div>
             </div>
-
-
             <div class="stat-card">
-
-                <div class="stat-title">
-                    In Progress
-                </div>
-
-                <div
-                    class="stat-number progress"
-                    id="progressReports"
-                >
-                    0
-                </div>
-
+                <div class="stat-title">In Progress</div>
+                <div class="stat-number progress" id="progressReports">0</div>
             </div>
-
-
             <div class="stat-card">
-
-                <div class="stat-title">
-                    Resolved
-                </div>
-
-                <div
-                    class="stat-number resolved"
-                    id="resolvedReports"
-                >
-                    0
-                </div>
-
+                <div class="stat-title">Resolved</div>
+                <div class="stat-number resolved" id="resolvedReports">0</div>
             </div>
-
-
         </section>
-
-
-
-        <!-- =================================================
-             SEARCH / FILTER
-        ================================================== -->
 
         <section class="controls">
+            <input type="text" id="searchInput" placeholder="🔎 Search reports..." oninput="filterReports()">
 
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="🔎 Search reports..."
-                oninput="filterReports()"
-            >
-
-
-            <select
-                id="statusFilter"
-                onchange="filterReports()"
-            >
-
-                <option value="all">
-                    All Status
-                </option>
-
-                <option value="pending">
-                    Pending
-                </option>
-
-                <option value="in progress">
-                    In Progress
-                </option>
-
-                <option value="resolved">
-                    Resolved
-                </option>
-
+            <select id="statusFilter" onchange="filterReports()">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="in progress">In Progress</option>
+                <option value="resolved">Resolved</option>
             </select>
 
-
-            <select
-                id="categoryFilter"
-                onchange="filterReports()"
-            >
-
-                <option value="all">
-                    All Categories
-                </option>
-
+            <select id="categoryFilter" onchange="filterReports()">
+                <option value="all">All Categories</option>
             </select>
-
-
         </section>
-
-
-
-        <!-- =================================================
-             REPORTS
-        ================================================== -->
 
         <section class="table-container">
+            <div id="loading" class="loading">Loading reports...</div>
 
-
-            <div
-                id="loading"
-                class="loading"
-            >
-                Loading reports...
-            </div>
-
-
-            <!-- DESKTOP TABLE -->
-
-            <table
-                id="reportsTable"
-                style="display:none;"
-            >
-
+            <table id="reportsTable" style="display:none;">
                 <thead>
-
                     <tr>
-
-                        <th>ID</th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th>Location</th>
-                        <th>Evidence</th>
-                        <th>Voice</th>
-
+                        <th>ID</th><th>Date</th><th>Name</th><th>Phone</th>
+                        <th>Category</th><th>Description</th><th>Status</th>
+                        <th>Location</th><th>Evidence</th><th>Voice</th>
                     </tr>
-
                 </thead>
-
-
                 <tbody id="reportsBody"></tbody>
-
             </table>
 
+            <div id="mobileReports" class="mobile-reports"></div>
 
-
-            <!-- MOBILE REPORTS -->
-
-            <div
-                id="mobileReports"
-                class="mobile-reports"
-            ></div>
-
-
-
-            <!-- NO DATA -->
-
-            <div
-                id="noData"
-                class="no-data"
-                style="display:none;"
-            >
-                No reports found.
-            </div>
-
-
+            <div id="noData" class="no-data" style="display:none;">No reports found.</div>
         </section>
-
-
     </main>
-
-
 </section>
 
-
-
 <script>
-
 /* =========================================================
    SUPABASE
 ========================================================= */
 
-const SUPABASE_URL =
-    "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
-
+const SUPABASE_URL = "https://ukbdqrvmdrlqqfqbnkle.supabase.co";
 
 const SUPABASE_ANON_KEY =
     "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1866,446 +359,207 @@ const supabaseClient =
         SUPABASE_ANON_KEY
     );
 
-
 /* =========================================================
    ADMIN LOGIN
 ========================================================= */
 
-const ADMIN_USERNAME =
-    "Nammude_Admin";
-
-
-const ADMIN_PASSWORD =
-    "__Home$6313#";
-
-
-/* =========================================================
-   DATA
-========================================================= */
+const ADMIN_USERNAME = "Nammude_Admin";
+const ADMIN_PASSWORD = "__Home$6313#";
 
 let allReports = [];
-
 
 /* =========================================================
    LOGIN
 ========================================================= */
 
 function login() {
-
     const username =
-        document
-            .getElementById("adminUsername")
-            .value
-            .trim();
-
+        document.getElementById("adminUsername").value.trim();
 
     const password =
-        document
-            .getElementById("adminPassword")
-            .value;
-
+        document.getElementById("adminPassword").value;
 
     const error =
         document.getElementById("loginError");
 
-
     error.style.display = "none";
-
 
     if (
         username === ADMIN_USERNAME &&
         password === ADMIN_PASSWORD
     ) {
+        sessionStorage.setItem("nammude_admin", "true");
 
-        sessionStorage.setItem(
-            "nammude_admin",
-            "true"
-        );
-
-
-        document.getElementById(
-            "loginPage"
-        ).style.display = "none";
-
-
-        document.getElementById(
-            "dashboard"
-        ).style.display = "block";
-
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
 
         loadReports();
-
-    }
-
-    else {
-
+    } else {
         error.style.display = "block";
-
     }
-
 }
 
-
-/* =========================================================
-   ENTER KEY LOGIN
-========================================================= */
-
-document
-    .getElementById("adminPassword")
-    .addEventListener(
-        "keydown",
-        function(event) {
-
-            if (event.key === "Enter") {
-
-                login();
-
-            }
-
-        }
-    );
-
+document.getElementById("adminPassword").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") login();
+});
 
 /* =========================================================
    LOGOUT
 ========================================================= */
 
 function logout() {
-
-    sessionStorage.removeItem(
-        "nammude_admin"
-    );
-
+    sessionStorage.removeItem("nammude_admin");
     location.reload();
-
 }
-
 
 /* =========================================================
    THEME
 ========================================================= */
 
 function toggleTheme() {
-
-    document.body.classList.toggle(
-        "dark-mode"
-    );
-
+    document.body.classList.toggle("dark-mode");
 
     const dark =
-        document.body.classList.contains(
-            "dark-mode"
-        );
-
+        document.body.classList.contains("dark-mode");
 
     localStorage.setItem(
         "nammude-admin-theme",
         dark ? "dark" : "light"
     );
 
-
     updateThemeButton();
-
 }
-
-
-/* =========================================================
-   THEME BUTTON
-========================================================= */
 
 function updateThemeButton() {
-
     const dark =
-        document.body.classList.contains(
-            "dark-mode"
-        );
+        document.body.classList.contains("dark-mode");
 
-
-    document.getElementById(
-        "themeButton"
-    ).textContent =
+    document.getElementById("themeButton").textContent =
         dark ? "☀️" : "🌙";
-
 }
-
 
 const savedTheme =
-    localStorage.getItem(
-        "nammude-admin-theme"
-    );
-
+    localStorage.getItem("nammude-admin-theme");
 
 if (savedTheme === "dark") {
-
-    document.body.classList.add(
-        "dark-mode"
-    );
-
+    document.body.classList.add("dark-mode");
 }
 
-
 updateThemeButton();
-
 
 /* =========================================================
    CHECK LOGIN
 ========================================================= */
 
 function checkLogin() {
-
-    const loggedIn =
-        sessionStorage.getItem(
-            "nammude_admin"
-        );
-
-
-    if (loggedIn === "true") {
-
-        document.getElementById(
-            "loginPage"
-        ).style.display = "none";
-
-
-        document.getElementById(
-            "dashboard"
-        ).style.display = "block";
-
-
+    if (
+        sessionStorage.getItem("nammude_admin") === "true"
+    ) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
         loadReports();
-
     }
-
 }
-
 
 /* =========================================================
    LOAD REPORTS
 ========================================================= */
 
 async function loadReports() {
-
-    const loading =
-        document.getElementById(
-            "loading"
-        );
-
-
-    const table =
-        document.getElementById(
-            "reportsTable"
-        );
-
-
-    const noData =
-        document.getElementById(
-            "noData"
-        );
-
+    const loading = document.getElementById("loading");
+    const table = document.getElementById("reportsTable");
+    const noData = document.getElementById("noData");
 
     loading.style.display = "block";
-
+    loading.innerHTML = "Loading reports...";
     table.style.display = "none";
-
     noData.style.display = "none";
 
-
     try {
-
-        const {
-            data,
-            error
-        } = await supabaseClient
-
+        const { data, error } = await supabaseClient
             .from("reports")
-
             .select("*")
+            .order("created_at", { ascending: false });
 
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
-            );
-
-
-        if (error) {
-
-            console.error(error);
-
-
-            loading.innerHTML =
-                "❌ Failed to load reports.<br><br>" +
-                escapeHTML(
-                    error.message
-                );
-
-
-            return;
-
-        }
-
+        if (error) throw error;
 
         allReports = data || [];
 
-
         updateStatistics();
-
         populateCategories();
+        displayReports(allReports);
 
-        displayReports(
-            allReports
-        );
-
-    }
-
-    catch (error) {
-
+    } catch (error) {
         console.error(error);
 
-
         loading.innerHTML =
-            "❌ Something went wrong.";
-
+            "❌ Failed to load reports.<br><br>" +
+            escapeHTML(error.message);
     }
-
 }
-
 
 /* =========================================================
    STATISTICS
 ========================================================= */
 
 function updateStatistics() {
+    const total = allReports.length;
 
-    const total =
-        allReports.length;
+    const pending = allReports.filter(report =>
+        String(report.status || "pending").toLowerCase() === "pending"
+    ).length;
 
+    const progress = allReports.filter(report =>
+        String(report.status || "").toLowerCase().includes("progress")
+    ).length;
 
-    const pending =
-        allReports.filter(
-            report =>
-                String(
-                    report.status || ""
-                )
-                .toLowerCase() ===
-                "pending"
-        ).length;
+    const resolved = allReports.filter(report =>
+        String(report.status || "").toLowerCase() === "resolved"
+    ).length;
 
-
-    const progress =
-        allReports.filter(
-            report =>
-                String(
-                    report.status || ""
-                )
-                .toLowerCase()
-                .includes("progress")
-        ).length;
-
-
-    const resolved =
-        allReports.filter(
-            report =>
-                String(
-                    report.status || ""
-                )
-                .toLowerCase() ===
-                "resolved"
-        ).length;
-
-
-    document.getElementById(
-        "totalReports"
-    ).textContent = total;
-
-
-    document.getElementById(
-        "pendingReports"
-    ).textContent = pending;
-
-
-    document.getElementById(
-        "progressReports"
-    ).textContent = progress;
-
-
-    document.getElementById(
-        "resolvedReports"
-    ).textContent = resolved;
-
+    document.getElementById("totalReports").textContent = total;
+    document.getElementById("pendingReports").textContent = pending;
+    document.getElementById("progressReports").textContent = progress;
+    document.getElementById("resolvedReports").textContent = resolved;
 }
-
 
 /* =========================================================
    CATEGORIES
 ========================================================= */
 
 function populateCategories() {
-
-    const select =
-        document.getElementById(
-            "categoryFilter"
-        );
-
+    const select = document.getElementById("categoryFilter");
 
     const categories = [
         ...new Set(
             allReports
-                .map(
-                    report =>
-                        report.category
-                )
+                .map(report => report.category)
                 .filter(Boolean)
         )
     ];
 
-
     select.innerHTML =
-        `<option value="all">
-            All Categories
-        </option>`;
+        '<option value="all">All Categories</option>';
 
-
-    categories.forEach(
-        category => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-
-            option.value =
-                category;
-
-
-            option.textContent =
-                category;
-
-
-            select.appendChild(
-                option
-            );
-
-        }
-    );
-
+    categories.forEach(category => {
+        const option = document.createElement("option");
+        option.value = category;
+        option.textContent = category;
+        select.appendChild(option);
+    });
 }
-
 
 /* =========================================================
    LOCATION
 ========================================================= */
 
 function getLocationHTML(report) {
-
     let latitude =
         report.latitude ??
         report.lat ??
         report.location_latitude ??
         report.location_lat ??
         null;
-
 
     let longitude =
         report.longitude ??
@@ -2314,34 +568,14 @@ function getLocationHTML(report) {
         report.location_lng ??
         null;
 
+    if (latitude !== null && longitude !== null) {
+        const lat = Number(latitude);
+        const lng = Number(longitude);
 
-    if (
-        latitude !== null &&
-        longitude !== null
-    ) {
-
-        const lat =
-            Number(latitude);
-
-
-        const lng =
-            Number(longitude);
-
-
-        if (
-            Number.isFinite(lat) &&
-            Number.isFinite(lng)
-        ) {
-
-            return createMapButton(
-                lat,
-                lng
-            );
-
+        if (Number.isFinite(lat) && Number.isFinite(lng)) {
+            return createMapButton(lat, lng);
         }
-
     }
-
 
     let coordinates =
         report.coordinates ??
@@ -2349,98 +583,43 @@ function getLocationHTML(report) {
         report.location_coordinates ??
         null;
 
-
     if (coordinates) {
+        if (Array.isArray(coordinates) && coordinates.length >= 2) {
+            const lat = Number(coordinates[0]);
+            const lng = Number(coordinates[1]);
 
-
-        if (
-            Array.isArray(coordinates) &&
-            coordinates.length >= 2
-        ) {
-
-            const lat =
-                Number(
-                    coordinates[0]
-                );
-
-
-            const lng =
-                Number(
-                    coordinates[1]
-                );
-
-
-            if (
-                Number.isFinite(lat) &&
-                Number.isFinite(lng)
-            ) {
-
-                return createMapButton(
-                    lat,
-                    lng
-                );
-
+            if (Number.isFinite(lat) && Number.isFinite(lng)) {
+                return createMapButton(lat, lng);
             }
-
         }
 
+        if (typeof coordinates === "object") {
+            const lat = Number(
+                coordinates.lat ?? coordinates.latitude
+            );
 
-        if (
-            typeof coordinates === "object"
-        ) {
+            const lng = Number(
+                coordinates.lng ?? coordinates.longitude
+            );
 
-            const lat =
-                Number(
-                    coordinates.lat ??
-                    coordinates.latitude
-                );
-
-
-            const lng =
-                Number(
-                    coordinates.lng ??
-                    coordinates.longitude
-                );
-
-
-            if (
-                Number.isFinite(lat) &&
-                Number.isFinite(lng)
-            ) {
-
-                return createMapButton(
-                    lat,
-                    lng
-                );
-
+            if (Number.isFinite(lat) && Number.isFinite(lng)) {
+                return createMapButton(lat, lng);
             }
-
         }
 
-
-        if (
-            typeof coordinates === "string"
-        ) {
-
-            const match =
-                coordinates.match(
-                    /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/
-                );
-
+        if (typeof coordinates === "string") {
+            const match = coordinates.match(
+                /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/
+            );
 
             if (match) {
-
                 return createMapButton(
                     Number(match[1]),
                     Number(match[2])
                 );
-
             }
-
         }
-
     }
-
 
     const location =
         report.location ??
@@ -2448,190 +627,113 @@ function getLocationHTML(report) {
         report.map_url ??
         null;
 
-
     if (location) {
-
-        const value =
-            String(location).trim();
-
+        const value = String(location).trim();
 
         if (
-            value.includes(
-                "google.com/maps"
-            ) ||
-            value.includes(
-                "maps.google.com"
-            )
+            value.includes("google.com/maps") ||
+            value.includes("maps.google.com")
         ) {
-
             return `
-                <a
-                    class="action-btn map-btn"
-                    href="${escapeHTML(value)}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    📍 Map
+                <a class="action-btn map-btn"
+                   href="${escapeHTML(value)}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   📍 Map
                 </a>
             `;
-
         }
 
-
-        const match =
-            value.match(
-                /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/
-            );
-
+        const match = value.match(
+            /(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)/
+        );
 
         if (match) {
-
             return createMapButton(
                 Number(match[1]),
                 Number(match[2])
             );
-
         }
-
     }
 
-
     return "-";
-
 }
-
 
 /* =========================================================
    GOOGLE MAPS BUTTON
 ========================================================= */
 
-function createMapButton(
-    latitude,
-    longitude
-) {
-
+function createMapButton(latitude, longitude) {
     if (
         latitude < -90 ||
         latitude > 90 ||
         longitude < -180 ||
         longitude > 180
     ) {
-
         return "-";
-
     }
-
 
     const mapURL =
         "https://www.google.com/maps?q=" +
-        encodeURIComponent(
-            latitude +
-            "," +
-            longitude
-        );
-
+        encodeURIComponent(latitude + "," + longitude);
 
     return `
-        <a
-            class="action-btn map-btn"
-            href="${mapURL}"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            📍 Map
+        <a class="action-btn map-btn"
+           href="${mapURL}"
+           target="_blank"
+           rel="noopener noreferrer">
+           📍 Map
         </a>
     `;
-
 }
-
 
 /* =========================================================
    EVIDENCE
 ========================================================= */
 
 function getEvidenceHTML(report) {
-
     let url =
         report.evidence_url ??
         report.evidence ??
         null;
 
-
-    if (!url) {
-
-        return "-";
-
-    }
-
+    if (!url) return "-";
 
     if (Array.isArray(url)) {
-
-        url =
-            url[0] || "";
-
+        url = url[0] || "";
     }
-
 
     if (
         typeof url === "string" &&
         url.trim().startsWith("[")
     ) {
-
         try {
-
-            const parsed =
-                JSON.parse(url);
-
-
-            if (
-                Array.isArray(parsed)
-            ) {
-
-                url =
-                    parsed[0] || "";
-
+            const parsed = JSON.parse(url);
+            if (Array.isArray(parsed)) {
+                url = parsed[0] || "";
             }
-
-        }
-
-        catch {}
-
+        } catch {}
     }
 
+    url = String(url || "").trim();
 
-    url =
-        String(
-            url || ""
-        ).trim();
-
-
-    if (!url) {
-
-        return "-";
-
-    }
-
+    if (!url) return "-";
 
     return `
-        <a
-            class="action-btn evidence-btn"
-            href="${escapeHTML(url)}"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            📎 Open
+        <a class="action-btn evidence-btn"
+           href="${escapeHTML(url)}"
+           target="_blank"
+           rel="noopener noreferrer">
+           📎 Open
         </a>
     `;
-
 }
-
 
 /* =========================================================
    VOICE
 ========================================================= */
 
 function getVoiceHTML(report) {
-
     let url =
         report.voice_url ??
         report.voice ??
@@ -2639,165 +741,64 @@ function getVoiceHTML(report) {
         report.audio ??
         null;
 
-
-    if (!url) {
-
-        return "-";
-
-    }
-
+    if (!url) return "-";
 
     if (Array.isArray(url)) {
-
-        url =
-            url[0] || "";
-
+        url = url[0] || "";
     }
 
+    url = String(url || "").trim();
 
-    url =
-        String(
-            url || ""
-        ).trim();
-
-
-    if (!url) {
-
-        return "-";
-
-    }
-
+    if (!url) return "-";
 
     return `
         <div class="voice-player">
-
-            <audio
-                controls
-                preload="none"
-            >
-
-                <source
-                    src="${escapeHTML(url)}"
-                >
-
+            <audio controls preload="none">
+                <source src="${escapeHTML(url)}">
                 Your browser does not support audio.
-
             </audio>
-
         </div>
     `;
-
 }
-
 
 /* =========================================================
    STATUS CLASS
 ========================================================= */
 
 function getStatusClass(status) {
+    const value = String(status || "").toLowerCase();
 
-    const value =
-        String(
-            status || ""
-        ).toLowerCase();
-
-
-    if (value === "pending") {
-
-        return "status-pending";
-
-    }
-
-
-    if (value.includes("progress")) {
-
-        return "status-progress";
-
-    }
-
-
-    if (value === "resolved") {
-
-        return "status-resolved";
-
-    }
-
+    if (value === "pending") return "status-pending";
+    if (value.includes("progress")) return "status-progress";
+    if (value === "resolved") return "status-resolved";
 
     return "status-default";
-
 }
 
-
 /* =========================================================
-   UPDATE REPORT STATUS
+   UPDATE STATUS
 ========================================================= */
 
-async function updateReportStatus(
-    reportId,
-    newStatus,
-    selectElement = null
-) {
-
-    if (selectElement) {
-
-        selectElement.disabled = true;
-
-    }
-
+async function updateReportStatus(reportId, newStatus, selectElement = null) {
+    if (selectElement) selectElement.disabled = true;
 
     try {
-
-        const {
-            error
-        } = await supabaseClient
-
+        const { error } = await supabaseClient
             .from("reports")
+            .update({ status: newStatus })
+            .eq("id", reportId);
 
-            .update({
-                status: newStatus
-            })
+        if (error) throw error;
 
-            .eq(
-                "id",
-                reportId
-            );
+        const report = allReports.find(
+            r => String(r.id) === String(reportId)
+        );
 
-
-        if (error) {
-
-            console.error(error);
-
-            alert(
-                "❌ Failed to update status:\n" +
-                error.message
-            );
-
-            return false;
-
-        }
-
-
-        const report =
-            allReports.find(
-                r =>
-                    String(r.id) ===
-                    String(reportId)
-            );
-
-
-        if (report) {
-
-            report.status =
-                newStatus;
-
-        }
-
+        if (report) report.status = newStatus;
 
         updateStatistics();
 
-
         if (selectElement) {
-
             selectElement.classList.remove(
                 "status-pending",
                 "status-progress",
@@ -2805,743 +806,329 @@ async function updateReportStatus(
                 "status-default"
             );
 
-
             selectElement.classList.add(
-                getStatusClass(
-                    newStatus
-                )
+                getStatusClass(newStatus)
             );
-
         }
 
-
         console.log(
-            "Report " +
-            reportId +
-            " → " +
-            newStatus
+            "Report " + reportId + " → " + newStatus
         );
-
 
         return true;
 
-    }
-
-    catch (error) {
-
+    } catch (error) {
         console.error(error);
 
         alert(
-            "❌ Something went wrong while updating status."
+            "❌ Failed to update status:\n" +
+            error.message
         );
 
         return false;
 
-    }
-
-    finally {
-
+    } finally {
         if (selectElement) {
-
             selectElement.disabled = false;
-
         }
-
     }
-
 }
 
-
-/* =========================================================
-   DESKTOP STATUS
-========================================================= */
-
-async function handleDesktopStatusChange(
-    selectElement,
-    reportId
-) {
-
-    const newStatus =
-        selectElement.value;
-
-
+async function handleDesktopStatusChange(selectElement, reportId) {
     await updateReportStatus(
         reportId,
-        newStatus,
+        selectElement.value,
         selectElement
     );
-
 }
 
-
-/* =========================================================
-   MOBILE STATUS
-========================================================= */
-
-async function handleMobileStatusChange(
-    selectElement,
-    reportId
-) {
-
-    const newStatus =
-        selectElement.value;
-
-
+async function handleMobileStatusChange(selectElement, reportId) {
     await updateReportStatus(
         reportId,
-        newStatus,
+        selectElement.value,
         selectElement
     );
-
 }
 
+/* =========================================================
+   STATUS SELECT HTML
+========================================================= */
+
+function getStatusSelectHTML(report, mobile) {
+    const status =
+        String(report.status || "pending").toLowerCase();
+
+    const handler =
+        mobile
+            ? "handleMobileStatusChange"
+            : "handleDesktopStatusChange";
+
+    return `
+        <select
+            class="status-select ${getStatusClass(status)}"
+            onchange="${handler}(this, '${escapeHTML(String(report.id))}')"
+        >
+            <option value="pending" ${status === "pending" ? "selected" : ""}>
+                🟡 Pending
+            </option>
+
+            <option value="in progress" ${status === "in progress" ? "selected" : ""}>
+                🔵 In Progress
+            </option>
+
+            <option value="resolved" ${status === "resolved" ? "selected" : ""}>
+                🟢 Resolved
+            </option>
+        </select>
+    `;
+}
 
 /* =========================================================
    DISPLAY REPORTS
 ========================================================= */
 
 function displayReports(reports) {
-
-    const body =
-        document.getElementById(
-            "reportsBody"
-        );
-
-
-    const mobile =
-        document.getElementById(
-            "mobileReports"
-        );
-
-
-    const loading =
-        document.getElementById(
-            "loading"
-        );
-
-
-    const table =
-        document.getElementById(
-            "reportsTable"
-        );
-
-
-    const noData =
-        document.getElementById(
-            "noData"
-        );
-
+    const body = document.getElementById("reportsBody");
+    const mobile = document.getElementById("mobileReports");
+    const loading = document.getElementById("loading");
+    const table = document.getElementById("reportsTable");
+    const noData = document.getElementById("noData");
 
     body.innerHTML = "";
-
     mobile.innerHTML = "";
-
     loading.style.display = "none";
 
-
     if (!reports.length) {
-
         table.style.display = "none";
-
         mobile.style.display =
-            window.innerWidth <= 700
-                ? "block"
-                : "none";
-
+            window.innerWidth <= 700 ? "block" : "none";
         noData.style.display = "block";
-
         return;
-
     }
 
-
     noData.style.display = "none";
-
-
     table.style.display = "table";
-
     mobile.style.display = "block";
 
+    reports.forEach(report => {
+        const date = report.created_at
+            ? new Date(report.created_at).toLocaleString("en-IN")
+            : "-";
 
-    reports.forEach(
-        report => {
+        const map = getLocationHTML(report);
+        const evidence = getEvidenceHTML(report);
+        const voice = getVoiceHTML(report);
 
+        const row = document.createElement("tr");
 
-            const date =
-                report.created_at
+        row.innerHTML = `
+            <td>${escapeHTML(report.id ?? "-")}</td>
+            <td>${escapeHTML(date)}</td>
+            <td>${escapeHTML(report.name ?? "-")}</td>
+            <td>${escapeHTML(report.phone ?? "-")}</td>
+            <td>${escapeHTML(report.category ?? "-")}</td>
+            <td class="description">${escapeHTML(report.description ?? "-")}</td>
+            <td>${getStatusSelectHTML(report, false)}</td>
+            <td>${map}</td>
+            <td>${evidence}</td>
+            <td>${voice}</td>
+        `;
 
-                    ? new Date(
-                        report.created_at
-                    ).toLocaleString(
-                        "en-IN"
-                    )
+        body.appendChild(row);
 
-                    : "-";
+        const card = document.createElement("div");
+        card.className = "report-card";
 
-
-            const status =
-                String(
-                    report.status ||
-                    "pending"
-                );
-
-
-            const statusClass =
-                getStatusClass(
-                    status
-                );
-
-
-            const map =
-                getLocationHTML(
-                    report
-                );
-
-
-            const evidence =
-                getEvidenceHTML(
-                    report
-                );
-
-
-            const voice =
-                getVoiceHTML(
-                    report
-                );
-
-
-            /* =============================================
-               DESKTOP ROW
-            ============================================== */
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
-
-
-            row.innerHTML = `
-
-                <td>
-                    ${escapeHTML(
-                        report.id ?? "-"
-                    )}
-                </td>
-
-                <td>
-                    ${escapeHTML(date)}
-                </td>
-
-                <td>
-                    ${escapeHTML(
-                        report.name ?? "-"
-                    )}
-                </td>
-
-                <td>
-                    ${escapeHTML(
-                        report.phone ?? "-"
-                    )}
-                </td>
-
-                <td>
-                    ${escapeHTML(
-                        report.category ?? "-"
-                    )}
-                </td>
-
-                <td class="description">
-                    ${escapeHTML(
-                        report.description ?? "-"
-                    )}
-                </td>
-
-                <td>
-
-                    <select
-                        class="status-select ${statusClass}"
-                        onchange="
-                            handleDesktopStatusChange(
-                                this,
-                                '${escapeHTML(String(report.id))}'
-                            )
-                        "
-                    >
-
-                        <option
-                            value="pending"
-                            ${
-                                status
-                                    .toLowerCase() ===
-                                "pending"
-                                    ? "selected"
-                                    : ""
-                            }
-                        >
-                            🟡 Pending
-                        </option>
-
-                        <option
-                            value="in progress"
-                            ${
-                                status
-                                    .toLowerCase() ===
-                                "in progress"
-                                    ? "selected"
-                                    : ""
-                            }
-                        >
-                            🔵 In Progress
-                        </option>
-
-                        <option
-                            value="resolved"
-                            ${
-                                status
-                                    .toLowerCase() ===
-                                "resolved"
-                                    ? "selected"
-                                    : ""
-                            }
-                        >
-                            🟢 Resolved
-                        </option>
-
-                    </select>
-
-                </td>
-
-                <td>
-                    ${map}
-                </td>
-
-                <td>
-                    ${evidence}
-                </td>
-
-                <td>
-                    ${voice}
-                </td>
-
-            `;
-
-
-            body.appendChild(row);
-
-
-            /* =============================================
-               MOBILE CARD
-            ============================================== */
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "report-card";
-
-
-            card.innerHTML = `
-
-                <div class="report-card-top">
-
-                    <div>
-
-                        <div class="report-id">
-                            #${escapeHTML(
-                                report.id ?? "-"
-                            )}
-                        </div>
-
-                        <div class="report-name">
-                            ${escapeHTML(
-                                report.name ?? "-"
-                            )}
-                        </div>
-
+        card.innerHTML = `
+            <div class="report-card-top">
+                <div>
+                    <div class="report-id">
+                        #${escapeHTML(report.id ?? "-")}
                     </div>
 
-
-                    <select
-                        class="status-select ${statusClass}"
-                        onchange="
-                            handleMobileStatusChange(
-                                this,
-                                '${escapeHTML(String(report.id))}'
-                            )
-                        "
-                    >
-
-                        <option
-                            value="pending"
-                            ${
-                                status
-                                    .toLowerCase() ===
-                                "pending"
-                                    ? "selected"
-                                    : ""
-                            }
-                        >
-                            🟡 Pending
-                        </option>
-
-                        <option
-                            value="in progress"
-                            ${
-                                status
-                                    .toLowerCase() ===
-                                "in progress"
-                                    ? "selected"
-                                    : ""
-                            }
-                        >
-                            🔵 In Progress
-                        </option>
-
-                        <option
-                            value="resolved"
-                            ${
-                                status
-                                    .toLowerCase() ===
-                                "resolved"
-                                    ? "selected"
-                                    : ""
-                            }
-                        >
-                            🟢 Resolved
-                        </option>
-
-                    </select>
-
+                    <div class="report-name">
+                        ${escapeHTML(report.name ?? "-")}
+                    </div>
                 </div>
 
+                ${getStatusSelectHTML(report, true)}
+            </div>
 
-                <div class="report-row">
+            <div class="report-row">
+                <span class="report-label">Date</span>
+                ${escapeHTML(date)}
+            </div>
 
-                    <span class="report-label">
-                        Date
-                    </span>
+            <div class="report-row">
+                <span class="report-label">Phone</span>
+                ${escapeHTML(report.phone ?? "-")}
+            </div>
 
-                    ${escapeHTML(date)}
+            <div class="report-row">
+                <span class="report-label">Category</span>
+                ${escapeHTML(report.category ?? "-")}
+            </div>
 
-                </div>
+            <div class="report-row">
+                <span class="report-label">Description</span>
+                ${escapeHTML(report.description ?? "-")}
+            </div>
 
+            <div class="mobile-actions">
+                ${map}
+                ${evidence}
+                ${voice}
+            </div>
+        `;
 
-                <div class="report-row">
-
-                    <span class="report-label">
-                        Phone
-                    </span>
-
-                    ${escapeHTML(
-                        report.phone ?? "-"
-                    )}
-
-                </div>
-
-
-                <div class="report-row">
-
-                    <span class="report-label">
-                        Category
-                    </span>
-
-                    ${escapeHTML(
-                        report.category ?? "-"
-                    )}
-
-                </div>
-
-
-                <div class="report-row">
-
-                    <span class="report-label">
-                        Description
-                    </span>
-
-                    ${escapeHTML(
-                        report.description ?? "-"
-                    )}
-
-                </div>
-
-
-                <div class="mobile-actions">
-
-                    ${map}
-
-                    ${evidence}
-
-                    ${voice}
-
-                </div>
-
-            `;
-
-
-            mobile.appendChild(
-                card
-            );
-
-        }
-    );
-
+        mobile.appendChild(card);
+    });
 }
-
 
 /* =========================================================
    SEARCH + FILTER
 ========================================================= */
 
 function filterReports() {
-
     const search =
-        document
-            .getElementById(
-                "searchInput"
-            )
-            .value
-            .toLowerCase()
-            .trim();
-
+        document.getElementById("searchInput")
+            .value.toLowerCase().trim();
 
     const status =
-        document
-            .getElementById(
-                "statusFilter"
-            )
-            .value
-            .toLowerCase();
-
+        document.getElementById("statusFilter")
+            .value.toLowerCase();
 
     const category =
-        document
-            .getElementById(
-                "categoryFilter"
-            )
+        document.getElementById("categoryFilter")
             .value;
 
+    const filtered = allReports.filter(report => {
+        const text =
+            Object.values(report)
+                .join(" ")
+                .toLowerCase();
 
-    const filtered =
-        allReports.filter(
-            report => {
+        const searchMatch =
+            !search || text.includes(search);
 
+        const reportStatus =
+            String(report.status || "pending")
+                .toLowerCase();
 
-                const text =
-                    Object.values(
-                        report
-                    )
-                    .join(" ")
-                    .toLowerCase();
+        let statusMatch = true;
 
+        if (status !== "all") {
+            statusMatch =
+                status === "in progress"
+                    ? reportStatus.includes("progress")
+                    : reportStatus === status;
+        }
 
-                const searchMatch =
-                    !search ||
-                    text.includes(search);
+        const categoryMatch =
+            category === "all" ||
+            String(report.category || "") === category;
 
+        return searchMatch && statusMatch && categoryMatch;
+    });
 
-                const reportStatus =
-                    String(
-                        report.status ||
-                        "pending"
-                    )
-                    .toLowerCase();
-
-
-                let statusMatch = true;
-
-
-                if (
-                    status !== "all"
-                ) {
-
-                    if (
-                        status ===
-                        "in progress"
-                    ) {
-
-                        statusMatch =
-                            reportStatus
-                                .includes(
-                                    "progress"
-                                );
-
-                    }
-
-                    else {
-
-                        statusMatch =
-                            reportStatus ===
-                            status;
-
-                    }
-
-                }
-
-
-                const categoryMatch =
-                    category === "all" ||
-                    String(
-                        report.category ||
-                        ""
-                    ) === category;
-
-
-                return (
-                    searchMatch &&
-                    statusMatch &&
-                    categoryMatch
-                );
-
-            }
-        );
-
-
-    displayReports(
-        filtered
-    );
-
+    displayReports(filtered);
 }
 
-
 /* =========================================================
-   EXCEL EXPORT
+   EXCEL EXPORT — FIXED
 ========================================================= */
 
 async function exportExcel() {
-
     const button =
         document.querySelector(".export-btn");
 
     try {
-
-        /* Check Excel library */
-
-        if (typeof XLSX === "undefined") {
-
-            throw new Error(
-                "Excel library is not loaded."
-            );
-
-        }
-
-
-        /* Disable button */
-
         if (button) {
-
             button.disabled = true;
-
-            button.textContent =
-                "Preparing Excel...";
+            button.textContent = "Preparing Excel...";
         }
 
+        /* Wait until SheetJS has loaded */
+        const XLSX = await window.xlsxReady;
 
-        /* Get reports from Supabase */
-
-        const {
-            data,
-            error
-        } = await supabaseClient
-
-            .from("reports")
-
-            .select("*")
-
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
+        if (!XLSX || typeof XLSX.utils === "undefined") {
+            throw new Error(
+                "Excel library failed to initialize."
             );
-
-
-        /* Supabase error */
-
-        if (error) {
-
-            throw error;
-
         }
 
+        /* Get latest reports */
+        const { data, error } =
+            await supabaseClient
+                .from("reports")
+                .select("*")
+                .order("created_at", {
+                    ascending: false
+                });
 
-        /* No reports */
+        if (error) throw error;
 
         if (!data || data.length === 0) {
-
-            alert(
-                "No reports found."
-            );
-
+            alert("No reports found.");
             return;
-
         }
 
+        /* Convert data into Excel-friendly rows */
+        const exportData = data.map(report => ({
+            ID: report.id ?? "",
+            Date: report.created_at
+                ? new Date(report.created_at).toLocaleString("en-IN")
+                : "",
+            Name: report.name ?? "",
+            Phone: report.phone ?? "",
+            WhatsApp: report.whatsapp ?? "",
+            Category: report.category ?? "",
+            Description: report.description ?? "",
+            Status: report.status ?? "pending",
+            Location: report.location ?? "",
+            Latitude:
+                report.latitude ??
+                report.lat ??
+                "",
+            Longitude:
+                report.longitude ??
+                report.lng ??
+                "",
+            Evidence:
+                report.evidence_url ??
+                report.evidence ??
+                "",
+            Voice:
+                report.voice_url ??
+                report.voice ??
+                report.audio_url ??
+                ""
+        }));
 
         /* Create worksheet */
-
         const worksheet =
-            XLSX.utils.json_to_sheet(data);
+            XLSX.utils.json_to_sheet(exportData);
 
-
-        /* Auto-size columns */
-
-        const keys =
-            Object.keys(data[0] || {});
-
-
-        worksheet["!cols"] =
-            keys.map(
-                key => {
-
-                    let maxLength =
-                        key.length;
-
-
-                    data.forEach(
-                        row => {
-
-                            const value =
-                                row[key] == null
-                                    ? ""
-                                    : String(
-                                        row[key]
-                                    );
-
-
-                            maxLength =
-                                Math.max(
-                                    maxLength,
-                                    value.length
-                                );
-
-                        }
-                    );
-
-
-                    return {
-                        wch: Math.min(
-                            Math.max(
-                                maxLength + 2,
-                                12
-                            ),
-                            50
-                        )
-                    };
-
-                }
-            );
-
+        /* Column widths */
+        worksheet["!cols"] = [
+            { wch: 12 },
+            { wch: 22 },
+            { wch: 22 },
+            { wch: 16 },
+            { wch: 16 },
+            { wch: 30 },
+            { wch: 50 },
+            { wch: 16 },
+            { wch: 30 },
+            { wch: 14 },
+            { wch: 14 },
+            { wch: 45 },
+            { wch: 45 }
+        ];
 
         /* Create workbook */
-
         const workbook =
             XLSX.utils.book_new();
-
-
-        /* Add Reports sheet */
 
         XLSX.utils.book_append_sheet(
             workbook,
@@ -3549,54 +1136,35 @@ async function exportExcel() {
             "Reports"
         );
 
-
         /* Download */
-
         XLSX.writeFile(
             workbook,
             "Nammude_Reports.xlsx"
         );
 
-
         console.log(
             "Excel export successful:",
-            data.length,
+            exportData.length,
             "reports"
         );
 
-
-    }
-
-    catch (error) {
-
+    } catch (error) {
         console.error(
             "Excel export failed:",
             error
         );
-
 
         alert(
             "Excel export failed:\n\n" +
             error.message
         );
 
-    }
-
-    finally {
-
-        /* Restore button */
-
+    } finally {
         if (button) {
-
             button.disabled = false;
-
-            button.textContent =
-                "📥 Excel";
-
+            button.textContent = "📥 Excel";
         }
-
     }
-
 }
 
 /* =========================================================
@@ -3604,75 +1172,30 @@ async function exportExcel() {
 ========================================================= */
 
 function escapeHTML(value) {
-
     return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
-
 
 /* =========================================================
    WINDOW RESIZE
 ========================================================= */
 
-window.addEventListener(
-    "resize",
-    function() {
-
-        if (allReports.length) {
-
-            const search =
-                document
-                    .getElementById(
-                        "searchInput"
-                    )
-                    .value
-                    .trim();
-
-            if (!search) {
-
-                filterReports();
-
-            }
-
-        }
-
+window.addEventListener("resize", function() {
+    if (allReports.length) {
+        filterReports();
     }
-);
-
+});
 
 /* =========================================================
    START
 ========================================================= */
 
 checkLogin();
-
 </script>
 
 </body>
-
 </html>

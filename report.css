@@ -1,7 +1,7 @@
 /* =========================================
    NAMMUDE — REPORT PAGE
    Clean Blue Theme
-   Separate Question Containers
+   Dark Mode
    Responsive: Mobile • Tablet • Desktop
 ========================================= */
 
@@ -16,6 +16,7 @@
     padding: 60px 0 90px;
     width: 100%;
     box-sizing: border-box;
+    transition: background-color 0.25s ease;
 }
 
 
@@ -56,6 +57,7 @@
     line-height: 1.15;
     margin: 0 0 18px;
     overflow-wrap: anywhere;
+    transition: color 0.25s ease;
 }
 
 .report-intro h1 span {
@@ -66,6 +68,7 @@
     color: #667085;
     line-height: 1.7;
     overflow-wrap: anywhere;
+    transition: color 0.25s ease;
 }
 
 
@@ -88,18 +91,17 @@
     box-shadow: 0 15px 45px rgba(16, 24, 40, 0.06);
 
     min-width: 0;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 
 /* =========================================
    5. QUESTION CONTAINERS
 ========================================= */
-
-/*
-   Each question gets its own visual space.
-   The padding creates distance between
-   the text/input and the border.
-*/
 
 .form-section {
     width: 100%;
@@ -124,22 +126,18 @@
         box-shadow 0.25s ease;
 }
 
-
-/* First question */
-
 .form-section:first-child {
     padding-top: 28px;
 }
-
-
-/* Last question */
 
 .form-section:last-child {
     margin-bottom: 0;
 }
 
 
-/* Question heading */
+/* =========================================
+   6. HEADINGS
+========================================= */
 
 .form-section h2 {
     color: #172033;
@@ -150,6 +148,8 @@
     margin: 0 0 18px;
 
     overflow-wrap: anywhere;
+
+    transition: color 0.25s ease;
 }
 
 .form-section h2 span {
@@ -165,7 +165,7 @@
 
 
 /* =========================================
-   6. INPUTS
+   7. INPUTS
 ========================================= */
 
 .report-form input[type="text"],
@@ -193,7 +193,8 @@
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
-        background-color 0.2s ease;
+        background-color 0.25s ease,
+        color 0.25s ease;
 }
 
 .report-form textarea {
@@ -227,7 +228,7 @@
 
 
 /* =========================================
-   7. CHECKBOX
+   8. CHECKBOX
 ========================================= */
 
 .checkbox-label {
@@ -251,7 +252,7 @@
 
 
 /* =========================================
-   8. CATEGORY
+   9. CATEGORY
 ========================================= */
 
 .category-grid {
@@ -324,7 +325,7 @@
 
 
 /* =========================================
-   9. LOCATION
+   10. LOCATION
 ========================================= */
 
 .location-grid {
@@ -366,6 +367,10 @@
     font-weight: 700;
 
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
 .location-button:hover {
@@ -375,7 +380,7 @@
 
 
 /* =========================================
-   10. PROBLEM METHOD
+   11. PROBLEM METHODS
 ========================================= */
 
 .problem-methods {
@@ -421,7 +426,7 @@
 
 
 /* =========================================
-   11. AUDIO
+   12. AUDIO
 ========================================= */
 
 .audio-box {
@@ -472,7 +477,7 @@
 
 
 /* =========================================
-   12. EVIDENCE
+   13. EVIDENCE
 ========================================= */
 
 .evidence-box {
@@ -561,7 +566,7 @@
 
 
 /* =========================================
-   13. YES / NO
+   14. YES / NO
 ========================================= */
 
 .yes-no {
@@ -602,7 +607,7 @@
 
 
 /* =========================================
-   14. PREVIOUS COMPLAINT
+   15. PREVIOUS COMPLAINT
 ========================================= */
 
 .previous-fields {
@@ -628,7 +633,7 @@
 
 
 /* =========================================
-   15. NOTES
+   16. NOTES
 ========================================= */
 
 .form-note {
@@ -643,7 +648,7 @@
 
 
 /* =========================================
-   16. SUBMIT
+   17. SUBMIT
 ========================================= */
 
 .submit-area {
@@ -692,41 +697,142 @@
 
 
 /* =========================================
-   17. DARK MODE
+   18. LOCATION MAP
 ========================================= */
 
+.map-container {
+    width: 100%;
+    margin-top: 16px;
+
+    border: 1px solid #e4e9f0;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+#reportMap {
+    width: 100%;
+    height: 380px;
+    z-index: 1;
+}
+
+.map-actions {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    flex-wrap: wrap;
+}
+
+.map-actions button {
+    border: none;
+    border-radius: 10px;
+
+    padding: 11px 16px;
+
+    font-family: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.map-location-btn {
+    background: #edf4ff;
+    color: #1257d6;
+}
+
+.map-location-btn:hover {
+    background: #1257d6;
+    color: #ffffff;
+}
+
+.map-confirm-btn {
+    background: #1257d6;
+    color: #ffffff;
+}
+
+.map-confirm-btn:hover {
+    background: #0d47b5;
+}
+
+.map-selected-text {
+    margin: 0;
+    padding: 0 14px 14px;
+
+    color: #667085;
+
+    font-size: 0.82rem;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   19. DARK MODE
+========================================= */
+
+body.dark-mode {
+    background: #0b1220;
+}
+
+
+/* PAGE */
+
 body.dark-mode .report-page {
-    background: #0f172a;
+    background: #0b1220;
+}
+
+
+/* INTRO */
+
+body.dark-mode .report-intro .eyebrow {
+    color: #6ea0ff;
 }
 
 body.dark-mode .report-intro h1 {
     color: #f8fafc;
 }
 
+body.dark-mode .report-intro h1 span {
+    color: #6ea0ff;
+}
+
 body.dark-mode .report-intro p {
-    color: #aebbd0;
+    color: #a8b4c7;
 }
 
 
 /* MAIN FORM */
 
 body.dark-mode .report-form {
-    background: #172033;
-    border-color: #2b3950;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    background: #111b2d;
+    border-color: #26364f;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
 }
 
 
-/* QUESTION CONTAINERS */
+/* QUESTION BOXES */
 
 body.dark-mode .form-section {
-    background: #172033;
-    border-color: #334155;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    background: #111b2d;
+    border-color: #2b3a52;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.18);
 }
 
 body.dark-mode .form-section h2 {
     color: #f1f5f9;
+}
+
+body.dark-mode .form-section h2 span {
+    color: #6ea0ff;
 }
 
 body.dark-mode .form-section h2 small {
@@ -740,14 +846,24 @@ body.dark-mode .report-form input[type="text"],
 body.dark-mode .report-form input[type="tel"],
 body.dark-mode .report-form input[type="date"],
 body.dark-mode .report-form textarea {
-    background: #0f172a;
-    border-color: #334155;
+    background: #0b1424;
+
+    border-color: #34445e;
+
     color: #f1f5f9;
+}
+
+body.dark-mode .report-form input:focus,
+body.dark-mode .report-form textarea:focus {
+    border-color: #5b91f5;
+
+    box-shadow:
+        0 0 0 3px rgba(91, 145, 245, 0.15);
 }
 
 body.dark-mode .report-form input::placeholder,
 body.dark-mode .report-form textarea::placeholder {
-    color: #64748b;
+    color: #718096;
 }
 
 body.dark-mode .report-form small {
@@ -758,29 +874,33 @@ body.dark-mode .report-form small {
 /* CHECKBOX */
 
 body.dark-mode .checkbox-label {
-    color: #b8c4d6;
+    color: #c4cedc;
 }
 
 
 /* CATEGORY */
 
 body.dark-mode .category-option {
-    background: #111c2f;
-    border-color: #334155;
+    background: #0d1728;
+    border-color: #34445e;
 }
 
 body.dark-mode .category-option:hover {
-    border-color: #5277b4;
-    background: #172b50;
+    border-color: #5b91f5;
+    background: #142746;
 }
 
 body.dark-mode .category-option strong {
-    color: #e2e8f0;
+    color: #dbe4f0;
 }
 
 body.dark-mode .category-option:has(input:checked) {
-    background: #172b50;
+    background: #162c50;
     border-color: #5b91f5;
+}
+
+body.dark-mode .category-option:has(input:checked) strong {
+    color: #79a6ff;
 }
 
 
@@ -792,9 +912,9 @@ body.dark-mode .previous-fields label {
 }
 
 body.dark-mode .location-button {
-    background: #111c2f;
+    background: #10213b;
     border-color: #5b91f5;
-    color: #8db3ff;
+    color: #79a6ff;
 }
 
 body.dark-mode .location-button:hover {
@@ -803,30 +923,30 @@ body.dark-mode .location-button:hover {
 }
 
 
-/* METHODS */
+/* PROBLEM METHODS */
 
 body.dark-mode .method-option {
-    background: #111c2f;
-    border-color: #334155;
-    color: #e2e8f0;
+    background: #0d1728;
+    border-color: #34445e;
+    color: #dbe4f0;
 }
 
 body.dark-mode .method-option:has(input:checked) {
-    background: #172b50;
+    background: #162c50;
     border-color: #5b91f5;
-    color: #8db3ff;
+    color: #79a6ff;
 }
 
 
 /* AUDIO */
 
 body.dark-mode .audio-box {
-    background: #111c2f;
-    border-color: #475569;
+    background: #0d1728;
+    border-color: #465873;
 }
 
-body.dark-mode #audioStatus,
-body.dark-mode .audio-box p {
+body.dark-mode .audio-box p,
+body.dark-mode #audioStatus {
     color: #94a3b8;
 }
 
@@ -834,8 +954,8 @@ body.dark-mode .audio-box p {
 /* EVIDENCE */
 
 body.dark-mode .evidence-box {
-    background: #111c2f;
-    border-color: #475569;
+    background: #0d1728;
+    border-color: #465873;
 }
 
 body.dark-mode .evidence-box h3 {
@@ -851,30 +971,30 @@ body.dark-mode .file-list {
 }
 
 body.dark-mode .file-list div {
-    border-bottom-color: #334155;
+    border-bottom-color: #34445e;
 }
 
 
 /* YES / NO */
 
 body.dark-mode .yes-no label {
-    background: #111c2f;
-    border-color: #334155;
-    color: #e2e8f0;
+    background: #0d1728;
+    border-color: #34445e;
+    color: #dbe4f0;
 }
 
 body.dark-mode .yes-no label:has(input:checked) {
-    background: #172b50;
+    background: #162c50;
     border-color: #5b91f5;
-    color: #8db3ff;
+    color: #79a6ff;
 }
 
 
-/* PREVIOUS FIELDS */
+/* PREVIOUS */
 
 body.dark-mode .previous-fields {
-    background: #111c2f;
-    border-color: #334155;
+    background: #0d1728;
+    border-color: #34445e;
 }
 
 
@@ -888,14 +1008,41 @@ body.dark-mode .form-note {
 /* SUCCESS */
 
 body.dark-mode .success-message {
-    background: #062e24;
-    border-color: #075e54;
+    background: #06352b;
+    border: 1px solid #09634f;
     color: #6ee7b7;
 }
 
 
+/* MAP */
+
+body.dark-mode .map-container {
+    background: #0d1728;
+    border-color: #34445e;
+}
+
+body.dark-mode .map-location-btn {
+    background: #162c50;
+    color: #79a6ff;
+}
+
+body.dark-mode .map-location-btn:hover {
+    background: #1257d6;
+    color: #ffffff;
+}
+
+body.dark-mode .map-confirm-btn {
+    background: #1257d6;
+    color: #ffffff;
+}
+
+body.dark-mode .map-selected-text {
+    color: #94a3b8;
+}
+
+
 /* =========================================
-   18. TABLET
+   20. TABLET
 ========================================= */
 
 @media (max-width: 950px) {
@@ -921,7 +1068,7 @@ body.dark-mode .success-message {
 
 
 /* =========================================
-   19. MOBILE
+   21. MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
@@ -950,8 +1097,6 @@ body.dark-mode .success-message {
     }
 
 
-    /* INTRO */
-
     .report-intro {
         width: 100%;
         max-width: 100%;
@@ -960,8 +1105,6 @@ body.dark-mode .success-message {
         box-sizing: border-box;
     }
 
-
-    /* MAIN FORM */
 
     .report-form {
         width: 100%;
@@ -975,8 +1118,6 @@ body.dark-mode .success-message {
         box-sizing: border-box;
     }
 
-
-    /* QUESTION BOXES */
 
     .form-section {
         width: 100%;
@@ -993,23 +1134,17 @@ body.dark-mode .success-message {
     }
 
 
-    /* CATEGORY */
-
     .category-grid {
         grid-template-columns: 1fr;
         width: 100%;
     }
 
 
-    /* LOCATION */
-
     .location-grid {
         grid-template-columns: 1fr;
         width: 100%;
     }
 
-
-    /* METHODS */
 
     .problem-methods {
         flex-direction: column;
@@ -1023,8 +1158,6 @@ body.dark-mode .success-message {
     }
 
 
-    /* YES / NO */
-
     .yes-no {
         flex-direction: column;
         width: 100%;
@@ -1037,8 +1170,6 @@ body.dark-mode .success-message {
     }
 
 
-    /* INNER BOXES */
-
     .audio-box,
     .evidence-box,
     .previous-fields {
@@ -1048,8 +1179,6 @@ body.dark-mode .success-message {
     }
 
 
-    /* INPUTS */
-
     .report-form input[type="text"],
     .report-form input[type="tel"],
     .report-form input[type="date"],
@@ -1057,11 +1186,23 @@ body.dark-mode .success-message {
         padding: 14px;
     }
 
+
+    #reportMap {
+        height: 320px;
+    }
+
+    .map-actions {
+        flex-direction: column;
+    }
+
+    .map-actions button {
+        width: 100%;
+    }
 }
 
 
 /* =========================================
-   20. SMALL PHONES
+   22. SMALL PHONES
 ========================================= */
 
 @media (max-width: 400px) {
@@ -1099,122 +1240,6 @@ body.dark-mode .success-message {
         padding: 17px;
     }
 
-}
-/* =========================================================
-   21. LOCATION MAP
-========================================================= */
-
-.map-container {
-    width: 100%;
-    margin-top: 16px;
-    border: 1px solid #e4e9f0;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #ffffff;
-    box-sizing: border-box;
-}
-
-#reportMap {
-    width: 100%;
-    height: 380px;
-    z-index: 1;
-}
-
-.map-actions {
-    display: flex;
-    gap: 10px;
-    padding: 12px;
-    flex-wrap: wrap;
-}
-
-.map-actions button {
-    border: none;
-    border-radius: 10px;
-    padding: 11px 16px;
-    font-family: inherit;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.map-location-btn {
-    background: #edf4ff;
-    color: #1257d6;
-}
-
-.map-location-btn:hover {
-    background: #1257d6;
-    color: #ffffff;
-}
-
-.map-confirm-btn {
-    background: #1257d6;
-    color: #ffffff;
-}
-
-.map-confirm-btn:hover {
-    background: #0d47b5;
-}
-
-.map-selected-text {
-    margin: 0;
-    padding: 0 14px 14px;
-    color: #667085;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-
-
-/* DARK MODE */
-
-body.dark-mode .map-container {
-    background: #111c2f;
-    border-color: #334155;
-}
-
-body.dark-mode .map-location-btn {
-    background: #172b50;
-    color: #8db3ff;
-}
-
-body.dark-mode .map-location-btn:hover {
-    background: #1257d6;
-    color: #ffffff;
-}
-
-body.dark-mode .map-confirm-btn {
-    background: #1257d6;
-    color: #ffffff;
-}
-
-body.dark-mode .map-selected-text {
-    color: #94a3b8;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    #reportMap {
-        height: 320px;
-    }
-
-    .map-actions {
-        flex-direction: column;
-    }
-
-    .map-actions button {
-        width: 100%;
-    }
-
-}
-
-
-/* SMALL PHONES */
-
-@media (max-width: 400px) {
-
     #reportMap {
         height: 280px;
     }
@@ -1222,5 +1247,4 @@ body.dark-mode .map-selected-text {
     .map-container {
         border-radius: 12px;
     }
-
 }

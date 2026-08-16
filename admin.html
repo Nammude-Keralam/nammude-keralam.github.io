@@ -3405,18 +3405,28 @@ function filterReports() {
 
 
 /* =========================================================
-   EXCEL
+   EXCEL EXPORT
 ========================================================= */
 
 function exportExcel() {
 
-    window.open(
-        "export-excel.js",
-        "_blank"
-    );
+    if (typeof exportReportsToExcel === "function") {
+
+        exportReportsToExcel();
+
+    } else {
+
+        console.error(
+            "exportReportsToExcel() is not loaded."
+        );
+
+        alert(
+            "Excel export is not ready. Please refresh the page."
+        );
+
+    }
 
 }
-
 
 /* =========================================================
    ESCAPE HTML

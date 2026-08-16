@@ -3408,21 +3408,190 @@ function filterReports() {
    EXCEL EXPORT
 ========================================================= */
 
-function exportExcel() {
+async function exportExcel() {
 
-    if (typeof exportReportsToExcel === "function") {
+    const button =
+        document.querySelector(".export-btn");
 
-        exportReportsToExcel();
+    try {
 
-    } else {
+        /* Check Excel library */
+
+        if (typeof XLSX === "undefined") {
+
+            throw new Error(
+                "Excel library is not loaded."
+            );
+
+        }
+
+
+        /* Disable button */
+
+        if (button) {
+
+            button.disabled = true;
+
+            button.textContent =
+                "Preparing Excel...";
+        }
+
+
+        /* Get reports from Supabase */
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+
+            .from("reports")
+
+            .select("*")
+
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+        /* Supabase error */
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        /* No reports */
+
+        if (!data || data.length === 0) {
+
+            alert(
+                "No reports found."
+            );
+
+            return;
+
+        }
+
+
+        /* Create worksheet */
+
+        const worksheet =
+            XLSX.utils.json_to_sheet(data);
+
+
+        /* Auto-size columns */
+
+        const keys =
+            Object.keys(data[0] || {});
+
+
+        worksheet["!cols"] =
+            keys.map(
+                key => {
+
+                    let maxLength =
+                        key.length;
+
+
+                    data.forEach(
+                        row => {
+
+                            const value =
+                                row[key] == null
+                                    ? ""
+                                    : String(
+                                        row[key]
+                                    );
+
+
+                            maxLength =
+                                Math.max(
+                                    maxLength,
+                                    value.length
+                                );
+
+                        }
+                    );
+
+
+                    return {
+                        wch: Math.min(
+                            Math.max(
+                                maxLength + 2,
+                                12
+                            ),
+                            50
+                        )
+                    };
+
+                }
+            );
+
+
+        /* Create workbook */
+
+        const workbook =
+            XLSX.utils.book_new();
+
+
+        /* Add Reports sheet */
+
+        XLSX.utils.book_append_sheet(
+            workbook,
+            worksheet,
+            "Reports"
+        );
+
+
+        /* Download */
+
+        XLSX.writeFile(
+            workbook,
+            "Nammude_Reports.xlsx"
+        );
+
+
+        console.log(
+            "Excel export successful:",
+            data.length,
+            "reports"
+        );
+
+
+    }
+
+    catch (error) {
 
         console.error(
-            "exportReportsToExcel() is not loaded."
+            "Excel export failed:",
+            error
         );
 
+
         alert(
-            "Excel export is not ready. Please refresh the page."
+            "Excel export failed:\n\n" +
+            error.message
         );
+
+    }
+
+    finally {
+
+        /* Restore button */
+
+        if (button) {
+
+            button.disabled = false;
+
+            button.textContent =
+                "📥 Excel";
+
+        }
 
     }
 

@@ -854,7 +854,46 @@
                 "languageToggle"
             );
 
-        let currentLanguage = "ml";
+        let currentLanguage =
+            localStorage.getItem("nammude-language") || "ml";
+
+
+        function applyLanguage() {
+
+            document
+                .querySelectorAll("[data-ml]")
+                .forEach(element => {
+
+                    if (
+                        currentLanguage === "en"
+                    ) {
+
+                        element.innerHTML =
+                            element.getAttribute(
+                                "data-en"
+                            );
+
+                    } else {
+
+                        element.innerHTML =
+                            element.getAttribute(
+                                "data-ml"
+                            );
+
+                    }
+
+                });
+
+
+            document.documentElement.lang =
+                currentLanguage;
+
+
+            languageToggle.textContent =
+                currentLanguage === "ml"
+                    ? "EN"
+                    : "മലയാളം";
+        }
 
 
         languageToggle.addEventListener(
@@ -866,43 +905,19 @@
                         ? "en"
                         : "ml";
 
+                localStorage.setItem(
+                    "nammude-language",
+                    currentLanguage
+                );
 
-                document
-                    .querySelectorAll("[data-ml]")
-                    .forEach(element => {
-
-                        if (
-                            currentLanguage === "en"
-                        ) {
-
-                            element.innerHTML =
-                                element.getAttribute(
-                                    "data-en"
-                                );
-
-                        } else {
-
-                            element.innerHTML =
-                                element.getAttribute(
-                                    "data-ml"
-                                );
-
-                        }
-
-                    });
-
-
-                document.documentElement.lang =
-                    currentLanguage;
-
-
-                languageToggle.textContent =
-                    currentLanguage === "ml"
-                        ? "EN"
-                        : "മലയാളം";
+                applyLanguage();
 
             }
         );
+
+
+        /* Load saved language */
+        applyLanguage();
 
 
         /* ============================
@@ -994,4 +1009,3 @@
 </body>
 
 </html>
-```

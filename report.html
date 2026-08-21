@@ -1615,7 +1615,8 @@ failed:
    CURRENT LANGUAGE
 ===================================================== */
 
-let currentLanguage = "ml";
+let currentLanguage =
+localStorage.getItem("nammude-language") || "ml";
 
 
 
@@ -1978,6 +1979,11 @@ currentLanguage =
 currentLanguage === "ml"
 ? "en"
 : "ml";
+
+localStorage.setItem(
+"nammude-language",
+currentLanguage
+);
 
 updateLanguage();
 

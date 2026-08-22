@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ml">
 
@@ -11,23 +12,19 @@
 
 <title>പ്രശ്നം അറിയിക്കാം — Nammude</title>
 
-<!-- Nammude browser icon -->
 <link
     rel="icon"
     type="image/png"
     href="logo.png">
 
-<!-- Main CSS -->
 <link
     rel="stylesheet"
     href="style.css">
 
-<!-- Report CSS -->
 <link
     rel="stylesheet"
     href="report.css">
 
-<!-- Leaflet CSS -->
 <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -106,24 +103,17 @@
 ===================================================== */
 
 .theme-toggle {
-
     width: 46px;
     height: 46px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: 1px solid #dbe2ec;
     border-radius: 12px;
-
     background: #ffffff;
     color: #172033;
-
     font-size: 20px;
-
     cursor: pointer;
-
     transition:
         background .2s ease,
         border-color .2s ease,
@@ -140,7 +130,7 @@
 
 
 /* =====================================================
-   DARK MODE INLINE MAP OVERRIDES
+   DARK MODE MAP OVERRIDES
 ===================================================== */
 
 body.dark-mode .map-container {
@@ -184,10 +174,145 @@ body.dark-mode .leaflet-control-attribution a {
     color: #60a5fa !important;
 }
 
+
+/* =====================================================
+   LEGAL / DECLARATION SECTION
+===================================================== */
+
+.legal-section {
+    margin-top: 28px;
+}
+
+.official-notice,
+.data-notice {
+    padding: 18px;
+    margin-top: 14px;
+    border-radius: 14px;
+    border: 1px solid #dbe2ec;
+    background: #f8fafc;
+}
+
+.official-notice h3,
+.data-notice h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.official-notice p,
+.data-notice p {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.legal-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 16px;
+    border: 1px solid #dbe2ec;
+    border-radius: 14px;
+    background: #fff;
+    cursor: pointer;
+    line-height: 1.6;
+}
+
+.legal-checkbox input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.legal-checkbox a {
+    color: #1257d6;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.legal-small {
+    margin: 10px 2px 0;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+body.dark-mode .official-notice,
+body.dark-mode .data-notice,
+body.dark-mode .legal-checkbox {
+    background: #111827;
+    border-color: #273449;
+}
+
+body.dark-mode .official-notice p,
+body.dark-mode .data-notice p {
+    color: #d1d5db;
+}
+
+body.dark-mode .legal-small {
+    color: #94a3b8;
+}
+
+body.dark-mode .legal-checkbox a {
+    color: #60a5fa;
+}
+
+
+/* =====================================================
+   LEGAL FOOTER LINKS
+===================================================== */
+
+.legal-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.legal-footer-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.legal-footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   MOBILE LEGAL
+===================================================== */
+
+@media(max-width:600px) {
+
+    .official-notice,
+    .data-notice {
+        padding: 15px;
+    }
+
+    .official-notice p,
+    .data-notice p {
+        font-size: 13px;
+    }
+
+    .legal-checkbox {
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    .legal-footer-links {
+        gap: 10px 14px;
+    }
+
+}
+
 </style>
 
 
-<!-- Leaflet JS -->
 <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
@@ -199,7 +324,7 @@ body.dark-mode .leaflet-control-attribution a {
 
 
 <!-- =====================================================
-    HEADER
+     HEADER
 ===================================================== -->
 
 <header class="header">
@@ -265,7 +390,7 @@ EN
 
 
 <!-- =====================================================
-    SUPABASE
+     SUPABASE
 ===================================================== -->
 
 <script
@@ -281,7 +406,6 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
     "sb_publishable_Pc7qVHy1ojZFq795l2PmSg_6fm7M6Hf";
 
-
 window.NAMMUDE_SUPABASE =
     window.supabase.createClient(
         SUPABASE_URL,
@@ -293,7 +417,7 @@ window.NAMMUDE_SUPABASE =
 
 
 <!-- =====================================================
-    REPORT PAGE
+     REPORT PAGE
 ===================================================== -->
 
 <main class="report-page">
@@ -302,7 +426,7 @@ window.NAMMUDE_SUPABASE =
 
 
 <!-- =====================================================
-    INTRO
+     INTRO
 ===================================================== -->
 
 <div class="report-intro">
@@ -311,23 +435,14 @@ window.NAMMUDE_SUPABASE =
 Nammude
 </p>
 
-
 <h1 id="pageTitle">
-
 നിങ്ങളുടെ പ്രശ്നം<br>
-
-<span>
-ഞങ്ങളോട് പറയൂ.
-</span>
-
+<span>ഞങ്ങളോട് പറയൂ.</span>
 </h1>
 
-
 <p id="pageDescription">
-
 പ്രശ്നം അറിയിക്കുന്നത് സൗജന്യമാണ്.
 താഴെയുള്ള വിവരങ്ങൾ പൂരിപ്പിക്കുക.
-
 </p>
 
 </div>
@@ -335,7 +450,7 @@ Nammude
 
 
 <!-- =====================================================
-    FORM
+     FORM
 ===================================================== -->
 
 <form
@@ -344,21 +459,16 @@ Nammude
     novalidate>
 
 
-
 <!-- =====================================================
-    1. NAME
+     1. NAME
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="nameTitle">
-
 1. പേര്
-
 <span>★</span>
-
 </h2>
-
 
 <input
     type="text"
@@ -373,19 +483,15 @@ Nammude
 
 
 <!-- =====================================================
-    2. PHONE
+     2. PHONE
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="phoneTitle">
-
 2. ഫോൺ നമ്പർ
-
 <span>★</span>
-
 </h2>
-
 
 <input
     type="tel"
@@ -397,11 +503,8 @@ Nammude
     autocomplete="tel"
     required>
 
-
 <small id="phoneHint">
-
 കൃത്യമായി 10 അക്കങ്ങൾ നൽകുക.
-
 </small>
 
 </section>
@@ -409,19 +512,15 @@ Nammude
 
 
 <!-- =====================================================
-    3. WHATSAPP
+     3. WHATSAPP
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="whatsappTitle">
-
 3. WhatsApp നമ്പർ
-
 <span>★</span>
-
 </h2>
-
 
 <input
     type="tel"
@@ -432,18 +531,14 @@ Nammude
     placeholder="10 അക്ക WhatsApp നമ്പർ"
     required>
 
-
 <label class="checkbox-label">
 
 <input
     type="checkbox"
     id="sameWhatsapp">
 
-
 <span id="sameWhatsappText">
-
 WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
-
 </span>
 
 </label>
@@ -453,21 +548,15 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    4. SECONDARY PHONE
+     4. SECONDARY PHONE
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="secondaryTitle">
-
 4. രണ്ടാമത്തെ ഫോൺ നമ്പർ
-
-<small>
-(ഐച്ഛികം)
-</small>
-
+<small>(ഐച്ഛികം)</small>
 </h2>
-
 
 <input
     type="tel"
@@ -482,17 +571,14 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    5. CATEGORY
+     5. CATEGORY
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="categoryTitle">
-
 5. പ്രശ്നത്തിന്റെ വിഭാഗം
-
 <span>★</span>
-
 </h2>
 
 
@@ -675,19 +761,14 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    6. LOCATION
+     6. LOCATION
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="locationTitle">
-
 6. പ്രശ്നം എവിടെയാണ്?
-
-<small>
-(ഐച്ഛികം)
-</small>
-
+<small>(ഐച്ഛികം)</small>
 </h2>
 
 
@@ -755,6 +836,7 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 </div>
 
 
+
 <button
     type="button"
     class="location-button"
@@ -816,7 +898,6 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
     id="latitude"
     name="latitude">
 
-
 <input
     type="hidden"
     id="longitude"
@@ -836,17 +917,14 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    7. PROBLEM
+     7. PROBLEM
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="problemTitle">
-
 7. പ്രശ്നം എന്താണ്?
-
 <span>★</span>
-
 </h2>
 
 
@@ -861,9 +939,7 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
     checked>
 
 <span id="useTextText">
-
 ✍️ എഴുതി നൽകുക
-
 </span>
 
 </label>
@@ -877,9 +953,7 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
     id="useAudio">
 
 <span id="useAudioText">
-
 🎙️ ശബ്ദമായി പറയുക
-
 </span>
 
 </label>
@@ -917,10 +991,8 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <p id="audioStatus">
-
 ശബ്ദമായി പ്രശ്നം പറയാൻ
 ബട്ടൺ അമർത്തുക.
-
 </p>
 
 
@@ -937,17 +1009,14 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    8. EVIDENCE
+     8. EVIDENCE
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="evidenceTitle">
-
 8. തെളിവ് നൽകുക
-
 <span>★</span>
-
 </h2>
 
 
@@ -960,18 +1029,14 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <h3 id="evidenceHeading">
-
 കുറഞ്ഞത് ഒരു തെളിവെങ്കിലും നൽകണം
-
 </h3>
 
 
 <p id="evidenceDescription">
-
 ഫോട്ടോ, വീഡിയോ, രേഖ,
 സ്ക്രീൻഷോട്ട് അല്ലെങ്കിൽ ഓഡിയോ നൽകാം.
 ഒന്നിലധികം ഫയലുകൾ അനുവദനീയമാണ്.
-
 </p>
 
 
@@ -1006,17 +1071,14 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    9. PREVIOUS COMPLAINT
+     9. PREVIOUS COMPLAINT
 ===================================================== -->
 
 <section class="form-section">
 
 <h2 id="previousTitle">
-
 9. മുമ്പ് പരാതി നൽകിയിട്ടുണ്ടോ?
-
 <span>★</span>
-
 </h2>
 
 
@@ -1128,7 +1190,112 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    SUBMIT
+     10. DECLARATION & CONSENT
+===================================================== -->
+
+<section class="form-section legal-section">
+
+<h2 id="declarationTitle">
+10. പ്രഖ്യാപനവും സമ്മതവും
+<span>★</span>
+</h2>
+
+
+<div class="official-notice">
+
+<h3 id="importantNoticeTitle">
+പ്രധാന അറിയിപ്പ്
+</h3>
+
+<p id="importantNotice">
+
+Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്.
+ഇത് സർക്കാർ വകുപ്പ്, സർക്കാർ അധികാരി, കോടതി,
+പോലീസ് വകുപ്പ് അല്ലെങ്കിൽ നിയമ സ്ഥാപനമല്ല.
+ഒരു റിപ്പോർട്ട് സമർപ്പിച്ചതുകൊണ്ട് ബന്ധപ്പെട്ട അധികാരി
+നടപടി സ്വീകരിക്കുകയോ പ്രശ്നം പരിഹരിക്കുകയോ ചെയ്യുമെന്ന് ഉറപ്പില്ല.
+
+</p>
+
+</div>
+
+
+
+<div class="data-notice">
+
+<h3 id="dataNoticeTitle">
+വിവരങ്ങളും തെളിവുകളും
+</h3>
+
+<p id="dataNotice">
+
+നിങ്ങളുടെ പ്രശ്നം പരിശോധിക്കുന്നതിനും ബന്ധപ്പെട്ട
+അധികാരിയുമായി ആശയവിനിമയം നടത്തുന്നതിനുമായി നിങ്ങൾ
+നൽകുന്ന വിവരങ്ങളും തെളിവുകളും Nammude പ്രോസസ്സ് ചെയ്യുകയും
+ആവശ്യമായിടത്ത് ബന്ധപ്പെട്ട അധികാരിയുമായോ സ്ഥാപനവുമായോ
+പങ്കിടുകയും ചെയ്യാം. ആവശ്യത്തിന് മുകളിലുള്ള മറ്റുള്ളവരുടെ
+സ്വകാര്യ വിവരങ്ങൾ അപ്‌ലോഡ് ചെയ്യരുത്.
+
+</p>
+
+</div>
+
+
+
+<label class="legal-checkbox">
+
+<input
+    type="checkbox"
+    id="termsConsent"
+    required>
+
+<span id="termsConsentText">
+
+ഞാൻ
+<a
+    href="terms.html"
+    target="_blank"
+    rel="noopener">
+
+Terms & Conditions
+
+</a>
+
+വായിക്കുകയും അംഗീകരിക്കുകയും ചെയ്തിട്ടുണ്ട്.
+കൂടാതെ
+
+<a
+    href="privacy.html"
+    target="_blank"
+    rel="noopener">
+
+Privacy Policy
+
+</a>
+
+വായിച്ചതായി ഞാൻ സ്ഥിരീകരിക്കുന്നു.
+
+</span>
+
+</label>
+
+
+
+<p
+    class="legal-small"
+    id="legalVersion">
+
+ഈ സമ്മതം Nammude-ന്റെ നിലവിലെ Terms & Conditions,
+Privacy Policy എന്നിവയ്ക്ക് ബാധകമാണ്.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SUBMIT
 ===================================================== -->
 
 <div class="submit-area">
@@ -1171,12 +1338,13 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    FOOTER
+     FOOTER
 ===================================================== -->
 
 <footer class="footer">
 
 <div class="container footer-content">
+
 
 <div>
 
@@ -1190,12 +1358,60 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <p id="footerTagline">
-
 നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
-
 </p>
 
+
+<div class="legal-footer-links">
+
+<a
+    href="terms.html"
+    id="footerTerms">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="privacy.html"
+    id="footerPrivacy">
+
+Privacy Policy
+
+</a>
+
+
+<a
+    href="disclaimer.html"
+    id="footerDisclaimer">
+
+Disclaimer
+
+</a>
+
+
+<a
+    href="refund.html"
+    id="footerRefund">
+
+Refund & Cancellation
+
+</a>
+
+
+<a
+    href="grievance.html"
+    id="footerGrievance">
+
+Grievance
+
+</a>
+
 </div>
+
+</div>
+
 
 
 <p>
@@ -1209,7 +1425,7 @@ WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്
 
 
 <!-- =====================================================
-    JAVASCRIPT
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
@@ -1223,7 +1439,8 @@ const languages = {
 
 ml: {
 
-home: "ഹോം",
+home:
+"ഹോം",
 
 title:
 "നിങ്ങളുടെ പ്രശ്നം<br><span>ഞങ്ങളോട് പറയൂ.</span>",
@@ -1256,7 +1473,7 @@ sameWhatsapp:
 "WhatsApp നമ്പർ ഫോൺ നമ്പർ തന്നെയാണ്",
 
 secondary:
-'4. രണ്ടാമത്തെ ഫോൺ നമ്പർ <small>(ഐച്ഛികം)</small>',
+"4. രണ്ടാമത്തെ ഫോൺ നമ്പർ <small>(ഐച്ഛികം)</small>",
 
 secondaryPlaceholder:
 "10 അക്ക നമ്പർ",
@@ -1267,29 +1484,20 @@ category:
 categories: [
 
 "സർക്കാർ സേവനങ്ങൾ",
-
 "റോഡ് & ഗതാഗതം",
-
 "വെള്ളം, വൈദ്യുതി & അടിസ്ഥാന സൗകര്യങ്ങൾ",
-
 "ആരോഗ്യം",
-
 "വിദ്യാഭ്യാസം",
-
 "മാലിന്യം & പരിസ്ഥിതി",
-
 "മൃഗങ്ങൾ & പൊതുസുരക്ഷ",
-
 "ധനസഹായം, പെൻഷൻ & ഇൻഷുറൻസ്",
-
 "നിയമം & അവകാശങ്ങൾ",
-
 "എനിക്ക് അറിയില്ല"
 
 ],
 
 location:
-'6. പ്രശ്നം എവിടെയാണ്? <small>(ഐച്ഛികം)</small>',
+"6. പ്രശ്നം എവിടെയാണ്? <small>(ഐച്ഛികം)</small>",
 
 place:
 "സ്ഥലം / പ്രദേശം",
@@ -1369,6 +1577,27 @@ reference:
 response:
 "ലഭിച്ച മറുപടി (ഉണ്ടെങ്കിൽ)",
 
+declaration:
+"10. പ്രഖ്യാപനവും സമ്മതവും <span>★</span>",
+
+importantNoticeTitle:
+"പ്രധാന അറിയിപ്പ്",
+
+importantNotice:
+"Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്. ഇത് സർക്കാർ വകുപ്പ്, സർക്കാർ അധികാരി, കോടതി, പോലീസ് വകുപ്പ് അല്ലെങ്കിൽ നിയമ സ്ഥാപനമല്ല. ഒരു റിപ്പോർട്ട് സമർപ്പിച്ചതുകൊണ്ട് ബന്ധപ്പെട്ട അധികാരി നടപടി സ്വീകരിക്കുകയോ പ്രശ്നം പരിഹരിക്കുകയോ ചെയ്യുമെന്ന് ഉറപ്പില്ല.",
+
+dataNoticeTitle:
+"വിവരങ്ങളും തെളിവുകളും",
+
+dataNotice:
+"നിങ്ങളുടെ പ്രശ്നം പരിശോധിക്കുന്നതിനും ബന്ധപ്പെട്ട അധികാരിയുമായി ആശയവിനിമയം നടത്തുന്നതിനുമായി നിങ്ങൾ നൽകുന്ന വിവരങ്ങളും തെളിവുകളും Nammude പ്രോസസ്സ് ചെയ്യുകയും ആവശ്യമായിടത്ത് ബന്ധപ്പെട്ട അധികാരിയുമായോ സ്ഥാപനവുമായോ പങ്കിടുകയും ചെയ്യാം. ആവശ്യത്തിന് മുകളിലുള്ള മറ്റുള്ളവരുടെ സ്വകാര്യ വിവരങ്ങൾ അപ്‌ലോഡ് ചെയ്യരുത്.",
+
+termsConsent:
+'ഞാൻ <a href="terms.html" target="_blank" rel="noopener">Terms & Conditions</a> വായിക്കുകയും അംഗീകരിക്കുകയും ചെയ്തിട്ടുണ്ട്. കൂടാതെ <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> വായിച്ചതായി ഞാൻ സ്ഥിരീകരിക്കുന്നു.',
+
+legalVersion:
+"Nammude-ന്റെ നിലവിലെ Terms & Conditions, Privacy Policy എന്നിവയ്ക്ക് ഈ സമ്മതം ബാധകമാണ്.",
+
 submit:
 "പ്രശ്നം സമർപ്പിക്കാം →",
 
@@ -1402,6 +1631,9 @@ categoryRequired:
 previousRequired:
 "ദയവായി മുമ്പ് പരാതി നൽകിയിട്ടുണ്ടോ എന്ന് തിരഞ്ഞെടുക്കുക.",
 
+consentRequired:
+"റിപ്പോർട്ട് സമർപ്പിക്കുന്നതിന് മുമ്പ് Terms & Conditions അംഗീകരിക്കുകയും Privacy Policy വായിച്ചതായി സ്ഥിരീകരിക്കുകയും വേണം.",
+
 submitting:
 "സമർപ്പിക്കുന്നു...",
 
@@ -1409,7 +1641,22 @@ success:
 "നന്ദി! നിങ്ങളുടെ പ്രശ്നം വിജയകരമായി സമർപ്പിച്ചു.",
 
 failed:
-"പ്രശ്നം സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക."
+"പ്രശ്നം സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.",
+
+footerTerms:
+"Terms & Conditions",
+
+footerPrivacy:
+"Privacy Policy",
+
+footerDisclaimer:
+"Disclaimer",
+
+footerRefund:
+"Refund & Cancellation",
+
+footerGrievance:
+"Grievance"
 
 },
 
@@ -1450,7 +1697,7 @@ sameWhatsapp:
 "WhatsApp number is the same as phone number",
 
 secondary:
-'4. Secondary Phone Number <small>(Optional)</small>',
+"4. Secondary Phone Number <small>(Optional)</small>",
 
 secondaryPlaceholder:
 "10-digit number",
@@ -1461,29 +1708,20 @@ category:
 categories: [
 
 "Government Services",
-
 "Roads & Transport",
-
 "Water, Electricity & Infrastructure",
-
 "Health",
-
 "Education",
-
 "Waste & Environment",
-
 "Animals & Public Safety",
-
 "Financial Assistance, Pension & Insurance",
-
 "Legal & Rights",
-
 "I Don't Know"
 
 ],
 
 location:
-'6. Where is the problem? <small>(Optional)</small>',
+"6. Where is the problem? <small>(Optional)</small>",
 
 place:
 "Place / Area",
@@ -1504,7 +1742,7 @@ locationNote:
 "If the problem has no specific location, you can skip this section.",
 
 problem:
-"7. What is your problem? <span>★</span>",
+"What is your problem? <span>★</span>",
 
 text:
 "✍️ Type",
@@ -1563,6 +1801,27 @@ reference:
 response:
 "Response Received (if any)",
 
+declaration:
+"10. Declaration & Consent <span>★</span>",
+
+importantNoticeTitle:
+"Important Notice",
+
+importantNotice:
+"Nammude is an independent civic-support platform. It is not a government department, government authority, court, police department, or law firm. Submitting a report does not guarantee that the concerned authority will take action or that the reported issue will be resolved.",
+
+dataNoticeTitle:
+"Information & Evidence",
+
+dataNotice:
+"The information and evidence you provide may be processed by Nammude for reviewing your issue and communicating with the relevant authority or organization where necessary. Please do not upload unnecessary personal information belonging to another person.",
+
+termsConsent:
+'I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms & Conditions</a> and confirm that I have read the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.',
+
+legalVersion:
+"This consent applies to the current Nammude Terms & Conditions and Privacy Policy.",
+
 submit:
 "Submit Problem →",
 
@@ -1596,6 +1855,9 @@ categoryRequired:
 previousRequired:
 "Please select whether you reported this before.",
 
+consentRequired:
+"Please accept the Terms & Conditions and confirm that you have read the Privacy Policy before submitting your report.",
+
 submitting:
 "Submitting...",
 
@@ -1603,7 +1865,22 @@ success:
 "Thank you! Your problem has been submitted successfully.",
 
 failed:
-"Could not submit the problem. Please try again."
+"Could not submit the problem. Please try again.",
+
+footerTerms:
+"Terms & Conditions",
+
+footerPrivacy:
+"Privacy Policy",
+
+footerDisclaimer:
+"Disclaimer",
+
+footerRefund:
+"Refund & Cancellation",
+
+footerGrievance:
+"Grievance"
 
 }
 
@@ -1625,7 +1902,7 @@ localStorage.getItem("nammude-language") || "ml";
 ===================================================== */
 
 const themeToggle =
-    document.getElementById("themeToggle");
+document.getElementById("themeToggle");
 
 
 function applyTheme(theme) {
@@ -1667,10 +1944,8 @@ function applyTheme(theme) {
 }
 
 
-/* Load saved theme */
-
 const savedTheme =
-    localStorage.getItem("nammude-theme");
+localStorage.getItem("nammude-theme");
 
 
 if (savedTheme === "dark") {
@@ -1683,8 +1958,6 @@ if (savedTheme === "dark") {
 
 }
 
-
-/* Toggle theme */
 
 themeToggle.addEventListener(
     "click",
@@ -1770,6 +2043,9 @@ document.getElementById("audioStatus");
 const audioPreview =
 document.getElementById("audioPreview");
 
+const termsConsent =
+document.getElementById("termsConsent");
+
 
 
 /* =====================================================
@@ -1778,216 +2054,268 @@ document.getElementById("audioPreview");
 
 function updateLanguage() {
 
-const t =
-languages[currentLanguage];
+    const t =
+        languages[currentLanguage];
+
+    document.documentElement.lang =
+        currentLanguage;
 
 
-document.documentElement.lang =
-currentLanguage;
+    document.getElementById("homeButton")
+        .textContent = t.home;
 
 
-document.getElementById("homeButton")
-.textContent = t.home;
+    document.getElementById("pageTitle")
+        .innerHTML = t.title;
 
 
-document.getElementById("pageTitle")
-.innerHTML = t.title;
+    document.getElementById("pageDescription")
+        .textContent = t.description;
 
 
-document.getElementById("pageDescription")
-.textContent = t.description;
+    document.getElementById("nameTitle")
+        .innerHTML = t.name;
 
 
-document.getElementById("nameTitle")
-.innerHTML = t.name;
+    document.getElementById("name")
+        .placeholder = t.namePlaceholder;
 
 
-document.getElementById("name")
-.placeholder = t.namePlaceholder;
+    document.getElementById("phoneTitle")
+        .innerHTML = t.phone;
 
 
-document.getElementById("phoneTitle")
-.innerHTML = t.phone;
+    document.getElementById("phone")
+        .placeholder = t.phonePlaceholder;
 
 
-document.getElementById("phone")
-.placeholder = t.phonePlaceholder;
+    document.getElementById("phoneHint")
+        .textContent = t.phoneHint;
 
 
-document.getElementById("phoneHint")
-.textContent = t.phoneHint;
+    document.getElementById("whatsappTitle")
+        .innerHTML = t.whatsapp;
 
 
-document.getElementById("whatsappTitle")
-.innerHTML = t.whatsapp;
+    document.getElementById("whatsapp")
+        .placeholder = t.whatsappPlaceholder;
 
 
-document.getElementById("whatsapp")
-.placeholder = t.whatsappPlaceholder;
+    document.getElementById("sameWhatsappText")
+        .textContent = t.sameWhatsapp;
 
 
-document.getElementById("sameWhatsappText")
-.textContent = t.sameWhatsapp;
+    document.getElementById("secondaryTitle")
+        .innerHTML = t.secondary;
 
 
-document.getElementById("secondaryTitle")
-.innerHTML = t.secondary;
+    document.getElementById("secondaryPhone")
+        .placeholder = t.secondaryPlaceholder;
 
 
-document.getElementById("secondaryPhone")
-.placeholder = t.secondaryPlaceholder;
+    document.getElementById("categoryTitle")
+        .innerHTML = t.category;
 
 
-document.getElementById("categoryTitle")
-.innerHTML = t.category;
+    document
+        .querySelectorAll(
+            ".category-option strong"
+        )
+        .forEach(
+            (element, index) => {
+
+                element.textContent =
+                    t.categories[index];
+
+            }
+        );
 
 
-document
-.querySelectorAll(".category-option strong")
-.forEach((element, index) => {
-
-element.textContent =
-t.categories[index];
-
-});
+    document.getElementById("locationTitle")
+        .innerHTML = t.location;
 
 
-document.getElementById("locationTitle")
-.innerHTML = t.location;
+    document.getElementById("placeLabel")
+        .textContent = t.place;
 
 
-document.getElementById("placeLabel")
-.textContent = t.place;
+    document.getElementById("localBodyLabel")
+        .textContent = t.localBody;
 
 
-document.getElementById("localBodyLabel")
-.textContent = t.localBody;
+    document.getElementById("wardLabel")
+        .textContent = t.ward;
 
 
-document.getElementById("wardLabel")
-.textContent = t.ward;
+    document.getElementById("landmarkLabel")
+        .textContent = t.landmark;
 
 
-document.getElementById("landmarkLabel")
-.textContent = t.landmark;
+    document.getElementById("mapButton")
+        .textContent = t.map;
 
 
-document.getElementById("mapButton")
-.textContent = t.map;
+    document.getElementById("locationNote")
+        .textContent = t.locationNote;
 
 
-document.getElementById("locationNote")
-.textContent = t.locationNote;
+    document.getElementById("problemTitle")
+        .innerHTML = t.problem;
 
 
-document.getElementById("problemTitle")
-.innerHTML = t.problem;
+    document.getElementById("useTextText")
+        .textContent = t.text;
 
 
-document.getElementById("useTextText")
-.textContent = t.text;
+    document.getElementById("useAudioText")
+        .textContent = t.audio;
 
 
-document.getElementById("useAudioText")
-.textContent = t.audio;
+    document.getElementById("problem")
+        .placeholder = t.problemPlaceholder;
 
 
-document.getElementById("problem")
-.placeholder = t.problemPlaceholder;
+    if (!mediaRecorder) {
+
+        recordButton.textContent =
+            t.record;
+
+    }
 
 
-if (!mediaRecorder) {
+    document.getElementById("evidenceTitle")
+        .innerHTML = t.evidence;
 
-recordButton.textContent =
-t.record;
+
+    document.getElementById("evidenceHeading")
+        .textContent = t.evidenceHeading;
+
+
+    document.getElementById("evidenceDescription")
+        .textContent = t.evidenceDescription;
+
+
+    document.getElementById("fileButton")
+        .textContent = t.chooseEvidence;
+
+
+    document.getElementById("previousTitle")
+        .innerHTML = t.previous;
+
+
+    document.getElementById("yesText")
+        .textContent = t.yes;
+
+
+    document.getElementById("noText")
+        .textContent = t.no;
+
+
+    document.getElementById("authorityLabel")
+        .textContent = t.authority;
+
+
+    document.getElementById("dateLabel")
+        .textContent = t.date;
+
+
+    document.getElementById("referenceLabel")
+        .textContent = t.reference;
+
+
+    document.getElementById("responseLabel")
+        .textContent = t.response;
+
+
+    document.getElementById("declarationTitle")
+        .innerHTML = t.declaration;
+
+
+    document.getElementById("importantNoticeTitle")
+        .textContent = t.importantNoticeTitle;
+
+
+    document.getElementById("importantNotice")
+        .textContent = t.importantNotice;
+
+
+    document.getElementById("dataNoticeTitle")
+        .textContent = t.dataNoticeTitle;
+
+
+    document.getElementById("dataNotice")
+        .textContent = t.dataNotice;
+
+
+    document.getElementById("termsConsentText")
+        .innerHTML = t.termsConsent;
+
+
+    document.getElementById("legalVersion")
+        .textContent = t.legalVersion;
+
+
+    document.getElementById("submitButton")
+        .textContent = t.submit;
+
+
+    document.getElementById("privacyNote")
+        .textContent = t.privacy;
+
+
+    document.getElementById("footerTagline")
+        .textContent =
+            currentLanguage === "ml"
+                ? "നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
+                : "Your problem, our intervention.";
+
+
+    document.getElementById("footerTerms")
+        .textContent = t.footerTerms;
+
+
+    document.getElementById("footerPrivacy")
+        .textContent = t.footerPrivacy;
+
+
+    document.getElementById("footerDisclaimer")
+        .textContent = t.footerDisclaimer;
+
+
+    document.getElementById("footerRefund")
+        .textContent = t.footerRefund;
+
+
+    document.getElementById("footerGrievance")
+        .textContent = t.footerGrievance;
+
+
+    languageToggle.textContent =
+        currentLanguage === "ml"
+            ? "EN"
+            : "മലയാളം";
 
 }
 
-
-document.getElementById("evidenceTitle")
-.innerHTML = t.evidence;
-
-
-document.getElementById("evidenceHeading")
-.textContent = t.evidenceHeading;
-
-
-document.getElementById("evidenceDescription")
-.textContent = t.evidenceDescription;
-
-
-document.getElementById("fileButton")
-.textContent = t.chooseEvidence;
-
-
-document.getElementById("previousTitle")
-.innerHTML = t.previous;
-
-
-document.getElementById("yesText")
-.textContent = t.yes;
-
-
-document.getElementById("noText")
-.textContent = t.no;
-
-
-document.getElementById("authorityLabel")
-.textContent = t.authority;
-
-
-document.getElementById("dateLabel")
-.textContent = t.date;
-
-
-document.getElementById("referenceLabel")
-.textContent = t.reference;
-
-
-document.getElementById("responseLabel")
-.textContent = t.response;
-
-
-document.getElementById("submitButton")
-.textContent = t.submit;
-
-
-document.getElementById("privacyNote")
-.textContent = t.privacy;
-
-
-document.getElementById("footerTagline")
-.textContent =
-currentLanguage === "ml"
-? "നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
-: "Your problem, our intervention.";
-
-
-languageToggle.textContent =
-currentLanguage === "ml"
-? "EN"
-: "മലയാളം";
-
-}
 
 
 languageToggle.addEventListener(
-"click",
-() => {
+    "click",
+    () => {
 
-currentLanguage =
-currentLanguage === "ml"
-? "en"
-: "ml";
+        currentLanguage =
+            currentLanguage === "ml"
+                ? "en"
+                : "ml";
 
-localStorage.setItem(
-"nammude-language",
-currentLanguage
-);
+        localStorage.setItem(
+            "nammude-language",
+            currentLanguage
+        );
 
-updateLanguage();
+        updateLanguage();
 
-}
+    }
 );
 
 
@@ -1998,48 +2326,48 @@ updateLanguage();
 
 function onlyDigits(input) {
 
-input.value =
-input.value
-.replace(/\D/g, "")
-.slice(0, 10);
+    input.value =
+        input.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
 
 }
 
 
 phone.addEventListener(
-"input",
-() => {
+    "input",
+    () => {
 
-onlyDigits(phone);
+        onlyDigits(phone);
 
-if (sameWhatsapp.checked) {
+        if (sameWhatsapp.checked) {
 
-whatsapp.value =
-phone.value;
+            whatsapp.value =
+                phone.value;
 
-}
+        }
 
-}
+    }
 );
 
 
 whatsapp.addEventListener(
-"input",
-() => {
+    "input",
+    () => {
 
-onlyDigits(whatsapp);
+        onlyDigits(whatsapp);
 
-}
+    }
 );
 
 
 secondaryPhone.addEventListener(
-"input",
-() => {
+    "input",
+    () => {
 
-onlyDigits(secondaryPhone);
+        onlyDigits(secondaryPhone);
 
-}
+    }
 );
 
 
@@ -2049,27 +2377,27 @@ onlyDigits(secondaryPhone);
 ===================================================== */
 
 sameWhatsapp.addEventListener(
-"change",
-() => {
+    "change",
+    () => {
 
-if (sameWhatsapp.checked) {
+        if (sameWhatsapp.checked) {
 
-whatsapp.value =
-phone.value;
+            whatsapp.value =
+                phone.value;
 
-whatsapp.readOnly =
-true;
+            whatsapp.readOnly =
+                true;
 
-} else {
+        } else {
 
-whatsapp.readOnly =
-false;
+            whatsapp.readOnly =
+                false;
 
-whatsapp.value = "";
+            whatsapp.value = "";
 
-}
+        }
 
-}
+    }
 );
 
 
@@ -2080,24 +2408,24 @@ whatsapp.value = "";
 
 function updateProblemMethod() {
 
-textBox.hidden =
-!useText.checked;
+    textBox.hidden =
+        !useText.checked;
 
-audioBox.hidden =
-!useAudio.checked;
+    audioBox.hidden =
+        !useAudio.checked;
 
 }
 
 
 useText.addEventListener(
-"change",
-updateProblemMethod
+    "change",
+    updateProblemMethod
 );
 
 
 useAudio.addEventListener(
-"change",
-updateProblemMethod
+    "change",
+    updateProblemMethod
 );
 
 
@@ -2107,26 +2435,31 @@ updateProblemMethod
 ===================================================== */
 
 evidence.addEventListener(
-"change",
-() => {
+    "change",
+    () => {
 
-fileList.innerHTML = "";
+        fileList.innerHTML = "";
 
+        Array.from(evidence.files)
+            .forEach(
+                file => {
 
-Array.from(evidence.files)
-.forEach(file => {
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
 
-const item =
-document.createElement("div");
+                    item.textContent =
+                        "📎 " + file.name;
 
-item.textContent =
-"📎 " + file.name;
+                    fileList.appendChild(
+                        item
+                    );
 
-fileList.appendChild(item);
+                }
+            );
 
-});
-
-}
+    }
 );
 
 
@@ -2136,24 +2469,24 @@ fileList.appendChild(item);
 ===================================================== */
 
 reportedYes.addEventListener(
-"change",
-() => {
+    "change",
+    () => {
 
-previousFields.hidden =
-false;
+        previousFields.hidden =
+            false;
 
-}
+    }
 );
 
 
 reportedNo.addEventListener(
-"change",
-() => {
+    "change",
+    () => {
 
-previousFields.hidden =
-true;
+        previousFields.hidden =
+            true;
 
-}
+    }
 );
 
 
@@ -2170,127 +2503,136 @@ let recordedAudioBlob = null;
 
 
 recordButton.addEventListener(
-"click",
-async () => {
+    "click",
+    async () => {
 
-const t =
-languages[currentLanguage];
-
-
-/* START */
-
-if (!mediaRecorder) {
-
-try {
-
-const stream =
-await navigator.mediaDevices
-.getUserMedia({
-audio: true
-});
+        const t =
+            languages[currentLanguage];
 
 
-audioChunks = [];
+        /* START */
 
-recordedAudioBlob = null;
+        if (!mediaRecorder) {
 
+            try {
 
-mediaRecorder =
-new MediaRecorder(stream);
-
-
-mediaRecorder.ondataavailable =
-event => {
-
-if (event.data.size > 0) {
-
-audioChunks.push(
-event.data
-);
-
-}
-
-};
+                const stream =
+                    await navigator
+                        .mediaDevices
+                        .getUserMedia({
+                            audio: true
+                        });
 
 
-mediaRecorder.onstop =
-() => {
+                audioChunks = [];
 
-recordedAudioBlob =
-new Blob(
-audioChunks,
-{
-type:
-"audio/webm"
-}
-);
+                recordedAudioBlob =
+                    null;
 
 
-const audioURL =
-URL.createObjectURL(
-recordedAudioBlob
-);
+                mediaRecorder =
+                    new MediaRecorder(
+                        stream
+                    );
 
 
-audioPreview.src =
-audioURL;
+                mediaRecorder.ondataavailable =
+                    event => {
 
-audioPreview.hidden =
-false;
+                        if (
+                            event.data.size > 0
+                        ) {
 
+                            audioChunks.push(
+                                event.data
+                            );
 
-audioStatus.textContent =
-languages[currentLanguage].recorded;
+                        }
 
-
-stream
-.getTracks()
-.forEach(
-track =>
-track.stop()
-);
-
-};
+                    };
 
 
-mediaRecorder.start();
+                mediaRecorder.onstop =
+                    () => {
+
+                        recordedAudioBlob =
+                            new Blob(
+                                audioChunks,
+                                {
+                                    type:
+                                        "audio/webm"
+                                }
+                            );
 
 
-recordButton.textContent =
-t.recording;
+                        const audioURL =
+                            URL.createObjectURL(
+                                recordedAudioBlob
+                            );
 
 
-audioStatus.textContent =
-t.recording;
-
-}
-
-catch (error) {
-
-console.error(error);
-
-audioStatus.textContent =
-t.microphone;
-
-}
-
-}
+                        audioPreview.src =
+                            audioURL;
 
 
-/* STOP */
+                        audioPreview.hidden =
+                            false;
 
-else {
 
-mediaRecorder.stop();
+                        audioStatus.textContent =
+                            languages[
+                                currentLanguage
+                            ].recorded;
 
-mediaRecorder = null;
 
-recordButton.textContent =
-t.record;
+                        stream
+                            .getTracks()
+                            .forEach(
+                                track =>
+                                    track.stop()
+                            );
 
-}
+                    };
 
-}
+
+                mediaRecorder.start();
+
+
+                recordButton.textContent =
+                    t.recording;
+
+
+                audioStatus.textContent =
+                    t.recording;
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                audioStatus.textContent =
+                    t.microphone;
+
+            }
+
+        }
+
+
+        /* STOP */
+
+        else {
+
+            mediaRecorder.stop();
+
+            mediaRecorder = null;
+
+            recordButton.textContent =
+                t.record;
+
+        }
+
+    }
 );
 
 
@@ -2300,66 +2642,70 @@ t.record;
 ===================================================== */
 
 async function uploadFile(
-file,
-folder
+    file,
+    folder
 ) {
 
-const extension =
-file.name.includes(".")
-? file.name
-.split(".")
-.pop()
-.toLowerCase()
-: "bin";
+    const extension =
+        file.name.includes(".")
+            ? file.name
+                .split(".")
+                .pop()
+                .toLowerCase()
+            : "bin";
 
 
-const uniqueName =
-Date.now() +
-"_" +
-Math.random()
-.toString(36)
-.substring(2, 10) +
-"." +
-extension;
+    const uniqueName =
+        Date.now() +
+        "_" +
+        Math.random()
+            .toString(36)
+            .substring(2, 10) +
+        "." +
+        extension;
 
 
-const filePath =
-folder +
-"/" +
-uniqueName;
+    const filePath =
+        folder +
+        "/" +
+        uniqueName;
 
 
-const { error } =
-await window.NAMMUDE_SUPABASE
-.storage
-.from("evidence")
-.upload(
-filePath,
-file,
-{
-cacheControl: "3600",
-upsert: false
-}
-);
+    const {
+        error
+    } =
+        await window.NAMMUDE_SUPABASE
+            .storage
+            .from("evidence")
+            .upload(
+                filePath,
+                file,
+                {
+                    cacheControl: "3600",
+                    upsert: false
+                }
+            );
 
 
-if (error) {
+    if (error) {
 
-throw error;
+        throw error;
 
-}
-
-
-const { data } =
-window.NAMMUDE_SUPABASE
-.storage
-.from("evidence")
-.getPublicUrl(
-filePath
-);
+    }
 
 
-return data.publicUrl;
+    const {
+        data
+    } =
+        window.NAMMUDE_SUPABASE
+            .storage
+            .from("evidence")
+            .getPublicUrl(
+                filePath
+            );
+
+
+    return data.publicUrl;
 
 }
 
@@ -2382,13 +2728,19 @@ const longitudeInput =
 document.getElementById("longitude");
 
 const selectedLocationText =
-document.getElementById("selectedLocationText");
+document.getElementById(
+    "selectedLocationText"
+);
 
 const useMyLocation =
-document.getElementById("useMyLocation");
+document.getElementById(
+    "useMyLocation"
+);
 
 const confirmLocation =
-document.getElementById("confirmLocation");
+document.getElementById(
+    "confirmLocation"
+);
 
 
 let reportMap = null;
@@ -2397,223 +2749,240 @@ let locationMarker = null;
 
 
 mapButton.addEventListener(
-"click",
-() => {
+    "click",
+    () => {
 
-mapContainer.hidden = false;
-
-
-if (!reportMap) {
-
-reportMap =
-L.map("reportMap")
-.setView(
-[10.8505, 76.2711],
-9
-);
+        mapContainer.hidden =
+            false;
 
 
-L.tileLayer(
-"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{
-maxZoom: 19,
-attribution:
-"&copy; OpenStreetMap contributors"
-}
-).addTo(reportMap);
+        if (!reportMap) {
+
+            reportMap =
+                L.map(
+                    "reportMap"
+                )
+                .setView(
+                    [
+                        10.8505,
+                        76.2711
+                    ],
+                    9
+                );
 
 
-reportMap.on(
-"click",
-event => {
-
-setMapLocation(
-event.latlng.lat,
-event.latlng.lng
-);
-
-}
-);
-
-}
+            L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+                    maxZoom: 19,
+                    attribution:
+                        "&copy; OpenStreetMap contributors"
+                }
+            )
+            .addTo(
+                reportMap
+            );
 
 
-setTimeout(
-() => {
+            reportMap.on(
+                "click",
+                event => {
 
-reportMap.invalidateSize();
+                    setMapLocation(
+                        event.latlng.lat,
+                        event.latlng.lng
+                    );
 
-},
-200
-);
+                }
+            );
 
-}
+        }
+
+
+        setTimeout(
+            () => {
+
+                reportMap.invalidateSize();
+
+            },
+            200
+        );
+
+    }
 );
 
 
 
 function setMapLocation(
-lat,
-lng
+    lat,
+    lng
 ) {
 
-latitudeInput.value =
-lat.toFixed(6);
+    latitudeInput.value =
+        lat.toFixed(6);
 
-longitudeInput.value =
-lng.toFixed(6);
-
-
-if (locationMarker) {
-
-locationMarker.setLatLng(
-[lat, lng]
-);
-
-} else {
-
-locationMarker =
-L.marker(
-[lat, lng]
-)
-.addTo(reportMap);
-
-}
+    longitudeInput.value =
+        lng.toFixed(6);
 
 
-selectedLocationText.textContent =
-currentLanguage === "ml"
+    if (locationMarker) {
 
-? `📍 തിരഞ്ഞെടുത്ത സ്ഥലം: ${lat.toFixed(6)}, ${lng.toFixed(6)}`
+        locationMarker.setLatLng(
+            [
+                lat,
+                lng
+            ]
+        );
 
-: `📍 Selected location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+    }
+
+    else {
+
+        locationMarker =
+            L.marker(
+                [
+                    lat,
+                    lng
+                ]
+            )
+            .addTo(
+                reportMap
+            );
+
+    }
+
+
+    selectedLocationText.textContent =
+        currentLanguage === "ml"
+            ? `📍 തിരഞ്ഞെടുത്ത സ്ഥലം: ${lat.toFixed(6)}, ${lng.toFixed(6)}`
+            : `📍 Selected location: ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
 
 }
 
 
 
 useMyLocation.addEventListener(
-"click",
-() => {
+    "click",
+    () => {
 
-if (!navigator.geolocation) {
+        if (!navigator.geolocation) {
 
-alert(
-currentLanguage === "ml"
+            alert(
+                currentLanguage === "ml"
+                    ? "ഈ ബ്രൗസറിൽ ലൊക്കേഷൻ സേവനം ലഭ്യമല്ല."
+                    : "Location is not supported by this browser."
+            );
 
-? "ഈ ബ്രൗസറിൽ ലൊക്കേഷൻ സേവനം ലഭ്യമല്ല."
+            return;
 
-: "Location is not supported by this browser."
-);
-
-return;
-
-}
+        }
 
 
-useMyLocation.disabled =
-true;
+        useMyLocation.disabled =
+            true;
 
 
-navigator.geolocation.getCurrentPosition(
+        navigator.geolocation.getCurrentPosition(
 
-position => {
+            position => {
 
-const lat =
-position.coords.latitude;
+                const lat =
+                    position.coords.latitude;
 
-const lng =
-position.coords.longitude;
-
-
-reportMap.setView(
-[lat, lng],
-17
-);
+                const lng =
+                    position.coords.longitude;
 
 
-setMapLocation(
-lat,
-lng
-);
+                reportMap.setView(
+                    [
+                        lat,
+                        lng
+                    ],
+                    17
+                );
 
 
-useMyLocation.disabled =
-false;
-
-},
-
-error => {
-
-console.error(
-"Geolocation error:",
-error
-);
+                setMapLocation(
+                    lat,
+                    lng
+                );
 
 
-alert(
-currentLanguage === "ml"
+                useMyLocation.disabled =
+                    false;
 
-? "നിങ്ങളുടെ സ്ഥലം കണ്ടെത്താനായില്ല. മാപ്പിൽ നേരിട്ട് തിരഞ്ഞെടുക്കുക."
-
-: "Could not get your location. Please select it manually on the map."
-);
+            },
 
 
-useMyLocation.disabled =
-false;
+            error => {
 
-},
+                console.error(
+                    "Geolocation error:",
+                    error
+                );
 
-{
-enableHighAccuracy: true,
-timeout: 10000,
-maximumAge: 0
-}
 
-);
+                alert(
+                    currentLanguage === "ml"
+                        ? "നിങ്ങളുടെ സ്ഥലം കണ്ടെത്താനായില്ല. മാപ്പിൽ നേരിട്ട് തിരഞ്ഞെടുക്കുക."
+                        : "Could not get your location. Please select it manually on the map."
+                );
 
-}
+
+                useMyLocation.disabled =
+                    false;
+
+            },
+
+
+            {
+                enableHighAccuracy:
+                    true,
+
+                timeout:
+                    10000,
+
+                maximumAge:
+                    0
+            }
+
+        );
+
+    }
 );
 
 
 
 confirmLocation.addEventListener(
-"click",
-() => {
+    "click",
+    () => {
 
-if (
-!latitudeInput.value ||
-!longitudeInput.value
-) {
+        if (
+            !latitudeInput.value ||
+            !longitudeInput.value
+        ) {
 
-alert(
+            alert(
+                currentLanguage === "ml"
+                    ? "ദയവായി മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുക."
+                    : "Please select a location on the map."
+            );
 
-currentLanguage === "ml"
+            return;
 
-? "ദയവായി മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുക."
-
-: "Please select a location on the map."
-
-);
-
-return;
-
-}
+        }
 
 
-mapContainer.hidden =
-true;
+        mapContainer.hidden =
+            true;
 
 
-mapButton.textContent =
-currentLanguage === "ml"
+        mapButton.textContent =
+            currentLanguage === "ml"
+                ? "📍 സ്ഥലം തിരഞ്ഞെടുത്തു"
+                : "📍 Location selected";
 
-? "📍 സ്ഥലം തിരഞ്ഞെടുത്തു"
-
-: "📍 Location selected";
-
-}
+    }
 );
 
 
@@ -2623,654 +2992,701 @@ currentLanguage === "ml"
 ===================================================== */
 
 document
-.getElementById("problemForm")
-.addEventListener(
-"submit",
-async event => {
+    .getElementById("problemForm")
+    .addEventListener(
+        "submit",
+        async event => {
 
-event.preventDefault();
+            event.preventDefault();
 
 
-const t =
-languages[currentLanguage];
+            const t =
+                languages[currentLanguage];
 
 
+            /* =================================================
+               BASIC VALUES
+            ================================================= */
 
-/* =====================================================
-   BASIC VALUES
-===================================================== */
+            const nameValue =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
 
-const nameValue =
-document
-.getElementById("name")
-.value
-.trim();
 
+            const phoneValue =
+                phone.value.trim();
 
-const phoneValue =
-phone.value.trim();
 
+            const whatsappValue =
+                whatsapp.value.trim();
 
-const whatsappValue =
-whatsapp.value.trim();
 
+            const secondaryValue =
+                secondaryPhone.value.trim();
 
-const secondaryValue =
-secondaryPhone.value.trim();
 
+            const selectedCategory =
+                document.querySelector(
+                    'input[name="category"]:checked'
+                );
 
-const selectedCategory =
-document.querySelector(
-'input[name="category"]:checked'
-);
 
+            const reportedBefore =
+                document.querySelector(
+                    'input[name="reportedBefore"]:checked'
+                );
 
-const reportedBefore =
-document.querySelector(
-'input[name="reportedBefore"]:checked'
-);
 
+            const tenDigits =
+                /^[0-9]{10}$/;
 
-const tenDigits =
-/^[0-9]{10}$/;
 
 
+            /* =================================================
+               CONSENT
+            ================================================= */
 
-/* =====================================================
-   NAME
-===================================================== */
+            if (!termsConsent.checked) {
 
-if (!nameValue) {
+                alert(
+                    t.consentRequired
+                );
 
-alert(t.invalidName);
+                termsConsent.focus();
 
-document
-.getElementById("name")
-.focus();
+                return;
 
-return;
+            }
 
-}
 
 
+            /* =================================================
+               NAME
+            ================================================= */
 
-/* =====================================================
-   PHONE
-===================================================== */
+            if (!nameValue) {
 
-if (
-!tenDigits.test(phoneValue)
-) {
+                alert(
+                    t.invalidName
+                );
 
-alert(t.invalidPhone);
+                document
+                    .getElementById("name")
+                    .focus();
 
-phone.focus();
+                return;
 
-return;
+            }
 
-}
 
 
+            /* =================================================
+               PHONE
+            ================================================= */
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+            if (
+                !tenDigits.test(
+                    phoneValue
+                )
+            ) {
 
-if (
-!tenDigits.test(whatsappValue)
-) {
+                alert(
+                    t.invalidPhone
+                );
 
-alert(t.invalidWhatsapp);
+                phone.focus();
 
-whatsapp.focus();
+                return;
 
-return;
+            }
 
-}
 
 
+            /* =================================================
+               WHATSAPP
+            ================================================= */
 
-/* =====================================================
-   SECONDARY
-===================================================== */
+            if (
+                !tenDigits.test(
+                    whatsappValue
+                )
+            ) {
 
-if (
-secondaryValue &&
-!tenDigits.test(
-secondaryValue
-)
-) {
+                alert(
+                    t.invalidWhatsapp
+                );
 
-alert(t.invalidSecondary);
+                whatsapp.focus();
 
-secondaryPhone.focus();
+                return;
 
-return;
+            }
 
-}
 
 
+            /* =================================================
+               SECONDARY
+            ================================================= */
 
-/* =====================================================
-   CATEGORY
-===================================================== */
+            if (
+                secondaryValue &&
+                !tenDigits.test(
+                    secondaryValue
+                )
+            ) {
 
-if (!selectedCategory) {
+                alert(
+                    t.invalidSecondary
+                );
 
-alert(t.categoryRequired);
+                secondaryPhone.focus();
 
-return;
+                return;
 
-}
+            }
 
 
 
-/* =====================================================
-   PROBLEM
-===================================================== */
+            /* =================================================
+               CATEGORY
+            ================================================= */
 
-if (
-!useText.checked &&
-!useAudio.checked
-) {
+            if (!selectedCategory) {
 
-alert(t.problemRequired);
+                alert(
+                    t.categoryRequired
+                );
 
-return;
+                return;
 
-}
+            }
 
 
-if (
-useText.checked &&
-!problem.value.trim()
-) {
 
-alert(t.problemRequired);
+            /* =================================================
+               PROBLEM
+            ================================================= */
 
-problem.focus();
+            if (
+                !useText.checked &&
+                !useAudio.checked
+            ) {
 
-return;
+                alert(
+                    t.problemRequired
+                );
 
-}
+                return;
 
+            }
 
-if (
-useAudio.checked &&
-!recordedAudioBlob
-) {
 
-alert(t.audioRequired);
+            if (
+                useText.checked &&
+                !problem.value.trim()
+            ) {
 
-return;
+                alert(
+                    t.problemRequired
+                );
 
-}
+                problem.focus();
 
+                return;
 
+            }
 
-/* =====================================================
-   EVIDENCE
-===================================================== */
 
-if (
-evidence.files.length === 0
-) {
+            if (
+                useAudio.checked &&
+                !recordedAudioBlob
+            ) {
 
-alert(t.evidenceRequired);
+                alert(
+                    t.audioRequired
+                );
 
-return;
+                return;
 
-}
+            }
 
 
 
-/* =====================================================
-   PREVIOUS COMPLAINT
-===================================================== */
+            /* =================================================
+               EVIDENCE
+            ================================================= */
 
-if (!reportedBefore) {
+            if (
+                evidence.files.length === 0
+            ) {
 
-alert(t.previousRequired);
+                alert(
+                    t.evidenceRequired
+                );
 
-return;
+                return;
 
-}
+            }
 
 
 
-/* =====================================================
-   LOCATION
-===================================================== */
+            /* =================================================
+               PREVIOUS COMPLAINT
+            ================================================= */
 
-const locationParts = [
+            if (!reportedBefore) {
 
-document
-.getElementById("place")
-.value
-.trim(),
+                alert(
+                    t.previousRequired
+                );
 
-document
-.getElementById("localBody")
-.value
-.trim(),
+                return;
 
-document
-.getElementById("ward")
-.value
-.trim(),
+            }
 
-document
-.getElementById("landmark")
-.value
-.trim()
 
-].filter(Boolean);
 
+            /* =================================================
+               LOCATION
+            ================================================= */
 
-let locationValue =
-locationParts.join(", ");
+            const locationParts = [
 
+                document
+                    .getElementById("place")
+                    .value
+                    .trim(),
 
-const latitude =
-document
-.getElementById("latitude")
-.value;
+                document
+                    .getElementById("localBody")
+                    .value
+                    .trim(),
 
+                document
+                    .getElementById("ward")
+                    .value
+                    .trim(),
 
-const longitude =
-document
-.getElementById("longitude")
-.value;
+                document
+                    .getElementById("landmark")
+                    .value
+                    .trim()
 
+            ]
+            .filter(Boolean);
 
-if (
-latitude &&
-longitude
-) {
 
-locationValue +=
-(locationValue ? " | " : "") +
-`Coordinates: ${latitude}, ${longitude}`;
+            let locationValue =
+                locationParts.join(", ");
 
-}
 
+            const latitude =
+                document
+                    .getElementById("latitude")
+                    .value;
 
 
-/* =====================================================
-   PREVIOUS COMPLAINT DETAILS
-===================================================== */
+            const longitude =
+                document
+                    .getElementById("longitude")
+                    .value;
 
-let descriptionValue =
-problem.value.trim();
 
+            if (
+                latitude &&
+                longitude
+            ) {
 
-const authority =
-document
-.getElementById("authority")
-.value
-.trim();
+                locationValue +=
+                    (locationValue
+                        ? " | "
+                        : "") +
+                    `Coordinates: ${latitude}, ${longitude}`;
 
+            }
 
-const complaintDate =
-document
-.getElementById("complaintDate")
-.value;
 
 
-const referenceNumber =
-document
-.getElementById("referenceNumber")
-.value
-.trim();
+            /* =================================================
+               PREVIOUS COMPLAINT DETAILS
+            ================================================= */
 
+            let descriptionValue =
+                problem.value.trim();
 
-const previousResponse =
-document
-.getElementById("previousResponse")
-.value
-.trim();
 
+            const authority =
+                document
+                    .getElementById("authority")
+                    .value
+                    .trim();
 
-let previousDetails =
-"\n\n--- Previous Complaint Information ---";
 
+            const complaintDate =
+                document
+                    .getElementById("complaintDate")
+                    .value;
 
-previousDetails +=
-"\nReported Before: " +
-reportedBefore.value;
 
+            const referenceNumber =
+                document
+                    .getElementById("referenceNumber")
+                    .value
+                    .trim();
 
-if (
-reportedBefore.value === "yes"
-) {
 
-if (authority) {
+            const previousResponse =
+                document
+                    .getElementById("previousResponse")
+                    .value
+                    .trim();
 
-previousDetails +=
-"\nAuthority: " +
-authority;
 
-}
+            let previousDetails =
+                "\n\n--- Previous Complaint Information ---";
 
 
-if (complaintDate) {
+            previousDetails +=
+                "\nReported Before: " +
+                reportedBefore.value;
 
-previousDetails +=
-"\nComplaint Date: " +
-complaintDate;
 
-}
+            if (
+                reportedBefore.value ===
+                "yes"
+            ) {
 
+                if (authority) {
 
-if (referenceNumber) {
+                    previousDetails +=
+                        "\nAuthority: " +
+                        authority;
 
-previousDetails +=
-"\nReference Number: " +
-referenceNumber;
+                }
 
-}
 
+                if (complaintDate) {
 
-if (previousResponse) {
+                    previousDetails +=
+                        "\nComplaint Date: " +
+                        complaintDate;
 
-previousDetails +=
-"\nPrevious Response: " +
-previousResponse;
+                }
 
-}
 
-}
+                if (referenceNumber) {
 
+                    previousDetails +=
+                        "\nReference Number: " +
+                        referenceNumber;
 
-descriptionValue +=
-previousDetails;
+                }
 
 
+                if (previousResponse) {
 
-/* =====================================================
-   BUTTON
-===================================================== */
+                    previousDetails +=
+                        "\nPrevious Response: " +
+                        previousResponse;
 
-const submitButton =
-document
-.getElementById(
-"submitButton"
-);
+                }
 
+            }
 
-submitButton.disabled =
-true;
 
+            descriptionValue +=
+                previousDetails;
 
-submitButton.textContent =
-t.submitting;
 
 
+            /* =================================================
+               BUTTON
+            ================================================= */
 
-try {
+            const submitButton =
+                document
+                    .getElementById(
+                        "submitButton"
+                    );
 
 
-/* =====================================================
-   UPLOAD EVIDENCE
-===================================================== */
+            submitButton.disabled =
+                true;
 
-const evidenceURLs = [];
 
+            submitButton.textContent =
+                t.submitting;
 
-for (
-const file
-of Array.from(
-evidence.files
-)
-) {
 
-const url =
-await uploadFile(
-file,
-"reports"
-);
 
+            try {
 
-evidenceURLs.push(url);
 
-}
+                /* =============================================
+                   UPLOAD EVIDENCE
+                ============================================= */
 
+                const evidenceURLs = [];
 
 
-/* =====================================================
-   UPLOAD AUDIO
-===================================================== */
+                for (
+                    const file
+                    of Array.from(
+                        evidence.files
+                    )
+                ) {
 
-let audioURL =
-null;
+                    const url =
+                        await uploadFile(
+                            file,
+                            "reports"
+                        );
 
 
-if (
-recordedAudioBlob &&
-useAudio.checked
-) {
+                    evidenceURLs.push(
+                        url
+                    );
 
-const audioFile =
-new File(
-[
-recordedAudioBlob
-],
-"audio_" +
-Date.now() +
-".webm",
-{
-type:
-"audio/webm"
-}
-);
+                }
 
 
-audioURL =
-await uploadFile(
-audioFile,
-"audio"
-);
 
-}
+                /* =============================================
+                   UPLOAD AUDIO
+                ============================================= */
 
+                let audioURL =
+                    null;
 
 
-/* =====================================================
-   INSERT REPORT
-===================================================== */
+                if (
+                    recordedAudioBlob &&
+                    useAudio.checked
+                ) {
 
-const {
-error
-} =
-await window.NAMMUDE_SUPABASE
-.from("reports")
-.insert({
+                    const audioFile =
+                        new File(
+                            [
+                                recordedAudioBlob
+                            ],
+                            "audio_" +
+                            Date.now() +
+                            ".webm",
+                            {
+                                type:
+                                    "audio/webm"
+                            }
+                        );
 
-name:
-nameValue,
 
-phone:
-phoneValue,
+                    audioURL =
+                        await uploadFile(
+                            audioFile,
+                            "audio"
+                        );
 
-whatsapp:
-whatsappValue,
+                }
 
-secondary_phone:
-secondaryValue ||
-null,
 
-category:
-selectedCategory
-.value,
 
-location:
-locationValue ||
-null,
+                /* =============================================
+                   INSERT REPORT
+                ============================================= */
 
-description:
-descriptionValue,
+                const {
+                    error
+                } =
+                    await window
+                        .NAMMUDE_SUPABASE
+                        .from("reports")
+                        .insert({
 
-audio_url:
-audioURL,
+                            name:
+                                nameValue,
 
-evidence_url:
-evidenceURLs.length
-? JSON.stringify(
-evidenceURLs
-)
-: null,
+                            phone:
+                                phoneValue,
 
-status:
-"pending"
+                            whatsapp:
+                                whatsappValue,
 
-});
+                            secondary_phone:
+                                secondaryValue ||
+                                null,
 
+                            category:
+                                selectedCategory.value,
 
-if (error) {
+                            location:
+                                locationValue ||
+                                null,
 
-throw error;
+                            description:
+                                descriptionValue,
 
-}
+                            audio_url:
+                                audioURL,
 
+                            evidence_url:
+                                evidenceURLs.length
+                                    ? JSON.stringify(
+                                        evidenceURLs
+                                    )
+                                    : null,
 
+                            status:
+                                "pending"
 
-/* =====================================================
-   SUCCESS
-===================================================== */
+                        });
 
-const successMessage =
-document
-.getElementById(
-"successMessage"
-);
 
+                if (error) {
 
-successMessage.textContent =
-t.success;
+                    throw error;
 
+                }
 
-successMessage.hidden =
-false;
 
 
+                /* =============================================
+                   SUCCESS
+                ============================================= */
 
-/* =====================================================
-   RESET FORM
-===================================================== */
+                const successMessage =
+                    document
+                        .getElementById(
+                            "successMessage"
+                        );
 
-document
-.getElementById(
-"problemForm"
-)
-.reset();
 
+                successMessage.textContent =
+                    t.success;
 
-fileList.innerHTML =
-"";
 
+                successMessage.hidden =
+                    false;
 
-previousFields.hidden =
-true;
 
 
-audioPreview.hidden =
-true;
+                /* =============================================
+                   RESET FORM
+                ============================================= */
 
+                document
+                    .getElementById(
+                        "problemForm"
+                    )
+                    .reset();
 
-audioPreview.src =
-"";
 
+                fileList.innerHTML =
+                    "";
 
-audioStatus.textContent =
-languages[
-currentLanguage
-].audioStatus;
 
+                previousFields.hidden =
+                    true;
 
-recordedAudioBlob =
-null;
 
+                audioPreview.hidden =
+                    true;
 
 
-/* =====================================================
-   RESET MAP
-===================================================== */
+                audioPreview.src =
+                    "";
 
-latitudeInput.value =
-"";
 
-longitudeInput.value =
-"";
+                audioStatus.textContent =
+                    languages[
+                        currentLanguage
+                    ].audioStatus;
 
 
-if (
-locationMarker &&
-reportMap
-) {
+                recordedAudioBlob =
+                    null;
 
-reportMap.removeLayer(
-locationMarker
-);
 
-locationMarker =
-null;
+                termsConsent.checked =
+                    false;
 
-}
 
 
-mapContainer.hidden =
-true;
+                /* =============================================
+                   RESET MAP
+                ============================================= */
 
+                latitudeInput.value =
+                    "";
 
-mapButton.textContent =
-currentLanguage === "ml"
+                longitudeInput.value =
+                    "";
 
-? "📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുക"
 
-: "📍 Select location on map";
+                if (
+                    locationMarker &&
+                    reportMap
+                ) {
 
+                    reportMap.removeLayer(
+                        locationMarker
+                    );
 
+                    locationMarker =
+                        null;
 
-mediaRecorder =
-null;
+                }
 
 
-updateProblemMethod();
+                mapContainer.hidden =
+                    true;
 
 
-}
+                mapButton.textContent =
+                    currentLanguage === "ml"
+                        ? "📍 മാപ്പിൽ സ്ഥലം തിരഞ്ഞെടുക്കുക"
+                        : "📍 Select location on map";
 
 
-catch (error) {
+                mediaRecorder =
+                    null;
 
-console.error(
-"Supabase submission error:",
-error
-);
 
+                updateProblemMethod();
 
-alert(
-t.failed
-);
+            }
 
-}
 
+            catch (error) {
 
-finally {
+                console.error(
+                    "Supabase submission error:",
+                    error
+                );
 
-submitButton.disabled =
-false;
 
+                alert(
+                    t.failed
+                );
 
-submitButton.textContent =
-languages[
-currentLanguage
-].submit;
+            }
 
-}
 
-}
-);
+            finally {
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    languages[
+                        currentLanguage
+                    ].submit;
+
+            }
+
+        }
+    );
 
 
 

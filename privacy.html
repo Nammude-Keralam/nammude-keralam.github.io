@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="ml">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Privacy Policy — Nammude</title>
+
+<link
+    rel="icon"
+    type="image/png"
+    href="logo.png">
+
+<link
+    rel="stylesheet"
+    href="style.css">
+
+<style>
+
+/* =====================================================
+   PRIVACY PAGE
+===================================================== */
+
+.privacy-page {
+    padding: 50px 0 70px;
+}
+
+.privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.privacy-intro {
+    margin-bottom: 30px;
+}
+
+.privacy-intro .eyebrow {
+    color: #1257d6;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.privacy-intro h1 {
+    margin: 0;
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.15;
+}
+
+.privacy-intro h1 span {
+    color: #1257d6;
+}
+
+.privacy-intro p {
+    margin-top: 15px;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.privacy-card {
+    background: #ffffff;
+    border: 1px solid #dbe2ec;
+    border-radius: 18px;
+    padding: 28px;
+    margin-top: 18px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, .04);
+}
+
+.privacy-card h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    color: #172033;
+}
+
+.privacy-card h3 {
+    margin: 20px 0 8px;
+    font-size: 16px;
+    color: #172033;
+}
+
+.privacy-card p {
+    margin: 0 0 12px;
+    line-height: 1.8;
+    color: #475569;
+    font-size: 15px;
+}
+
+.privacy-card ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+}
+
+.privacy-card li {
+    margin-bottom: 9px;
+    line-height: 1.7;
+    color: #475569;
+    font-size: 15px;
+}
+
+.privacy-highlight {
+    border-left: 4px solid #1257d6;
+    background: #f1f6ff;
+    padding: 16px 18px;
+    border-radius: 10px;
+    margin-top: 14px;
+}
+
+.privacy-highlight p {
+    margin: 0;
+}
+
+.privacy-date {
+    font-size: 13px !important;
+    color: #64748b !important;
+    margin-top: 8px !important;
+}
+
+.privacy-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.privacy-links a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #1257d6;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.privacy-links a:hover {
+    opacity: .9;
+}
+
+
+/* =====================================================
+   HEADER DARK MODE BUTTON
+===================================================== */
+
+.theme-toggle {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dbe2ec;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 20px;
+    cursor: pointer;
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+    transform: scale(.95);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .privacy-card {
+    background: #111827;
+    border-color: #273449;
+    box-shadow: none;
+}
+
+body.dark-mode .privacy-card h2,
+body.dark-mode .privacy-card h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .privacy-card p,
+body.dark-mode .privacy-card li {
+    color: #cbd5e1;
+}
+
+body.dark-mode .privacy-intro p {
+    color: #94a3b8;
+}
+
+body.dark-mode .privacy-highlight {
+    background: #172033;
+    border-left-color: #3b82f6;
+}
+
+body.dark-mode .privacy-date {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .theme-toggle {
+    background: #111827;
+    border-color: #273449;
+    color: #f8fafc;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .privacy-page {
+        padding: 32px 0 50px;
+    }
+
+    .privacy-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .privacy-card h2 {
+        font-size: 19px;
+    }
+
+    .privacy-card p,
+    .privacy-card li {
+        font-size: 14px;
+    }
+
+    .privacy-links {
+        flex-direction: column;
+    }
+
+    .privacy-links a {
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container nav">
+
+
+<a
+    href="index.html"
+    class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</a>
+
+
+<div class="nav-actions">
+
+
+<button
+    type="button"
+    id="themeToggle"
+    class="theme-toggle"
+    aria-label="Toggle dark mode">
+
+🌙
+
+</button>
+
+
+<button
+    type="button"
+    id="languageToggle"
+    class="language-button">
+
+EN
+
+</button>
+
+
+<a
+    href="index.html"
+    class="nav-button"
+    id="homeButton">
+
+ഹോം
+
+</a>
+
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PRIVACY POLICY
+===================================================== -->
+
+<main class="privacy-page">
+
+<div class="container privacy-container">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div class="privacy-intro">
+
+<p class="eyebrow">
+Nammude
+</p>
+
+
+<h1 id="pageTitle">
+സ്വകാര്യതാ <span>നയം</span>
+</h1>
+
+
+<p id="pageDescription">
+നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങളും തെളിവുകളും
+എങ്ങനെ ശേഖരിക്കുകയും ഉപയോഗിക്കുകയും സംരക്ഷിക്കുകയും
+ചെയ്യുന്നു എന്നതിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ.
+</p>
+
+
+<p
+    class="privacy-date"
+    id="lastUpdated">
+
+അവസാനം പുതുക്കിയത്: 22 ഓഗസ്റ്റ് 2026
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     1. INTRODUCTION
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section1Title">
+1. ഈ സ്വകാര്യതാ നയത്തെക്കുറിച്ച്
+</h2>
+
+
+<p id="section1Text">
+
+Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്.
+പൊതുജനങ്ങൾ നേരിടുന്ന പ്രശ്നങ്ങൾ മനസ്സിലാക്കുന്നതിനും
+അവ ബന്ധപ്പെട്ട അധികാരികളിലേക്കോ സ്ഥാപനങ്ങളിലേക്കോ
+എത്തിക്കുന്നതിനും സഹായിക്കുക എന്നതാണ് ഞങ്ങളുടെ ലക്ഷ്യം.
+
+</p>
+
+
+<p id="section1Text2">
+
+ഈ Privacy Policy, Nammude വെബ്സൈറ്റ് വഴി നിങ്ങൾ
+നൽകുന്ന വ്യക്തിഗത വിവരങ്ങൾ, പ്രശ്ന റിപ്പോർട്ടുകൾ,
+തെളിവുകൾ, ലൊക്കേഷൻ വിവരങ്ങൾ എന്നിവ എങ്ങനെ കൈകാര്യം
+ചെയ്യുന്നു എന്ന് വിശദീകരിക്കുന്നു.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     2. INFORMATION WE COLLECT
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section2Title">
+2. ഞങ്ങൾ ശേഖരിക്കുന്ന വിവരങ്ങൾ
+</h2>
+
+
+<p id="section2Intro">
+നിങ്ങൾ ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുമ്പോൾ ആവശ്യമായ
+ചില വിവരങ്ങൾ നൽകേണ്ടി വരാം:
+</p>
+
+
+<ul id="section2List">
+
+<li>പേര്</li>
+
+<li>ഫോൺ നമ്പർ</li>
+
+<li>WhatsApp നമ്പർ</li>
+
+<li>രണ്ടാമത്തെ ഫോൺ നമ്പർ — നൽകിയാൽ മാത്രം</li>
+
+<li>പ്രശ്നത്തിന്റെ വിഭാഗം</li>
+
+<li>പ്രശ്നത്തിന്റെ വിവരണം</li>
+
+<li>പ്രശ്നവുമായി ബന്ധപ്പെട്ട സ്ഥലം</li>
+
+<li>മാപ്പിൽ തിരഞ്ഞെടുക്കുന്ന latitude, longitude</li>
+
+<li>മുൻപ് നൽകിയ പരാതിയുടെ വിവരങ്ങൾ — നൽകിയാൽ മാത്രം</li>
+
+<li>ഫോട്ടോ, വീഡിയോ, രേഖ, സ്ക്രീൻഷോട്ട് തുടങ്ങിയ തെളിവുകൾ</li>
+
+<li>ശബ്ദ റെക്കോർഡിംഗ് — ഉപയോഗിച്ചാൽ മാത്രം</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     3. HOW WE USE INFORMATION
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section3Title">
+3. വിവരങ്ങൾ എങ്ങനെ ഉപയോഗിക്കുന്നു
+</h2>
+
+
+<p id="section3Intro">
+നിങ്ങൾ നൽകുന്ന വിവരങ്ങൾ പ്രധാനമായും താഴെപ്പറയുന്ന
+കാര്യങ്ങൾക്കായി ഉപയോഗിക്കാം:
+</p>
+
+
+<ul id="section3List">
+
+<li>നിങ്ങളുടെ പ്രശ്നം മനസ്സിലാക്കുന്നതിനും പരിശോധിക്കുന്നതിനും</li>
+
+<li>റിപ്പോർട്ടുകൾ ക്രമീകരിക്കുന്നതിനും കൈകാര്യം ചെയ്യുന്നതിനും</li>
+
+<li>ബന്ധപ്പെട്ട സർക്കാർ വകുപ്പ്, അധികാരി, സ്ഥാപനം എന്നിവരുമായി ആവശ്യമായ ആശയവിനിമയം നടത്തുന്നതിനും</li>
+
+<li>നിങ്ങളുടെ പ്രശ്നവുമായി ബന്ധപ്പെട്ട തുടർനടപടികൾ സ്വീകരിക്കുന്നതിനും</li>
+
+<li>റിപ്പോർട്ടിന്റെ നിലയും ആവശ്യമായ വിവരങ്ങളും കൈകാര്യം ചെയ്യുന്നതിനും</li>
+
+<li>പ്ലാറ്റ്‌ഫോമിന്റെ സുരക്ഷയും പ്രവർത്തനക്ഷമതയും മെച്ചപ്പെടുത്തുന്നതിനും</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     4. EVIDENCE
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section4Title">
+4. തെളിവുകളും ഫയലുകളും
+</h2>
+
+
+<p id="section4Text">
+
+നിങ്ങൾ അപ്‌ലോഡ് ചെയ്യുന്ന ഫോട്ടോകൾ, വീഡിയോകൾ,
+രേഖകൾ, സ്ക്രീൻഷോട്ടുകൾ, ഓഡിയോ തുടങ്ങിയവ നിങ്ങളുടെ
+റിപ്പോർട്ടിന്റെ ഭാഗമായാണ് കൈകാര്യം ചെയ്യുന്നത്.
+
+</p>
+
+
+<div class="privacy-highlight">
+
+<p id="section4Highlight">
+
+മറ്റൊരാളുടെ ആവശ്യത്തിന് മുകളിലുള്ള സ്വകാര്യ വിവരങ്ങൾ,
+രഹസ്യ രേഖകൾ, പാസ്‌വേഡുകൾ, ബാങ്ക് വിവരങ്ങൾ തുടങ്ങിയവ
+അനാവശ്യമായി അപ്‌ലോഡ് ചെയ്യരുത്.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     5. LOCATION
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section5Title">
+5. ലൊക്കേഷൻ വിവരങ്ങൾ
+</h2>
+
+
+<p id="section5Text">
+
+നിങ്ങൾ മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുകയോ
+"എന്റെ സ്ഥലം ഉപയോഗിക്കുക" എന്ന സൗകര്യം ഉപയോഗിക്കുകയോ
+ചെയ്താൽ latitude, longitude പോലുള്ള ലൊക്കേഷൻ വിവരങ്ങൾ
+നിങ്ങളുടെ റിപ്പോർട്ടിനൊപ്പം സൂക്ഷിക്കാം.
+
+</p>
+
+
+<p id="section5Text2">
+
+ലൊക്കേഷൻ നൽകുന്നത് ആവശ്യമായ എല്ലാ റിപ്പോർട്ടുകൾക്കും
+നിർബന്ധമല്ല. നിങ്ങൾക്ക് പ്രശ്നത്തിന്റെ സ്ഥലം വ്യക്തമല്ലെങ്കിൽ
+മാപ്പ് വിഭാഗം ഒഴിവാക്കാം.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     6. SHARING
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section6Title">
+6. വിവരങ്ങൾ പങ്കിടൽ
+</h2>
+
+
+<p id="section6Text">
+
+നിങ്ങളുടെ പ്രശ്നം പരിശോധിക്കുന്നതിനും പരിഹാരത്തിനായി
+ബന്ധപ്പെട്ട അധികാരിയുമായി ആശയവിനിമയം നടത്തുന്നതിനും
+ആവശ്യമായ വിവരങ്ങൾ പങ്കിടേണ്ടി വരാം.
+
+</p>
+
+
+<p id="section6Text2">
+
+ഉദാഹരണത്തിന്, ഒരു റോഡ് പ്രശ്നം ബന്ധപ്പെട്ട
+തദ്ദേശ സ്വയംഭരണ സ്ഥാപനവുമായി പങ്കിടേണ്ടി വരാം.
+
+</p>
+
+
+<div class="privacy-highlight">
+
+<p id="section6Highlight">
+
+നിങ്ങളുടെ റിപ്പോർട്ടിലെ വിവരങ്ങൾ ആവശ്യമായ പരിധിയിൽ
+മാത്രം ഉപയോഗിക്കാനും പങ്കിടാനും Nammude ലക്ഷ്യമിടുന്നു.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     7. SERVICE PROVIDERS
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section7Title">
+7. സാങ്കേതിക സേവനദാതാക്കൾ
+</h2>
+
+
+<p id="section7Text">
+
+വെബ്സൈറ്റ് പ്രവർത്തിപ്പിക്കുന്നതിന് മൂന്നാം കക്ഷി
+സാങ്കേതിക സേവനങ്ങൾ ഉപയോഗിക്കാം. ഉദാഹരണത്തിന്,
+ഡാറ്റ സംഭരണം, ഫയൽ സംഭരണം, മാപ്പ് സേവനങ്ങൾ തുടങ്ങിയവ.
+
+</p>
+
+
+<p id="section7Text2">
+
+അത്തരം സേവനദാതാക്കൾ അവരുടെ സ്വന്തം നിബന്ധനകളും
+സ്വകാര്യതാ നയങ്ങളും അനുസരിച്ച് വിവരങ്ങൾ കൈകാര്യം
+ചെയ്യാം.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     8. LOCAL STORAGE
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section8Title">
+8. Cookies & Local Storage
+</h2>
+
+
+<p id="section8Text">
+
+Nammude വെബ്സൈറ്റ് ചില preference വിവരങ്ങൾ നിങ്ങളുടെ
+ബ്രൗസറിൽ local storage ഉപയോഗിച്ച് സൂക്ഷിച്ചേക്കാം.
+
+</p>
+
+
+<ul id="section8List">
+
+<li>നിങ്ങൾ തിരഞ്ഞെടുത്ത ഭാഷ</li>
+
+<li>നിങ്ങൾ തിരഞ്ഞെടുത്ത Light / Dark mode</li>
+
+</ul>
+
+
+<p id="section8Text2">
+
+ഈ വിവരങ്ങൾ വെബ്സൈറ്റിന്റെ നിങ്ങളുടെ മുൻഗണനകൾ
+ഓർമ്മിക്കുന്നതിനാണ് ഉപയോഗിക്കുന്നത്.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     9. SECURITY
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section9Title">
+9. വിവരങ്ങളുടെ സുരക്ഷ
+</h2>
+
+
+<p id="section9Text">
+
+നിങ്ങൾ നൽകുന്ന വിവരങ്ങൾ അനധികൃത പ്രവേശനം,
+നഷ്ടപ്പെടൽ, ദുരുപയോഗം എന്നിവയിൽ നിന്ന് സംരക്ഷിക്കാൻ
+ഉചിതമായ സാങ്കേതികവും ഭരണപരവുമായ നടപടികൾ സ്വീകരിക്കാൻ
+Nammude ശ്രമിക്കുന്നു.
+
+</p>
+
+
+<p id="section9Text2">
+
+എന്നിരുന്നാലും, ഇന്റർനെറ്റിലൂടെ കൈമാറുന്ന വിവരങ്ങൾക്ക്
+100% സുരക്ഷ ഉറപ്പുനൽകാൻ കഴിയില്ല.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     10. RETENTION
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section10Title">
+10. വിവരങ്ങൾ എത്രകാലം സൂക്ഷിക്കും?
+</h2>
+
+
+<p id="section10Text">
+
+റിപ്പോർട്ട് പരിശോധിക്കുന്നതിനും ആവശ്യമായ ആശയവിനിമയം
+നടത്തുന്നതിനും രേഖകൾ സൂക്ഷിക്കുന്നതിനും ആവശ്യമായ
+കാലയളവിൽ വിവരങ്ങൾ നിലനിർത്താം.
+
+</p>
+
+
+<p id="section10Text2">
+
+നിയമപരമായ ആവശ്യകതകൾ, സുരക്ഷ, തർക്കപരിഹാരം,
+റിപ്പോർട്ട് ചരിത്രം എന്നിവ പരിഗണിച്ച് retention കാലയളവ്
+വ്യത്യാസപ്പെടാം.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     11. USER RIGHTS
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section11Title">
+11. നിങ്ങളുടെ അവകാശങ്ങൾ
+</h2>
+
+
+<p id="section11Intro">
+നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങളെക്കുറിച്ച് നിങ്ങൾക്ക്
+ചോദ്യങ്ങളോ അഭ്യർത്ഥനകളോ ഉണ്ടെങ്കിൽ Nammude-നെ ബന്ധപ്പെടാം.
+</p>
+
+
+<ul id="section11List">
+
+<li>നിങ്ങളെക്കുറിച്ച് സൂക്ഷിച്ചിരിക്കുന്ന വിവരങ്ങളെക്കുറിച്ച് ചോദിക്കാം.</li>
+
+<li>തെറ്റായ വിവരങ്ങൾ തിരുത്താൻ അഭ്യർത്ഥിക്കാം.</li>
+
+<li>നിങ്ങളുടെ വിവരങ്ങൾ ഉപയോഗിക്കുന്നതിനെക്കുറിച്ച് വിശദീകരണം ചോദിക്കാം.</li>
+
+<li>നിയമപരമായും പ്രവർത്തനപരമായും സാധ്യമായിടത്ത് വിവരങ്ങൾ നീക്കം ചെയ്യുന്നതിനെക്കുറിച്ച് അഭ്യർത്ഥിക്കാം.</li>
+
+</ul>
+
+
+<p id="section11Text">
+
+എല്ലാ അഭ്യർത്ഥനകളും ബാധകമായ നിയമങ്ങളും Nammude-ന്റെ
+നിയമപരമായ ബാധ്യതകളും അനുസരിച്ച് പരിഗണിക്കും.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     12. CHILDREN
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section12Title">
+12. കുട്ടികളുടെ സ്വകാര്യത
+</h2>
+
+
+<p id="section12Text">
+
+കുട്ടികളുമായി ബന്ധപ്പെട്ട റിപ്പോർട്ടുകൾ സമർപ്പിക്കുമ്പോൾ
+അവരുടെ ആവശ്യത്തിന് മുകളിലുള്ള സ്വകാര്യ വിവരങ്ങൾ
+നൽകാതിരിക്കാൻ ശ്രദ്ധിക്കുക.
+
+</p>
+
+
+<p id="section12Text2">
+
+കുട്ടിയുടെ സുരക്ഷയുമായി ബന്ധപ്പെട്ട പ്രശ്നമാണെങ്കിൽ
+ആവശ്യമായ വിവരങ്ങൾ മാത്രം നൽകുക.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     13. THIRD PARTY LINKS
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section13Title">
+13. മറ്റ് വെബ്സൈറ്റ് ലിങ്കുകൾ
+</h2>
+
+
+<p id="section13Text">
+
+Nammude വെബ്സൈറ്റിൽ Terms & Conditions, Privacy Policy,
+സർക്കാർ വെബ്സൈറ്റുകൾ അല്ലെങ്കിൽ മറ്റ് പുറം സേവനങ്ങളിലേക്കുള്ള
+ലിങ്കുകൾ ഉണ്ടായേക്കാം.
+
+</p>
+
+
+<p id="section13Text2">
+
+അത്തരം പുറം വെബ്സൈറ്റുകളുടെ സ്വകാര്യതാ രീതികൾക്ക്
+Nammude ഉത്തരവാദിയല്ല. അവ ഉപയോഗിക്കുന്നതിന് മുമ്പ്
+അവരുടെ നിബന്ധനകളും സ്വകാര്യതാ നയവും പരിശോധിക്കുക.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     14. CHANGES
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section14Title">
+14. ഈ നയത്തിലെ മാറ്റങ്ങൾ
+</h2>
+
+
+<p id="section14Text">
+
+Nammude ആവശ്യാനുസരണം ഈ Privacy Policy പുതുക്കാം.
+മാറ്റങ്ങൾ വന്നാൽ ഈ പേജിൽ പുതുക്കിയ തീയതി കാണിക്കുന്നതാണ്.
+
+</p>
+
+
+<p id="section14Text2">
+
+പുതിയ നയം പ്രസിദ്ധീകരിച്ചതിന് ശേഷം വെബ്സൈറ്റ്
+തുടരുന്നത് പുതുക്കിയ നയത്തിന് വിധേയമായിരിക്കും.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     15. CONTACT
+===================================================== -->
+
+<section class="privacy-card">
+
+<h2 id="section15Title">
+15. ബന്ധപ്പെടുക
+</h2>
+
+
+<p id="section15Text">
+
+ഈ Privacy Policy സംബന്ധിച്ച് എന്തെങ്കിലും സംശയമോ
+അഭ്യർത്ഥനയോ ഉണ്ടെങ്കിൽ Nammude-നെ ബന്ധപ്പെടുക.
+
+</p>
+
+
+<div class="privacy-highlight">
+
+<p id="contactText">
+
+Nammude<br>
+Kerala, India
+
+</p>
+
+</div>
+
+
+<div class="privacy-links">
+
+<a
+    href="report.html"
+    id="reportLink">
+
+പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക
+
+</a>
+
+
+<a
+    href="terms.html"
+    id="termsLink">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="index.html"
+    id="homeLink">
+
+ഹോം
+
+</a>
+
+</div>
+
+</section>
+
+
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="container footer-content">
+
+
+<div>
+
+<div class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</div>
+
+
+<p id="footerTagline">
+നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
+</p>
+
+
+<div class="legal-footer-links">
+
+<a
+    href="terms.html"
+    id="footerTerms">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="privacy.html"
+    id="footerPrivacy">
+
+Privacy Policy
+
+</a>
+
+
+<a
+    href="disclaimer.html"
+    id="footerDisclaimer">
+
+Disclaimer
+
+</a>
+
+
+<a
+    href="refund.html"
+    id="footerRefund">
+
+Refund & Cancellation
+
+</a>
+
+
+<a
+    href="grievance.html"
+    id="footerGrievance">
+
+Grievance
+
+</a>
+
+</div>
+
+</div>
+
+
+<p>
+© 2026 Nammude
+</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+const languageToggle =
+document.getElementById("languageToggle");
+
+
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
+
+const languages = {
+
+ml: {
+
+home:
+"ഹോം",
+
+title:
+"സ്വകാര്യതാ <span>നയം</span>",
+
+description:
+"നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങളും തെളിവുകളും എങ്ങനെ ശേഖരിക്കുകയും ഉപയോഗിക്കുകയും സംരക്ഷിക്കുകയും ചെയ്യുന്നു എന്നതിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ.",
+
+lastUpdated:
+"അവസാനം പുതുക്കിയത്: 22 ഓഗസ്റ്റ് 2026",
+
+section1Title:
+"1. ഈ സ്വകാര്യതാ നയത്തെക്കുറിച്ച്",
+
+section1Text:
+"Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്. പൊതുജനങ്ങൾ നേരിടുന്ന പ്രശ്നങ്ങൾ മനസ്സിലാക്കുന്നതിനും അവ ബന്ധപ്പെട്ട അധികാരികളിലേക്കോ സ്ഥാപനങ്ങളിലേക്കോ എത്തിക്കുന്നതിനും സഹായിക്കുക എന്നതാണ് ഞങ്ങളുടെ ലക്ഷ്യം.",
+
+section1Text2:
+"ഈ Privacy Policy, Nammude വെബ്സൈറ്റ് വഴി നിങ്ങൾ നൽകുന്ന വ്യക്തിഗത വിവരങ്ങൾ, പ്രശ്ന റിപ്പോർട്ടുകൾ, തെളിവുകൾ, ലൊക്കേഷൻ വിവരങ്ങൾ എന്നിവ എങ്ങനെ കൈകാര്യം ചെയ്യുന്നു എന്ന് വിശദീകരിക്കുന്നു.",
+
+section2Title:
+"2. ഞങ്ങൾ ശേഖരിക്കുന്ന വിവരങ്ങൾ",
+
+section2Intro:
+"നിങ്ങൾ ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുമ്പോൾ ആവശ്യമായ ചില വിവരങ്ങൾ നൽകേണ്ടി വരാം:",
+
+section2List: [
+"പേര്",
+"ഫോൺ നമ്പർ",
+"WhatsApp നമ്പർ",
+"രണ്ടാമത്തെ ഫോൺ നമ്പർ — നൽകിയാൽ മാത്രം",
+"പ്രശ്നത്തിന്റെ വിഭാഗം",
+"പ്രശ്നത്തിന്റെ വിവരണം",
+"പ്രശ്നവുമായി ബന്ധപ്പെട്ട സ്ഥലം",
+"മാപ്പിൽ തിരഞ്ഞെടുക്കുന്ന latitude, longitude",
+"മുൻപ് നൽകിയ പരാതിയുടെ വിവരങ്ങൾ — നൽകിയാൽ മാത്രം",
+"ഫോട്ടോ, വീഡിയോ, രേഖ, സ്ക്രീൻഷോട്ട് തുടങ്ങിയ തെളിവുകൾ",
+"ശബ്ദ റെക്കോർഡിംഗ് — ഉപയോഗിച്ചാൽ മാത്രം"
+],
+
+section3Title:
+"3. വിവരങ്ങൾ എങ്ങനെ ഉപയോഗിക്കുന്നു",
+
+section3Intro:
+"നിങ്ങൾ നൽകുന്ന വിവരങ്ങൾ പ്രധാനമായും താഴെപ്പറയുന്ന കാര്യങ്ങൾക്കായി ഉപയോഗിക്കാം:",
+
+section3List: [
+"നിങ്ങളുടെ പ്രശ്നം മനസ്സിലാക്കുന്നതിനും പരിശോധിക്കുന്നതിനും",
+"റിപ്പോർട്ടുകൾ ക്രമീകരിക്കുന്നതിനും കൈകാര്യം ചെയ്യുന്നതിനും",
+"ബന്ധപ്പെട്ട സർക്കാർ വകുപ്പ്, അധികാരി, സ്ഥാപനം എന്നിവരുമായി ആവശ്യമായ ആശയവിനിമയം നടത്തുന്നതിനും",
+"നിങ്ങളുടെ പ്രശ്നവുമായി ബന്ധപ്പെട്ട തുടർനടപടികൾ സ്വീകരിക്കുന്നതിനും",
+"റിപ്പോർട്ടിന്റെ നിലയും ആവശ്യമായ വിവരങ്ങളും കൈകാര്യം ചെയ്യുന്നതിനും",
+"പ്ലാറ്റ്‌ഫോമിന്റെ സുരക്ഷയും പ്രവർത്തനക്ഷമതയും മെച്ചപ്പെടുത്തുന്നതിനും"
+],
+
+section4Title:
+"4. തെളിവുകളും ഫയലുകളും",
+
+section4Text:
+"നിങ്ങൾ അപ്‌ലോഡ് ചെയ്യുന്ന ഫോട്ടോകൾ, വീഡിയോകൾ, രേഖകൾ, സ്ക്രീൻഷോട്ടുകൾ, ഓഡിയോ തുടങ്ങിയവ നിങ്ങളുടെ റിപ്പോർട്ടിന്റെ ഭാഗമായാണ് കൈകാര്യം ചെയ്യുന്നത്.",
+
+section4Highlight:
+"മറ്റൊരാളുടെ ആവശ്യത്തിന് മുകളിലുള്ള സ്വകാര്യ വിവരങ്ങൾ, രഹസ്യ രേഖകൾ, പാസ്‌വേഡുകൾ, ബാങ്ക് വിവരങ്ങൾ തുടങ്ങിയവ അനാവശ്യമായി അപ്‌ലോഡ് ചെയ്യരുത്.",
+
+section5Title:
+"5. ലൊക്കേഷൻ വിവരങ്ങൾ",
+
+section5Text:
+"നിങ്ങൾ മാപ്പിൽ ഒരു സ്ഥലം തിരഞ്ഞെടുക്കുകയോ \"എന്റെ സ്ഥലം ഉപയോഗിക്കുക\" എന്ന സൗകര്യം ഉപയോഗിക്കുകയോ ചെയ്താൽ latitude, longitude പോലുള്ള ലൊക്കേഷൻ വിവരങ്ങൾ നിങ്ങളുടെ റിപ്പോർട്ടിനൊപ്പം സൂക്ഷിക്കാം.",
+
+section5Text2:
+"ലൊക്കേഷൻ നൽകുന്നത് ആവശ്യമായ എല്ലാ റിപ്പോർട്ടുകൾക്കും നിർബന്ധമല്ല. നിങ്ങൾക്ക് പ്രശ്നത്തിന്റെ സ്ഥലം വ്യക്തമല്ലെങ്കിൽ മാപ്പ് വിഭാഗം ഒഴിവാക്കാം.",
+
+section6Title:
+"6. വിവരങ്ങൾ പങ്കിടൽ",
+
+section6Text:
+"നിങ്ങളുടെ പ്രശ്നം പരിശോധിക്കുന്നതിനും പരിഹാരത്തിനായി ബന്ധപ്പെട്ട അധികാരിയുമായി ആശയവിനിമയം നടത്തുന്നതിനും ആവശ്യമായ വിവരങ്ങൾ പങ്കിടേണ്ടി വരാം.",
+
+section6Text2:
+"ഉദാഹരണത്തിന്, ഒരു റോഡ് പ്രശ്നം ബന്ധപ്പെട്ട തദ്ദേശ സ്വയംഭരണ സ്ഥാപനവുമായി പങ്കിടേണ്ടി വരാം.",
+
+section6Highlight:
+"നിങ്ങളുടെ റിപ്പോർട്ടിലെ വിവരങ്ങൾ ആവശ്യമായ പരിധിയിൽ മാത്രം ഉപയോഗിക്കാനും പങ്കിടാനും Nammude ലക്ഷ്യമിടുന്നു.",
+
+section7Title:
+"7. സാങ്കേതിക സേവനദാതാക്കൾ",
+
+section7Text:
+"വെബ്സൈറ്റ് പ്രവർത്തിപ്പിക്കുന്നതിന് മൂന്നാം കക്ഷി സാങ്കേതിക സേവനങ്ങൾ ഉപയോഗിക്കാം. ഉദാഹരണത്തിന്, ഡാറ്റ സംഭരണം, ഫയൽ സംഭരണം, മാപ്പ് സേവനങ്ങൾ തുടങ്ങിയവ.",
+
+section7Text2:
+"അത്തരം സേവനദാതാക്കൾ അവരുടെ സ്വന്തം നിബന്ധനകളും സ്വകാര്യതാ നയങ്ങളും അനുസരിച്ച് വിവരങ്ങൾ കൈകാര്യം ചെയ്യാം.",
+
+section8Title:
+"8. Cookies & Local Storage",
+
+section8Text:
+"Nammude വെബ്സൈറ്റ് ചില preference വിവരങ്ങൾ നിങ്ങളുടെ ബ്രൗസറിൽ local storage ഉപയോഗിച്ച് സൂക്ഷിച്ചേക്കാം.",
+
+section8List: [
+"നിങ്ങൾ തിരഞ്ഞെടുത്ത ഭാഷ",
+"നിങ്ങൾ തിരഞ്ഞെടുത്ത Light / Dark mode"
+],
+
+section8Text2:
+"ഈ വിവരങ്ങൾ വെബ്സൈറ്റിന്റെ നിങ്ങളുടെ മുൻഗണനകൾ ഓർമ്മിക്കുന്നതിനാണ് ഉപയോഗിക്കുന്നത്.",
+
+section9Title:
+"9. വിവരങ്ങളുടെ സുരക്ഷ",
+
+section9Text:
+"നിങ്ങൾ നൽകുന്ന വിവരങ്ങൾ അനധികൃത പ്രവേശനം, നഷ്ടപ്പെടൽ, ദുരുപയോഗം എന്നിവയിൽ നിന്ന് സംരക്ഷിക്കാൻ ഉചിതമായ സാങ്കേതികവും ഭരണപരവുമായ നടപടികൾ സ്വീകരിക്കാൻ Nammude ശ്രമിക്കുന്നു.",
+
+section9Text2:
+"എന്നിരുന്നാലും, ഇന്റർനെറ്റിലൂടെ കൈമാറുന്ന വിവരങ്ങൾക്ക് 100% സുരക്ഷ ഉറപ്പുനൽകാൻ കഴിയില്ല.",
+
+section10Title:
+"10. വിവരങ്ങൾ എത്രകാലം സൂക്ഷിക്കും?",
+
+section10Text:
+"റിപ്പോർട്ട് പരിശോധിക്കുന്നതിനും ആവശ്യമായ ആശയവിനിമയം നടത്തുന്നതിനും രേഖകൾ സൂക്ഷിക്കുന്നതിനും ആവശ്യമായ കാലയളവിൽ വിവരങ്ങൾ നിലനിർത്താം.",
+
+section10Text2:
+"നിയമപരമായ ആവശ്യകതകൾ, സുരക്ഷ, തർക്കപരിഹാരം, റിപ്പോർട്ട് ചരിത്രം എന്നിവ പരിഗണിച്ച് retention കാലയളവ് വ്യത്യാസപ്പെടാം.",
+
+section11Title:
+"11. നിങ്ങളുടെ അവകാശങ്ങൾ",
+
+section11Intro:
+"നിങ്ങളുടെ വ്യക്തിഗത വിവരങ്ങളെക്കുറിച്ച് നിങ്ങൾക്ക് ചോദ്യങ്ങളോ അഭ്യർത്ഥനകളോ ഉണ്ടെങ്കിൽ Nammude-നെ ബന്ധപ്പെടാം.",
+
+section11List: [
+"നിങ്ങളെക്കുറിച്ച് സൂക്ഷിച്ചിരിക്കുന്ന വിവരങ്ങളെക്കുറിച്ച് ചോദിക്കാം.",
+"തെറ്റായ വിവരങ്ങൾ തിരുത്താൻ അഭ്യർത്ഥിക്കാം.",
+"നിങ്ങളുടെ വിവരങ്ങൾ ഉപയോഗിക്കുന്നതിനെക്കുറിച്ച് വിശദീകരണം ചോദിക്കാം.",
+"നിയമപരമായും പ്രവർത്തനപരമായും സാധ്യമായിടത്ത് വിവരങ്ങൾ നീക്കം ചെയ്യുന്നതിനെക്കുറിച്ച് അഭ്യർത്ഥിക്കാം."
+],
+
+section11Text:
+"എല്ലാ അഭ്യർത്ഥനകളും ബാധകമായ നിയമങ്ങളും Nammude-ന്റെ നിയമപരമായ ബാധ്യതകളും അനുസരിച്ച് പരിഗണിക്കും.",
+
+section12Title:
+"12. കുട്ടികളുടെ സ്വകാര്യത",
+
+section12Text:
+"കുട്ടികളുമായി ബന്ധപ്പെട്ട റിപ്പോർട്ടുകൾ സമർപ്പിക്കുമ്പോൾ അവരുടെ ആവശ്യത്തിന് മുകളിലുള്ള സ്വകാര്യ വിവരങ്ങൾ നൽകാതിരിക്കാൻ ശ്രദ്ധിക്കുക.",
+
+section12Text2:
+"കുട്ടിയുടെ സുരക്ഷയുമായി ബന്ധപ്പെട്ട പ്രശ്നമാണെങ്കിൽ ആവശ്യമായ വിവരങ്ങൾ മാത്രം നൽകുക.",
+
+section13Title:
+"13. മറ്റ് വെബ്സൈറ്റ് ലിങ്കുകൾ",
+
+section13Text:
+"Nammude വെബ്സൈറ്റിൽ Terms & Conditions, Privacy Policy, സർക്കാർ വെബ്സൈറ്റുകൾ അല്ലെങ്കിൽ മറ്റ് പുറം സേവനങ്ങളിലേക്കുള്ള ലിങ്കുകൾ ഉണ്ടായേക്കാം.",
+
+section13Text2:
+"അത്തരം പുറം വെബ്സൈറ്റുകളുടെ സ്വകാര്യതാ രീതികൾക്ക് Nammude ഉത്തരവാദിയല്ല. അവ ഉപയോഗിക്കുന്നതിന് മുമ്പ് അവരുടെ നിബന്ധനകളും സ്വകാര്യതാ നയവും പരിശോധിക്കുക.",
+
+section14Title:
+"14. ഈ നയത്തിലെ മാറ്റങ്ങൾ",
+
+section14Text:
+"Nammude ആവശ്യാനുസരണം ഈ Privacy Policy പുതുക്കാം. മാറ്റങ്ങൾ വന്നാൽ ഈ പേജിൽ പുതുക്കിയ തീയതി കാണിക്കുന്നതാണ്.",
+
+section14Text2:
+"പുതിയ നയം പ്രസിദ്ധീകരിച്ചതിന് ശേഷം വെബ്സൈറ്റ് തുടരുന്നത് പുതുക്കിയ നയത്തിന് വിധേയമായിരിക്കും.",
+
+section15Title:
+"15. ബന്ധപ്പെടുക",
+
+section15Text:
+"ഈ Privacy Policy സംബന്ധിച്ച് എന്തെങ്കിലും സംശയമോ അഭ്യർത്ഥനയോ ഉണ്ടെങ്കിൽ Nammude-നെ ബന്ധപ്പെടുക.",
+
+contact:
+"Nammude<br>Kerala, India",
+
+report:
+"പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക",
+
+terms:
+"Terms & Conditions",
+
+footerTagline:
+"നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.",
+
+footerTerms:
+"Terms & Conditions",
+
+footerPrivacy:
+"Privacy Policy",
+
+footerDisclaimer:
+"Disclaimer",
+
+footerRefund:
+"Refund & Cancellation",
+
+footerGrievance:
+"Grievance"
+
+},
+
+
+en: {
+
+home:
+"Home",
+
+title:
+"Privacy <span>Policy</span>",
+
+description:
+"Information about how Nammude collects, uses, stores and protects your personal information and evidence.",
+
+lastUpdated:
+"Last updated: 22 August 2026",
+
+section1Title:
+"1. About This Privacy Policy",
+
+section1Text:
+"Nammude is an independent civic-support platform. Our purpose is to help people communicate civic problems to relevant authorities or organizations.",
+
+section1Text2:
+"This Privacy Policy explains how Nammude handles personal information, problem reports, evidence and location information submitted through the website.",
+
+section2Title:
+"2. Information We Collect",
+
+section2Intro:
+"When you submit a problem report, you may be asked to provide some information:",
+
+section2List: [
+"Name",
+"Phone number",
+"WhatsApp number",
+"Secondary phone number — if provided",
+"Problem category",
+"Problem description",
+"Location related to the problem",
+"Latitude and longitude selected on the map",
+"Previous complaint information — if provided",
+"Evidence such as photos, videos, documents and screenshots",
+"Audio recording — if used"
+],
+
+section3Title:
+"3. How We Use Information",
+
+section3Intro:
+"The information you provide may be used for the following purposes:",
+
+section3List: [
+"Understanding and reviewing your problem",
+"Organizing and managing reports",
+"Communicating with relevant government departments, authorities or organizations",
+"Taking appropriate follow-up steps related to your report",
+"Managing the status and information associated with your report",
+"Improving the security and functionality of the platform"
+],
+
+section4Title:
+"4. Evidence and Files",
+
+section4Text:
+"Photos, videos, documents, screenshots and audio files you upload may be handled as part of your report.",
+
+section4Highlight:
+"Please do not unnecessarily upload another person's private information, confidential documents, passwords, banking information or other sensitive information.",
+
+section5Title:
+"5. Location Information",
+
+section5Text:
+"If you select a location on the map or use the \"Use My Location\" feature, location information such as latitude and longitude may be stored with your report.",
+
+section5Text2:
+"Providing a location is not mandatory for every report. If the problem does not have a specific location, you may skip the map section.",
+
+section6Title:
+"6. Sharing Information",
+
+section6Text:
+"Information may need to be shared with a relevant authority or organization when necessary to review your problem and communicate about possible solutions.",
+
+section6Text2:
+"For example, a road-related problem may need to be communicated to the relevant local government body.",
+
+section6Highlight:
+"Nammude aims to use and share report information only to the extent reasonably necessary for the relevant purpose.",
+
+section7Title:
+"7. Technical Service Providers",
+
+section7Text:
+"Third-party technical services may be used to operate the website, such as database storage, file storage and map services.",
+
+section7Text2:
+"Such service providers may handle information according to their own terms and privacy policies.",
+
+section8Title:
+"8. Cookies & Local Storage",
+
+section8Text:
+"Nammude may use browser local storage to remember certain preferences.",
+
+section8List: [
+"Your selected language",
+"Your selected Light / Dark mode"
+],
+
+section8Text2:
+"These settings are used to remember your website preferences.",
+
+section9Title:
+"9. Information Security",
+
+section9Text:
+"Nammude takes reasonable technical and administrative measures to help protect submitted information against unauthorized access, loss and misuse.",
+
+section9Text2:
+"However, no method of transmitting or storing information over the internet can be guaranteed to be 100% secure.",
+
+section10Title:
+"10. How Long We Keep Information",
+
+section10Text:
+"Information may be retained for as long as reasonably necessary to review reports, communicate with relevant parties and maintain appropriate records.",
+
+section10Text2:
+"Retention periods may vary depending on legal requirements, security needs, dispute resolution and report history.",
+
+section11Title:
+"11. Your Rights",
+
+section11Intro:
+"If you have questions or requests regarding your personal information, you may contact Nammude.",
+
+section11List: [
+"You may ask about information held about you.",
+"You may request correction of inaccurate information.",
+"You may ask how your information is being used.",
+"Where legally and operationally possible, you may request deletion of information."
+],
+
+section11Text:
+"Requests will be considered subject to applicable law and Nammude's legal obligations.",
+
+section12Title:
+"12. Children's Privacy",
+
+section12Text:
+"When submitting reports involving children, avoid providing unnecessary personal information about them.",
+
+section12Text2:
+"If the report concerns a child's safety, provide only the information reasonably necessary to communicate the issue.",
+
+section13Title:
+"13. External Website Links",
+
+section13Text:
+"The Nammude website may contain links to Terms & Conditions, Privacy Policy, government websites or other external services.",
+
+section13Text2:
+"Nammude is not responsible for the privacy practices of external websites. Please review their terms and privacy policies before using them.",
+
+section14Title:
+"14. Changes to This Policy",
+
+section14Text:
+"Nammude may update this Privacy Policy when necessary. If changes are made, the updated date will be displayed on this page.",
+
+section14Text2:
+"Your continued use of the website after an updated policy is published will be subject to the updated policy.",
+
+section15Title:
+"15. Contact",
+
+section15Text:
+"If you have any questions or requests regarding this Privacy Policy, please contact Nammude.",
+
+contact:
+"Nammude<br>Kerala, India",
+
+report:
+"Report a Problem",
+
+terms:
+"Terms & Conditions",
+
+footerTagline:
+"Your problem, our intervention.",
+
+footerTerms:
+"Terms & Conditions",
+
+footerPrivacy:
+"Privacy Policy",
+
+footerDisclaimer:
+"Disclaimer",
+
+footerRefund:
+"Refund & Cancellation",
+
+footerGrievance:
+"Grievance"
+
+}
+
+};
+
+
+
+/* =====================================================
+   APPLY THEME
+===================================================== */
+
+function applyTheme(theme) {
+
+    if (theme === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        themeToggle.textContent =
+            "☀️";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Light mode"
+        );
+
+    } else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+        themeToggle.textContent =
+            "🌙";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Dark mode"
+        );
+
+    }
+
+}
+
+
+const savedTheme =
+    localStorage.getItem(
+        "nammude-theme"
+    );
+
+
+applyTheme(
+    savedTheme === "dark"
+        ? "dark"
+        : "light"
+);
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const isDark =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+        const newTheme =
+            isDark
+                ? "light"
+                : "dark";
+
+        applyTheme(newTheme);
+
+        localStorage.setItem(
+            "nammude-theme",
+            newTheme
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   CURRENT LANGUAGE
+===================================================== */
+
+let currentLanguage =
+    localStorage.getItem(
+        "nammude-language"
+    ) || "ml";
+
+
+
+/* =====================================================
+   LANGUAGE UPDATE
+===================================================== */
+
+function updateLanguage() {
+
+    const t =
+        languages[currentLanguage];
+
+
+    document.documentElement.lang =
+        currentLanguage;
+
+
+    document.title =
+        currentLanguage === "ml"
+            ? "സ്വകാര്യതാ നയം — Nammude"
+            : "Privacy Policy — Nammude";
+
+
+    document.getElementById(
+        "homeButton"
+    ).textContent =
+        t.home;
+
+
+    document.getElementById(
+        "pageTitle"
+    ).innerHTML =
+        t.title;
+
+
+    document.getElementById(
+        "pageDescription"
+    ).textContent =
+        t.description;
+
+
+    document.getElementById(
+        "lastUpdated"
+    ).textContent =
+        t.lastUpdated;
+
+
+
+    /* =================================================
+       SECTION 1
+    ================================================= */
+
+    document.getElementById(
+        "section1Title"
+    ).textContent =
+        t.section1Title;
+
+    document.getElementById(
+        "section1Text"
+    ).textContent =
+        t.section1Text;
+
+    document.getElementById(
+        "section1Text2"
+    ).textContent =
+        t.section1Text2;
+
+
+
+    /* =================================================
+       SECTION 2
+    ================================================= */
+
+    document.getElementById(
+        "section2Title"
+    ).textContent =
+        t.section2Title;
+
+    document.getElementById(
+        "section2Intro"
+    ).textContent =
+        t.section2Intro;
+
+
+    document.querySelectorAll(
+        "#section2List li"
+    ).forEach(
+        (element, index) => {
+
+            element.textContent =
+                t.section2List[index];
+
+        }
+    );
+
+
+
+    /* =================================================
+       SECTION 3
+    ================================================= */
+
+    document.getElementById(
+        "section3Title"
+    ).textContent =
+        t.section3Title;
+
+    document.getElementById(
+        "section3Intro"
+    ).textContent =
+        t.section3Intro;
+
+
+    document.querySelectorAll(
+        "#section3List li"
+    ).forEach(
+        (element, index) => {
+
+            element.textContent =
+                t.section3List[index];
+
+        }
+    );
+
+
+
+    /* =================================================
+       SECTION 4
+    ================================================= */
+
+    document.getElementById(
+        "section4Title"
+    ).textContent =
+        t.section4Title;
+
+    document.getElementById(
+        "section4Text"
+    ).textContent =
+        t.section4Text;
+
+    document.getElementById(
+        "section4Highlight"
+    ).textContent =
+        t.section4Highlight;
+
+
+
+    /* =================================================
+       SECTION 5
+    ================================================= */
+
+    document.getElementById(
+        "section5Title"
+    ).textContent =
+        t.section5Title;
+
+    document.getElementById(
+        "section5Text"
+    ).textContent =
+        t.section5Text;
+
+    document.getElementById(
+        "section5Text2"
+    ).textContent =
+        t.section5Text2;
+
+
+
+    /* =================================================
+       SECTION 6
+    ================================================= */
+
+    document.getElementById(
+        "section6Title"
+    ).textContent =
+        t.section6Title;
+
+    document.getElementById(
+        "section6Text"
+    ).textContent =
+        t.section6Text;
+
+    document.getElementById(
+        "section6Text2"
+    ).textContent =
+        t.section6Text2;
+
+    document.getElementById(
+        "section6Highlight"
+    ).textContent =
+        t.section6Highlight;
+
+
+
+    /* =================================================
+       SECTION 7
+    ================================================= */
+
+    document.getElementById(
+        "section7Title"
+    ).textContent =
+        t.section7Title;
+
+    document.getElementById(
+        "section7Text"
+    ).textContent =
+        t.section7Text;
+
+    document.getElementById(
+        "section7Text2"
+    ).textContent =
+        t.section7Text2;
+
+
+
+    /* =================================================
+       SECTION 8
+    ================================================= */
+
+    document.getElementById(
+        "section8Title"
+    ).textContent =
+        t.section8Title;
+
+    document.getElementById(
+        "section8Text"
+    ).textContent =
+        t.section8Text;
+
+
+    document.querySelectorAll(
+        "#section8List li"
+    ).forEach(
+        (element, index) => {
+
+            element.textContent =
+                t.section8List[index];
+
+        }
+    );
+
+
+    document.getElementById(
+        "section8Text2"
+    ).textContent =
+        t.section8Text2;
+
+
+
+    /* =================================================
+       SECTION 9
+    ================================================= */
+
+    document.getElementById(
+        "section9Title"
+    ).textContent =
+        t.section9Title;
+
+    document.getElementById(
+        "section9Text"
+    ).textContent =
+        t.section9Text;
+
+    document.getElementById(
+        "section9Text2"
+    ).textContent =
+        t.section9Text2;
+
+
+
+    /* =================================================
+       SECTION 10
+    ================================================= */
+
+    document.getElementById(
+        "section10Title"
+    ).textContent =
+        t.section10Title;
+
+    document.getElementById(
+        "section10Text"
+    ).textContent =
+        t.section10Text;
+
+    document.getElementById(
+        "section10Text2"
+    ).textContent =
+        t.section10Text2;
+
+
+
+    /* =================================================
+       SECTION 11
+    ================================================= */
+
+    document.getElementById(
+        "section11Title"
+    ).textContent =
+        t.section11Title;
+
+    document.getElementById(
+        "section11Intro"
+    ).textContent =
+        t.section11Intro;
+
+
+    document.querySelectorAll(
+        "#section11List li"
+    ).forEach(
+        (element, index) => {
+
+            element.textContent =
+                t.section11List[index];
+
+        }
+    );
+
+
+    document.getElementById(
+        "section11Text"
+    ).textContent =
+        t.section11Text;
+
+
+
+    /* =================================================
+       SECTION 12
+    ================================================= */
+
+    document.getElementById(
+        "section12Title"
+    ).textContent =
+        t.section12Title;
+
+    document.getElementById(
+        "section12Text"
+    ).textContent =
+        t.section12Text;
+
+    document.getElementById(
+        "section12Text2"
+    ).textContent =
+        t.section12Text2;
+
+
+
+    /* =================================================
+       SECTION 13
+    ================================================= */
+
+    document.getElementById(
+        "section13Title"
+    ).textContent =
+        t.section13Title;
+
+    document.getElementById(
+        "section13Text"
+    ).textContent =
+        t.section13Text;
+
+    document.getElementById(
+        "section13Text2"
+    ).textContent =
+        t.section13Text2;
+
+
+
+    /* =================================================
+       SECTION 14
+    ================================================= */
+
+    document.getElementById(
+        "section14Title"
+    ).textContent =
+        t.section14Title;
+
+    document.getElementById(
+        "section14Text"
+    ).textContent =
+        t.section14Text;
+
+    document.getElementById(
+        "section14Text2"
+    ).textContent =
+        t.section14Text2;
+
+
+
+    /* =================================================
+       SECTION 15
+    ================================================= */
+
+    document.getElementById(
+        "section15Title"
+    ).textContent =
+        t.section15Title;
+
+    document.getElementById(
+        "section15Text"
+    ).textContent =
+        t.section15Text;
+
+    document.getElementById(
+        "contactText"
+    ).innerHTML =
+        t.contact;
+
+
+    document.getElementById(
+        "reportLink"
+    ).textContent =
+        t.report;
+
+
+    document.getElementById(
+        "termsLink"
+    ).textContent =
+        t.terms;
+
+
+
+    /* =================================================
+       FOOTER
+    ================================================= */
+
+    document.getElementById(
+        "footerTagline"
+    ).textContent =
+        t.footerTagline;
+
+
+    document.getElementById(
+        "footerTerms"
+    ).textContent =
+        t.footerTerms;
+
+
+    document.getElementById(
+        "footerPrivacy"
+    ).textContent =
+        t.footerPrivacy;
+
+
+    document.getElementById(
+        "footerDisclaimer"
+    ).textContent =
+        t.footerDisclaimer;
+
+
+    document.getElementById(
+        "footerRefund"
+    ).textContent =
+        t.footerRefund;
+
+
+    document.getElementById(
+        "footerGrievance"
+    ).textContent =
+        t.footerGrievance;
+
+
+
+    /* =================================================
+       LANGUAGE BUTTON
+    ================================================= */
+
+    languageToggle.textContent =
+        currentLanguage === "ml"
+            ? "EN"
+            : "മലയാളം";
+
+}
+
+
+
+languageToggle.addEventListener(
+    "click",
+    () => {
+
+        currentLanguage =
+            currentLanguage === "ml"
+                ? "en"
+                : "ml";
+
+
+        localStorage.setItem(
+            "nammude-language",
+            currentLanguage
+        );
+
+
+        updateLanguage();
+
+    }
+);
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateLanguage();
+
+</script>
+
+
+</body>
+
+</html>

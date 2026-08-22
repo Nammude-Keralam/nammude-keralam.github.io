@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="ml">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Disclaimer — Nammude</title>
+
+<link
+    rel="icon"
+    type="image/png"
+    href="logo.png">
+
+<link
+    rel="stylesheet"
+    href="style.css">
+
+
+<style>
+
+/* =====================================================
+   DISCLAIMER PAGE
+===================================================== */
+
+.disclaimer-page {
+    padding: 60px 0 80px;
+}
+
+.disclaimer-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.disclaimer-header {
+    margin-bottom: 35px;
+}
+
+.disclaimer-eyebrow {
+    color: #1257d6;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    margin-bottom: 10px;
+}
+
+.disclaimer-header h1 {
+    margin: 0 0 15px;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.15;
+}
+
+.disclaimer-header h1 span {
+    color: #1257d6;
+}
+
+.disclaimer-header p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   CONTENT CARD
+===================================================== */
+
+.disclaimer-card {
+    background: #ffffff;
+    border: 1px solid #dbe2ec;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 35px rgba(15, 23, 42, .06);
+}
+
+.disclaimer-section {
+    padding: 25px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.disclaimer-section:first-child {
+    padding-top: 0;
+}
+
+.disclaimer-section:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.disclaimer-section h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.disclaimer-section h2 span {
+    color: #1257d6;
+}
+
+.disclaimer-section p {
+    margin: 0 0 12px;
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.disclaimer-section p:last-child {
+    margin-bottom: 0;
+}
+
+.disclaimer-section ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+}
+
+.disclaimer-section li {
+    margin-bottom: 9px;
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.disclaimer-section li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   IMPORTANT BOX
+===================================================== */
+
+.important-box {
+    margin-bottom: 28px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+}
+
+.important-box h2 {
+    margin: 0 0 8px;
+    color: #1257d6;
+    font-size: 19px;
+}
+
+.important-box p {
+    margin: 0;
+    color: #334155;
+    line-height: 1.75;
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   CONTACT BOX
+===================================================== */
+
+.contact-box {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #dbe2ec;
+}
+
+.contact-box h2 {
+    margin: 0 0 8px;
+    font-size: 19px;
+}
+
+.contact-box p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.legal-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.legal-footer-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.legal-footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .disclaimer-header p {
+    color: #94a3b8;
+}
+
+body.dark-mode .disclaimer-card {
+    background: #111827;
+    border-color: #273449;
+    box-shadow: none;
+}
+
+body.dark-mode .disclaimer-section {
+    border-color: #273449;
+}
+
+body.dark-mode .disclaimer-section p,
+body.dark-mode .disclaimer-section li {
+    color: #cbd5e1;
+}
+
+body.dark-mode .important-box {
+    background: #172033;
+    border-color: #273449;
+}
+
+body.dark-mode .important-box p {
+    color: #d1d5db;
+}
+
+body.dark-mode .contact-box {
+    background: #111827;
+    border-color: #273449;
+}
+
+body.dark-mode .contact-box p {
+    color: #cbd5e1;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .disclaimer-page {
+        padding: 40px 0 60px;
+    }
+
+    .disclaimer-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .disclaimer-section {
+        padding: 21px 0;
+    }
+
+    .disclaimer-section h2 {
+        font-size: 19px;
+    }
+
+    .disclaimer-section p,
+    .disclaimer-section li {
+        font-size: 14px;
+    }
+
+    .important-box,
+    .contact-box {
+        padding: 16px;
+    }
+
+}
+
+
+/* =====================================================
+   THEME TOGGLE
+===================================================== */
+
+.theme-toggle {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dbe2ec;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 20px;
+    cursor: pointer;
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+    transform: scale(.95);
+}
+
+body.dark-mode .theme-toggle {
+    background: #111827;
+    border-color: #273449;
+    color: #f8fafc;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container nav">
+
+<a
+    href="index.html"
+    class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</a>
+
+
+<div class="nav-actions">
+
+
+<button
+    type="button"
+    id="themeToggle"
+    class="theme-toggle"
+    aria-label="Toggle dark mode">
+
+🌙
+
+</button>
+
+
+<button
+    type="button"
+    id="languageToggle"
+    class="language-button">
+
+EN
+
+</button>
+
+
+<a
+    href="index.html"
+    class="nav-button"
+    id="homeButton">
+
+ഹോം
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="disclaimer-page">
+
+<div class="container disclaimer-container">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="disclaimer-header">
+
+<div
+    class="disclaimer-eyebrow"
+    id="eyebrow">
+
+Nammude
+
+</div>
+
+
+<h1 id="pageTitle">
+
+Disclaimer
+
+<span>& Notice</span>
+
+</h1>
+
+
+<p id="pageDescription">
+
+Please read this disclaimer carefully before using
+the Nammude platform or submitting a report.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<div class="disclaimer-card">
+
+
+<!-- =====================================================
+     IMPORTANT NOTICE
+===================================================== -->
+
+<div class="important-box">
+
+<h2 id="importantTitle">
+പ്രധാന അറിയിപ്പ്
+</h2>
+
+
+<p id="importantText">
+
+Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്.
+ഇത് സർക്കാർ വകുപ്പ്, സർക്കാർ അധികാരി, കോടതി,
+പോലീസ് വകുപ്പ് അല്ലെങ്കിൽ നിയമ സ്ഥാപനമല്ല.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     SECTION 1
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section1Title">
+
+1. Nammude-ന്റെ സ്വഭാവം
+
+</h2>
+
+
+<p id="section1Text">
+
+Nammude പൊതുജനങ്ങൾക്ക് അവരുടെ പ്രദേശത്തെ പ്രശ്നങ്ങൾ
+അറിയിക്കാനും ബന്ധപ്പെട്ട അധികാരികളിലേക്ക് പ്രശ്നങ്ങൾ
+എത്തിക്കാൻ സഹായിക്കാനുമുള്ള ഒരു സ്വതന്ത്ര പൗരസഹായ
+പ്ലാറ്റ്‌ഫോമാണ്.
+
+</p>
+
+
+<p id="section1Text2">
+
+Nammude ഒരു സർക്കാർ സ്ഥാപനമോ സർക്കാർ വകുപ്പോ
+കോടതിയോ പോലീസോ അഭിഭാഷക സ്ഥാപനമോ ഔദ്യോഗിക
+സർക്കാർ പരാതി പരിഹാര സംവിധാനമോ അല്ല.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 2
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section2Title">
+
+2. നടപടി ഉറപ്പുനൽകുന്നില്ല
+
+</h2>
+
+
+<p id="section2Text">
+
+Nammude-ൽ ഒരു റിപ്പോർട്ട് സമർപ്പിച്ചതുകൊണ്ട്
+ബന്ധപ്പെട്ട അധികാരി നിർബന്ധമായും നടപടി സ്വീകരിക്കുമെന്ന്
+അല്ലെങ്കിൽ പ്രശ്നം പരിഹരിക്കപ്പെടുമെന്ന് ഉറപ്പുനൽകുന്നില്ല.
+
+</p>
+
+
+<p id="section2Text2">
+
+അന്തിമ നടപടി ബന്ധപ്പെട്ട സർക്കാർ വകുപ്പ്,
+പ്രാദേശിക സ്വയംഭരണ സ്ഥാപനം, അധികാരി അല്ലെങ്കിൽ
+മറ്റ് ബന്ധപ്പെട്ട സ്ഥാപനത്തിന്റെ അധികാരപരിധിയിലും
+തീരുമാനത്തിലും ആയിരിക്കും.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 3
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section3Title">
+
+3. വിവരങ്ങളുടെ കൃത്യത
+
+</h2>
+
+
+<p id="section3Text">
+
+ഉപയോക്താക്കൾ സമർപ്പിക്കുന്ന വിവരങ്ങൾ അവരുടെ അറിവിലും
+വിശ്വാസത്തിലും ശരിയായതായിരിക്കണം.
+
+</p>
+
+
+<ul id="section3List">
+
+<li>
+തെറ്റായ വിവരങ്ങൾ മനഃപൂർവ്വം സമർപ്പിക്കരുത്.
+</li>
+
+<li>
+മറ്റൊരാളുടെ സ്വകാര്യ വിവരങ്ങൾ ആവശ്യത്തിന് മുകളിലേക്ക്
+അപ്‌ലോഡ് ചെയ്യരുത്.
+</li>
+
+<li>
+വ്യാജ രേഖകൾ, വ്യാജ തെളിവുകൾ അല്ലെങ്കിൽ തെറ്റിദ്ധരിപ്പിക്കുന്ന
+വിവരങ്ങൾ സമർപ്പിക്കരുത്.
+</li>
+
+<li>
+നിങ്ങൾക്ക് നിയമപരമായി പങ്കിടാൻ അവകാശമില്ലാത്ത
+രേഖകൾ അപ്‌ലോഡ് ചെയ്യരുത്.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 4
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section4Title">
+
+4. നിയമോപദേശം അല്ല
+
+</h2>
+
+
+<p id="section4Text">
+
+Nammude നൽകുന്ന പൊതുവിവരങ്ങളോ സഹായങ്ങളോ
+നിയമോപദേശമായി കണക്കാക്കരുത്.
+
+</p>
+
+
+<p id="section4Text2">
+
+നിങ്ങളുടെ വിഷയത്തിന് പ്രത്യേക നിയമോപദേശം ആവശ്യമാണെങ്കിൽ,
+യോഗ്യനായ അഭിഭാഷകനെയോ ബന്ധപ്പെട്ട നിയമ വിദഗ്ധനെയോ
+സമീപിക്കുക.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 5
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section5Title">
+
+5. അടിയന്തര സാഹചര്യങ്ങൾ
+
+</h2>
+
+
+<p id="section5Text">
+
+അടിയന്തരമായ അപകടം, കുറ്റകൃത്യം, തീപിടിത്തം,
+മെഡിക്കൽ അടിയന്തരാവസ്ഥ അല്ലെങ്കിൽ ഉടൻ സഹായം
+ആവശ്യമായ മറ്റേതെങ്കിലും സാഹചര്യമുണ്ടെങ്കിൽ
+Nammude റിപ്പോർട്ടിംഗ് സംവിധാനം മാത്രം ആശ്രയിക്കരുത്.
+
+</p>
+
+
+<p id="section5Text2">
+
+അത്തരം സാഹചര്യങ്ങളിൽ ബന്ധപ്പെട്ട ഔദ്യോഗിക
+അടിയന്തര സേവനങ്ങളെയോ അധികാരികളെയോ നേരിട്ട്
+ബന്ധപ്പെടുക.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 6
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section6Title">
+
+6. മൂന്നാം കക്ഷി സ്ഥാപനങ്ങൾ
+
+</h2>
+
+
+<p id="section6Text">
+
+ഒരു റിപ്പോർട്ട് ബന്ധപ്പെട്ട സർക്കാർ വകുപ്പിനോ
+സ്ഥാപനത്തിനോ മറ്റ് അധികാരികൾക്കോ കൈമാറുന്നതോ
+അവരുമായി ആശയവിനിമയം നടത്തുന്നതോ അവരുടെ നടപടി
+ഉറപ്പാക്കുന്നതായി അർത്ഥമാക്കുന്നില്ല.
+
+</p>
+
+
+<p id="section6Text2">
+
+മൂന്നാം കക്ഷി സ്ഥാപനങ്ങളുടെ തീരുമാനങ്ങൾ,
+പ്രവർത്തനങ്ങൾ, സേവനങ്ങൾ, താമസങ്ങൾ അല്ലെങ്കിൽ
+നടപടിയില്ലായ്മകൾക്ക് Nammude ഉത്തരവാദിയായിരിക്കില്ല.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 7
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section7Title">
+
+7. ലഭ്യതയും സാങ്കേതിക പ്രശ്നങ്ങളും
+
+</h2>
+
+
+<p id="section7Text">
+
+വെബ്‌സൈറ്റ്, ഫോം, മാപ്പ്, ഫയൽ അപ്‌ലോഡ്,
+ഇമെയിൽ ആശയവിനിമയം അല്ലെങ്കിൽ മറ്റ് സാങ്കേതിക
+സൗകര്യങ്ങൾ എല്ലായ്പ്പോഴും തടസ്സമില്ലാതെ ലഭ്യമാകും
+എന്ന് Nammude ഉറപ്പുനൽകുന്നില്ല.
+
+</p>
+
+
+<p id="section7Text2">
+
+സാങ്കേതിക തകരാറുകൾ, നെറ്റ്‌വർക്ക് പ്രശ്നങ്ങൾ,
+മൂന്നാം കക്ഷി സേവനങ്ങളുടെ തടസ്സങ്ങൾ അല്ലെങ്കിൽ
+മറ്റ് കാരണങ്ങളാൽ റിപ്പോർട്ടുകൾ വൈകുകയോ
+പരാജയപ്പെടുകയോ ചെയ്യാം.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 8
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section8Title">
+
+8. തെളിവുകളും രേഖകളും
+
+</h2>
+
+
+<p id="section8Text">
+
+ഉപയോക്താക്കൾ അപ്‌ലോഡ് ചെയ്യുന്ന ഫോട്ടോകൾ,
+വീഡിയോകൾ, രേഖകൾ, സ്ക്രീൻഷോട്ടുകൾ, ഓഡിയോ
+അല്ലെങ്കിൽ മറ്റ് തെളിവുകളുടെ യഥാർത്ഥത Nammude
+എപ്പോഴും സ്വതന്ത്രമായി സ്ഥിരീകരിക്കണമെന്നില്ല.
+
+</p>
+
+
+<p id="section8Text2">
+
+അതിനാൽ, ലഭിക്കുന്ന വിവരങ്ങളെ അടിസ്ഥാനമാക്കി
+നടപടി സ്വീകരിക്കുന്നതിന് മുമ്പ് ബന്ധപ്പെട്ട
+അധികാരികൾക്ക് അവരുടെ സ്വന്തം പരിശോധന
+നടത്തേണ്ടിവരാം.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 9
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section9Title">
+
+9. സ്വകാര്യത
+
+</h2>
+
+
+<p id="section9Text">
+
+വിവരങ്ങൾ എങ്ങനെ ശേഖരിക്കുകയും ഉപയോഗിക്കുകയും
+സംരക്ഷിക്കുകയും പങ്കിടുകയും ചെയ്യുന്നു എന്നതിനെക്കുറിച്ചുള്ള
+കൂടുതൽ വിവരങ്ങൾക്ക് Nammude Privacy Policy വായിക്കുക.
+
+</p>
+
+
+<p>
+
+<a
+    href="privacy.html"
+    style="
+        color:#1257d6;
+        font-weight:700;
+        text-decoration:underline;
+    "
+    id="privacyLink">
+
+Privacy Policy
+
+</a>
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 10
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section10Title">
+
+10. Terms & Conditions
+
+</h2>
+
+
+<p id="section10Text">
+
+Nammude ഉപയോഗിക്കുന്നതും റിപ്പോർട്ട് സമർപ്പിക്കുന്നതും
+നിലവിലുള്ള Terms & Conditions-ന് വിധേയമാണ്.
+
+</p>
+
+
+<p>
+
+<a
+    href="terms.html"
+    style="
+        color:#1257d6;
+        font-weight:700;
+        text-decoration:underline;
+    "
+    id="termsLink">
+
+Terms & Conditions
+
+</a>
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     SECTION 11
+===================================================== -->
+
+<section class="disclaimer-section">
+
+<h2 id="section11Title">
+
+11. ഉള്ളടക്കത്തിലെ മാറ്റങ്ങൾ
+
+</h2>
+
+
+<p id="section11Text">
+
+Nammude ഈ Disclaimer ആവശ്യാനുസരണം മാറ്റുകയോ
+പുതുക്കുകയോ ചെയ്യാം. പുതുക്കിയ പതിപ്പ് ഈ പേജിൽ
+പ്രസിദ്ധീകരിക്കുന്ന തീയതി മുതൽ പ്രാബല്യത്തിൽ വരും.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<div class="contact-box">
+
+<h2 id="contactTitle">
+
+ബന്ധപ്പെടുക
+
+</h2>
+
+
+<p id="contactText">
+
+ഈ Disclaimer സംബന്ധിച്ച് എന്തെങ്കിലും സംശയങ്ങളോ
+വ്യക്തത ആവശ്യമോ ഉണ്ടെങ്കിൽ Nammude-ന്റെ ഔദ്യോഗിക
+ബന്ധപ്പെടൽ മാർഗം ഉപയോഗിച്ച് ഞങ്ങളെ സമീപിക്കുക.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="container footer-content">
+
+
+<div>
+
+<div class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</div>
+
+
+<p id="footerTagline">
+
+നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
+
+</p>
+
+
+<div class="legal-footer-links">
+
+<a
+    href="terms.html"
+    id="footerTerms">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="privacy.html"
+    id="footerPrivacy">
+
+Privacy Policy
+
+</a>
+
+
+<a
+    href="disclaimer.html"
+    id="footerDisclaimer">
+
+Disclaimer
+
+</a>
+
+
+<a
+    href="refund.html"
+    id="footerRefund">
+
+Refund & Cancellation
+
+</a>
+
+
+<a
+    href="grievance.html"
+    id="footerGrievance">
+
+Grievance
+
+</a>
+
+</div>
+
+</div>
+
+
+<p>
+© 2026 Nammude
+</p>
+
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
+
+const translations = {
+
+ml: {
+
+home: "ഹോം",
+
+eyebrow: "Nammude",
+
+title: "Disclaimer <span>& അറിയിപ്പ്</span>",
+
+description:
+"Nammude പ്ലാറ്റ്‌ഫോം ഉപയോഗിക്കുന്നതിന് മുമ്പ് ഈ Disclaimer ശ്രദ്ധാപൂർവ്വം വായിക്കുക.",
+
+importantTitle:
+"പ്രധാന അറിയിപ്പ്",
+
+importantText:
+"Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്. ഇത് സർക്കാർ വകുപ്പ്, സർക്കാർ അധികാരി, കോടതി, പോലീസ് വകുപ്പ് അല്ലെങ്കിൽ നിയമ സ്ഥാപനമല്ല.",
+
+section1Title:
+"1. Nammude-ന്റെ സ്വഭാവം",
+
+section1Text:
+"Nammude പൊതുജനങ്ങൾക്ക് അവരുടെ പ്രദേശത്തെ പ്രശ്നങ്ങൾ അറിയിക്കാനും ബന്ധപ്പെട്ട അധികാരികളിലേക്ക് പ്രശ്നങ്ങൾ എത്തിക്കാൻ സഹായിക്കാനുമുള്ള ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്.",
+
+section1Text2:
+"Nammude ഒരു സർക്കാർ സ്ഥാപനമോ സർക്കാർ വകുപ്പോ കോടതിയോ പോലീസോ അഭിഭാഷക സ്ഥാപനമോ ഔദ്യോഗിക സർക്കാർ പരാതി പരിഹാര സംവിധാനമോ അല്ല.",
+
+section2Title:
+"2. നടപടി ഉറപ്പുനൽകുന്നില്ല",
+
+section2Text:
+"Nammude-ൽ ഒരു റിപ്പോർട്ട് സമർപ്പിച്ചതുകൊണ്ട് ബന്ധപ്പെട്ട അധികാരി നിർബന്ധമായും നടപടി സ്വീകരിക്കുമെന്ന് അല്ലെങ്കിൽ പ്രശ്നം പരിഹരിക്കപ്പെടുമെന്ന് ഉറപ്പുനൽകുന്നില്ല.",
+
+section2Text2:
+"അന്തിമ നടപടി ബന്ധപ്പെട്ട സർക്കാർ വകുപ്പ്, പ്രാദേശിക സ്വയംഭരണ സ്ഥാപനം, അധികാരി അല്ലെങ്കിൽ മറ്റ് ബന്ധപ്പെട്ട സ്ഥാപനത്തിന്റെ അധികാരപരിധിയിലും തീരുമാനത്തിലും ആയിരിക്കും.",
+
+section3Title:
+"3. വിവരങ്ങളുടെ കൃത്യത",
+
+section3Text:
+"ഉപയോക്താക്കൾ സമർപ്പിക്കുന്ന വിവരങ്ങൾ അവരുടെ അറിവിലും വിശ്വാസത്തിലും ശരിയായതായിരിക്കണം.",
+
+section3List: [
+"തെറ്റായ വിവരങ്ങൾ മനഃപൂർവ്വം സമർപ്പിക്കരുത്.",
+"മറ്റൊരാളുടെ സ്വകാര്യ വിവരങ്ങൾ ആവശ്യത്തിന് മുകളിലേക്ക് അപ്‌ലോഡ് ചെയ്യരുത്.",
+"വ്യാജ രേഖകൾ, വ്യാജ തെളിവുകൾ അല്ലെങ്കിൽ തെറ്റിദ്ധരിപ്പിക്കുന്ന വിവരങ്ങൾ സമർപ്പിക്കരുത്.",
+"നിങ്ങൾക്ക് നിയമപരമായി പങ്കിടാൻ അവകാശമില്ലാത്ത രേഖകൾ അപ്‌ലോഡ് ചെയ്യരുത്."
+],
+
+section4Title:
+"4. നിയമോപദേശം അല്ല",
+
+section4Text:
+"Nammude നൽകുന്ന പൊതുവിവരങ്ങളോ സഹായങ്ങളോ നിയമോപദേശമായി കണക്കാക്കരുത്.",
+
+section4Text2:
+"നിങ്ങളുടെ വിഷയത്തിന് പ്രത്യേക നിയമോപദേശം ആവശ്യമാണെങ്കിൽ, യോഗ്യനായ അഭിഭാഷകനെയോ ബന്ധപ്പെട്ട നിയമ വിദഗ്ധനെയോ സമീപിക്കുക.",
+
+section5Title:
+"5. അടിയന്തര സാഹചര്യങ്ങൾ",
+
+section5Text:
+"അടിയന്തരമായ അപകടം, കുറ്റകൃത്യം, തീപിടിത്തം, മെഡിക്കൽ അടിയന്തരാവസ്ഥ അല്ലെങ്കിൽ ഉടൻ സഹായം ആവശ്യമായ മറ്റേതെങ്കിലും സാഹചര്യമുണ്ടെങ്കിൽ Nammude റിപ്പോർട്ടിംഗ് സംവിധാനം മാത്രം ആശ്രയിക്കരുത്.",
+
+section5Text2:
+"അത്തരം സാഹചര്യങ്ങളിൽ ബന്ധപ്പെട്ട ഔദ്യോഗിക അടിയന്തര സേവനങ്ങളെയോ അധികാരികളെയോ നേരിട്ട് ബന്ധപ്പെടുക.",
+
+section6Title:
+"6. മൂന്നാം കക്ഷി സ്ഥാപനങ്ങൾ",
+
+section6Text:
+"ഒരു റിപ്പോർട്ട് ബന്ധപ്പെട്ട സർക്കാർ വകുപ്പിനോ സ്ഥാപനത്തിനോ മറ്റ് അധികാരികൾക്കോ കൈമാറുന്നതോ അവരുമായി ആശയവിനിമയം നടത്തുന്നതോ അവരുടെ നടപടി ഉറപ്പാക്കുന്നതായി അർത്ഥമാക്കുന്നില്ല.",
+
+section6Text2:
+"മൂന്നാം കക്ഷി സ്ഥാപനങ്ങളുടെ തീരുമാനങ്ങൾ, പ്രവർത്തനങ്ങൾ, സേവനങ്ങൾ, താമസങ്ങൾ അല്ലെങ്കിൽ നടപടിയില്ലായ്മകൾക്ക് Nammude ഉത്തരവാദിയായിരിക്കില്ല.",
+
+section7Title:
+"7. ലഭ്യതയും സാങ്കേതിക പ്രശ്നങ്ങളും",
+
+section7Text:
+"വെബ്‌സൈറ്റ്, ഫോം, മാപ്പ്, ഫയൽ അപ്‌ലോഡ്, ഇമെയിൽ ആശയവിനിമയം അല്ലെങ്കിൽ മറ്റ് സാങ്കേതിക സൗകര്യങ്ങൾ എല്ലായ്പ്പോഴും തടസ്സമില്ലാതെ ലഭ്യമാകും എന്ന് Nammude ഉറപ്പുനൽകുന്നില്ല.",
+
+section7Text2:
+"സാങ്കേതിക തകരാറുകൾ, നെറ്റ്‌വർക്ക് പ്രശ്നങ്ങൾ, മൂന്നാം കക്ഷി സേവനങ്ങളുടെ തടസ്സങ്ങൾ അല്ലെങ്കിൽ മറ്റ് കാരണങ്ങളാൽ റിപ്പോർട്ടുകൾ വൈകുകയോ പരാജയപ്പെടുകയോ ചെയ്യാം.",
+
+section8Title:
+"8. തെളിവുകളും രേഖകളും",
+
+section8Text:
+"ഉപയോക്താക്കൾ അപ്‌ലോഡ് ചെയ്യുന്ന ഫോട്ടോകൾ, വീഡിയോകൾ, രേഖകൾ, സ്ക്രീൻഷോട്ടുകൾ, ഓഡിയോ അല്ലെങ്കിൽ മറ്റ് തെളിവുകളുടെ യഥാർത്ഥത Nammude എപ്പോഴും സ്വതന്ത്രമായി സ്ഥിരീകരിക്കണമെന്നില്ല.",
+
+section8Text2:
+"അതിനാൽ, ലഭിക്കുന്ന വിവരങ്ങളെ അടിസ്ഥാനമാക്കി നടപടി സ്വീകരിക്കുന്നതിന് മുമ്പ് ബന്ധപ്പെട്ട അധികാരികൾക്ക് അവരുടെ സ്വന്തം പരിശോധന നടത്തേണ്ടിവരാം.",
+
+section9Title:
+"9. സ്വകാര്യത",
+
+section9Text:
+"വിവരങ്ങൾ എങ്ങനെ ശേഖരിക്കുകയും ഉപയോഗിക്കുകയും സംരക്ഷിക്കുകയും പങ്കിടുകയും ചെയ്യുന്നു എന്നതിനെക്കുറിച്ചുള്ള കൂടുതൽ വിവരങ്ങൾക്ക് Nammude Privacy Policy വായിക്കുക.",
+
+section10Title:
+"10. Terms & Conditions",
+
+section10Text:
+"Nammude ഉപയോഗിക്കുന്നതും റിപ്പോർട്ട് സമർപ്പിക്കുന്നതും നിലവിലുള്ള Terms & Conditions-ന് വിധേയമാണ്.",
+
+section11Title:
+"11. ഉള്ളടക്കത്തിലെ മാറ്റങ്ങൾ",
+
+section11Text:
+"Nammude ഈ Disclaimer ആവശ്യാനുസരണം മാറ്റുകയോ പുതുക്കുകയോ ചെയ്യാം. പുതുക്കിയ പതിപ്പ് ഈ പേജിൽ പ്രസിദ്ധീകരിക്കുന്ന തീയതി മുതൽ പ്രാബല്യത്തിൽ വരും.",
+
+contactTitle:
+"ബന്ധപ്പെടുക",
+
+contactText:
+"ഈ Disclaimer സംബന്ധിച്ച് എന്തെങ്കിലും സംശയങ്ങളോ വ്യക്തത ആവശ്യമോ ഉണ്ടെങ്കിൽ Nammude-ന്റെ ഔദ്യോഗിക ബന്ധപ്പെടൽ മാർഗം ഉപയോഗിച്ച് ഞങ്ങളെ സമീപിക്കുക.",
+
+footerTagline:
+"നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
+
+},
+
+en: {
+
+home: "Home",
+
+eyebrow: "Nammude",
+
+title: "Disclaimer <span>& Notice</span>",
+
+description:
+"Please read this disclaimer carefully before using the Nammude platform.",
+
+importantTitle:
+"Important Notice",
+
+importantText:
+"Nammude is an independent civic-support platform. It is not a government department, government authority, court, police department, or law firm.",
+
+section1Title:
+"1. Nature of Nammude",
+
+section1Text:
+"Nammude is an independent civic-support platform that helps people report local problems and communicate issues to relevant authorities where appropriate.",
+
+section1Text2:
+"Nammude is not a government organization, government department, court, police department, law firm, or official government grievance-redressal system.",
+
+section2Title:
+"2. No Guarantee of Action",
+
+section2Text:
+"Submitting a report through Nammude does not guarantee that the concerned authority will take action or that the reported issue will be resolved.",
+
+section2Text2:
+"Any final action remains within the authority and decision-making responsibility of the relevant government department, local body, authority, or other organization.",
+
+section3Title:
+"3. Accuracy of Information",
+
+section3Text:
+"Users should ensure that the information they submit is accurate to the best of their knowledge and belief.",
+
+section3List: [
+"Do not knowingly submit false information.",
+"Do not upload unnecessary personal information belonging to another person.",
+"Do not submit fake documents, fake evidence, or misleading information.",
+"Do not upload documents that you are not legally entitled to share."
+],
+
+section4Title:
+"4. Not Legal Advice",
+
+section4Text:
+"General information or assistance provided by Nammude should not be treated as legal advice.",
+
+section4Text2:
+"If your matter requires specific legal advice, consult a qualified lawyer or appropriate legal professional.",
+
+section5Title:
+"5. Emergency Situations",
+
+section5Text:
+"If there is an immediate danger, crime, fire, medical emergency, or any other situation requiring urgent assistance, do not rely only on the Nammude reporting system.",
+
+section5Text2:
+"In such situations, contact the appropriate official emergency services or authorities directly.",
+
+section6Title:
+"6. Third-Party Organizations",
+
+section6Text:
+"Forwarding a report to, or communicating with, a relevant government department, organization, or authority does not guarantee that they will take action.",
+
+section6Text2:
+"Nammude is not responsible for the decisions, actions, services, delays, or inaction of third-party organizations.",
+
+section7Title:
+"7. Availability & Technical Issues",
+
+section7Text:
+"Nammude does not guarantee that the website, forms, maps, file uploads, email communication, or other technical features will always be available or uninterrupted.",
+
+section7Text2:
+"Reports may be delayed or fail because of technical problems, network issues, third-party service interruptions, or other circumstances.",
+
+section8Title:
+"8. Evidence & Documents",
+
+section8Text:
+"Nammude may not independently verify the authenticity of every photo, video, document, screenshot, audio recording, or other evidence submitted by users.",
+
+section8Text2:
+"Relevant authorities may therefore need to conduct their own verification before taking action based on submitted information.",
+
+section9Title:
+"9. Privacy",
+
+section9Text:
+"For more information about how information is collected, used, protected, and shared, please read the Nammude Privacy Policy.",
+
+section10Title:
+"10. Terms & Conditions",
+
+section10Text:
+"Use of Nammude and submission of reports are subject to the current Terms & Conditions.",
+
+section11Title:
+"11. Changes to this Disclaimer",
+
+section11Text:
+"Nammude may update or modify this Disclaimer when necessary. Any updated version will become effective when published on this page.",
+
+contactTitle:
+"Contact",
+
+contactText:
+"If you have questions or need clarification regarding this Disclaimer, please contact Nammude through its official contact method.",
+
+footerTagline:
+"Your problem, our intervention."
+
+}
+
+};
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+let currentLanguage =
+    localStorage.getItem("nammude-language") || "ml";
+
+
+const languageToggle =
+    document.getElementById("languageToggle");
+
+
+function updateLanguage() {
+
+    const t =
+        translations[currentLanguage];
+
+
+    document.documentElement.lang =
+        currentLanguage;
+
+
+    document.getElementById(
+        "homeButton"
+    ).textContent = t.home;
+
+
+    document.getElementById(
+        "eyebrow"
+    ).textContent = t.eyebrow;
+
+
+    document.getElementById(
+        "pageTitle"
+    ).innerHTML = t.title;
+
+
+    document.getElementById(
+        "pageDescription"
+    ).textContent = t.description;
+
+
+    document.getElementById(
+        "importantTitle"
+    ).textContent = t.importantTitle;
+
+
+    document.getElementById(
+        "importantText"
+    ).textContent = t.importantText;
+
+
+    for (let i = 1; i <= 11; i++) {
+
+        const title =
+            document.getElementById(
+                "section" + i + "Title"
+            );
+
+        const text =
+            document.getElementById(
+                "section" + i + "Text"
+            );
+
+        const text2 =
+            document.getElementById(
+                "section" + i + "Text2"
+            );
+
+
+        if (title) {
+
+            title.textContent =
+                t["section" + i + "Title"];
+
+        }
+
+
+        if (text) {
+
+            text.textContent =
+                t["section" + i + "Text"];
+
+        }
+
+
+        if (text2) {
+
+            text2.textContent =
+                t["section" + i + "Text2"];
+
+        }
+
+    }
+
+
+    const list =
+        document.getElementById(
+            "section3List"
+        );
+
+
+    list.innerHTML = "";
+
+
+    t.section3List.forEach(
+        itemText => {
+
+            const li =
+                document.createElement(
+                    "li"
+                );
+
+            li.textContent =
+                itemText;
+
+            list.appendChild(li);
+
+        }
+    );
+
+
+    document.getElementById(
+        "privacyLink"
+    ).textContent =
+        currentLanguage === "ml"
+            ? "Privacy Policy"
+            : "Privacy Policy";
+
+
+    document.getElementById(
+        "termsLink"
+    ).textContent =
+        "Terms & Conditions";
+
+
+    document.getElementById(
+        "contactTitle"
+    ).textContent =
+        t.contactTitle;
+
+
+    document.getElementById(
+        "contactText"
+    ).textContent =
+        t.contactText;
+
+
+    document.getElementById(
+        "footerTagline"
+    ).textContent =
+        t.footerTagline;
+
+
+    document.getElementById(
+        "footerTerms"
+    ).textContent =
+        "Terms & Conditions";
+
+
+    document.getElementById(
+        "footerPrivacy"
+    ).textContent =
+        "Privacy Policy";
+
+
+    document.getElementById(
+        "footerDisclaimer"
+    ).textContent =
+        "Disclaimer";
+
+
+    document.getElementById(
+        "footerRefund"
+    ).textContent =
+        "Refund & Cancellation";
+
+
+    document.getElementById(
+        "footerGrievance"
+    ).textContent =
+        "Grievance";
+
+
+    languageToggle.textContent =
+        currentLanguage === "ml"
+            ? "EN"
+            : "മലയാളം";
+
+}
+
+
+languageToggle.addEventListener(
+    "click",
+    () => {
+
+        currentLanguage =
+            currentLanguage === "ml"
+                ? "en"
+                : "ml";
+
+
+        localStorage.setItem(
+            "nammude-language",
+            currentLanguage
+        );
+
+
+        updateLanguage();
+
+    }
+);
+
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+const themeToggle =
+    document.getElementById(
+        "themeToggle"
+    );
+
+
+function applyTheme(theme) {
+
+    if (theme === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+
+        themeToggle.textContent =
+            "☀️";
+
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+
+        themeToggle.setAttribute(
+            "title",
+            "Light mode"
+        );
+
+    }
+
+    else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+
+        themeToggle.textContent =
+            "🌙";
+
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+
+        themeToggle.setAttribute(
+            "title",
+            "Dark mode"
+        );
+
+    }
+
+}
+
+
+const savedTheme =
+    localStorage.getItem(
+        "nammude-theme"
+    );
+
+
+if (savedTheme === "dark") {
+
+    applyTheme("dark");
+
+}
+
+else {
+
+    applyTheme("light");
+
+}
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const isDark =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+
+        const newTheme =
+            isDark
+                ? "light"
+                : "dark";
+
+
+        applyTheme(newTheme);
+
+
+        localStorage.setItem(
+            "nammude-theme",
+            newTheme
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateLanguage();
+
+</script>
+
+
+</body>
+
+</html>

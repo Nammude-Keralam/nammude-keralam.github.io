@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="ml">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>പരാതി പരിഹാരം — Nammude</title>
+
+<link
+    rel="icon"
+    type="image/png"
+    href="logo.png">
+
+<link
+    rel="stylesheet"
+    href="style.css">
+
+
+<style>
+
+/* =====================================================
+   GRIEVANCE PAGE
+===================================================== */
+
+.grievance-page {
+    padding: 60px 0 80px;
+}
+
+.grievance-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.grievance-intro {
+    margin-bottom: 32px;
+}
+
+.grievance-intro .eyebrow {
+    color: #1257d6;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.grievance-intro h1 {
+    margin: 0 0 16px;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.15;
+}
+
+.grievance-intro h1 span {
+    color: #1257d6;
+}
+
+.grievance-intro p {
+    max-width: 720px;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+
+/* =====================================================
+   CONTENT CARDS
+===================================================== */
+
+.grievance-card {
+    margin-top: 20px;
+    padding: 24px;
+    border: 1px solid #dbe2ec;
+    border-radius: 18px;
+    background: #ffffff;
+}
+
+.grievance-card h2 {
+    margin: 0 0 14px;
+    font-size: 21px;
+}
+
+.grievance-card h3 {
+    margin: 22px 0 8px;
+    font-size: 17px;
+}
+
+.grievance-card p {
+    margin: 0 0 12px;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.grievance-card ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+}
+
+.grievance-card li {
+    margin-bottom: 9px;
+    line-height: 1.7;
+    color: #475569;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.grievance-notice {
+    padding: 18px;
+    border-radius: 15px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    margin-bottom: 20px;
+}
+
+.grievance-notice strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #1257d6;
+}
+
+.grievance-notice p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   CONTACT BOX
+===================================================== */
+
+.grievance-contact {
+    margin-top: 20px;
+    padding: 24px;
+    border-radius: 18px;
+    background: #1257d6;
+    color: #ffffff;
+}
+
+.grievance-contact h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.grievance-contact p {
+    color: #ffffff;
+    opacity: .95;
+}
+
+.grievance-contact a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   STEPS
+===================================================== */
+
+.grievance-steps {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.grievance-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.grievance-step-number {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: #1257d6;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.grievance-step p {
+    margin: 3px 0 0;
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.legal-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.legal-footer-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.legal-footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .grievance-intro p {
+    color: #a8b3c5;
+}
+
+body.dark-mode .grievance-card {
+    background: #111827;
+    border-color: #273449;
+}
+
+body.dark-mode .grievance-card p,
+body.dark-mode .grievance-card li {
+    color: #cbd5e1;
+}
+
+body.dark-mode .grievance-notice {
+    background: #172033;
+    border-color: #273449;
+}
+
+body.dark-mode .grievance-notice strong {
+    color: #60a5fa;
+}
+
+body.dark-mode .grievance-contact {
+    background: #1d4ed8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .grievance-page {
+        padding: 40px 0 60px;
+    }
+
+    .grievance-card {
+        padding: 18px;
+        border-radius: 15px;
+    }
+
+    .grievance-card h2 {
+        font-size: 19px;
+    }
+
+    .grievance-card p,
+    .grievance-card li {
+        font-size: 14px;
+    }
+
+    .grievance-contact {
+        padding: 19px;
+    }
+
+    .legal-footer-links {
+        gap: 10px 14px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container nav">
+
+<a
+    href="index.html"
+    class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</a>
+
+
+<div class="nav-actions">
+
+<button
+    type="button"
+    id="themeToggle"
+    class="theme-toggle"
+    aria-label="Toggle dark mode">
+
+🌙
+
+</button>
+
+
+<button
+    type="button"
+    id="languageToggle"
+    class="language-button">
+
+EN
+
+</button>
+
+
+<a
+    href="index.html"
+    class="nav-button"
+    id="homeButton">
+
+ഹോം
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="grievance-page">
+
+<div class="container grievance-container">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div class="grievance-intro">
+
+<p class="eyebrow">
+Nammude
+</p>
+
+<h1 id="pageTitle">
+പരാതി പരിഹാരം
+<br>
+<span>Grievance Redressal</span>
+</h1>
+
+<p id="pageDescription">
+Nammude സേവനവുമായി ബന്ധപ്പെട്ട പരാതികൾ,
+ആശങ്കകൾ, അല്ലെങ്കിൽ പ്രശ്നങ്ങൾ അറിയിക്കുന്നതിനുള്ള
+ഈ പേജ് ഉപയോഗിക്കാം.
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     IMPORTANT NOTICE
+===================================================== -->
+
+<div class="grievance-notice">
+
+<strong id="noticeTitle">
+പ്രധാന അറിയിപ്പ്
+</strong>
+
+<p id="noticeText">
+
+Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്.
+ഇത് സർക്കാർ വകുപ്പ്, സർക്കാർ അധികാരി, കോടതി,
+പോലീസ് വകുപ്പ് അല്ലെങ്കിൽ നിയമ സ്ഥാപനം അല്ല.
+
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     1. WHAT IS GRIEVANCE
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="whatTitle">
+1. എന്താണ് പരാതി?
+</h2>
+
+<p id="whatText">
+
+Nammude നൽകുന്ന സേവനവുമായി ബന്ധപ്പെട്ട്
+നിങ്ങൾക്ക് ഉണ്ടായിട്ടുള്ള പ്രശ്നം, ആശങ്ക,
+തെറ്റായ വിവരങ്ങൾ, സേവനത്തിലെ അപാകത,
+അല്ലെങ്കിൽ നിങ്ങളുടെ പരാതിയുടെ കൈകാര്യം ചെയ്യലുമായി
+ബന്ധപ്പെട്ട അസന്തോഷം എന്നിവ grievance ആയി അറിയിക്കാം.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     2. WHEN TO CONTACT
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="whenTitle">
+2. എപ്പോൾ പരാതി നൽകാം?
+</h2>
+
+<ul id="whenList">
+
+<li>
+Nammude-ൽ സമർപ്പിച്ച റിപ്പോർട്ടുമായി ബന്ധപ്പെട്ട
+പ്രശ്നമുണ്ടെങ്കിൽ.
+</li>
+
+<li>
+നിങ്ങളുടെ റിപ്പോർട്ട് കൈകാര്യം ചെയ്യുന്നതിൽ
+പ്രശ്നമുണ്ടെന്ന് തോന്നുന്നുവെങ്കിൽ.
+</li>
+
+<li>
+നിങ്ങളുടെ വിവരങ്ങൾ കൈകാര്യം ചെയ്യുന്നതുമായി
+ബന്ധപ്പെട്ട ആശങ്കയുണ്ടെങ്കിൽ.
+</li>
+
+<li>
+Nammude സേവനവുമായി ബന്ധപ്പെട്ട മറ്റേതെങ്കിലും
+ഗൗരവമായ ആശങ്ക ഉണ്ടെങ്കിൽ.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     3. HOW TO SUBMIT
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="howTitle">
+3. പരാതി എങ്ങനെ നൽകാം?
+</h2>
+
+<p id="howText">
+പരാതി നൽകുമ്പോൾ കഴിയുന്നത്ര വ്യക്തമായ വിവരങ്ങൾ നൽകുക.
+</p>
+
+
+<div class="grievance-steps">
+
+
+<div class="grievance-step">
+
+<div class="grievance-step-number">
+1
+</div>
+
+<p id="step1">
+നിങ്ങളുടെ പേര്, ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ എന്നിവ നൽകുക.
+</p>
+
+</div>
+
+
+<div class="grievance-step">
+
+<div class="grievance-step-number">
+2
+</div>
+
+<p id="step2">
+പരാതിയുടെ വിഷയം വ്യക്തമായി വിശദീകരിക്കുക.
+</p>
+
+</div>
+
+
+<div class="grievance-step">
+
+<div class="grievance-step-number">
+3
+</div>
+
+<p id="step3">
+ആവശ്യമായാൽ ബന്ധപ്പെട്ട റിപ്പോർട്ട് നമ്പർ,
+തീയതി അല്ലെങ്കിൽ മറ്റ് വിവരങ്ങൾ നൽകുക.
+</p>
+
+</div>
+
+
+<div class="grievance-step">
+
+<div class="grievance-step-number">
+4
+</div>
+
+<p id="step4">
+ആവശ്യമായ തെളിവുകൾ ഉണ്ടെങ്കിൽ മാത്രം നൽകുക.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     4. INFORMATION
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="informationTitle">
+4. നൽകേണ്ട വിവരങ്ങൾ
+</h2>
+
+<ul id="informationList">
+
+<li>പേര്</li>
+
+<li>ബന്ധപ്പെടാനുള്ള ഫോൺ നമ്പർ</li>
+
+<li>പരാതിയുടെ വിശദീകരണം</li>
+
+<li>ബന്ധപ്പെട്ട റിപ്പോർട്ട് / റഫറൻസ് നമ്പർ, ഉണ്ടെങ്കിൽ</li>
+
+<li>പ്രശ്നം പരിഹരിക്കാൻ സഹായിക്കുന്ന പ്രസക്തമായ വിവരങ്ങൾ</li>
+
+</ul>
+
+<p id="informationNote">
+
+ആവശ്യത്തിന് മുകളിലുള്ള മറ്റുള്ളവരുടെ സ്വകാര്യ വിവരങ്ങൾ
+നൽകുകയോ അപ്‌ലോഡ് ചെയ്യുകയോ ചെയ്യരുത്.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     5. REVIEW
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="reviewTitle">
+5. പരാതിയുടെ പരിശോധന
+</h2>
+
+<p id="reviewText">
+
+പരാതി ലഭിച്ചതിന് ശേഷം Nammude അതിന്റെ സ്വഭാവവും
+ലഭ്യമായ വിവരങ്ങളും പരിശോധിക്കും. ആവശ്യമായാൽ
+കൂടുതൽ വിവരങ്ങൾ ആവശ്യപ്പെടാം.
+
+</p>
+
+<p id="reviewText2">
+
+പരാതിയുടെ സ്വഭാവമനുസരിച്ച് അനുയോജ്യമായ നടപടികൾ
+സ്വീകരിക്കാൻ ശ്രമിക്കും. എല്ലാ പരാതികൾക്കും ഒരേ
+പരിഹാരം അല്ലെങ്കിൽ നടപടി ലഭിക്കുമെന്ന് ഉറപ്പുനൽകാൻ കഴിയില്ല.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     6. RESPONSE
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="responseTitle">
+6. മറുപടി
+</h2>
+
+<p id="responseText">
+
+പരാതി പരിശോധിച്ചതിന് ശേഷം സാധ്യമായിടത്ത്
+നൽകിയിട്ടുള്ള ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ ഉപയോഗിച്ച്
+നിങ്ങളെ അറിയിക്കാൻ Nammude ശ്രമിക്കും.
+
+</p>
+
+<p id="responseText2">
+
+മറുപടി ലഭിക്കുന്ന സമയം പരാതിയുടെ സ്വഭാവം,
+വിവരങ്ങളുടെ പൂർണ്ണത, പരിശോധന ആവശ്യകത എന്നിവയെ
+ആശ്രയിച്ചിരിക്കും.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     7. LIMITATIONS
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="limitationsTitle">
+7. പ്രധാന പരിമിതികൾ
+</h2>
+
+<ul id="limitationsList">
+
+<li>
+Nammude ഒരു സർക്കാർ അധികാര സ്ഥാപനമല്ല.
+</li>
+
+<li>
+Nammude-ന് സർക്കാർ വകുപ്പുകൾക്ക് നിർബന്ധമായും
+നടപടി സ്വീകരിക്കാൻ ഉത്തരവിടാൻ അധികാരമില്ല.
+</li>
+
+<li>
+കോടതി, പോലീസ്, സർക്കാർ അധികാരി, അല്ലെങ്കിൽ
+നിയമ സ്ഥാപനത്തിന്റെ ഔദ്യോഗിക നടപടിക്ക് പകരമായി
+Nammude സേവനം ഉപയോഗിക്കരുത്.
+</li>
+
+<li>
+അടിയന്തര സാഹചര്യങ്ങളിൽ ബന്ധപ്പെട്ട ഔദ്യോഗിക
+അടിയന്തര സേവനങ്ങളെ നേരിട്ട് ബന്ധപ്പെടുക.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     8. PRIVACY
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="privacyTitle">
+8. സ്വകാര്യത
+</h2>
+
+<p id="privacyText">
+
+പരാതി കൈകാര്യം ചെയ്യുന്നതിനായി ആവശ്യമായ വിവരങ്ങൾ
+Nammude പ്രോസസ്സ് ചെയ്യാം. വിവരങ്ങളുടെ ഉപയോഗത്തെക്കുറിച്ച്
+കൂടുതൽ അറിയാൻ ഞങ്ങളുടെ Privacy Policy പരിശോധിക്കുക.
+
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<div class="grievance-contact">
+
+<h2 id="contactTitle">
+പരാതി നൽകാൻ തയ്യാറാണോ?
+</h2>
+
+<p id="contactText">
+
+നിങ്ങളുടെ പ്രശ്നം വ്യക്തമായി വിവരിച്ച്
+Nammude-ലേക്ക് റിപ്പോർട്ട് സമർപ്പിക്കാം.
+
+</p>
+
+<a
+    href="report.html"
+    id="reportLink">
+
+പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക →
+
+</a>
+
+</div>
+
+
+
+<!-- =====================================================
+     RELATED LINKS
+===================================================== -->
+
+<section class="grievance-card">
+
+<h2 id="relatedTitle">
+ബന്ധപ്പെട്ട നയങ്ങൾ
+</h2>
+
+<div class="legal-footer-links">
+
+<a
+    href="terms.html"
+    id="termsLink">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="privacy.html"
+    id="privacyLink">
+
+Privacy Policy
+
+</a>
+
+
+<a
+    href="disclaimer.html"
+    id="disclaimerLink">
+
+Disclaimer
+
+</a>
+
+
+<a
+    href="refund.html"
+    id="refundLink">
+
+Refund & Cancellation
+
+</a>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="container footer-content">
+
+<div>
+
+<div class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</div>
+
+<p id="footerTagline">
+നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.
+</p>
+
+<div class="legal-footer-links">
+
+<a
+    href="terms.html"
+    id="footerTerms">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="privacy.html"
+    id="footerPrivacy">
+
+Privacy Policy
+
+</a>
+
+
+<a
+    href="disclaimer.html"
+    id="footerDisclaimer">
+
+Disclaimer
+
+</a>
+
+
+<a
+    href="refund.html"
+    id="footerRefund">
+
+Refund & Cancellation
+
+</a>
+
+
+<a
+    href="grievance.html"
+    id="footerGrievance">
+
+Grievance
+
+</a>
+
+</div>
+
+</div>
+
+
+<p>
+© 2026 Nammude
+</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
+
+const languages = {
+
+ml: {
+
+home:
+"ഹോം",
+
+title:
+"പരാതി പരിഹാരം<br><span>Grievance Redressal</span>",
+
+description:
+"Nammude സേവനവുമായി ബന്ധപ്പെട്ട പരാതികൾ, ആശങ്കകൾ, അല്ലെങ്കിൽ പ്രശ്നങ്ങൾ അറിയിക്കുന്നതിനുള്ള ഈ പേജ് ഉപയോഗിക്കാം.",
+
+noticeTitle:
+"പ്രധാന അറിയിപ്പ്",
+
+noticeText:
+"Nammude ഒരു സ്വതന്ത്ര പൗരസഹായ പ്ലാറ്റ്‌ഫോമാണ്. ഇത് സർക്കാർ വകുപ്പ്, സർക്കാർ അധികാരി, കോടതി, പോലീസ് വകുപ്പ് അല്ലെങ്കിൽ നിയമ സ്ഥാപനം അല്ല.",
+
+whatTitle:
+"1. എന്താണ് പരാതി?",
+
+whatText:
+"Nammude നൽകുന്ന സേവനവുമായി ബന്ധപ്പെട്ട് നിങ്ങൾക്ക് ഉണ്ടായിട്ടുള്ള പ്രശ്നം, ആശങ്ക, തെറ്റായ വിവരങ്ങൾ, സേവനത്തിലെ അപാകത, അല്ലെങ്കിൽ നിങ്ങളുടെ പരാതിയുടെ കൈകാര്യം ചെയ്യലുമായി ബന്ധപ്പെട്ട അസന്തോഷം എന്നിവ grievance ആയി അറിയിക്കാം.",
+
+whenTitle:
+"2. എപ്പോൾ പരാതി നൽകാം?",
+
+whenList: [
+"Nammude-ൽ സമർപ്പിച്ച റിപ്പോർട്ടുമായി ബന്ധപ്പെട്ട പ്രശ്നമുണ്ടെങ്കിൽ.",
+"നിങ്ങളുടെ റിപ്പോർട്ട് കൈകാര്യം ചെയ്യുന്നതിൽ പ്രശ്നമുണ്ടെന്ന് തോന്നുന്നുവെങ്കിൽ.",
+"നിങ്ങളുടെ വിവരങ്ങൾ കൈകാര്യം ചെയ്യുന്നതുമായി ബന്ധപ്പെട്ട ആശങ്കയുണ്ടെങ്കിൽ.",
+"Nammude സേവനവുമായി ബന്ധപ്പെട്ട മറ്റേതെങ്കിലും ഗൗരവമായ ആശങ്ക ഉണ്ടെങ്കിൽ."
+],
+
+howTitle:
+"3. പരാതി എങ്ങനെ നൽകാം?",
+
+howText:
+"പരാതി നൽകുമ്പോൾ കഴിയുന്നത്ര വ്യക്തമായ വിവരങ്ങൾ നൽകുക.",
+
+step1:
+"നിങ്ങളുടെ പേര്, ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ എന്നിവ നൽകുക.",
+
+step2:
+"പരാതിയുടെ വിഷയം വ്യക്തമായി വിശദീകരിക്കുക.",
+
+step3:
+"ആവശ്യമായാൽ ബന്ധപ്പെട്ട റിപ്പോർട്ട് നമ്പർ, തീയതി അല്ലെങ്കിൽ മറ്റ് വിവരങ്ങൾ നൽകുക.",
+
+step4:
+"ആവശ്യമായ തെളിവുകൾ ഉണ്ടെങ്കിൽ മാത്രം നൽകുക.",
+
+informationTitle:
+"4. നൽകേണ്ട വിവരങ്ങൾ",
+
+informationList: [
+"പേര്",
+"ബന്ധപ്പെടാനുള്ള ഫോൺ നമ്പർ",
+"പരാതിയുടെ വിശദീകരണം",
+"ബന്ധപ്പെട്ട റിപ്പോർട്ട് / റഫറൻസ് നമ്പർ, ഉണ്ടെങ്കിൽ",
+"പ്രശ്നം പരിഹരിക്കാൻ സഹായിക്കുന്ന പ്രസക്തമായ വിവരങ്ങൾ"
+],
+
+informationNote:
+"ആവശ്യത്തിന് മുകളിലുള്ള മറ്റുള്ളവരുടെ സ്വകാര്യ വിവരങ്ങൾ നൽകുകയോ അപ്‌ലോഡ് ചെയ്യുകയോ ചെയ്യരുത്.",
+
+reviewTitle:
+"5. പരാതിയുടെ പരിശോധന",
+
+reviewText:
+"പരാതി ലഭിച്ചതിന് ശേഷം Nammude അതിന്റെ സ്വഭാവവും ലഭ്യമായ വിവരങ്ങളും പരിശോധിക്കും. ആവശ്യമായാൽ കൂടുതൽ വിവരങ്ങൾ ആവശ്യപ്പെടാം.",
+
+reviewText2:
+"പരാതിയുടെ സ്വഭാവമനുസരിച്ച് അനുയോജ്യമായ നടപടികൾ സ്വീകരിക്കാൻ ശ്രമിക്കും. എല്ലാ പരാതികൾക്കും ഒരേ പരിഹാരം അല്ലെങ്കിൽ നടപടി ലഭിക്കുമെന്ന് ഉറപ്പുനൽകാൻ കഴിയില്ല.",
+
+responseTitle:
+"6. മറുപടി",
+
+responseText:
+"പരാതി പരിശോധിച്ചതിന് ശേഷം സാധ്യമായിടത്ത് നൽകിയിട്ടുള്ള ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളെ അറിയിക്കാൻ Nammude ശ്രമിക്കും.",
+
+responseText2:
+"മറുപടി ലഭിക്കുന്ന സമയം പരാതിയുടെ സ്വഭാവം, വിവരങ്ങളുടെ പൂർണ്ണത, പരിശോധന ആവശ്യകത എന്നിവയെ ആശ്രയിച്ചിരിക്കും.",
+
+limitationsTitle:
+"7. പ്രധാന പരിമിതികൾ",
+
+limitationsList: [
+"Nammude ഒരു സർക്കാർ അധികാര സ്ഥാപനമല്ല.",
+"Nammude-ന് സർക്കാർ വകുപ്പുകൾക്ക് നിർബന്ധമായും നടപടി സ്വീകരിക്കാൻ ഉത്തരവിടാൻ അധികാരമില്ല.",
+"കോടതി, പോലീസ്, സർക്കാർ അധികാരി, അല്ലെങ്കിൽ നിയമ സ്ഥാപനത്തിന്റെ ഔദ്യോഗിക നടപടിക്ക് പകരമായി Nammude സേവനം ഉപയോഗിക്കരുത്.",
+"അടിയന്തര സാഹചര്യങ്ങളിൽ ബന്ധപ്പെട്ട ഔദ്യോഗിക അടിയന്തര സേവനങ്ങളെ നേരിട്ട് ബന്ധപ്പെടുക."
+],
+
+privacyTitle:
+"8. സ്വകാര്യത",
+
+privacyText:
+"പരാതി കൈകാര്യം ചെയ്യുന്നതിനായി ആവശ്യമായ വിവരങ്ങൾ Nammude പ്രോസസ്സ് ചെയ്യാം. വിവരങ്ങളുടെ ഉപയോഗത്തെക്കുറിച്ച് കൂടുതൽ അറിയാൻ ഞങ്ങളുടെ Privacy Policy പരിശോധിക്കുക.",
+
+contactTitle:
+"പരാതി നൽകാൻ തയ്യാറാണോ?",
+
+contactText:
+"നിങ്ങളുടെ പ്രശ്നം വ്യക്തമായി വിവരിച്ച് Nammude-ലേക്ക് റിപ്പോർട്ട് സമർപ്പിക്കാം.",
+
+report:
+"പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക →",
+
+related:
+"ബന്ധപ്പെട്ട നയങ്ങൾ",
+
+footer:
+"നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ."
+
+},
+
+
+en: {
+
+home:
+"Home",
+
+title:
+"Grievance Redressal<br><span>Submit Your Concern</span>",
+
+description:
+"Use this page to raise complaints, concerns, or issues related to Nammude services.",
+
+noticeTitle:
+"Important Notice",
+
+noticeText:
+"Nammude is an independent civic-support platform. It is not a government department, government authority, court, police department, or law firm.",
+
+whatTitle:
+"1. What is a Grievance?",
+
+whatText:
+"A grievance may include a problem, concern, incorrect information, service issue, or dissatisfaction related to how your report or interaction with Nammude has been handled.",
+
+whenTitle:
+"2. When Can You Raise a Grievance?",
+
+whenList: [
+"If you have a problem related to a report submitted through Nammude.",
+"If you believe there is an issue with how your report is being handled.",
+"If you have a concern about how your information is being handled.",
+"If you have another serious concern related to Nammude services."
+],
+
+howTitle:
+"3. How to Submit a Grievance?",
+
+howText:
+"Please provide clear and accurate information when submitting a grievance.",
+
+step1:
+"Provide your name and contact information.",
+
+step2:
+"Clearly explain the subject of your grievance.",
+
+step3:
+"Where relevant, provide the related report number, date, or other reference information.",
+
+step4:
+"Provide relevant supporting evidence only when necessary.",
+
+informationTitle:
+"4. Information to Provide",
+
+informationList: [
+"Name",
+"Contact phone number",
+"Description of the grievance",
+"Related report / reference number, if available",
+"Relevant information that may help us understand the issue"
+],
+
+informationNote:
+"Do not provide or upload unnecessary personal information belonging to another person.",
+
+reviewTitle:
+"5. Grievance Review",
+
+reviewText:
+"After receiving a grievance, Nammude may review its nature and the information available. Additional information may be requested where necessary.",
+
+reviewText2:
+"Nammude will try to take appropriate steps depending on the nature of the grievance. We cannot guarantee the same resolution or action for every grievance.",
+
+responseTitle:
+"6. Response",
+
+responseText:
+"After reviewing the grievance, Nammude may contact you using the contact information you provided where appropriate.",
+
+responseText2:
+"The time required to respond may depend on the nature of the grievance, completeness of the information, and any verification that may be required.",
+
+limitationsTitle:
+"7. Important Limitations",
+
+limitationsList: [
+"Nammude is not a government authority.",
+"Nammude does not have the legal authority to order government departments to take action.",
+"Nammude should not be treated as a replacement for official procedures involving courts, police, government authorities, or law firms.",
+"In an emergency, contact the appropriate official emergency services directly."
+],
+
+privacyTitle:
+"8. Privacy",
+
+privacyText:
+"Nammude may process information necessary to handle a grievance. Please read our Privacy Policy for more information about how information is handled.",
+
+contactTitle:
+"Ready to Submit a Grievance?",
+
+contactText:
+"You can describe your issue clearly and submit a report through Nammude.",
+
+report:
+"Report a Problem →",
+
+related:
+"Related Policies",
+
+footer:
+"Your problem, our intervention."
+
+}
+
+};
+
+
+
+/* =====================================================
+   CURRENT LANGUAGE
+===================================================== */
+
+let currentLanguage =
+localStorage.getItem("nammude-language") || "ml";
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+
+function applyTheme(theme) {
+
+    if (theme === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        themeToggle.textContent = "☀️";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Light mode"
+        );
+
+    } else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+        themeToggle.textContent = "🌙";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Dark mode"
+        );
+
+    }
+
+}
+
+
+const savedTheme =
+localStorage.getItem("nammude-theme");
+
+
+applyTheme(
+    savedTheme === "dark"
+        ? "dark"
+        : "light"
+);
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const isDark =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+        const newTheme =
+            isDark
+                ? "light"
+                : "dark";
+
+        applyTheme(newTheme);
+
+        localStorage.setItem(
+            "nammude-theme",
+            newTheme
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   LANGUAGE UPDATE
+===================================================== */
+
+function updateLanguage() {
+
+    const t =
+        languages[currentLanguage];
+
+
+    document.documentElement.lang =
+        currentLanguage;
+
+
+    document.getElementById(
+        "homeButton"
+    ).textContent = t.home;
+
+
+    document.getElementById(
+        "pageTitle"
+    ).innerHTML = t.title;
+
+
+    document.getElementById(
+        "pageDescription"
+    ).textContent = t.description;
+
+
+    document.getElementById(
+        "noticeTitle"
+    ).textContent = t.noticeTitle;
+
+
+    document.getElementById(
+        "noticeText"
+    ).textContent = t.noticeText;
+
+
+    document.getElementById(
+        "whatTitle"
+    ).textContent = t.whatTitle;
+
+
+    document.getElementById(
+        "whatText"
+    ).textContent = t.whatText;
+
+
+    document.getElementById(
+        "whenTitle"
+    ).textContent = t.whenTitle;
+
+
+    document
+        .querySelectorAll(
+            "#whenList li"
+        )
+        .forEach(
+            (item, index) => {
+
+                item.textContent =
+                    t.whenList[index];
+
+            }
+        );
+
+
+    document.getElementById(
+        "howTitle"
+    ).textContent = t.howTitle;
+
+
+    document.getElementById(
+        "howText"
+    ).textContent = t.howText;
+
+
+    document.getElementById(
+        "step1"
+    ).textContent = t.step1;
+
+
+    document.getElementById(
+        "step2"
+    ).textContent = t.step2;
+
+
+    document.getElementById(
+        "step3"
+    ).textContent = t.step3;
+
+
+    document.getElementById(
+        "step4"
+    ).textContent = t.step4;
+
+
+    document.getElementById(
+        "informationTitle"
+    ).textContent =
+        t.informationTitle;
+
+
+    document
+        .querySelectorAll(
+            "#informationList li"
+        )
+        .forEach(
+            (item, index) => {
+
+                item.textContent =
+                    t.informationList[index];
+
+            }
+        );
+
+
+    document.getElementById(
+        "informationNote"
+    ).textContent =
+        t.informationNote;
+
+
+    document.getElementById(
+        "reviewTitle"
+    ).textContent =
+        t.reviewTitle;
+
+
+    document.getElementById(
+        "reviewText"
+    ).textContent =
+        t.reviewText;
+
+
+    document.getElementById(
+        "reviewText2"
+    ).textContent =
+        t.reviewText2;
+
+
+    document.getElementById(
+        "responseTitle"
+    ).textContent =
+        t.responseTitle;
+
+
+    document.getElementById(
+        "responseText"
+    ).textContent =
+        t.responseText;
+
+
+    document.getElementById(
+        "responseText2"
+    ).textContent =
+        t.responseText2;
+
+
+    document.getElementById(
+        "limitationsTitle"
+    ).textContent =
+        t.limitationsTitle;
+
+
+    document
+        .querySelectorAll(
+            "#limitationsList li"
+        )
+        .forEach(
+            (item, index) => {
+
+                item.textContent =
+                    t.limitationsList[index];
+
+            }
+        );
+
+
+    document.getElementById(
+        "privacyTitle"
+    ).textContent =
+        t.privacyTitle;
+
+
+    document.getElementById(
+        "privacyText"
+    ).textContent =
+        t.privacyText;
+
+
+    document.getElementById(
+        "contactTitle"
+    ).textContent =
+        t.contactTitle;
+
+
+    document.getElementById(
+        "contactText"
+    ).textContent =
+        t.contactText;
+
+
+    document.getElementById(
+        "reportLink"
+    ).textContent =
+        t.report;
+
+
+    document.getElementById(
+        "relatedTitle"
+    ).textContent =
+        t.related;
+
+
+    document.getElementById(
+        "footerTagline"
+    ).textContent =
+        t.footer;
+
+
+    document.getElementById(
+        "languageToggle"
+    ).textContent =
+        currentLanguage === "ml"
+            ? "EN"
+            : "മലയാളം";
+
+}
+
+
+
+/* =====================================================
+   LANGUAGE BUTTON
+===================================================== */
+
+document.getElementById(
+    "languageToggle"
+).addEventListener(
+    "click",
+    () => {
+
+        currentLanguage =
+            currentLanguage === "ml"
+                ? "en"
+                : "ml";
+
+
+        localStorage.setItem(
+            "nammude-language",
+            currentLanguage
+        );
+
+
+        updateLanguage();
+
+    }
+);
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateLanguage();
+
+</script>
+
+
+</body>
+
+</html>

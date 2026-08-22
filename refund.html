@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Refund & Cancellation — Nammude</title>
+
+<link
+    rel="icon"
+    type="image/png"
+    href="logo.png">
+
+<link
+    rel="stylesheet"
+    href="style.css">
+
+
+<style>
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.legal-page {
+    padding: 60px 0 80px;
+}
+
+.legal-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.legal-header {
+    margin-bottom: 32px;
+}
+
+.legal-eyebrow {
+    color: #1257d6;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.legal-header h1 {
+    margin: 0;
+    font-size: 42px;
+    line-height: 1.15;
+}
+
+.legal-header p {
+    margin-top: 14px;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CONTENT CARD
+===================================================== */
+
+.legal-card {
+    background: #ffffff;
+    border: 1px solid #dbe2ec;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, .05);
+}
+
+.legal-section {
+    margin-bottom: 32px;
+}
+
+.legal-section:last-child {
+    margin-bottom: 0;
+}
+
+.legal-section h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    color: #172033;
+}
+
+.legal-section h3 {
+    margin: 20px 0 8px;
+    font-size: 17px;
+    color: #172033;
+}
+
+.legal-section p {
+    margin: 0 0 12px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+.legal-section ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+.legal-section li {
+    margin-bottom: 9px;
+    line-height: 1.7;
+    color: #374151;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.legal-notice {
+    padding: 18px;
+    margin-bottom: 28px;
+    border-radius: 14px;
+    border: 1px solid #bfdbfe;
+    background: #eff6ff;
+}
+
+.legal-notice strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #1257d6;
+}
+
+.legal-notice p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   LINK
+===================================================== */
+
+.legal-section a {
+    color: #1257d6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.legal-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   LAST UPDATED
+===================================================== */
+
+.last-updated {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #dbe2ec;
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FOOTER LINKS
+===================================================== */
+
+.legal-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.legal-footer-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.legal-footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .legal-header p {
+    color: #94a3b8;
+}
+
+body.dark-mode .legal-card {
+    background: #111827;
+    border-color: #273449;
+    box-shadow: none;
+}
+
+body.dark-mode .legal-section h2,
+body.dark-mode .legal-section h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .legal-section p,
+body.dark-mode .legal-section li {
+    color: #d1d5db;
+}
+
+body.dark-mode .legal-notice {
+    background: #172033;
+    border-color: #294b80;
+}
+
+body.dark-mode .legal-notice strong {
+    color: #60a5fa;
+}
+
+body.dark-mode .legal-section a {
+    color: #60a5fa;
+}
+
+body.dark-mode .last-updated {
+    border-color: #273449;
+    color: #94a3b8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .legal-page {
+        padding: 35px 0 55px;
+    }
+
+    .legal-header h1 {
+        font-size: 32px;
+    }
+
+    .legal-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .legal-section h2 {
+        font-size: 19px;
+    }
+
+    .legal-section p,
+    .legal-section li {
+        font-size: 14px;
+    }
+
+    .legal-notice {
+        padding: 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container nav">
+
+<a
+    href="index.html"
+    class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</a>
+
+
+<div class="nav-actions">
+
+<button
+    type="button"
+    id="themeToggle"
+    class="theme-toggle"
+    aria-label="Toggle dark mode">
+
+🌙
+
+</button>
+
+
+<button
+    type="button"
+    id="languageToggle"
+    class="language-button">
+
+EN
+
+</button>
+
+
+<a
+    href="index.html"
+    class="nav-button"
+    id="homeButton">
+
+Home
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="legal-page">
+
+<div class="container legal-container">
+
+
+<div class="legal-header">
+
+<div class="legal-eyebrow">
+Nammude
+</div>
+
+<h1 id="pageTitle">
+Refund & Cancellation Policy
+</h1>
+
+<p id="pageIntro">
+Please read this policy before purchasing any paid
+service or membership from Nammude.
+</p>
+
+</div>
+
+
+
+<div class="legal-card">
+
+
+<!-- =====================================================
+     NOTICE
+===================================================== -->
+
+<div class="legal-notice">
+
+<strong id="noticeTitle">
+Important
+</strong>
+
+<p id="noticeText">
+Nammude provides different types of civic-support
+and assistance services. Refund eligibility depends
+on the type and stage of the service purchased.
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     1
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section1Title">
+1. General Policy
+</h2>
+
+<p id="section1Text">
+Payments made to Nammude are intended for the specific
+service, membership, application assistance, or other
+paid service selected by the user.
+</p>
+
+<p id="section1Text2">
+Because some services may involve administrative work,
+communication, preparation, processing, or other work
+that begins after payment, refunds may not be available
+once substantial work has started.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     2
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section2Title">
+2. Membership Payments
+</h2>
+
+<p id="section2Text">
+Membership payments are generally non-refundable once
+the membership has been activated or its benefits have
+started being provided.
+</p>
+
+<p id="section2Text2">
+If a technical issue prevents activation of a purchased
+membership and Nammude is unable to resolve the issue
+within a reasonable period, the user may contact Nammude
+for review.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     3
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section3Title">
+3. Paid Applications & Assistance
+</h2>
+
+<p id="section3Text">
+For paid application or assistance services, cancellation
+may be possible only if the requested work has not yet
+started.
+</p>
+
+<p id="section3Text2">
+Once preparation, processing, communication, submission,
+or other substantial work has started, the payment may
+become non-refundable.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     4
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section4Title">
+4. Cancellation Requests
+</h2>
+
+<p id="section4Text">
+A cancellation request should be submitted as soon as
+possible after payment.
+</p>
+
+<ul id="cancellationList">
+
+<li>
+Cancellation requests must include the name used for
+the payment.
+</li>
+
+<li>
+The user should provide the payment transaction or
+reference number whenever available.
+</li>
+
+<li>
+Nammude will review the request based on the status of
+the service.
+</li>
+
+<li>
+Submitting a cancellation request does not automatically
+guarantee a refund.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     5
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section5Title">
+5. When a Refund May Be Considered
+</h2>
+
+<p id="section5Text">
+A refund may be considered in situations such as:
+</p>
+
+<ul id="refundList">
+
+<li>
+A payment was successfully made but the paid service
+could not be activated or provided due to a technical
+problem on Nammude's side.
+</li>
+
+<li>
+A duplicate payment was made for the same service.
+</li>
+
+<li>
+Nammude specifically confirms that a refund is applicable
+for the particular transaction.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- =====================================================
+     6
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section6Title">
+6. Duplicate Payments
+</h2>
+
+<p id="section6Text">
+If you believe that you have accidentally made the same
+payment more than once, contact Nammude with the relevant
+transaction details.
+</p>
+
+<p id="section6Text2">
+After verification, an eligible duplicate payment may be
+refunded through the appropriate payment method, subject
+to applicable payment-provider rules.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     7
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section7Title">
+7. Failed or Pending Payments
+</h2>
+
+<p id="section7Text">
+If money has been debited from your account but the
+payment status appears failed, pending, or incomplete,
+please allow the payment provider's normal processing
+period before submitting a refund request.
+</p>
+
+<p id="section7Text2">
+If the amount is not automatically reversed or the issue
+continues, contact Nammude with the transaction details
+so the payment can be checked.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     8
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section8Title">
+8. Refund Processing
+</h2>
+
+<p id="section8Text">
+When a refund is approved, it will normally be processed
+through the original payment method or another method
+reasonably agreed upon by Nammude and the user.
+</p>
+
+<p id="section8Text2">
+The time required for the refunded amount to appear in
+the user's account may depend on the payment gateway,
+bank, card issuer, or other financial institution.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     9
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section9Title">
+9. Third-Party Payment Providers
+</h2>
+
+<p id="section9Text">
+Payments may be processed through third-party payment
+providers. Nammude may not control the processing time,
+temporary holds, reversals, or settlement timelines of
+those providers.
+</p>
+
+<p id="section9Text2">
+Users should also review the applicable terms of the
+payment provider used for the transaction.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     10
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section10Title">
+10. Services Already Provided
+</h2>
+
+<p id="section10Text">
+A refund will generally not be available for a service
+that has already been substantially completed or delivered
+to the user.
+</p>
+
+<p id="section10Text2">
+This may include situations where Nammude has already
+performed research, preparation, communication,
+documentation, submission assistance, or other work
+requested by the user.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     11
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section11Title">
+11. User-Provided Information
+</h2>
+
+<p id="section11Text">
+Users are responsible for providing accurate information
+required to provide a paid service.
+</p>
+
+<p id="section11Text2">
+Refunds may not be available where a service could not
+be properly completed because the user provided incorrect,
+incomplete, misleading, or insufficient information.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     12
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section12Title">
+12. Contact for Refund Requests
+</h2>
+
+<p id="section12Text">
+For refund or cancellation requests, please contact
+Nammude through the official contact method provided
+on the website.
+</p>
+
+<p id="section12Text2">
+Please include your name, payment reference or transaction
+ID, date of payment, purchased service, and a brief
+explanation of the request.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     13
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="section13Title">
+13. Changes to This Policy
+</h2>
+
+<p id="section13Text">
+Nammude may update this Refund & Cancellation Policy
+when necessary. The latest version published on this
+website will apply to future transactions unless
+otherwise required by applicable law.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     RELATED LINKS
+===================================================== -->
+
+<section class="legal-section">
+
+<h2 id="relatedTitle">
+Related Policies
+</h2>
+
+<p id="relatedText">
+
+Please also review our
+
+<a href="terms.html">
+Terms & Conditions
+</a>
+
+and
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+before using paid services.
+
+</p>
+
+</section>
+
+
+
+<div class="last-updated">
+
+<strong id="updatedLabel">
+Last Updated:
+</strong>
+
+<span id="updatedDate">
+22 August 2026
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<div class="container footer-content">
+
+
+<div>
+
+<div class="logo">
+
+<img
+    src="logo.png"
+    alt="Nammude">
+
+</div>
+
+
+<p id="footerTagline">
+Your problem, our intervention.
+</p>
+
+
+<div class="legal-footer-links">
+
+<a
+    href="terms.html"
+    id="footerTerms">
+
+Terms & Conditions
+
+</a>
+
+
+<a
+    href="privacy.html"
+    id="footerPrivacy">
+
+Privacy Policy
+
+</a>
+
+
+<a
+    href="disclaimer.html"
+    id="footerDisclaimer">
+
+Disclaimer
+
+</a>
+
+
+<a
+    href="refund.html"
+    id="footerRefund">
+
+Refund & Cancellation
+
+</a>
+
+
+<a
+    href="grievance.html"
+    id="footerGrievance">
+
+Grievance
+
+</a>
+
+</div>
+
+</div>
+
+
+<p>
+© 2026 Nammude
+</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+
+function applyTheme(theme) {
+
+    if (theme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeToggle.textContent = "☀️";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Light mode"
+        );
+
+    } else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+        themeToggle.textContent = "🌙";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+        themeToggle.setAttribute(
+            "title",
+            "Dark mode"
+        );
+
+    }
+
+}
+
+
+const savedTheme =
+localStorage.getItem("nammude-theme");
+
+
+applyTheme(
+    savedTheme === "dark"
+        ? "dark"
+        : "light"
+);
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const isDark =
+            document.body.classList.contains(
+                "dark-mode"
+            );
+
+        const newTheme =
+            isDark
+                ? "light"
+                : "dark";
+
+        applyTheme(newTheme);
+
+        localStorage.setItem(
+            "nammude-theme",
+            newTheme
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   LANGUAGE DATA
+===================================================== */
+
+const translations = {
+
+en: {
+
+home: "Home",
+
+pageTitle:
+"Refund & Cancellation Policy",
+
+pageIntro:
+"Please read this policy before purchasing any paid service or membership from Nammude.",
+
+noticeTitle:
+"Important",
+
+noticeText:
+"Nammude provides different types of civic-support and assistance services. Refund eligibility depends on the type and stage of the service purchased.",
+
+section1Title:
+"1. General Policy",
+
+section1Text:
+"Payments made to Nammude are intended for the specific service, membership, application assistance, or other paid service selected by the user.",
+
+section1Text2:
+"Because some services may involve administrative work, communication, preparation, processing, or other work that begins after payment, refunds may not be available once substantial work has started.",
+
+section2Title:
+"2. Membership Payments",
+
+section2Text:
+"Membership payments are generally non-refundable once the membership has been activated or its benefits have started being provided.",
+
+section2Text2:
+"If a technical issue prevents activation of a purchased membership and Nammude is unable to resolve the issue within a reasonable period, the user may contact Nammude for review.",
+
+section3Title:
+"3. Paid Applications & Assistance",
+
+section3Text:
+"For paid application or assistance services, cancellation may be possible only if the requested work has not yet started.",
+
+section3Text2:
+"Once preparation, processing, communication, submission, or other substantial work has started, the payment may become non-refundable.",
+
+section4Title:
+"4. Cancellation Requests",
+
+section4Text:
+"A cancellation request should be submitted as soon as possible after payment.",
+
+section5Title:
+"5. When a Refund May Be Considered",
+
+section5Text:
+"A refund may be considered in situations such as:",
+
+section6Title:
+"6. Duplicate Payments",
+
+section6Text:
+"If you believe that you have accidentally made the same payment more than once, contact Nammude with the relevant transaction details.",
+
+section6Text2:
+"After verification, an eligible duplicate payment may be refunded through the appropriate payment method, subject to applicable payment-provider rules.",
+
+section7Title:
+"7. Failed or Pending Payments",
+
+section7Text:
+"If money has been debited from your account but the payment status appears failed, pending, or incomplete, please allow the payment provider's normal processing period before submitting a refund request.",
+
+section7Text2:
+"If the amount is not automatically reversed or the issue continues, contact Nammude with the transaction details so the payment can be checked.",
+
+section8Title:
+"8. Refund Processing",
+
+section8Text:
+"When a refund is approved, it will normally be processed through the original payment method or another method reasonably agreed upon by Nammude and the user.",
+
+section8Text2:
+"The time required for the refunded amount to appear in the user's account may depend on the payment gateway, bank, card issuer, or other financial institution.",
+
+section9Title:
+"9. Third-Party Payment Providers",
+
+section9Text:
+"Payments may be processed through third-party payment providers. Nammude may not control the processing time, temporary holds, reversals, or settlement timelines of those providers.",
+
+section9Text2:
+"Users should also review the applicable terms of the payment provider used for the transaction.",
+
+section10Title:
+"10. Services Already Provided",
+
+section10Text:
+"A refund will generally not be available for a service that has already been substantially completed or delivered to the user.",
+
+section10Text2:
+"This may include situations where Nammude has already performed research, preparation, communication, documentation, submission assistance, or other work requested by the user.",
+
+section11Title:
+"11. User-Provided Information",
+
+section11Text:
+"Users are responsible for providing accurate information required to provide a paid service.",
+
+section11Text2:
+"Refunds may not be available where a service could not be properly completed because the user provided incorrect, incomplete, misleading, or insufficient information.",
+
+section12Title:
+"12. Contact for Refund Requests",
+
+section12Text:
+"For refund or cancellation requests, please contact Nammude through the official contact method provided on the website.",
+
+section12Text2:
+"Please include your name, payment reference or transaction ID, date of payment, purchased service, and a brief explanation of the request.",
+
+section13Title:
+"13. Changes to This Policy",
+
+section13Text:
+"Nammude may update this Refund & Cancellation Policy when necessary. The latest version published on this website will apply to future transactions unless otherwise required by applicable law.",
+
+relatedTitle:
+"Related Policies",
+
+relatedText:
+"Please also review our",
+
+updatedLabel:
+"Last Updated:",
+
+footerTagline:
+"Your problem, our intervention.",
+
+footerTerms:
+"Terms & Conditions",
+
+footerPrivacy:
+"Privacy Policy",
+
+footerDisclaimer:
+"Disclaimer",
+
+footerRefund:
+"Refund & Cancellation",
+
+footerGrievance:
+"Grievance"
+
+},
+
+
+ml: {
+
+home:
+"ഹോം",
+
+pageTitle:
+"റീഫണ്ട് & റദ്ദാക്കൽ നയം",
+
+pageIntro:
+"Nammude-ൽ പണമടച്ചുള്ള സേവനമോ മെമ്പർഷിപ്പോ വാങ്ങുന്നതിന് മുമ്പ് ഈ നയം വായിക്കുക.",
+
+noticeTitle:
+"പ്രധാന അറിയിപ്പ്",
+
+noticeText:
+"Nammude വിവിധ തരത്തിലുള്ള പൗരസഹായ സേവനങ്ങളും സഹായങ്ങളും നൽകുന്നു. റീഫണ്ട് ലഭിക്കുമോ എന്നത് വാങ്ങിയ സേവനത്തിന്റെ തരത്തെയും അത് ആരംഭിച്ച ഘട്ടത്തെയും ആശ്രയിച്ചിരിക്കും.",
+
+section1Title:
+"1. പൊതുവായ നയം",
+
+section1Text:
+"Nammude-ലേക്ക് നടത്തുന്ന പേയ്‌മെന്റുകൾ ഉപയോക്താവ് തിരഞ്ഞെടുത്ത പ്രത്യേക സേവനം, മെമ്പർഷിപ്പ്, അപേക്ഷാ സഹായം അല്ലെങ്കിൽ മറ്റ് പണമടച്ചുള്ള സേവനങ്ങൾക്കായുള്ളതാണ്.",
+
+section1Text2:
+"ചില സേവനങ്ങളിൽ പേയ്‌മെന്റിന് ശേഷം അഡ്മിനിസ്ട്രേറ്റീവ് ജോലി, ആശയവിനിമയം, തയ്യാറെടുപ്പ്, പ്രോസസ്സിംഗ് തുടങ്ങിയ പ്രവർത്തനങ്ങൾ ആരംഭിക്കുന്നതിനാൽ, കാര്യമായ ജോലി ആരംഭിച്ചതിന് ശേഷം റീഫണ്ട് ലഭ്യമാകണമെന്നില്ല.",
+
+section2Title:
+"2. മെമ്പർഷിപ്പ് പേയ്‌മെന്റുകൾ",
+
+section2Text:
+"മെമ്പർഷിപ്പ് ആക്ടിവേറ്റ് ചെയ്യുകയോ അതിന്റെ ആനുകൂല്യങ്ങൾ നൽകാൻ തുടങ്ങുകയോ ചെയ്തതിന് ശേഷം സാധാരണയായി മെമ്പർഷിപ്പ് പേയ്‌മെന്റുകൾ റീഫണ്ട് ചെയ്യുന്നതല്ല.",
+
+section2Text2:
+"സാങ്കേതിക പ്രശ്നം കാരണം വാങ്ങിയ മെമ്പർഷിപ്പ് ആക്ടിവേറ്റ് ചെയ്യാൻ കഴിയാത്തതും Nammude-ന് അത് യുക്തിസഹമായ സമയത്തിനുള്ളിൽ പരിഹരിക്കാൻ കഴിയാത്തതുമായ സാഹചര്യത്തിൽ ഉപയോക്താവിന് Nammude-നെ ബന്ധപ്പെടാം.",
+
+section3Title:
+"3. പണമടച്ചുള്ള അപേക്ഷാ സഹായം",
+
+section3Text:
+"പണമടച്ചുള്ള അപേക്ഷാ സഹായ സേവനങ്ങളിൽ ആവശ്യപ്പെട്ട ജോലി ആരംഭിച്ചിട്ടില്ലെങ്കിൽ മാത്രം റദ്ദാക്കൽ സാധ്യമായേക്കാം.",
+
+section3Text2:
+"തയ്യാറെടുപ്പ്, പ്രോസസ്സിംഗ്, ആശയവിനിമയം, സമർപ്പണം അല്ലെങ്കിൽ മറ്റ് കാര്യമായ ജോലികൾ ആരംഭിച്ചാൽ പേയ്‌മെന്റ് റീഫണ്ട് ചെയ്യാൻ കഴിയാത്തതാകാം.",
+
+section4Title:
+"4. റദ്ദാക്കൽ അഭ്യർത്ഥനകൾ",
+
+section4Text:
+"പേയ്‌മെന്റ് നടത്തിയതിന് ശേഷം കഴിയുന്നത്ര വേഗത്തിൽ റദ്ദാക്കൽ അഭ്യർത്ഥന സമർപ്പിക്കണം.",
+
+section5Title:
+"5. റീഫണ്ട് പരിഗണിക്കാവുന്ന സാഹചര്യങ്ങൾ",
+
+section5Text:
+"താഴെപ്പറയുന്ന സാഹചര്യങ്ങളിൽ റീഫണ്ട് പരിഗണിക്കാവുന്നതാണ്:",
+
+section6Title:
+"6. ഇരട്ട പേയ്‌മെന്റുകൾ",
+
+section6Text:
+"ഒരേ സേവനത്തിനായി അബദ്ധത്തിൽ ഒന്നിലധികം തവണ പേയ്‌മെന്റ് നടത്തിയതായി കരുതുന്നുവെങ്കിൽ ബന്ധപ്പെട്ട ഇടപാട് വിവരങ്ങളുമായി Nammude-നെ ബന്ധപ്പെടുക.",
+
+section6Text2:
+"പരിശോധനയ്ക്ക് ശേഷം അർഹമായ ഇരട്ട പേയ്‌മെന്റ് ബാധകമായ പേയ്‌മെന്റ് ദാതാവിന്റെ നിയമങ്ങൾക്കനുസരിച്ച് റീഫണ്ട് ചെയ്യാം.",
+
+section7Title:
+"7. പരാജയപ്പെട്ട അല്ലെങ്കിൽ Pending പേയ്‌മെന്റുകൾ",
+
+section7Text:
+"നിങ്ങളുടെ അക്കൗണ്ടിൽ നിന്ന് പണം കുറച്ചിട്ടും പേയ്‌മെന്റ് Failed, Pending അല്ലെങ്കിൽ Incomplete ആയി കാണിക്കുന്നുവെങ്കിൽ റീഫണ്ട് അഭ്യർത്ഥിക്കുന്നതിന് മുമ്പ് പേയ്‌മെന്റ് ദാതാവിന്റെ സാധാരണ പ്രോസസ്സിംഗ് സമയം അനുവദിക്കുക.",
+
+section7Text2:
+"തുക സ്വമേധയാ തിരികെ ലഭിക്കാത്തതോ പ്രശ്നം തുടരുന്നതോ ആണെങ്കിൽ ഇടപാട് വിവരങ്ങളുമായി Nammude-നെ ബന്ധപ്പെടുക.",
+
+section8Title:
+"8. റീഫണ്ട് പ്രോസസ്സിംഗ്",
+
+section8Text:
+"റീഫണ്ട് അംഗീകരിച്ചാൽ സാധാരണയായി യഥാർത്ഥ പേയ്‌മെന്റ് രീതിയിലൂടെയോ Nammude-യും ഉപയോക്താവും സമ്മതിക്കുന്ന മറ്റൊരു രീതിയിലൂടെയോ റീഫണ്ട് പ്രോസസ്സ് ചെയ്യും.",
+
+section8Text2:
+"റീഫണ്ട് തുക അക്കൗണ്ടിൽ പ്രത്യക്ഷപ്പെടാൻ എടുക്കുന്ന സമയം പേയ്‌മെന്റ് ഗേറ്റ്‌വേ, ബാങ്ക്, കാർഡ് ദാതാവ് അല്ലെങ്കിൽ മറ്റ് ധനകാര്യ സ്ഥാപനങ്ങളെ ആശ്രയിച്ചിരിക്കും.",
+
+section9Title:
+"9. മൂന്നാം കക്ഷി പേയ്‌മെന്റ് ദാതാക്കൾ",
+
+section9Text:
+"പേയ്‌മെന്റുകൾ മൂന്നാം കക്ഷി പേയ്‌മെന്റ് ദാതാക്കളിലൂടെ പ്രോസസ്സ് ചെയ്യപ്പെടാം. അവരുടെ പ്രോസസ്സിംഗ് സമയം, താൽക്കാലിക തടസ്സങ്ങൾ, റിവേഴ്‌സലുകൾ അല്ലെങ്കിൽ സെറ്റിൽമെന്റ് സമയക്രമം Nammude-ന്റെ നിയന്ത്രണത്തിലായിരിക്കണമെന്നില്ല.",
+
+section9Text2:
+"ഇടപാടിന് ഉപയോഗിച്ച പേയ്‌മെന്റ് ദാതാവിന്റെ ബാധകമായ നിബന്ധനകളും ഉപയോക്താക്കൾ പരിശോധിക്കണം.",
+
+section10Title:
+"10. ഇതിനകം നൽകിയ സേവനങ്ങൾ",
+
+section10Text:
+"ഇതിനകം കാര്യമായി പൂർത്തിയാക്കിയതോ ഉപയോക്താവിന് നൽകിയതോ ആയ സേവനങ്ങൾക്ക് സാധാരണയായി റീഫണ്ട് ലഭ്യമാകില്ല.",
+
+section10Text2:
+"Nammude ഇതിനകം ഗവേഷണം, തയ്യാറെടുപ്പ്, ആശയവിനിമയം, രേഖകൾ തയ്യാറാക്കൽ, സമർപ്പണ സഹായം അല്ലെങ്കിൽ ഉപയോക്താവ് ആവശ്യപ്പെട്ട മറ്റ് ജോലികൾ നടത്തിയ സാഹചര്യങ്ങളും ഇതിൽ ഉൾപ്പെടാം.",
+
+section11Title:
+"11. ഉപയോക്താവ് നൽകുന്ന വിവരങ്ങൾ",
+
+section11Text:
+"പണമടച്ചുള്ള സേവനം നൽകുന്നതിന് ആവശ്യമായ കൃത്യമായ വിവരങ്ങൾ നൽകേണ്ടത് ഉപയോക്താവിന്റെ ഉത്തരവാദിത്തമാണ്.",
+
+section11Text2:
+"തെറ്റായതോ അപൂർണ്ണമോ തെറ്റിദ്ധരിപ്പിക്കുന്നതോ അപര്യാപ്തമോ ആയ വിവരങ്ങൾ നൽകിയതിനാൽ സേവനം പൂർത്തിയാക്കാൻ കഴിഞ്ഞില്ലെങ്കിൽ റീഫണ്ട് ലഭ്യമാകണമെന്നില്ല.",
+
+section12Title:
+"12. റീഫണ്ട് അഭ്യർത്ഥനയ്ക്കുള്ള ബന്ധപ്പെടൽ",
+
+section12Text:
+"റീഫണ്ട് അല്ലെങ്കിൽ റദ്ദാക്കൽ അഭ്യർത്ഥനകൾക്കായി വെബ്‌സൈറ്റിൽ നൽകിയിരിക്കുന്ന ഔദ്യോഗിക കോൺടാക്ട് മാർഗത്തിലൂടെ Nammude-നെ ബന്ധപ്പെടുക.",
+
+section12Text2:
+"നിങ്ങളുടെ പേര്, പേയ്‌മെന്റ് റഫറൻസ് അല്ലെങ്കിൽ ട്രാൻസാക്ഷൻ ID, പേയ്‌മെന്റ് തീയതി, വാങ്ങിയ സേവനം, അഭ്യർത്ഥനയുടെ ചുരുക്ക വിവരണം എന്നിവ നൽകുക.",
+
+section13Title:
+"13. ഈ നയത്തിലെ മാറ്റങ്ങൾ",
+
+section13Text:
+"ആവശ്യമായപ്പോൾ Nammude ഈ റീഫണ്ട് & റദ്ദാക്കൽ നയം പുതുക്കാം. ബാധകമായ നിയമം മറ്റൊന്നായി ആവശ്യപ്പെടുന്നില്ലെങ്കിൽ വെബ്‌സൈറ്റിൽ പ്രസിദ്ധീകരിച്ച ഏറ്റവും പുതിയ പതിപ്പ് ഭാവിയിലെ ഇടപാടുകൾക്ക് ബാധകമായിരിക്കും.",
+
+relatedTitle:
+"ബന്ധപ്പെട്ട നയങ്ങൾ",
+
+relatedText:
+"പണമടച്ചുള്ള സേവനങ്ങൾ ഉപയോഗിക്കുന്നതിന് മുമ്പ് ഞങ്ങളുടെ",
+
+updatedLabel:
+"അവസാനം പുതുക്കിയത്:",
+
+footerTagline:
+"നിങ്ങളുടെ പ്രശ്നം, നമ്മുടെ ഇടപെടൽ.",
+
+footerTerms:
+"Terms & Conditions",
+
+footerPrivacy:
+"Privacy Policy",
+
+footerDisclaimer:
+"Disclaimer",
+
+footerRefund:
+"Refund & Cancellation",
+
+footerGrievance:
+"Grievance"
+
+}
+
+};
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+let currentLanguage =
+localStorage.getItem("nammude-language") || "ml";
+
+
+function updateLanguage() {
+
+    const t =
+        translations[currentLanguage];
+
+
+    document.documentElement.lang =
+        currentLanguage;
+
+
+    document.getElementById(
+        "homeButton"
+    ).textContent =
+        t.home;
+
+
+    document.getElementById(
+        "pageTitle"
+    ).textContent =
+        t.pageTitle;
+
+
+    document.getElementById(
+        "pageIntro"
+    ).textContent =
+        t.pageIntro;
+
+
+    document.getElementById(
+        "noticeTitle"
+    ).textContent =
+        t.noticeTitle;
+
+
+    document.getElementById(
+        "noticeText"
+    ).textContent =
+        t.noticeText;
+
+
+    for (
+        let i = 1;
+        i <= 13;
+        i++
+    ) {
+
+        const title =
+            document.getElementById(
+                "section" + i + "Title"
+            );
+
+        const text =
+            document.getElementById(
+                "section" + i + "Text"
+            );
+
+        const text2 =
+            document.getElementById(
+                "section" + i + "Text2"
+            );
+
+
+        if (title && t["section" + i + "Title"]) {
+
+            title.textContent =
+                t["section" + i + "Title"];
+
+        }
+
+
+        if (text && t["section" + i + "Text"]) {
+
+            text.textContent =
+                t["section" + i + "Text"];
+
+        }
+
+
+        if (text2 && t["section" + i + "Text2"]) {
+
+            text2.textContent =
+                t["section" + i + "Text2"];
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "section4Text"
+    ).textContent =
+        t.section4Text;
+
+
+    document.getElementById(
+        "section5Text"
+    ).textContent =
+        t.section5Text;
+
+
+    document.getElementById(
+        "relatedTitle"
+    ).textContent =
+        t.relatedTitle;
+
+
+    document.getElementById(
+        "relatedText"
+    ).childNodes[0].textContent =
+        t.relatedText + " ";
+
+
+    document.getElementById(
+        "updatedLabel"
+    ).textContent =
+        t.updatedLabel;
+
+
+    document.getElementById(
+        "footerTagline"
+    ).textContent =
+        t.footerTagline;
+
+
+    document.getElementById(
+        "footerTerms"
+    ).textContent =
+        t.footerTerms;
+
+
+    document.getElementById(
+        "footerPrivacy"
+    ).textContent =
+        t.footerPrivacy;
+
+
+    document.getElementById(
+        "footerDisclaimer"
+    ).textContent =
+        t.footerDisclaimer;
+
+
+    document.getElementById(
+        "footerRefund"
+    ).textContent =
+        t.footerRefund;
+
+
+    document.getElementById(
+        "footerGrievance"
+    ).textContent =
+        t.footerGrievance;
+
+
+    document.getElementById(
+        "languageToggle"
+    ).textContent =
+        currentLanguage === "ml"
+            ? "EN"
+            : "മലയാളം";
+
+}
+
+
+document.getElementById(
+    "languageToggle"
+).addEventListener(
+    "click",
+    () => {
+
+        currentLanguage =
+            currentLanguage === "ml"
+                ? "en"
+                : "ml";
+
+
+        localStorage.setItem(
+            "nammude-language",
+            currentLanguage
+        );
+
+
+        updateLanguage();
+
+    }
+);
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateLanguage();
+
+</script>
+
+
+</body>
+
+</html>
